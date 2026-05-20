@@ -1,0 +1,279 @@
+object Form1: TForm1
+  Left = 200
+  Height = 720
+  Top = 100
+  Width = 1180
+  Caption = 'String Tension Calculator & Workshop Reporter (Dark Mode Pro)'
+  ClientHeight = 720
+  ClientWidth = 1180
+  Color = 2171169
+  Constraints.MinHeight = 620
+  Constraints.MinWidth = 1000
+  OnCreate = FormCreate
+  Position = poScreenCenter
+  LCLVersion = '2.2.0.4'
+  object LabelRecommendation: TLabel
+    Left = 16
+    Height = 45
+    Top = 10
+    Width = 1148
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'Execute calculation...'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -15
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object ComboInstrument: TComboBox
+    Left = 16
+    Height = 23
+    Top = 65
+    Width = 360
+    Color = 3289650
+    Font.Color = clWhite
+    ItemHeight = 15
+    ParentFont = False
+    TabOrder = 0
+  end
+  object ComboTuning: TComboBox
+    Left = 390
+    Height = 23
+    Top = 65
+    Width = 280
+    Color = 3289650
+    Font.Color = clWhite
+    ItemHeight = 15
+    ParentFont = False
+    TabOrder = 1
+  end
+  object SpinStrings: TSpinEdit
+    Left = 685
+    Height = 23
+    Top = 65
+    Width = 60
+    Color = 3289650
+    Font.Color = clWhite
+    OnChange = SpinStringsChange
+    ParentFont = False
+    TabOrder = 2
+  end
+  object CheckISO: TCheckBox
+    Left = 16
+    Height = 19
+    Top = 112
+    Width = 20
+    Caption = ''
+    TabOrder = 3
+  end
+  object LabelISO: TLabel
+    Left = 40
+    Height = 15
+    Top = 114
+    Width = 110
+    Caption = 'ISO Units (kg / N)'
+    Font.Color = clWhite
+    ParentColor = False
+  end
+  object LabelScaleTreble: TLabel
+    Left = 180
+    Height = 15
+    Top = 95
+    Width = 90
+    Caption = 'Treble Scale (")'
+    Font.Color = clWhite
+    ParentColor = False
+  end
+  object EditScaleTreble: TEdit
+    Left = 180
+    Height = 23
+    Top = 112
+    Width = 90
+    Color = 3289650
+    Font.Color = clWhite
+    ParentFont = False
+    TabOrder = 4
+    Text = '25.5'
+  end
+  object LabelScaleBass: TLabel
+    Left = 280
+    Height = 15
+    Top = 95
+    Width = 90
+    Caption = 'Bass Scale (")'
+    Font.Color = clWhite
+    ParentColor = False
+  end
+  object EditScaleBass: TEdit
+    Left = 280
+    Height = 23
+    Top = 112
+    Width = 90
+    Color = 3289650
+    Font.Color = clWhite
+    ParentFont = False
+    TabOrder = 5
+    Text = '25.5'
+  end
+  object BtnCalculate: TButton
+    Left = 385
+    Height = 25
+    Top = 110
+    Width = 95
+    Caption = 'Calculate'
+    OnClick = BtnCalculateClick
+    TabOrder = 6
+  end
+  object BtnExport: TButton
+    Left = 490
+    Height = 25
+    Top = 110
+    Width = 110
+    Caption = 'Export CSV'
+    OnClick = BtnExportClick
+    TabOrder = 7
+  end
+  object BtnSaveTuning: TButton
+    Left = 610
+    Height = 25
+    Top = 110
+    Width = 135
+    Caption = 'Save Tuning'
+    OnClick = BtnSaveTuningClick
+    TabOrder = 8
+  end
+  object BtnPrintPDF: TButton
+    Left = 755
+    Height = 25
+    Top = 110
+    Width = 135
+    Caption = 'Print PDF Report'
+    OnClick = BtnPrintPDFClick
+    TabOrder = 9
+  end
+  object SpinTranspose: TSpinEdit
+    Left = 16
+    Height = 23
+    Top = 145
+    Width = 60
+    Color = 3289650
+    Font.Color = clWhite
+    MinValue = -12
+    MaxValue = 12
+    ParentFont = False
+    Value = 0
+    TabOrder = 10
+  end
+  object LabelTranspose: TLabel
+    Left = 85
+    Height = 15
+    Top = 149
+    Width = 130
+    Caption = 'Global Transpose (ST)'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object SpinPitch: TSpinEdit
+    Left = 230
+    Height = 23
+    Top = 145
+    Width = 70
+    Color = 3289650
+    Font.Color = clWhite
+    MinValue = 390
+    MaxValue = 460
+    ParentFont = False
+    Value = 440
+    TabOrder = 11
+  end
+  object LabelPitch: TLabel
+    Left = 310
+    Height = 15
+    Top = 149
+    Width = 120
+    Caption = 'Concert Pitch A4 (Hz)'
+    Font.Color = clWhite
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelBaseGuitar: TLabel
+    Left = 450
+    Height = 15
+    Top = 149
+    Width = 140
+    Caption = 'Guitar Base Tension (lbs)'
+    Font.Color = clWhite
+    ParentColor = False
+  end
+  object EditBaseGuitar: TEdit
+    Left = 600
+    Height = 23
+    Top = 145
+    Width = 60
+    Color = 3289650
+    Font.Color = clWhite
+    ParentFont = False
+    TabOrder = 12
+    Text = '100.0'
+  end
+  object LabelBaseBass: TLabel
+    Left = 680
+    Height = 15
+    Top = 149
+    Width = 130
+    Caption = 'Bass Base Tension (lbs)'
+    Font.Color = clWhite
+    ParentColor = False
+  end
+  object EditBaseBass: TEdit
+    Left = 820
+    Height = 23
+    Top = 145
+    Width = 60
+    Color = 3289650
+    Font.Color = clWhite
+    ParentFont = False
+    TabOrder = 13
+    Text = '160.0'
+  end
+  object LabelProNotice: TLabel
+    Left = 16
+    Height = 20
+    Top = 185
+    Width = 1148
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = False
+    Caption = 'CRITICAL SAFETY NOTICE: You MUST generate and thoroughly read the PDF Report before ordering string packs or executing any mechanical adjustments on the instrument!'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = 4210943
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object GridResults: TStringGrid
+    Left = 16
+    Height = 440
+    Top = 220
+    Width = 1148
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = 2171169
+    ColCount = 8
+    FixedColor = 3289650
+    Font.Color = clWhite
+    RowCount = 7
+    TabOrder = 14
+    OnDrawCell = GridResultsDrawCell
+  end
+end

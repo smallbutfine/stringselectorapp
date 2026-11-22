@@ -393,7 +393,7 @@ if "%T_OS%"=="darwin" (
     REM NOTE: use a POSIX-style temp path. GNU tar (first on PATH in Git Bash)
     REM reads "C:/..." as a remote host and fails with "Cannot connect to C:".
     set "TARBALL=/tmp/mytmp_%T_NAME%.tar"
-    tar -cf "!TARBALL!" --exclude="%T_NAME%/%APP_NAME%" --exclude="%T_NAME%/%APP_NAME%" "%T_NAME%"
+    tar -cf "!TARBALL!" --exclude="%T_NAME%/%APP_NAME%" "%T_NAME%"
     if errorlevel 1 (
         echo   ERROR: tar packaging failed
         popd

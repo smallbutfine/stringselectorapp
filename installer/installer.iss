@@ -39,6 +39,8 @@ Filename: "{app}\README.md"; Description: "View README"; Flags: postinstall shel
 procedure CurStepChanged(CurStep: TSetupStep);
 var
   ReadmeLines: TArrayOfString;
+  ReadmeText: String;
+  I: Integer;
 begin
   if CurStep = ssPostInstall then
   begin
@@ -52,8 +54,15 @@ begin
     ReadmeLines[11] := 'INSTALLATION PATH:';
     ReadmeLines[12] := ExpandConstant('{app}');
     ReadmeLines[13] := '';
+    ReadmeText := '';
+    for I := 0 to GetArrayLength(ReadmeLines) - 1 do
+    begin
+      if I > 0 then
+        ReadmeText := ReadmeText + #13#10;
+      ReadmeText := ReadmeText + ReadmeLines[I];
+    end;
     SuppressibleMsgBox(
-      string.Join(#13#10, ReadmeLines),
+      ReadmeText,
       mbInformation,
       MB_OK,
       IDOK

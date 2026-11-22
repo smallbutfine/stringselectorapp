@@ -9,3 +9,8 @@ backup/
 
 # Executables
 *.exe
+
+# Build output
+ dist/
+Deploy/
+*.rc

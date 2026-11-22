@@ -9,7 +9,9 @@ uses
   Interfaces,
   Forms, Unit1;
 
+{$IFDEF MSWINDOWS}
 {$R *.res}
+{$ENDIF}
 
 begin
   RequireDerivedFormResource:=True;

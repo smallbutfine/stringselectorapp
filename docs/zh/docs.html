@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Documentation</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Documentation Hub</p>
+    <p class="tagline">Build it, feed it data, and understand the physics behind every number.</p>
+    <nav>
+      <a href="index.html">首页</a>
+      <a href="concepts.html">概念</a>
+      <a href="docs.html">文档</a>
+      <a href="gui.html">界面</a>
+      <a href="manual.html">手册</a>
+      <a href="download.html">下载</a>
+      <a href="de/index.html">DE</a>
+      <a href="es/index.html">ES</a>
+      <a href="fr/index.html">FR</a>
+      <a href="pt/index.html">PT</a>
+      <a href="ru/index.html">RU</a>
+      <a href="zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>文档</h2>
+    <p>Everything you need to build StringSelectorApp from source, extend its databases, and understand the math behind the tension numbers. Start with the guides below, then dig into the references.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>The Luthier's Manual</h3>
+        <p>A complete walkthrough of the physics, the interface, reading results, workshop reports, and truss rod adjustment.</p>
+        <p><a href="manual.html"><strong>Read the Manual &rarr;</strong></a></p>
+      </div>
+      <div class="feature-card">
+        <h3>GUI Reference</h3>
+        <p>Every control, every results-grid column, the visual tension curve, and a step-by-step first calculation.</p>
+        <p><a href="gui.html"><strong>Open the GUI Reference &rarr;</strong></a></p>
+      </div>
+      <div class="feature-card">
+        <h3>Downloads</h3>
+        <p>Prebuilt binaries for Windows, macOS (Intel &amp; Apple Silicon), and Linux (x86_64 &amp; ARM).</p>
+        <p><a href="download.html"><strong>Get the binaries &rarr;</strong></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Building from Source</h2>
+    <p>StringSelectorApp is a FreePascal / Lazarus project. The repository ships a single build script, <code>build_all.bat</code>, that compiles the GUI for every supported target and packages the results into <code>Deploy/</code>.</p>
+
+    <h3>Prerequisites</h3>
+    <table>
+      <thead><tr><th>Tool</th><th>Purpose</th><th>Default location</th></tr></thead>
+      <tbody>
+        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Compiles the Pascal source</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Builds the LCL GUI project</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td>Cross-binaries</td><td>Cross-compile for macOS &amp; Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Builds the Windows installer</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td>GNU tar</td><td>Packages Linux tarballs</td><td><code>tar</code> on PATH</td></tr>
+        <tr><td>Python 3</td><td>Zips macOS <code>.app</code> bundles with correct Unix modes</td><td><code>python</code> on PATH</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Build commands</h3>
+    <div class="command-block">
+      <span class="comment"># Build all 5 targets and package into Deploy/</span><br>
+      ./build_all.bat<br><br>
+      <span class="comment"># Verify the toolchain only (no build)</span><br>
+      ./build_all.bat --check
+    </div>
+    <p>The script builds five targets: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code>, and <code>linux-arm</code>. Output goes to <code>dist\&lt;target&gt;\</code> and version-stamped packages are copied to <code>Deploy\</code>.</p>
+
+    <h3>Environment variables</h3>
+    <p>Every toolchain path can be overridden without editing the script. Set these before running <code>build_all.bat</code>:</p>
+    <table>
+      <thead><tr><th>Variable</th><th>Overrides</th><th>Default</th></tr></thead>
+      <tbody>
+        <tr><td><code>FPC_DIR</code></td><td>Free Pascal compiler directory</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td><code>LAZBUILD</code></td><td>Lazarus build tool path</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td><code>CROSS_BIN_DIR</code></td><td>Cross-compiler binaries</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td><code>ISCC</code></td><td>Inno Setup compiler</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td><code>TAR</code></td><td>tar executable</td><td><code>tar</code></td></tr>
+        <tr><td><code>NO_VERSION_BUMP</code></td><td>Build the current version without incrementing the patch level</td><td>(unset)</td></tr>
+        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Skip the interactive <code>pause</code> at the end (never hang in CI)</td><td>(unset)</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Tip:</strong> The build counter in <code>Assets\version.txt</code> is bumped on every build so version-stamped artifacts never collide. Set <code>NO_VERSION_BUMP=1</code> for idempotent rebuilds of the same version.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Data File Format Reference</h2>
+    <p>StringSelectorApp is data-driven. Two plain-text INI files sit next to the executable and are loaded at startup. Edit them in any text editor &mdash; no recompilation required.</p>
+
+    <h3>strings.ini &mdash; the string database</h3>
+    <p>Each <code>[Section]</code> is one string pack. The app reads every section, keeps the ones whose <code>StringCount</code> matches the current tuning, and ranks them by how close their tension is to the target.</p>
+    <pre>[ErnieBall_Regular_2221]
+Name=Ernie Ball 2221 Regular Slinky (10-46)
+StringCount=6
+G1=0.010
+W1=0.00002215
+G2=0.013
+W2=0.00003737
+G3=0.017
+W3=0.00006391
+G4=0.026
+W4=0.00012671
+G5=0.036
+W5=0.00023964
+G6=0.046
+W6=0.00038216</pre>
+    <table>
+      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><code>Name</code></td><td>Display name shown in the results grid (brand + gauge).</td></tr>
+        <tr><td><code>StringCount</code></td><td>Number of strings in the pack (1&ndash;9).</td></tr>
+        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Gauge of each string in inches (plain decimal, e.g. <code>0.010</code>).</td></tr>
+        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Unit weight of each string in lbs/inch. This is the physical value the formula uses &mdash; not the gauge.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Why unit weight, not gauge?</strong> Two strings with the same gauge can have very different unit weights depending on material (plain steel, nickel-wound, stainless), core shape, and winding. Tension depends on unit weight, so that is what the file stores.
+    </div>
+
+    <h3>tunings.ini &mdash; the tuning presets</h3>
+    <p>Each <code>[Tuning_N]</code> section is one preset. The <code>[Setup]</code> section at the top declares how many presets exist (<code>TuningCount</code>). The app reads exactly that many sections in order.</p>
+    <pre>[Setup]
+TuningCount=28
+
+[Tuning_0]
+Name=Guitar: 6-String E-Standard (Default)
+StringCount=6
+N1=E4
+N2=B3
+N3=G3
+N4=D3
+N5=A2
+N6=E2</pre>
+    <table>
+      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><code>Name</code></td><td>Display name shown in the instrument/tuning combo.</td></tr>
+        <tr><td><code>StringCount</code></td><td>Number of strings (4&ndash;9).</td></tr>
+        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Note name of each string, <strong>string 1 = highest string</strong>. Format: letter + optional <code>#</code>/<code>b</code> + octave, e.g. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Octave convention:</strong> Scientific pitch notation is used, so <code>A4 = 440 Hz</code> and <code>A2 = 110 Hz</code>. The note name is converted to a frequency with <code>f = A4 &times; 2^(n/12)</code>, where <code>n</code> is the semitone distance from A4.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Physics Formula Reference</h2>
+    <p>Every tension number in the app comes from one equation &mdash; the ideal flexible-string tension formula, solved for pounds-force.</p>
+
+    <h3>String tension</h3>
+    <div class="command-block">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <table>
+      <thead><tr><th>Symbol</th><th>Quantity</th><th>Unit</th></tr></thead>
+      <tbody>
+        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td></tr>
+        <tr><td><code>W</code></td><td>Unit weight of the string</td><td>lbs / inch</td></tr>
+        <tr><td><code>L</code></td><td>Scale length (vibrating string length)</td><td>inches</td></tr>
+        <tr><td><code>f</code></td><td>Frequency of the note</td><td>Hz</td></tr>
+        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup> (converts to pounds-force)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Frequency from note name</h3>
+    <p>Each note is converted to a frequency using equal temperament:</p>
+    <div class="command-block">
+      f = A4 &times; 2<sup>(n / 12)</sup>
+    </div>
+    <p>where <code>A4</code> is the concert-pitch reference (440 Hz by default, adjustable 390&ndash;460 Hz in the GUI) and <code>n</code> is the number of semitones from A4 (e.g. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
+
+    <h3>Unit conversions (ISO mode)</h3>
+    <table>
+      <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+      <tbody>
+        <tr><td>Tension (lbs)</td><td>Kilograms</td><td><code>0.45359237</code></td></tr>
+        <tr><td>Tension (lbs)</td><td>Newtons</td><td><code>4.448</code> (via kg &times; 9.80665)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Scale length interpolation (multiscale / fanned-fret)</h3>
+    <p>For instruments with different treble and bass scale lengths, the app interpolates linearly across the strings. For string <code>i</code> of <code>N</code> (0-based):</p>
+    <div class="command-block">
+      L<sub>i</sub> = ScaleTreble + (ScaleBass &minus; ScaleTreble) &times; (i / (N &minus; 1))
+    </div>
+    <p>String 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is interpolated. For a single-scale instrument, set treble and bass to the same value.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How to Add Your Own Strings</h2>
+    <p>Adding a string pack is just editing <code>strings.ini</code>. The app reloads it on next launch.</p>
+    <ol>
+      <li><strong>Open <code>strings.ini</code></strong> in any text editor (Notepad, VS Code, etc.). It lives next to the executable.</li>
+      <li><strong>Copy an existing section</strong> that has the same number of strings as your new pack.</li>
+      <li><strong>Paste it at the end</strong> of the file and give it a unique <code>[Section_Name]</code> (letters, numbers, underscores &mdash; no spaces).</li>
+      <li><strong>Set <code>Name</code></strong> to the brand and gauge, e.g. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
+      <li><strong>Fill in <code>G1</code>&hellip;<code>GN</code></strong> (gauge in inches) and <code>W1</code>&hellip;<code>WN</code> (unit weight in lbs/inch) for every string.</li>
+      <li><strong>Save the file</strong> and relaunch the app. Your pack appears in the evaluation automatically.</li>
+    </ol>
+    <pre>[MyBrand_Custom_1052]
+Name=MyBrand Custom Set (10-52)
+StringCount=6
+G1=0.010
+W1=0.00002215
+G2=0.013
+W2=0.00003737
+G3=0.017
+W3=0.00006391
+G4=0.030
+W4=0.00016911
+G5=0.042
+W5=0.00031841
+G6=0.052
+W6=0.00049216</pre>
+    <h3>Where to find unit weight data</h3>
+    <ul>
+      <li><strong>Manufacturer websites</strong> &mdash; Ernie Ball, D'Addario, and Elixir publish unit weights for their sets.</li>
+      <li><strong>Online tension calculators</strong> &mdash; many list unit weight alongside gauge.</li>
+      <li><strong>DIY measurement</strong> &mdash; weigh a known length of string on a precision scale and divide.</li>
+    </ul>
+    <div class="warning">
+      <strong>Don't guess unit weight from gauge alone.</strong> A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string can differ by 20% in tension. Use the measured or published unit weight for accurate results.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>How to Add Custom Tunings</h2>
+    <p>There are two ways to add a tuning: by hand in <code>tunings.ini</code>, or with the <strong>Save Tuning</strong> button inside the app.</p>
+
+    <h3>Option A &mdash; Edit tunings.ini directly</h3>
+    <ol>
+      <li><strong>Open <code>tunings.ini</code></strong> in a text editor.</li>
+      <li><strong>Note the current <code>TuningCount</code></strong> in the <code>[Setup]</code> section.</li>
+      <li><strong>Add a new section</strong> named <code>[Tuning_N]</code> where <code>N</code> is the current count (sections are read in order <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
+      <li><strong>Set <code>Name</code>, <code>StringCount</code>, and <code>N1</code>&hellip;<code>N9</code></strong> (string 1 = highest string).</li>
+      <li><strong>Increment <code>TuningCount</code></strong> in <code>[Setup]</code> by one.</li>
+      <li><strong>Save and relaunch</strong> &mdash; the new tuning appears in the instrument/tuning combo.</li>
+    </ol>
+    <pre>[Setup]
+TuningCount=29
+
+[Tuning_28]
+Name=Guitar: 6-String My Custom Tuning
+StringCount=6
+N1=E4
+N2=B3
+N3=G3
+N4=D3
+N5=A2
+N6=D2</pre>
+
+    <h3>Option B &mdash; Use the Save Tuning button</h3>
+    <ol>
+      <li>In the app, pick a preset close to what you want (or choose <strong>Custom / User-Defined...</strong>).</li>
+      <li>Adjust the notes, transpose, and pitch until the tuning is what you want.</li>
+      <li>Click <strong>Save Tuning</strong> and enter a descriptive name when prompted.</li>
+      <li>The app appends a new <code>[Tuning_N]</code> section to <code>tunings.ini</code>, bumps <code>TuningCount</code>, and reloads the preset list.</li>
+    </ol>
+    <div class="note">
+      <strong>Note names must be plain.</strong> The Save Tuning button strips any trailing modifier (e.g. <code>" (Drop)"</code>) before writing, so write clean note names like <code>E4</code>, <code>Bb3</code>, or <code>F#1</code>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Released under the MIT License.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

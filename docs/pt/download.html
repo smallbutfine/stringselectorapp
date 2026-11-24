@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Download</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="concepts.html">Conceitos</a>
+      <a href="docs.html">Documentação</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Manual</a>
+      <a href="download.html">Baixar</a>
+      <a href="de/index.html">DE</a>
+      <a href="es/index.html">ES</a>
+      <a href="fr/index.html">FR</a>
+      <a href="pt/index.html">PT</a>
+      <a href="ru/index.html">RU</a>
+      <a href="zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <h2>Downloads</h2>
+    <p>Prebuilt binaries are attached to every <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub Release</a>:</p>
+    <table class="download-table">
+      <thead><tr><th>Platform</th><th>Artifact</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Windows 64-bit</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup installer. Includes GUI and config files.</td></tr>
+        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Universal app bundle. Unzip and drag to Applications.</td></tr>
+        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Universal app bundle. Unzip and drag to Applications.</td></tr>
+        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extract and run. No dependencies.</td></tr>
+        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extract and run. No dependencies.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>macOS:</strong> The app is not code-signed. On first launch, use <strong>right-click -> Open</strong> (or <code>xattr -dr com.apple.quarantine</code> in Terminal).
+    </div>
+    <h3>Building from Source</h3>
+    <pre>./build_all.bat            # all 5 targets + packages into Deploy/
+./build_all.bat --check    # verify the toolchain only</pre>
+    <h3>System Requirements</h3>
+    <table>
+      <thead><tr><th>Component</th><th>Requirement</th></tr></thead>
+      <tbody>
+        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, or Linux (x86_64/ARM)</td></tr>
+        <tr><td>CPU</td><td>x86_64 or ARM</td></tr>
+        <tr><td>RAM</td><td>512 MB minimum</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Released under the MIT License.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

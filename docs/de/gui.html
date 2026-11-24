@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - GUI-Referenz</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">GUI-Referenz</p>
+    <p class="tagline">Jedes Bedienelement, jede Spalte und deine erste Berechnung in Minuten.</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="concepts.html">Konzepte</a>
+      <a href="docs.html">Doku</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Handbuch</a>
+      <a href="download.html">Herunterladen</a>
+      <a href="../de/index.html">DE</a>
+      <a href="../es/index.html">ES</a>
+      <a href="../fr/index.html">FR</a>
+      <a href="../pt/index.html">PT</a>
+      <a href="../ru/index.html">RU</a>
+      <a href="../zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Die App starten</h2>
+    <p>StringSelectorApp ist eine Desktop-Anwendung mit einem einzigen Fenster. Wie du sie startest, hängt von deiner Plattform ab:</p>
+    <table>
+      <thead><tr><th>Plattform</th><th>Start</th></tr></thead>
+      <tbody>
+        <tr><td>Windows</td><td>Führe den Inno Setup Installer aus und starte <strong>StringSelectorApp</strong> über das Startmenü, oder führe <code>StringSelectorApp.exe</code> direkt aus.</td></tr>
+        <tr><td>macOS</td><td>Entpacke die heruntergeladene <code>.zip</code> und ziehe <strong>StringSelectorApp.app</strong> nach Programme. Beim ersten Start: Rechtsklick &rarr; <strong>Öffnen</strong> (die App ist nicht code-signiert).</td></tr>
+        <tr><td>Linux</td><td>Entpacke die <code>.tar.gz</code> und führe die <code>StringSelectorApp</code>-Binärdatei aus. Keine Abhängigkeiten.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Die Datendateien müssen neben der ausführbaren Datei liegen.</strong> Die App lädt <code>strings.ini</code> und <code>tunings.ini</code> beim Start aus ihrem eigenen Ordner. Wenn eine der Dateien fehlt, zeigt die App einen Fehler an und läuft in einem eingeschränkten Modus.
+    </div>
+    <p>Das Fenster öffnet sich zentriert auf dem Bildschirm mit einem dunklen Studio-Theme. Das oberste Label zeigt eine Statuszeile (<em>"Execute calculation..."</em>, bis du eine durchführst), und ein rotes Sicherheitsschild erinnert dich daran, den PDF-Bericht zu generieren, bevor du Saiten bestellst oder den Halsstab anfasst.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Bedienelemente-Referenz</h2>
+    <p>Das Fenster ist in vier Bänder organisiert: die Statuszeile, die Instrument/Stimmungs-Zeile, die Aktionszeile, die Feinabstimmungszeile und das Ergebnisraster. Jedes Bedienelement ist unten in der Reihenfolge aufgeführt, in der es erscheint.</p>
+
+    <h3>Status & Sicherheit</h3>
+    <table>
+      <thead><tr><th>Bedienelement</th><th>Typ</th><th>Was es tut</th></tr></thead>
+      <tbody>
+        <tr><td>Status-Label</td><td>Schreibgeschütztes Label</td><td>Zeigt die oberste Empfehlung nach einer Berechnung: den am besten passenden Satz, die Gesamt-Satzspannung und die Halsstab-Empfehlung. Zeigt <em>"Execute calculation..."</em> vor dem ersten Durchlauf.</td></tr>
+        <tr><td>Sicherheitsschild</td><td>Schreibgeschütztes Label (rot)</td><td>Dauerhafte Erinnerung, den PDF-Bericht zu generieren und zu lesen, bevor du Saiten bestellst oder mechanische Anpassungen vornimmst.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Instrument & Stimmungs-Zeile</h3>
+    <table>
+      <thead><tr><th>Bedienelement</th><th>Typ</th><th>Was es tut</th></tr></thead>
+      <tbody>
+        <tr><td>Instrument-Combo</td><td>Dropdown</td><td>Wählt das Instrument/Stimmungs-Profil. Befüllt aus <code>tunings.ini</code> (z.B. <em>"Guitar: 6-String E-Standard"</em>), plus ein abschließender <strong>Custom / User-Defined...</strong>-Eintrag, der es dir ermöglicht, Töne direkt im Raster zu bearbeiten.</td></tr>
+        <tr><td>Stimmungs-Combo</td><td>Dropdown</td><td>Stimmungs-Modifikator, der auf das Profil angewendet wird: <strong>Standard (Profile Preset)</strong> oder <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, der die tiefste Saite um zwei Halbtöne senkt und ihre Zielspannung um 1 lb erhöht.</td></tr>
+        <tr><td>Saitenanzahl</td><td>Spin (4&ndash;9)</td><td>Anzahl der Saiten. Wenn ein Preset ausgewählt ist, wird dies automatisch aus dem Preset gesetzt; im Custom-Modus setzt du es selbst und das Raster wird angepasst.</td></tr>
+        <tr><td>Mensur Diskant</td><td>Text (Zoll)</td><td>Mensurlänge der Diskant-Seite (Saite 1). Standard <code>25.5</code>.</td></tr>
+        <tr><td>Mensur Bass</td><td>Text (Zoll)</td><td>Mensurlänge der Bass-Seite (tiefste Saite). Standard <code>25.5</code>. Setze dies anders als Diskant für Multiskalen- / Fanned-Fret-Instrumente.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Aktionszeile</h3>
+    <table>
+      <thead><tr><th>Bedienelement</th><th>Typ</th><th>Was es tut</th></tr></thead>
+      <tbody>
+        <tr><td>Calculate</td><td>Button</td><td>Führt die Spannungsberechnung durch. Wertet jeden Satz in <code>strings.ini</code> aus, der zur Saitenanzahl passt, ordnet sie nach Nähe zur Zielspannung, füllt das Ergebnisraster mit den Top 5 und zeigt einen Zusammenfassungsdialog.</td></tr>
+        <tr><td>Export CSV</td><td>Button</td><td>Schreibt das gesamte Ergebnisraster in eine semikolongetrennte <code>.csv</code>-Datei (eine Zeile pro Rasterzeile, alle 8 Spalten).</td></tr>
+        <tr><td>Save Tuning</td><td>Button</td><td>Fordert einen Namen an und hängt die aktuelle Stimmung als neues <code>[Tuning_N]</code>-Preset in <code>tunings.ini</code> an, dann lädt es die Preset-Liste neu.</td></tr>
+        <tr><td>Print PDF Report</td><td>Button</td><td>Generiert <code>Workshop_Report.html</code> neben der ausführbaren Datei und öffnet es in deinem Browser. Verwende <strong>Ctrl+P &rarr; Save as PDF</strong>, um es zu archivieren oder zu drucken.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Feinabstimmungszeile</h3>
+    <table>
+      <thead><tr><th>Bedienelement</th><th>Typ</th><th>Was es tut</th></tr></thead>
+      <tbody>
+        <tr><td>Transpose</td><td>Spin (&minus;12&hellip;+12 ST)</td><td>Verschiebt jeden Ton um die angegebene Anzahl von Halbtönen vor der Berechnung. Nützlich zum Prüfen alternativer Tonarten (Eb, D, Drop C, etc.) ohne das Preset zu bearbeiten.</td></tr>
+        <tr><td>Pitch (Concert A4)</td><td>Spin (390&ndash;460 Hz)</td><td>Referenztonhöhe für die Frequenzberechnung. Standard <code>440</code> Hz. Senke sie für barocke/alt-pitchige Stimmungen.</td></tr>
+        <tr><td>Guitar Base Tension</td><td>Text (lbs)</td><td>Referenz-Gesamtspannung, für die der Gitarrenhals eingerichtet ist. Standard <code>100.0</code>. Wird verwendet, um die Halsstab-Differenz zu berechnen.</td></tr>
+        <tr><td>Bass Base Tension</td><td>Text (lbs)</td><td>Referenz-Gesamtspannung, für die der Bass-Hals eingerichtet ist. Standard <code>160.0</code>. Wird verwendet, wenn die ausgewählte Stimmung eine Bass-Stimmung ist.</td></tr>
+        <tr><td>ISO-Checkbox</td><td>Checkbox</td><td>Schaltet die Spannungsanzeige zwischen <strong>lbs</strong> (deaktiviert) und <strong>kg / N</strong> (aktiviert) um. Beeinflusst die Spannungsspalte, die Summe und die Farbschwellen.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Saaten-Sätze &mdash; wie die Auswahl funktioniert</h3>
+    <p>Es gibt kein manuelles "Saaten-Satz-Listen"-Bedienelement. Stattdessen liest die App beim Klicken auf <strong>Calculate</strong> jeden Satz in <code>strings.ini</code>, dessen <code>StringCount</code> mit der aktuellen Stimmung übereinstimmt, berechnet die Spannung jedes Satzes und ordnet sie nach <strong>Gesamt-Abweichung von der Zielspannung</strong> (niedriger ist besser). Das Raster zeigt dann die <strong>Top 5</strong>-Sätze, gefolgt von ihren Einzel-Saaten-Zeilen. Die Statuszeile nennt den einzelnen besten Treffer.</p>
+    <div class="note">
+      <strong>Zielspannung</strong> ist 15 lbs pro Gitarrensaite und 40 lbs pro Bass-Saite (Saiten unter &minus;25 Halbtönen von A4 werden als Bass behandelt). Der Drop-Modifikator fügt 1 lb zur Zielspannung der tiefsten Saite hinzu.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Ergebnisraster-Spalten</h2>
+    <p>Nach einer Berechnung füllt sich das Raster mit bis zu 5 bewerteten Sätzen. Jeder Satz belegt einen Block von Zeilen &mdash; eine Zeile pro Saite &mdash; und die Spalten sind:</p>
+    <table>
+      <thead><tr><th>#</th><th>Spalte</th><th>Was es zeigt</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Produkt / Satzname</td><td>Der Satzname mit seinem Rang-Badge, z.B. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> ist der beste Treffer.</td></tr>
+        <tr><td>1</td><td>Stimmung</td><td>Der Tonname für diese Saite (z.B. <code>E4</code>), nach Transposition und etwaigem Drop-Modifikator.</td></tr>
+        <tr><td>2</td><td>Frequenz (Hz)</td><td>Berechnete Frequenz des Tons bei der aktuellen Kammertonhöhe.</td></tr>
+        <tr><td>3</td><td>Saatenposition</td><td>Saaten-Nummer, <code>String 1</code> = höchste Saite.</td></tr>
+        <tr><td>4</td><td>Exakte Gauge (Zoll / mm)</td><td>Gauge in Zoll und Millimetern, z.B. <code>0.010" (0.25 mm)</code>.</td></tr>
+        <tr><td>5</td><td>Spannung (lbs) oder Spannung (kg / N)</td><td>Berechnete Spannung für diese Saite. Kopfzeile und Werte wechseln mit der ISO-Checkbox. Der Zellhintergrund ist farbcodiert (siehe unten).</td></tr>
+        <tr><td>6</td><td>Mensur (Zoll)</td><td>Die für diese Saite verwendete Mensurlänge (auf Multiskalen-Instrumenten interpoliert).</td></tr>
+        <tr><td>7</td><td>Spannungs-Visualisierungskurve</td><td>Ein kleiner Liniengraf der Spannung des gesamten Satzes über alle Saiten, mit hervorgehobenem Punkt der aktuellen Zeile.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Farbkodierung der Spannungszellen</h3>
+    <p>Die Spannungszelle (Spalte 5) ist schattiert, um auf einen Blick zu erkennen, ob eine Saite zu locker, ausgewogen oder zu straff ist. Die Schwellenwerte hängen vom Instrumenttyp und Einheitensystem ab:</p>
+    <table>
+      <thead><tr><th>Instrument</th><th>Einheiten</th><th>Zu locker (blau)</th><th>Ausgewogen (grün)</th><th>Zu straff (rot)</th></tr></thead>
+      <tbody>
+        <tr><td>Gitarre</td><td>lbs</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
+        <tr><td>Gitarre</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
+        <tr><td>Bass</td><td>lbs</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
+        <tr><td>Bass</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Die Farben lesen:</strong> blau = die Saite liegt unter dem komfortablen Spannungsbereich (kann sich schlaff anfühlen oder schnarren), grün = im Sweet Spot, rot = über dem Bereich (kann sich steif anfühlen oder den Hals belasten). Ein gut ausgewogener Satz ist überwiegend grün.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Die visuelle Spannungskurve</h2>
+    <p>Spalte 7 zeichnet einen kompakten Liniengrafen für jeden Satz. Er stellt die Spannung jeder Saite im Satz von Saite 1 (Diskant) links bis zur tiefsten Saite rechts dar.</p>
+    <ul>
+      <li><strong>Horizontale Achse</strong> &mdash; Saiten, geordnet von hoch zu tief (Saite 1 links).</li>
+      <li><strong>Vertikale Achse</strong> &mdash; Spannung, skaliert auf eine feste Obergrenze: <strong>25 lbs</strong> für Gitarre, <strong>60 lbs</strong> für Bass. Punkte werden auf die Zelle begrenzt, damit nichts überläuft.</li>
+      <li><strong>Grüne Linie</strong> &mdash; verbindet die Einzel-Saaten-Spannungspunkte, sodass du die Form des Satzes auf einen Blick siehst.</li>
+      <li><strong>Weißes Quadrat</strong> &mdash; markiert den Punkt für die Saite in der aktuellen Zeile, sodass du eine Zeile mit ihrer Position auf der Kurve verknüpfen kannst.</li>
+      <li><strong>Gestrichelte Mittellinie</strong> &mdash; eine schwache horizontale Referenz in der Mitte der Zelle.</li>
+    </ul>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Flach / ausgewogen</h3>
+        <p>Eine ungefähr horizontale Linie bedeutet, dass jede Saite bei einer ähnlichen Spannung sitzt &mdash; das klassische "ausgewogene" Gefühl, das viele Spieler suchen.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Schwerboden</h3>
+        <p>Eine Linie, die zu den tiefen Saiten ansteigt, bedeutet, dass die Bass-Seite schwerer ist &mdash; üblich bei Sätzen, die als "Skinny Top Heavy Bottom" vermarktet werden, und von vielen Rhythmus-Spielern bevorzugt.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Leichtboden</h3>
+        <p>Eine Linie, die zu den tiefen Saiten fällt, bedeutet, dass die Bass-Saiten lockerer sind als die Diskants &mdash; prüfe auf ein schlaffes Bass-Ende oder einen Satz, der nicht zur Stimmung passt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Erste Berechnung &mdash; Schritt für Schritt</h2>
+    <p>Diese Anleitung führt dich vom Start zu einem vollständigen Ergebnis in unter einer Minute. Wir berechnen eine Standard-6-saitige Gitarre in E-Standard auf einer 25.5" Mensur.</p>
+    <ol>
+      <li><strong>Die App starten.</strong> Das Fenster öffnet sich mit der Statuszeile <em>"Execute calculation..."</em> und dem Raster, das nur Kopfzeilen zeigt.</li>
+      <li><strong>Das Instrument/Die Stimmung auswählen.</strong> Öffne die <strong>Instrument-Combo</strong> und wähle <em>"Guitar: 6-String E-Standard (Default)"</em>. Die Saitenanzahl wird automatisch auf 6 gesetzt.</li>
+      <li><strong>Den Stimmungs-Modifikator auf Standard belassen.</strong> Die <strong>Stimmungs-Combo</strong> ist standardmäßig <em>Standard (Profile Preset)</em> &mdash; keine Drop-Stimmung für dieses Beispiel.</li>
+      <li><strong>Die Mensurlängen überprüfen.</strong> <strong>Mensur Diskant</strong> und <strong>Mensur Bass</strong> sind beide standardmäßig <code>25.5</code> &mdash; korrekt für eine Standard-Einheitsmensur-Gitarre. Belasse sie unverändert.</li>
+      <li><strong>Die Feinabstimmungszeile bestätigen.</strong> Transpose ist <code>0</code>, Pitch ist <code>440</code> Hz, Guitar Base Tension ist <code>100.0</code> lbs. Dies sind die Standardwerte &mdash; belasse sie vorerst.</li>
+      <li><strong>Calculate klicken.</strong> Die App wertet jeden 6-saitigen Satz in <code>strings.ini</code> aus, ordnet sie und füllt das Raster mit den Top 5. Ein Zusammenfassungsdialog listet die Gesamtspannung, den Halsstatus und die durchschnittliche Abweichung jedes Satzes auf.</li>
+      <li><strong>Die Statuszeile lesen.</strong> Sie zeigt jetzt den einzelnen besten Treffer, z.B. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
+      <li><strong>Das Raster überfliegen.</strong> Jeder Satzblock zeigt Einzel-Saaten-Ton, Frequenz, Gauge, Spannung (farbcodiert), Mensur und die visuelle Kurve. Suche nach überwiegend grünen Spannungszellen und einer ausgewogenen Kurve.</li>
+      <li><strong>Den Bericht generieren.</strong> Klicke auf <strong>Print PDF Report</strong>. Der Werkstatt-Bericht öffnet sich in deinem Browser &mdash; verwende <strong>Ctrl+P &rarr; Save as PDF</strong>, um ihn zu archivieren.</li>
+    </ol>
+    <div class="note">
+      <strong>Was die Halsstab-Empfehlung bedeutet:</strong> Die Statuszeile vergleicht die Gesamt-Satzspannung mit deiner Basisspannung. Innerhalb von &plusmn;3 lbs sagt sie, der Hals ist OK. Darüber hinaus schlägt sie vor, um ungefähr eine Vierteldrehung pro 10 lbs Differenz anzuziehen (im Uhrzeigersinn) oder zu lösen (gegen den Uhrzeigersinn).
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Tipps zum Lesen der Ergebnisse</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Ausgewogen &ne; gleich</h3>
+        <p>Ein ausgewogener Satz hat eine glatte Kurve, nicht unbedingt identische Zahlen. Viele Spieler bevorzugen eine etwas schwerere Bass-Seite für Rhythmusarbeit &mdash; die "Schwerboden"-Kurve ist ein Feature, kein Fehler.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Die Summe beachten</h3>
+        <p>Die Einzel-Saaten-Spannung ist wichtig, aber die <strong>Gesamt-Satzspannung</strong> ist das, was den Hals belastet. Das Hinzufügen einer Saite oder das Höherstimmen kann die Summe über das hinausschieben, wofür der Halsstab eingestellt wurde.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Gauge ist nicht Spannung</h3>
+        <p>Zwei Sätze mit derselben Gauge (z.B. beide 10-46) können sich in der Spannung aufgrund des Einheitsgewichts unterscheiden. Vertraue der berechneten Spannung und der Kurve, nicht dem Gauge-Label allein.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Mensurlänge ist wichtig</h3>
+        <p>Eine 25.5" Mensur hat spürbar mehr Spannung als eine 24.75" Mensur mit denselben Saiten. Gib immer die korrekte Diskant- und Bass-Mensur für das Instrument vor dir ein.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Transpose für Tonarten verwenden</h3>
+        <p>Eb oder Drop C prüfen, ohne Presets zu bearbeiten? Setze das <strong>Transpose</strong>-Spin auf &minus;1 oder &minus;2 und berechne neu &mdash; jeder Ton verschiebt sich und die Spannung aktualisiert sich.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Deine Basis kalibrieren</h3>
+        <p>Die Halsstab-Beratung ist nur so gut wie deine Basisspannung. Setze sie, indem du die Saiten berechnest, für die der Hals <em>aktuell</em> eingerichtet ist, und verwende dann diese Summe als Basis für zukünftige Vergleiche.</p>
+      </div>
+    </div>
+    <div class="warning">
+      <strong>Halsstab-Anpassungen sind iterativ und unerbittlich.</strong> Drehe in kleinen Schritten (1/8 Drehung), stimme neu, lass das Holz sich setzen, dann miss erneut. Im Zweifelsfall hör auf und konsultiere einen professionellen Geigenbauer &mdash; die Beratung der App ist eine mathematische Schätzung, kein Ersatz für Erfahrung.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

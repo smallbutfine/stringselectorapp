@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Konzepte & Physik</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Konzepte & Physik</p>
+    <p class="tagline">Das Warum hinter jeder Zahl &mdash; Spannung, Gauge, Mensur und der Hals, der alles zusammenhält.</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="concepts.html">Konzepte</a>
+      <a href="docs.html">Doku</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Handbuch</a>
+      <a href="download.html">Herunterladen</a>
+      <a href="../de/index.html">DE</a>
+      <a href="../es/index.html">ES</a>
+      <a href="../fr/index.html">FR</a>
+      <a href="../pt/index.html">PT</a>
+      <a href="../ru/index.html">RU</a>
+      <a href="../zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Was ist Saitenspannung?</h2>
+    <p>Saitenspannung ist die <strong>Zugkraft</strong>, die eine Saite auf das Instrument ausübt, während sie auf Tonhöhe gestimmt ist. Jede Saite auf deiner Gitarre ist zwischen zwei festen Punkten gedehnt &mdash; dem Steg und dem Sattel (oder dem Bund, den du greifst) &mdash; und das Ausmaß der Dehnung ist das, was wir als Tonhöhe hören. Je stärker die Saite gedehnt wird, desto höher der Ton und desto straffer fühlt sie sich unter deinen Fingern an.</p>
+    <p>Die Spannung ist aus drei Gründen wichtig, mit denen sich jeder Techniker und Geigenbauer täglich auseinandersetzt:</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Spielfreudigkeit</h3>
+        <p>Saiten mit hoher Spannung fühlen sich steif an, kämpfen gegen deine Greifhand und verursachen Ermüdung. Saiten mit niedriger Spannung fühlen sich schwammig an, schnarren leicht und können gegen die Bünde klirren. Die richtige Spannung ist der Unterschied zwischen einer Gitarre, die von selbst spielt, und einer, die sich wehrt.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Setup & Intonation</h3>
+        <p>Die Spannung verändert die Steifigkeit und Elastizität der Saite, was Intonation, Saitenlage und Halskrümmung beeinflusst. Ein Setup, das bei einer Spannung durchgeführt wurde, verändert sich, wenn du zu einem anderen Satz oder einer anderen Stimmung wechselst.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Strukturelle Belastung</h3>
+        <p>Ein Satz mit sechs Saiten kann mit 100&ndash;180 lbs kombinierter Kraft ziehen. Diese Last biegt ständig den Hals, belastet den Steg und stresst die Kopfplatte. Die Gesamtsumme zu kennen ist unerlässlich, bevor du einen Halsstab anpasst oder zu einem schwereren Satz wechselst.</p>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Faustregel:</strong> Ein typischer E-Gitarren-Satz (10&ndash;46) bei Standardstimmung auf einer 25.5" Mensur zieht ungefähr <strong>105&ndash;110 lbs</strong> insgesamt. Ein Bass-Satz kann <strong>150 lbs</strong> überschreiten. Das sind keine kleinen Zahlen &mdash; dein Hals ist darauf ausgelegt.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Die Spannungsformel</h2>
+    <p>Jede Spannungszahl, die StringSelectorApp produziert, stammt aus einer Gleichung &mdash; der idealen Flexsaiten-Formel, gelöst nach Pfund-Kraft:</p>
+    <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <p>Es sieht einschüchternd aus, aber jeder Term ist etwas, das du bereits verstehst. Hier ist es in einfachen Worten:</p>
+    <table>
+      <thead><tr><th>Term</th><th>Was es bedeutet</th><th>Einheit</th><th>Einfache Erklärung</th></tr></thead>
+      <tbody>
+        <tr><td><code>T</code></td><td>Spannung</td><td>Pfund (lbs)</td><td>Die Antwort &mdash; wie stark die Saite zieht.</td></tr>
+        <tr><td><code>W</code></td><td>Einheitsgewicht</td><td>lbs / Zoll</td><td>Wie schwer die Saite pro Zoll Länge ist. Eine dickere oder dichtere Saite hat ein höheres W. Dies ist der wichtigste Eingabewert &mdash; siehe nächster Abschnitt.</td></tr>
+        <tr><td><code>L</code></td><td>Mensurlänge</td><td>Zoll</td><td>Die schwingende Länge der Saite &mdash; Steg zu Sattel. Längere Mensur = mehr Spannung für denselben Ton.</td></tr>
+        <tr><td><code>f</code></td><td>Frequenz</td><td>Hz (Zyklen/Sek.)</td><td>Der Ton selbst. Höhere Töne (mehr Hz) benötigen mehr Spannung, um dieselbe Saite auf Tonhöhe zu bringen.</td></tr>
+        <tr><td><code>386.4</code></td><td>Gravitationskonstante</td><td>in / s<sup>2</sup></td><td>Ein Umrechnungsfaktor, der die Physik in Pfund-Kraft umwandelt. Du änderst ihn nie &mdash; er ist nur die Brücke zwischen der metrischen Welt der Formel und den imperialen Einheiten, die Geigenbauer verwenden.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Die Berechnungspipeline</h3>
+    <p>So reist eine einzelne Saite vom "Tonnamen" zu "Pfunden Zugkraft":</p>
+    <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:0; margin:25px 0; font-size:0.9em;">
+      <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Tonname</div>
+        <div style="color:#e0e0e0; margin-top:8px;">z.B. <code>E2</code></div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Aus Stimmungs-Preset</div>
+      </div>
+      <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
+      <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Frequenz</div>
+        <div style="color:#e0e0e0; margin-top:8px;"><code>f = A4 &times; 2<sup>(n/12)</sup></code></div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Gleichstufige Stimmung, A4=440 Hz</div>
+      </div>
+      <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
+      <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Einheitsgewicht + Mensur</div>
+        <div style="color:#e0e0e0; margin-top:8px;"><code>W</code> aus Satz<br><code>L</code> aus Mensur</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Nachgeschlagen aus strings.ini</div>
+      </div>
+      <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
+      <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Spannung</div>
+        <div style="color:#e0e0e0; margin-top:8px;"><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code></div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Pfunde Zugkraft</div>
+      </div>
+    </div>
+    <div class="note">
+      <strong>Warum die Formel für dich wichtig ist:</strong> Du musst diese Mathematik nicht von Hand machen &mdash; dafür ist die App da. Aber die vier Eingabewerte zu verstehen bedeutet, dass du vorhersagen kannst, was passieren wird, bevor du Saiten kaufst. Willst du mehr Spannung? Gehe zu einer schwereren Gauge, einer längeren Mensur oder stimme höher. Willst du weniger? Das Gegenteil. Die Formel macht diese Kompromisse vorhersehbar statt zum Ratespiel.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Einheitsgewicht vs. Gauge</h2>
+    <p>Dies ist das am meisten missverstandene Konzept bei der Saitenspannung und dasjenige, das die meisten schlechten Setups verursacht. <strong>Gauge ist nicht Spannung.</strong> Gauge ist nur der Durchmesser der Saite. Die Spannung hängt davon ab, wie viel die Saite <em>pro Zoll wiegt</em> &mdash; ihr <strong>Einheitsgewicht</strong>.</p>
+
+    <h3>Warum ".010" nicht ausreicht</h3>
+    <p>Eine <code>.010"</code> Stahlsaite und eine <code>.010"</code> nickelumwickelte Saite derselben Gauge können sich in der Spannung um <strong>20% oder mehr</strong> unterscheiden. Der Durchmesser ist identisch, aber die Masse nicht. Hier ist warum:</p>
+    <table>
+      <thead><tr><th>Faktor</th><th>Effekt auf Einheitsgewicht</th><th>Effekt auf Spannung</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Material</strong></td><td>Stahl, nickelplattierter Stahl, Edelstahl und Bronze haben alle unterschiedliche Dichten. Edelstahl ist dichter als einfacher Stahl; Phosphorbronze ist dichter als Nickel.</td><td>Gleiche Gauge, anderes Material = andere Spannung. Eine Edelstahl-.010 zieht stärker als eine nickelplattierte .010.</td></tr>
+        <tr><td><strong>Wicklung</strong></td><td>Umgwickelte Saiten haben einen Kerndraht, der mit einem dünneren Außendraht umwickelt ist. Die Wicklung fügt Masse hinzu, ohne viel Durchmesser hinzuzufügen. Rundwicklung, Flachwicklung und Bandwicklung verändern alle die Masse.</td><td>Flachgewickelte Saiten haben typischerweise ein höheres Einheitsgewicht als Rundgewickelte derselben Gauge &mdash; sie fühlen sich steifer an und ziehen stärker.</td></tr>
+        <tr><td><strong>Kernform</strong></td><td>Sechskant-Kerne vs. runde Kerne verändern, wie fest die Wicklung sitzt, was die effektive Masse verändert.</td><td>Sechskant-Kern-Saiten haben oft eine etwas höhere Spannung bei gleicher Gauge.</td></tr>
+        <tr><td><strong>Herstellungstoleranz</strong></td><td>Die ".010" zweier Hersteller kann sich im tatsächlichen Durchmesser um einige Tausendstel Zoll unterscheiden.</td><td>Kleine Gauge-Unterschiede summieren sich über einen Satz.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Gleiche Gauge, unterschiedliche Spannung &mdash; reale Beispiele</h3>
+    <p>Dies sind illustrative Werte für Stahlsaiten vs. nickelumwickelte Saiten bei gleicher Gauge auf einer 25.5" Mensur, gestimmt auf E2 (82.4 Hz):</p>
+    <table>
+      <thead><tr><th>Saite</th><th>Gauge</th><th>Material</th><th>Einheitsgewicht (lbs/Zoll)</th><th>Spannung (lbs)</th></tr></thead>
+      <tbody>
+        <tr><td>Tiefes E</td><td>.046</td><td>Einfacher Stahl (hypothetisch)</td><td>0.000310</td><td>~15.1</td></tr>
+        <tr><td>Tiefes E</td><td>.046</td><td>Nickelumwickelt (typisch)</td><td>0.000382</td><td>~18.6</td></tr>
+        <tr><td>Tiefes E</td><td>.046</td><td>Edelstahl Rundwicklung</td><td>0.000405</td><td>~19.7</td></tr>
+        <tr><td>Tiefes E</td><td>.046</td><td>Flachwicklung (Band)</td><td>0.000420</td><td>~20.4</td></tr>
+      </tbody>
+    </table>
+    <div class="warning">
+      <strong>Rate nie das Einheitsgewicht allein aus der Gauge.</strong> StringSelectorApp speichert das gemessene oder veröffentlichte Einheitsgewicht für jede Saite in jedem Satz &mdash; das ist der Wert, den die Formel verwendet. Wenn du eigene Saiten zu <code>strings.ini</code> hinzufügst, verwende das veröffentlichte Einheitsgewicht des Herstellers oder miss es selbst (wiege eine bekannte Länge auf einer Präzisionswaage und teile). Schätze es nicht aus der Gauge.
+    </div>
+    <div class="note">
+      <strong>Wie du das Einheitsgewicht selbst misst:</strong> Schneide ein 10-Zoll-Stück Saite ab, wiege es in Gramm auf einer Juwelierwaage und rechne um: <code>W (lbs/Zoll) = Gramm &divide; 453.592 &divide; 10</code>. Eine .046 nickelumwickelte tiefe E sollte etwa 0.00038 lbs/Zoll ergeben. Wenn deine Messung stark abweicht, ist deine Waage nicht präzise genug oder die Saite ist nicht das, was du denkst.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Mensurlänge</h2>
+    <p>Die Mensurlänge ist die schwingende Länge der Saite &mdash; der Abstand vom Stegeinleger zum Sattel. Sie ist der zweitwichtigste Faktor für die Spannung nach dem Einheitsgewicht und derjenige, an den die meisten Spieler nie denken, bis sie die Gitarre wechseln.</p>
+
+    <h3>Warum 25.5" vs. 24.75" wichtig ist</h3>
+    <p>Die beiden häufigsten Mensurlängen für E-Gitarren sind Fender-Stil <strong>25.5"</strong> und Gibson-Stil <strong>24.75"</strong>. Dieser 0.75"-Unterschied klingt winzig, aber da die Spannung mit dem <em>Quadrat</em> der Mensurlänge skaliert, ist der Effekt ungefähr <strong>10%</strong>:</p>
+    <div class="command-block" style="text-align:center;">
+      (25.5 / 24.75)<sup>2</sup> = 1.061 &nbsp;&rarr;&nbsp; ~6% mehr Spannung auf der längeren Mensur
+    </div>
+    <p>In der Praxis ist der wahrgenommene Unterschied näher an 8&ndash;10%, aufgrund der Wechselwirkung von Saitensteifigkeit und Elastizität mit der Mensur. Die kürzere Gibson-Mensur fühlt sich geschmeidiger an und lässt sich leichter biegen; die längere Fender-Mensur fühlt sich straffer an, hat mehr Biss und bleibt unter starker Biegung besser in Stimmung. Keine ist "richtig" &mdash; sie sind verschiedene Werkzeuge.</p>
+    <table>
+      <thead><tr><th>Mensur</th><th>Typische Gitarren</th><th>Gefühl</th><th>Spannung vs. 25.5"</th></tr></thead>
+      <tbody>
+        <tr><td>25.5"</td><td>Fender Stratocaster, Telecaster, Jazzmaster, Jaguar</td><td>Straff, bissig, klar</td><td>Basis (100%)</td></tr>
+        <tr><td>24.75"</td><td>Gibson Les Paul, SG, ES-335</td><td>Geschmeidig, warm, leichte Biegungen</td><td>~90&ndash;92%</td></tr>
+        <tr><td>25"</td><td>PRS, viele moderne E-Gitarren</td><td>Zwischen beiden</td><td>~96%</td></tr>
+        <tr><td>26.5"</td><td>Bariton-Gitarren, einige 7-Saiter</td><td>Sehr straff, klavierartig</td><td>~108%</td></tr>
+        <tr><td>34"</td><td>E-Bass (Standard)</td><td>Bass-Spannungsbereich</td><td>N/A (anderer Bereich)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Multiskalen- / Fanned-Fret-Instrumente</h3>
+    <p>Multiskalen-Instrumente (auch Fanned-Fret genannt) verwenden eine <em>andere Mensurlänge für jede Saite</em>. Die Bass-Saiten sind länger, die Diskant-Saiten sind kürzer, und die Bünde fächern sich über das Griffbrett auf. Eine typische 6-saitige Multiskala könnte 25.5" auf der hohen E und 26.5" auf der tiefen E haben.</p>
+    <p>Der Grund ist Spannungsbalance: Bei einer Gitarre mit einheitlicher Mensur fühlen sich die tiefen Saiten immer schwammiger an als die hohen, weil sie dicker, aber tiefer gestimmt sind. Indem die Bass-Saiten länger gemacht werden, gleicht ein Multiskalen-Instrument die Spannung über den Satz aus &mdash; die tiefen Saiten werden straffer, die hohen bleiben gleich, und der ganze Satz fühlt sich gleichmäßiger unter deinen Fingern an.</p>
+    <div class="note">
+      <strong>In StringSelectorApp:</strong> Setze die Felder <strong>Diskant-Mensur</strong> und <strong>Bass-Mensur</strong> auf die Werte deines Instruments. Die App interpoliert linear über die Saiten &mdash; Saite 1 verwendet die Diskant-Mensur, die tiefste Saite verwendet die Bass-Mensur, und alles dazwischen wird proportional berechnet. Für ein Instrument mit einheitlicher Mensur setze beide Felder auf denselben Wert.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Stimmung und Frequenz</h2>
+    <p>Die Formel benötigt eine Frequenz in Hz, aber du gibst einen Tonnamen wie <code>E2</code> oder <code>Bb3</code> ein. Die App wandelt das eine in das andere um mittels <strong>gleichstufiger Stimmung</strong> &mdash; dem Stimmungssystem, das die Oktave in 12 gleiche Halbtöne teilt.</p>
+
+    <h3>Wie Tonnamen zu Frequenzen werden</h3>
+    <p>Gleichstufige Stimmung basiert auf einer Referenz: <strong>A4 = 440 Hz</strong> (Kammerton). Jeder andere Ton ist eine feste Anzahl von Halbtönen von A4 entfernt, und jeder Halbton ist ein Frequenzverhältnis der 12. Wurzel von 2 (ungefähr 1.0595). Die Formel lautet:</p>
+    <div class="command-block" style="text-align:center;">
+      f = A4 &times; 2<sup>(n / 12)</sup>
+    </div>
+    <p>wobei <code>n</code> die Anzahl der Halbtöne von A4 ist (positiv = darüber, negativ = darunter). Einige Beispiele:</p>
+    <table>
+      <thead><tr><th>Ton</th><th>Halbtöne von A4 (n)</th><th>Frequenz (Hz)</th></tr></thead>
+      <tbody>
+        <tr><td>A4</td><td>0</td><td>440.00</td></tr>
+        <tr><td>E4 (hohe E-Saite)</td><td>+5</td><td>329.63</td></tr>
+        <tr><td>D4</td><td>-2</td><td>293.66</td></tr>
+        <tr><td>A2 (5. Saite, Gitarre)</td><td>-24</td><td>110.00</td></tr>
+        <tr><td>E2 (6. Saite, Gitarre)</td><td>-29</td><td>82.41</td></tr>
+        <tr><td>Bb3</td><td>-1</td><td>233.08</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Transposition</h3>
+    <p>Transposition verschiebt jede Saite um dasselbe Intervall nach oben oder unten &mdash; zum Beispiel die ganze Gitarre einen Halbton höher (Eb Standard) oder einen Ganzton tiefer (D Standard) zu stimmen. In der App erledigt das <strong>Transpose</strong>-Feld für dich: Gib <code>+1</code> für einen Halbton höher ein, <code>-2</code> für einen Ganzton tiefer, und jeder Ton in der Stimmung wird verschoben, bevor die Frequenz berechnet wird.</p>
+    <div class="note">
+      <strong>Der Kammerton ist einstellbar.</strong> Die App verwendet standardmäßig A4 = 440 Hz, aber du kannst es (390&ndash;460 Hz) in der GUI ändern. Dies ist wichtig für historische Instrumente, Orchesterarbeit oder wenn du auf eine Referenz stimmst, die nicht 440 ist. Eine 432-Hz-Referenz senkt beispielsweise jede Frequenz um etwa 32 Cent &mdash; und senkt damit auch die Spannung leicht.
+    </div>
+    <div class="warning">
+      <strong>Spannung folgt der Frequenz.</strong> Höher stimmen erhöht die Frequenz, was die Spannung erhöht &mdash; und tiefer stimmen senkt beides. Ein Ganzton tiefer in der Stimmung reduziert die Spannung um etwa 12% über den Satz. Das ist der Grund, warum Drop-Stimmungs-Gitarren oft schwerere Saiten benötigen, um die Spannung dort zu halten, wo sie sich richtig anfühlt.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Ausgewogene Spannung</h2>
+    <p>"Ausgewogene Spannung" bedeutet, dass die Saiten in einem Satz mit einem <em>konsistenten Gefühl</em> über das Griffbrett ziehen &mdash; nicht, dass sie alle dieselbe Spannungszahl haben. Dies ist eine subtile, aber entscheidende Unterscheidung.</p>
+
+    <h3>Warum "ausgewogen" nicht "gleich" ist</h3>
+    <p>Wenn jede Saite dieselbe Spannung in Pfund hätte, würde sich der Satz falsch anfühlen. Die tiefen Saiten würden sich zu straff und die hohen zu locker anfühlen, weil deine Finger die Spannung relativ zur Gauge und Tonhöhe der Saite wahrnehmen. Ein ausgewogener Satz hat eine <strong>Spannungskurve</strong>, die dies berücksichtigt &mdash; typischerweise sitzen die Bass-Saiten etwas höher in der Spannung als die Diskant-Saiten, und die Kurve ist glatt statt gezackt.</p>
+    <p>Saitenhersteller entwerfen ihre Sätze um dieses Prinzip. Ein typischer E-Satz könnte auf einer 25.5" Mensur Spannungen wie diese haben:</p>
+    <table>
+      <thead><tr><th>Saite</th><th>Ton</th><th>Gauge</th><th>Spannung (lbs)</th><th>Relatives Gefühl</th></tr></thead>
+      <tbody>
+        <tr><td>1 (hohes E)</td><td>E4</td><td>.010</td><td>16.2</td><td>Referenz</td></tr>
+        <tr><td>2 (B)</td><td>B3</td><td>.013</td><td>15.9</td><td>Leicht lockerer</td></tr>
+        <tr><td>3 (G)</td><td>G3</td><td>.017</td><td>16.8</td><td>Leicht straffer</td></tr>
+        <tr><td>4 (D)</td><td>D3</td><td>.026</td><td>17.5</td><td>Straffer</td></tr>
+        <tr><td>5 (A)</td><td>A2</td><td>.036</td><td>18.0</td><td>Straffer</td></tr>
+        <tr><td>6 (tiefes E)</td><td>E2</td><td>.046</td><td>18.6</td><td>Straffste</td></tr>
+      </tbody>
+    </table>
+    <p>Beachte die Kurve: Sie senkt sich leicht bei der B-Saite und steigt dann zum tiefen E. Das ist beabsichtigt &mdash; es entspricht dem, wie sich Spannung über den Satz anfühlt. Ein Satz, bei dem das tiefe E mit 16 lbs und das hohe E mit 18 lbs zieht, würde sich rückwärts anfühlen.</p>
+
+    <h3>Schwerboden-Sätze</h3>
+    <p>Ein "Schwerboden"-Satz (z.B. 10&ndash;52 oder 11&ndash;49) legt mehr Spannung auf die Bass-Saiten, während die Diskant-Saiten leicht bleiben. Dies ist beliebt für:</p>
+    <ul>
+      <li><strong>Drop-Stimmungen</strong> &mdash; die schwereren Bass-Saiten halten die Spannung hoch, wenn du die tiefe Saite fallen lässt.</li>
+      <li><strong>Rhythmus-Spieler</strong>, die ein straffes, druckvolles Bass-Ende ohne steife Diskants für Biegungen wollen.</li>
+      <li><strong>Bariton- und Multiskalen-Instrumente</strong>, bei denen die Bass-Saiten zusätzliche Spannung benötigen, um klar zu klingen.</li>
+    </ul>
+    <p>Der Kompromiss ist, dass die Spannungskurve steiler wird &mdash; die tiefen Saiten ziehen spürbar stärker als die hohen. Das kann genau das sein, was du willst, oder es kann den Satz unausgewogen erscheinen lassen, wenn es übertrieben wird.</p>
+
+    <h3>Die visuelle Spannungskurve</h3>
+    <p>StringSelectorApp stellt die Spannung als Kurve über die Saiten dar, sodass du die Balance auf einen Blick sehen kannst. Ein gut ausgewogener Satz zeigt eine glatte, sanft ansteigende Linie. Ein schlecht abgestimmter Satz zeigt Spitzen und Senken &mdash; eine Saite, die viel zu straff oder zu locker ist, fällt sofort auf.</p>
+    <div class="note">
+      <strong>Wie man die Kurve liest:</strong> Eine flache Linie bedeutet, dass jede Saite dieselbe Spannung hat (selten das, was du willst). Eine glatte Aufwärtsneigung von Diskant zu Bass ist typisch und angenehm. Eine gezackte Linie mit einer Spitze bedeutet, dass eine Saite nicht passt &mdash; tausche sie gegen eine andere Gauge aus einem Einzel-Saaten-Satz oder wähle einen anderen Satz.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Halsstab und Halskrümmung</h2>
+    <p>Der Halsstab ist die Stahlstange im Hals, die der Saitenspannung entgegenwirkt. Zu verstehen, wie er funktioniert, ist der Unterschied zwischen einem Setup, das hält, und einem, das bei jedem Wetterwechsel gegen dich kämpft.</p>
+
+    <h3>Wie Saitenspannung den Hals beeinflusst</h3>
+    <p>Ein Gitarrenhals ist ein Hebel. Die Saiten ziehen die Kopfplatte nach vorne (zum Steg hin), und diese Kraft versucht, den Hals in eine Vorwärtskrümmung zu biegen &mdash; was <strong>Entlastung</strong> (eine leichte konkave Krümmung) erzeugt. Ohne Gegenkraft würde sich der Hals so stark biegen, dass die Saiten meilenweit über den Bünden säßen.</p>
+    <p>Die Menge der Biegung hängt ab von:</p>
+    <ul>
+      <li><strong>Gesamte Saitenspannung</strong> &mdash; mehr Saiten, schwerere Gauges, höhere Stimmungen oder längere Mensuren erhöhen alle den Zug.</li>
+      <li><strong>Halssteifigkeit</strong> &mdash; ein dickerer oder mehrteiliger Hals (Ahorn/Rosenholz, Mahagoni/Ahorn) widersteht der Biegung mehr als ein dünner einteiliger Hals.</li>
+      <li><strong>Halsstab-Spannung</strong> &mdash; die Stange zieht gegen die Saiten zurück. Sie anzuziehen (im Uhrzeigersinn) wirkt der Biegung entgegen; sie zu lösen (gegen den Uhrzeigersinn) lässt den Hals sich stärker biegen.</li>
+    </ul>
+
+    <h3>Warum die Gesamtspannung wichtig ist</h3>
+    <p>Wenn du Saitensätze oder Stimmungen wechselst, ändert sich die Gesamtspannung auf dem Hals &mdash; und die Halsstab-Einstellung, die für den alten Satz perfekt war, ist jetzt für den neuen falsch. Eine grobe Richtlinie:</p>
+    <table>
+      <thead><tr><th>Änderung</th><th>Effekt auf Gesamtspannung</th><th>Typische Halsstab-Reaktion</th></tr></thead>
+      <tbody>
+        <tr><td>Eine Gauge höher gehen (z.B. 10er &rarr; 11er)</td><td>Erhöhung (~10&ndash;15%)</td><td>Anziehen (im Uhrzeigersinn) 1/8 bis 1/4 Drehung</td></tr>
+        <tr><td>Eine Gauge niedriger gehen (11er &rarr; 10er)</td><td>Verringerung</td><td>Lösen (gegen den Uhrzeigersinn) 1/8 bis 1/4 Drehung</td></tr>
+        <tr><td>Einen Ganzton tiefer stimmen</td><td>Verringerung (~12%)</td><td>Leicht lösen oder belassen und mehr Entlastung akzeptieren</td></tr>
+        <tr><td>Einen Halbton höher stimmen</td><td>Erhöhung (~6%)</td><td>Leicht anziehen</td></tr>
+        <tr><td>Zu einer längeren Mensur wechseln</td><td>Erhöhung (~6&ndash;10%)</td><td>Anziehen</td></tr>
+        <tr><td>Eine Saite hinzufügen (6 &rarr; 7)</td><td>Erhöhung (signifikant)</td><td>Anziehen, möglicherweise mehr als 1/4 Drehung</td></tr>
+      </tbody>
+    </table>
+    <div class="warning">
+      <strong>Erzwinge nie den Halsstab.</strong> Wenn er sich nicht gleichmäßig drehen lässt, hör auf. Ein gebrochener Halsstab ist eine sehr teure Reparatur. Im Zweifelsfall bringe ihn zu einem qualifizierten Techniker. Die App gibt dir eine <em>Schätzung</em> &mdash; sie ist ein Ausgangspunkt, kein Ersatz für ein sorgfältiges Setup am Instrument vor dir.
+    </div>
+
+    <h3>Wie die App die Halsstab-Anpassung schätzt</h3>
+    <p>StringSelectorApp vergleicht die Gesamtspannung deines aktuellen Setups mit einem Referenzwert (der Spannung, für die der Hals eingerichtet wurde). Die Differenz, kombiniert mit dem Steifigkeitsprofil des Halses, ergibt eine geschätzte Anzahl von Halsstab-Drehungen. Der Bericht präsentiert dies als Empfehlung &mdash; "ungefähr 1/8 Drehung anziehen" &mdash; die du dann durch Messung der Entlastung mit einer Fühlerlehre oder einem Lineal verifizierst.</p>
+    <div class="note">
+      <strong>Die 0.010"-Entlastungsregel:</strong> Ein häufiger Ausgangspunkt für E-Gitarren sind 0.010" Entlastung am 7. Bund (gemessen mit einer Fühlerlehre, während die tiefe E am 1. und 15. Bund gehalten wird). Dies gibt eine winzige Vorwärtskrümmung für saubere Saitenschwingung ohne Bund-Schnarren. Passe nach Geschmack und Spielstil an &mdash; einige Spieler wollen 0.005" (flacher, schneller), andere wollen 0.015" (mehr Krümmung, leichtere Berührung).
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Der Werkstatt-Bericht</h2>
+    <p>Der Werkstatt-Bericht ist das Ergebnis von StringSelectorApp &mdash; ein druckbares HTML-Dokument, das alles über ein Setup erfasst, sodass du es archivieren, einem Kunden aushändigen oder mit einem zukünftigen Setup vergleichen kannst.</p>
+
+    <h3>Was der Bericht enthält</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Instrument & Setup-Kopf</h3>
+        <p>Instrumentenname, Stimmung, Mensurlänge, Satz, Datum und Techniker. Alles, was du brauchst, um den Auftrag auf einen Blick zu identifizieren.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Spannungstabelle</h3>
+        <p>Jede Saite mit ihrem Ton, Gauge, Einheitsgewicht, Frequenz und Spannung in Pfund und Kilogramm (oder Newton im ISO-Modus). Die Rohdaten hinter dem Setup.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Visuelle Spannungskurve</h3>
+        <p>Eine Grafik der Spannung über die Saiten, sodass du (und der Kunde) die Balance auf einen Blick sehen können. Spitzen und Senken sind sofort sichtbar.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Halsstab-Empfehlung</h3>
+        <p>Gesamtspannung vs. Referenz, mit geschätzter Halsstab-Drehungszahl. Der Ausgangspunkt für die Halsanpassung &mdash; kein Ersatz für das Messen der Entlastung.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Notizen & Beobachtungen</h3>
+        <p>Ein Freitext-Bereich für alles, was die Zahlen nicht erfassen: Bundverschleiß, Halsgefühl, Spieler-Feedback, Luftfeuchtigkeit, alles, was das Setup erklärt.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Druckfertiges Layout</h3>
+        <p>Sauberer HTML-Code, der auf eine einzelne Seite (oder zwei) auf Standardpapier druckt. Händige ihn dem Kunden aus, lege ihn ab oder sende ihn als PDF.</p>
+      </div>
+    </div>
+
+    <h3>Warum Setups archivieren</h3>
+    <p>Eine Gitarre ist ein dynamisches System. Die Halsentlastung ändert sich mit Luftfeuchtigkeit, Temperatur und Saitenalter. Bundverschleiß verändert die Saitenlage. Spieler ändern Stimmungen. Ohne Aufzeichnung rätst du jedes Mal, wenn die Gitarre zurückkommt. Mit einem archivierten Bericht kannst du genau sehen, wie das Setup <em>letztes Mal</em> war &mdash; und was sich geändert hat.</p>
+    <ul>
+      <li><strong>Setups mit Vertrauen wiederholen.</strong> Wenn ein Kunde zurückkommt, rufe den letzten Bericht auf und du kennst den Ausgangspunkt.</li>
+      <li><strong>Veränderungen diagnostizieren.</strong> Wenn die Gitarre jetzt dort schnarrt, wo sie es vorher nicht tat, vergleiche die Spannungskurve &mdash; ein neuer Satz oder eine Luftfeuchtigkeitsänderung wird sichtbar.</li>
+      <li><strong>Kundenvertrauen.</strong> Ein gedruckter Bericht zeigt dem Kunden, dass du gemessen, berechnet und dokumentiert hast &mdash; nicht nur geschätzt.</li>
+      <li><strong>Gewährleistung & Haftung.</strong> Wenn sich ein Hals verzieht oder ein Halsstab bricht, dokumentiert der Bericht, welcher Spannung das Instrument ausgesetzt war und was du empfohlen hast.</li>
+    </ul>
+
+    <h3>Wie man es mit Kunden verwendet</h3>
+    <ol>
+      <li><strong>Führe die Berechnung durch</strong> mit dem Instrument, der Stimmung und der Saatenwahl des Kunden vor dir.</li>
+      <li><strong>Überprüfe die Spannungskurve gemeinsam.</strong> Wenn eine Saite nicht zu passen scheint, bespreche Alternativen, bevor du sie einbaust.</li>
+      <li><strong>Erstelle den Bericht</strong> und drucke ihn (oder speichere als PDF).</li>
+      <li><strong>Gehe den Bericht mit dem Kunden durch.</strong> Zeige ihm die Gesamtspannung, die Halsstab-Empfehlung und die Balance-Kurve. Die meisten Spieler haben diese Informationen noch nie gesehen &mdash; es ist ein Mehrwert, der dich abhebt.</li>
+      <li><strong>Lege eine Kopie ab</strong> in deinen Unterlagen und gib eine Kopie an den Kunden. Notiere das Datum und anstehende Folgearbeiten (z.B. "Entlastung nach 48 Stunden überprüfen").</li>
+    </ol>
+    <div class="note">
+      <strong>Profi-Tipp:</strong> Erstelle den Bericht <em>bevor</em> du den Halsstab berührst. Der Bericht erfasst den "Vorher"-Zustand. Nach der Anpassung miss die Entlastung, erstelle einen zweiten Bericht, und du hast eine Vorher/Nachher-Aufzeichnung, die genau dokumentiert, was sich geändert hat und warum.
+    </div>
+    <div class="warning">
+      <strong>Der Bericht ist eine Aufzeichnung, keine Verschreibung.</strong> Die Spannungszahlen werden aus veröffentlichten Einheitsgewichten und Standardformeln berechnet. Echte Hälse variieren. Verifiziere die Entlastung immer durch Messung am tatsächlichen Instrument und verwende die Halsstab-Schätzung als Ausgangspunkt &mdash; niemals als Vorschrift.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Schnellreferenz</h2>
+    <table>
+      <thead><tr><th>Konzept</th><th>Ein-Zeilen-Zusammenfassung</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Saitenspannung</strong></td><td>Die Zugkraft einer gestimmten Saite &mdash; beeinflusst Spielfreudigkeit, Setup und strukturelle Belastung.</td></tr>
+        <tr><td><strong>Spannungsformel</strong></td><td><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code> &mdash; Einheitsgewicht, Mensur und Frequenz bestimmen die Spannung.</td></tr>
+        <tr><td><strong>Einheitsgewicht vs. Gauge</strong></td><td>Gauge ist Durchmesser; Einheitsgewicht ist Masse pro Zoll. Gleiche Gauge, anderes Material/Wicklung = andere Spannung.</td></tr>
+        <tr><td><strong>Mensurlänge</strong></td><td>Längere Mensur = mehr Spannung (quadratische Beziehung). 25.5" vs. 24.75" ist ~10% Unterschied.</td></tr>
+        <tr><td><strong>Multiskala</strong></td><td>Andere Mensur pro Saite, um die Spannung über den Satz auszugleichen &mdash; längere Bass-Saiten, kürzere Diskants.</td></tr>
+        <tr><td><strong>Gleichstufige Stimmung</strong></td><td>12 gleiche Halbtöne pro Oktave, basierend auf A4 = 440 Hz. <code>f = A4 &times; 2<sup>(n/12)</sup></code>.</td></tr>
+        <tr><td><strong>Transposition</strong></td><td>Verschiebe jede Saite um dasselbe Intervall &mdash; erhöht oder senkt alle Frequenzen und Spannungen zusammen.</td></tr>
+        <tr><td><strong>Ausgewogene Spannung</strong></td><td>Eine glatte Spannungskurve über den Satz, nicht gleiche Zahlen &mdash; Bass leicht straffer als Diskant.</td></tr>
+        <tr><td><strong>Schwerboden-Satz</strong></td><td>Mehr Spannung auf Bass-Saiten, leichtere Diskants &mdash; für Drop-Stimmungen und straffes Bass-Ende.</td></tr>
+        <tr><td><strong>Halsentlastung</strong></td><td>Vorwärtskrümmung im Hals durch Saitenspannung, entgegengewirkt durch den Halsstab.</td></tr>
+        <tr><td><strong>Halsstab</strong></td><td>Stahlstange, die gegen die Saitenspannung zieht. Anziehen reduziert Entlastung, Lösen erlaubt mehr.</td></tr>
+        <tr><td><strong>Werkstatt-Bericht</strong></td><td>Druckbare Aufzeichnung des Setups &mdash; Spannungstabelle, Kurve, Halsstab-Schätzung und Notizen.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

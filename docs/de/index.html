@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Saitenspannungs-Rechner</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Saitenspannungs-Rechner & Werkstatt-Reporter</p>
+    <p class="tagline">Kenne deine Spannung. Balance dein Setup. Baue mit Vertrauen.</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="concepts.html">Konzepte</a>
+      <a href="docs.html">Doku</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Handbuch</a>
+      <a href="download.html">Herunterladen</a>
+      <a href="../de/index.html">DE</a>
+      <a href="../es/index.html">ES</a>
+      <a href="../fr/index.html">FR</a>
+      <a href="../pt/index.html">PT</a>
+      <a href="../ru/index.html">RU</a>
+      <a href="../zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <h2>Was ist StringSelectorApp?</h2>
+    <p>StringSelectorApp ist ein <strong>Saitenspannungs-Rechner</strong> für Gitarren und Bässe. Er kombiniert Saitendaten, Einheitsgewicht, Stimmungs-Presets und Mensurlänge, um die exakte Spannung jeder Saite in Echtzeit zu berechnen.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Echtzeit-Berechnung</h3>
+        <p>Gib deine Stimmung, Mensurlänge und den Satz ein. Klicke auf Berechnen. Sieh die Spannung jeder Saite sofort.</p>
+      </div>
+      <div class="feature-card">
+        <h3>37 Saitensätze</h3>
+        <p>Ernie Ball, D'Addario, Elixir und mehr. Vorbefüllt mit Gauge- und Einheitsgewichtsdaten.</p>
+      </div>
+      <div class="feature-card">
+        <h3>28 Stimmungs-Presets</h3>
+        <p>Standard, Drop, Open und benutzerdefinierte Stimmungen für 4-9 saitige Instrumente. Speichere deine eigenen.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Sichtbare Spannungskurve</h3>
+        <p>Sieh auf einen Blick, welche Saiten zu straff oder zu locker sind. Balance deinen Satz in Sekunden.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Werkstatt-Berichte</h3>
+        <p>Erstelle einen druckbaren HTML-Bericht mit Spannungstabelle, Kurve und Halsstab-Empfehlung.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Halsstab-Assistent</h3>
+        <p>Vergleiche die Gesamtspannung mit dem Referenzwert. Erhalte geschätzte Halsstab-Drehungen für die Halsanpassung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2>Downloads</h2>
+    <p>Vorgefertigte Binärdateien sind jedem <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub Release</a> beigefügt:</p>
+    <table class="download-table">
+      <thead><tr><th>Plattform</th><th>Artefakt</th><th>Hinweise</th></tr></thead>
+      <tbody>
+        <tr><td>Windows 64-bit</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup Installer</td></tr>
+        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Universelles App-Bundle</td></tr>
+        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Universelles App-Bundle</td></tr>
+        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Entpacken und ausführen</td></tr>
+        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Entpacken und ausführen</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h2>Systemanforderungen</h2>
+    <table>
+      <thead><tr><th>Komponente</th><th>Anforderung</th></tr></thead>
+      <tbody>
+        <tr><td>Betriebssystem</td><td>Windows 10+, macOS 10.13+ oder Linux (x86_64/ARM)</td></tr>
+        <tr><td>CPU</td><td>x86_64 oder ARM</td></tr>
+        <tr><td>RAM</td><td>Mindestens 512 MB</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

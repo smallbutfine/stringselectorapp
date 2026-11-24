@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Das Handbuch des Geigenbauers</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Das Handbuch des Geigenbauers</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="concepts.html">Konzepte</a>
+      <a href="docs.html">Doku</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Handbuch</a>
+      <a href="download.html">Herunterladen</a>
+      <a href="../de/index.html">DE</a>
+      <a href="../es/index.html">ES</a>
+      <a href="../fr/index.html">FR</a>
+      <a href="../pt/index.html">PT</a>
+      <a href="../ru/index.html">RU</a>
+      <a href="../zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+<section>
+  <div class="container">
+<h2>TaraDSP — Das Handbuch des Produzenten</h2>
+<p># TaraDSP — Das Handbuch des Produzenten</p>
+
+<p><strong>Eine umfassende Anleitung zu Faltung, Impulsantworten und Audioverarbeitung auf Mastering-Niveau mit TaraDSP.</strong></p>
+
+<p>Für Musiker, Tontechniker, Mastering-Ingenieure und Produzenten geschrieben.</p>
+
+<hr>
+
+<h3 id="table-of-contents">Inhaltsverzeichnis</h3>
+<p>## Inhaltsverzeichnis</p>
+
+<p>1. [Was ist TaraDSP?](#1-was-ist-taradsp)</p>
+<p>2. [Die Wissenschaft der Faltung](#2-die-wissenschaft-der-faltung)</p>
+<p>3. [Impulsantworten: Die klangliche DNA](#3-impulsantworten-die-klangliche-dna)</p>
+<p>4. [Die Verarbeitungskette](#4-die-verarbeitungskette)</p>
+<p>5. [Mastering-Dithering](#5-mastering-dithering)</p>
+<p>6. [Minimalphasen-System](#6-minimalphasen-system)</p>
+<p>7. [Resampling](#7-resampling)</p>
+<p>8. [Fades und Trimming](#8-fades-und-trimming)</p>
+<p>9. [Praktische Workflows](#9-praktische-workflows)</p>
+<p>10. [Zwei IRs kombinieren](#10-zwei-irs-kombinieren)</p>
+<p>11. [Tipps aus der Praxis](#11-tipps-aus-der-praxis)</p>
+<p>12. [Technische Referenz](#12-technische-referenz)</p>
+
+<hr>
+
+<h3 id="1-was-ist-taradsp">1. Was ist TaraDSP?</h3>
+<p>## 1. Was ist TaraDSP?</p>
+
+<p>TaraDSP ist ein professionelles Audio-Verarbeitungswerkzeug, das eine Sache außergewöhnlich gut macht: <strong>FFT-basierte Faltung</strong>. Wenn du jemals einen Gitarrenkabinett-Simulator, einen Faltungs-Hall oder eine Mastering-Kette mit analogem EQ verwendet hast, hast du Faltung verwendet.</p>
+
+<p>TaraDSP gibt dir diese Leistung in einem leichten, plattformübergreifenden Paket. Windows, macOS, Linux. CLI für Stapelverarbeitung, GUI für interaktive Arbeit.</p>
+
+<hr>
+
+<h3 id="2-die-wissenschaft-der-faltung">2. Die Wissenschaft der Faltung</h3>
+<p>## 2. Die Wissenschaft der Faltung</p>
+
+<h4>Was Faltung tut</h4>
+<p>### Was Faltung tut</p>
+
+<p>Faltung wendet die klanglichen Eigenschaften eines Signals (die <strong>Impulsantwort</strong>) auf ein anderes (dein Audio) an. Wenn du eine trockene Gitarre durch ein Kabinett spielst, färbt das Kabinett den Klang — Resonanzen, Frequenzgang, Abklingverhalten. Faltung wendet diese Färbung mathematisch an.</p>
+
+<h4>Warum FFT?</h4>
+<p>### Warum FFT?</p>
+
+<p>Direkte Faltung ist O(n²) — Milliarden von Operationen für eine 1-Sekunden-Datei. Die FFT reduziert dies auf O(n log n) durch den <strong>Faltungssatz</strong>:</p>
+
+<blockquote>Faltung in der Zeit = Multiplikation im Frequenzbereich</blockquote>
+
+<p>1. FFT beider Signale → Frequenzbereich</p>
+<p>2. Multipliziere sie → eine Multiplikation pro Bin</p>
+<p>3. Inverse FFT → zurück in den Zeitbereich</p>
+
+<p><strong>5000× Beschleunigung.</strong> PFFFT beschleunigt weiter mit SIMD (SSE/NEON) — 4-8 Samples pro Instruktion.</p>
+
+<hr>
+
+<h3 id="3-impulsantworten-die-klangliche-dna">3. Impulsantworten: Die klangliche DNA</h3>
+<p>## 3. Impulsantworten: Die klangliche DNA</p>
+
+<p>Eine Impulsantwort ist eine Aufnahme eines Klicks durch ein System, die seinen vollständigen klanglichen Fingerabdruck erfasst.</p>
+
+<table>
+<tr><td>Typ</td><td>Erfasst</td><td>Länge</td><td>Anwendungsfall</td></tr>
+<tr><td>Kabinett-IR</td><td>Lautsprecher + Kabinett + Mikrofon</td><td>0.5–2s</td><td>Gitarren-/Bass-Kabinett-Simulation</td></tr>
+<tr><td>Raum-IR</td><td>Raumakustik</td><td>1–4s</td><td>Faltungs-Hall</td></tr>
+<tr><td>Hardware-IR</td><td>EQ, Kompressor, Band</td><td>0.1–1s</td><td>Analog-Geräte-Emulation</td></tr>
+<tr><td>Platte/Feder-IR</td><td>Mechanischer Hall</td><td>1–3s</td><td>Vintage-Hall</td></tr>
+</table>
+
+<p><strong>Wo man sie findet:</strong> Kostenlose IR-Bibliotheken (Guitar Hack, God's Cab, Seacow), kommerzielle (Celestion, Redwirez, York Audio) oder DIY (Klick durch dein Kabinett, mit einem Mikrofon aufnehmen).</p>
+
+<hr>
+
+<h3 id="4-die-verarbeitungskette">4. Die Verarbeitungskette</h3>
+<p>## 4. Die Verarbeitungskette</p>
+
+<p>Wenn du TaraDSP ausführst, durchläuft das Audio diese Kette. Jeder Schritt ist optional.</p>
+
+<h4>Schritt 1: Eingabe laden</h4>
+<p>### Schritt 1: Eingabe laden</p>
+<p>Liest WAV (8/16/24/32-Bit PCM oder Float), konvertiert intern zu 32-Bit Float.</p>
+
+<h4>Schritt 2: IR laden (optional)</h4>
+<p>### Schritt 2: IR laden (optional)</p>
+<p>Wenn kein IR angegeben → Durchlass-Modus (nur Mastering: Dithering, Normalisierung, Fades).</p>
+
+<h4>Schritt 3: Stille trimmen (optional)</h4>
+<p>### Schritt 3: Stille trimmen (optional)</p>
+<p><code>-t <dB></code> — entfernt Stille unterhalb der Schwelle aus dem IR. Typisch: -60 dB.</p>
+
+<h4>Schritt 4: Fades anwenden (optional)</h4>
+<p>### Schritt 4: Fades anwenden (optional)</p>
+<p><code>-f <ms></code> — Fade-Out auf dem IR. Wendet immer 1ms Fade-In an (Klick-Vermeidung).</p>
+
+<h4>Schritt 5: Resampling (optional)</h4>
+<p>### Schritt 5: Resampling (optional)</p>
+<p><code>-r <Hz></code> — resampelt Eingabe + IR auf Zielrate. Engine-Priorität: SoX (libsoxr) → R8Brain → FinalCD → linear.</p>
+
+<h4>Schritt 6: Falten</h4>
+<p>### Schritt 6: Falten</p>
+<p>FFT-Faltung über PFFFT. Ausgabelänge = Eingabe + IR - 1 Samples.</p>
+
+<h4>Schritt 7: Minimalphase (optional)</h4>
+<p>### Schritt 7: Minimalphase (optional)</p>
+<p><code>--min</code> — entfernt Pre-Ringing, reduziert Latenz. Verwendet die Real-Cepstrum-Methode.</p>
+
+<h4>Schritt 8: Normalisieren</h4>
+<p>### Schritt 8: Normalisieren</p>
+<p>Peak-Normalisierung auf 1.0 (0 dBFS).</p>
+
+<h4>Schritt 9: Kürzen (optional)</h4>
+<p>### Schritt 9: Kürzen (optional)</p>
+<p><code>-l <samples></code> — Ausgabelänge begrenzen. Für Modeler: 1024 (GP-200), 2048 (Helix).</p>
+
+<h4>Schritt 10: Dithering und Speichern</h4>
+<p>### Schritt 10: Dithering und Speichern</p>
+<p><code>-b <16|24|32></code> — 16-Bit erhält TPDF-Dithering + Fehler-Feedback. 24/32-Bit: kein Dithering.</p>
+
+<hr>
+
+<h3 id="5-mastering-dithering">5. Mastering-Dithering</h3>
+<p>## 5. Mastering-Dithering</p>
+
+<h4>Das Problem</h4>
+<p>### Das Problem</p>
+<p>Quantisierung von 24-Bit auf 16-Bit ohne Dithering erzeugt harmonische Verzerrung bei niedrigen Pegeln.</p>
+
+<h4>Die Lösung: TPDF</h4>
+<p>### Die Lösung: TPDF</p>
+<p>Fügt 2 LSB dreieckiges Rauschen vor der Quantisierung hinzu. Wandelt Verzerrung in einen konstanten Rauschpegel um — weniger hörbar, natürlicher.</p>
+
+<p>TaraDSPs Implementierung:</p>
+<ul>
+<li>**TPDF-Rauschen**: Zwei Zufallswerte summiert (dreieckige Verteilung)</li>
+<li>**Fehler-Feedback**: Quantisierungsfehler rückgekoppelt, formt das Rauschspektrum</li>
+<li>**Signalabhängige Skalierung**: 70% Dithering bei sehr niedrigen Pegeln (< -90 dBFS)</li>
+</ul>
+
+<h4>Wann verwenden</h4>
+<p>### Wann verwenden</p>
+<ul>
+<li>**Immer für 16-Bit dithern** — immer besser als Kürzung</li>
+<li>**Nie für 24/32-Bit dithern** — Quantisierungsfehler liegt unter dem Rauschpegel</li>
+<li>**Einmal dithern** — nur bei der finalen Ausgabestufe</li>
+</ul>
+
+<hr>
+
+<h3 id="6-minimalphasen-system">6. Minimalphasen-System</h3>
+<p>## 6. Minimalphasen-System</p>
+
+<h4>Pre-Ringing</h4>
+<p>### Pre-Ringing</p>
+<p>Linearphasen-IRs haben symmetrische Energie — vor UND nach dem Hauptimpuls. Die Energie davor ist <strong>Pre-Ringing</strong>, das unnatürlich klingt (in der Natur kommt Schall nach, nie davor).</p>
+
+<h4>Was Minimalphase tut</h4>
+<p>### Was Minimalphase tut</p>
+<p>Wandelt einen Linearphasen-IR in Minimalphase um:</p>
+<ul>
+<li>Kein Pre-Ringing</li>
+<li>Niedrigere Latenz</li>
+<li>Gleicher Frequenzgang (Magnitude unverändert)</li>
+</ul>
+
+<h4>Algorithmus</h4>
+<p>### Algorithmus</p>
+<p>Real-Cepstrum-Methode: FFT → Log-Magnitude → inverse FFT (Cepstrum) → Falten → FFT → komplexes Spektrum → inverse FFT.</p>
+
+<h4>Wann verwenden</h4>
+<p>### Wann verwenden</p>
+<ul>
+<li>**Immer für Kabinett-Simulation** — entfernt den "hohlen" Klang</li>
+<li>**Immer für Echtzeit** — niedrigere Latenz</li>
+<li>**Optional für Hall** — einige bevorzugen die räumliche Linearphase</li>
+</ul>
+
+<hr>
+
+<h3 id="7-resampling">7. Resampling</h3>
+<p>## 7. Resampling</p>
+
+<h4>Warum</h4>
+<p>### Warum</p>
+<ul>
+<li>Nicht übereinstimmende Raten (44.1k IR, 48k Projekt)</li>
+<li>Zielgerät erwartet spezifische Rate</li>
+<li>CD-Veröffentlichung (44.1k)</li>
+</ul>
+
+<h4>Aliasing</h4>
+<p>### Aliasing</p>
+<p>Heruntertasten ohne Filterung führt dazu, dass Frequenzen über Nyquist als metallische Artefakte zurückfalten.</p>
+
+<h4>Engine-Priorität</h4>
+<p>### Engine-Priorität</p>
+<p>1. <strong>SoX Resampler (libsoxr)</strong> — VHQ, korrekte Anti-Aliasing. Beste Option.</p>
+<p>2. <strong>R8Brain</strong> — VHQ, verwendet wenn libsoxr nicht verfügbar.</p>
+<p>3. <strong>FinalCD</strong> — externes Werkzeug.</p>
+<p>4. <strong>Lineare Interpolation</strong> — Fallback, kein Anti-Aliasing.</p>
+
+<p>Installiere libsoxr für beste Ergebnisse. Wird als <code>libsoxr.dll</code> / <code>.dylib</code> / <code>.so.0</code> geliefert.</p>
+
+<hr>
+
+<h3 id="8-fades-und-trimming">8. Fades und Trimming</h3>
+<p>## 8. Fades und Trimming</p>
+
+<h4>Stille trimmen</h4>
+<p>### Stille trimmen</p>
+<p>IRs haben oft Stille am Anfang/Ende. Trimmen entfernt sie:</p>
+<ul>
+<li>`-60` — typisch für IRs</li>
+<li>`-80` — aggressiv</li>
+<li>`0` — deaktiviert</li>
+</ul>
+
+<h4>Fades</h4>
+<p>### Fades</p>
+<ul>
+<li>**Fade-In**: Immer 1ms (automatisch) — verhindert Start-Klicks</li>
+<li>**Fade-Out**: Benutzerdefiniert (`-f <ms>`) — verhindert End-Klicks</li>
+</ul>
+
+<p>Linearer Verstärkungsramp: 1.0 → 0.0 (Fade-Out) oder 0.0 → 1.0 (Fade-In).</p>
+
+<hr>
+
+<h3 id="9-praktische-workflows">9. Praktische Workflows</h3>
+<p>## 9. Praktische Workflows</p>
+
+<h4>Gitarrenkabinett-Simulation</h4>
+<p>### Gitarrenkabinett-Simulation</p>
+<pre><code>
+TaraDSP -x guitar_di.wav -y cab_57.wav -o guitar_amped.wav --min -l 2048 -b 24
+</code></pre>
+
+<h4>Faltungs-Hall</h4>
+<p>### Faltungs-Hall</p>
+<pre><code>
+TaraDSP -x vocal_dry.wav -y concert_hall.wav -o vocal_reverb.wav -f 100 -b 24
+</code></pre>
+
+<h4>Mastering mit Dithering</h4>
+<p>### Mastering mit Dithering</p>
+<pre><code>
+TaraDSP -x mix_24bit.wav -o master_16bit.wav -b 16
+</code></pre>
+
+<h4>Sample-Raten-Konvertierung</h4>
+<p>### Sample-Raten-Konvertierung</p>
+<pre><code>
+TaraDSP -x recording_96k.wav -o master_44k1.wav -r 44100 -b 16
+</code></pre>
+
+<h4>Stapelverarbeitung</h4>
+<p>### Stapelverarbeitung</p>
+<pre><code>
+for %f in (*.wav) do TaraDSP -x "%f" -y cab_ir.wav -o "processed_%f" --min -b 24
+</code></pre>
+
+<hr>
+
+<h3 id="10-tipps-aus-der-praxis">10. Tipps aus der Praxis</h3>
+<p>## 10. Tipps aus der Praxis</p>
+
+<h4>IR-Auswahl</h4>
+<p>### IR-Auswahl</p>
+<ul>
+<li>**Kürzer = straffer**: 0.5s IR hat weniger Bass-Grummeln als 2s</li>
+<li>**Mikrofonposition ist wichtig**: On-Axis = hell, Off-Axis = dunkel</li>
+<li>**Abstand fügt Raum hinzu**: Nahmikrofoniert = trocken, raummikrofoniert = räumlich</li>
+<li>**Minimalphase ist fast immer besser für Kabinette**</li>
+</ul>
+
+<h4>Pegelverwaltung</h4>
+<p>### Pegelverwaltung</p>
+<ul>
+<li>**Nach der Faltung normalisieren**, nicht davor</li>
+<li>**Durchgehend 24-Bit verwenden** — nur bei finaler Ausgabe dithern</li>
+<li>**Mono-Kompatibilität prüfen** — Stereo-IRs können Phasenprobleme haben</li>
+</ul>
+
+<h4>Häufige Fehler</h4>
+<p>### Häufige Fehler</p>
+<ul>
+<li>**Linearphasen-IRs für Kabinette** — immer `--min` verwenden</li>
+<li>**Mehrfach dithern** — einmal dithern, am Ende</li>
+<li>**Normalisierung vergessen** — Faltung kann 6-12 dB verstärken</li>
+<li>**16-Bit für Zwischendateien** — 24-Bit oder 32-Bit verwenden</li>
+</ul>
+
+<hr>
+
+<h3 id="11-technische-referenz">11. Technische Referenz</h3>
+<p>## 11. Technische Referenz</p>
+
+<h4>CLI-Optionen</h4>
+<p>### CLI-Optionen</p>
+
+<table>
+<tr><td>Option</td><td>Langform</td><td>Wert</td><td>Beschreibung</td></tr>
+<tr><td>`-x`</td><td>`--in1`</td><td>`<file>`</td><td>Eingabe-WAV-Datei</td></tr>
+<tr><td>`-y`</td><td>`--in2`</td><td>`<file>`</td><td>IR-WAV (optional)</td></tr>
+<tr><td>`-o`</td><td>`--output`</td><td>`<file>`</td><td>Ausgabe-WAV</td></tr>
+<tr><td>`-b`</td><td>`--bits`</td><td>`16\</td><td>24\</td><td>32`</td><td>Bit-Tiefe (Standard: 24)</td></tr>
+<tr><th>`-r`</th><th>`--rate`</th><th>`<Hz>`</th><th>Ziel-Sample-Rate</th></tr>
+<tr><th>`-l`</th><th>`--length`</th><th>`<samples>`</th><th>Kürzungslänge</th></tr>
+<tr><th>`-t`</th><th>`--trim`</th><th>`<dB>`</th><th>Trim-Schwellenwert</th></tr>
+<tr><th>`-f`</th><th>`--fade`</th><th>`<ms>`</th><th>Fade-Out-Dauer</th></tr>
+<tr><th>`-m`</th><th>`--mono`</th><th>(Flag)</th><th>Mono-Ausgabe</th></tr>
+<tr><th></th><th>`--min`</th><th>(Flag)</th><th>Minimalphase</th></tr>
+<tr><th>`-h`</th><th>`--help`</th><th>(Flag)</th><th>Hilfe anzeigen</th></tr>
+</table>
+
+<h4>Konfigurationsdatei</h4>
+<p>### Konfigurationsdatei</p>
+
+<pre><code>
+[Metadata]
+Artist=Your Studio Name
+
+[Audio]
+TargetBits=24
+DitherAmount=1.0
+
+[Hardware]
+TruncateLen=0
+</code></pre>
+
+<h4>Exit-Codes</h4>
+<p>### Exit-Codes</p>
+
+<table>
+<tr><td>Code</td><td>Bedeutung</td></tr>
+<tr><td>0</td><td>Erfolg</td></tr>
+<tr><td>1</td><td>Fehler</td></tr>
+</table>
+
+<hr>
+
+<h3 id="glossary">Glossar</h3>
+<p>## Glossar</p>
+
+<table>
+<tr><td>Begriff</td><td>Definition</td></tr>
+<tr><td>Faltung</td><td>Eine Signalcharakteristik auf ein anderes anwenden</td></tr>
+<tr><td>IR</td><td>Impulsantwort — klanglicher Fingerabdruck eines Systems</td></tr>
+<tr><td>FFT</td><td>Schnelle Fourier-Transformation</td></tr>
+<tr><td>PFFFT</td><td>Pretty Fast FFT — audio-optimierte FFT-Bibliothek</td></tr>
+<tr><th>Minimalphase</th><th>Kein Pre-Ringing, Energie bei und nach dem Impuls</th></tr>
+<tr><th>Linearphase</th><th>Symmetrisches Pre- und Post-Ringing</th></tr>
+<tr><th>Pre-Ringing</th><th>Energie vor dem Hauptimpuls</th></tr>
+<tr><th>TPDF</th><th>Dreieckige PDF-Dithering — wandelt Verzerrung in Rauschen um</th></tr>
+<tr><th>Fehler-Feedback</th><th>Quantisierungsfehler rückkoppeln, um Rauschen zu formen</th></tr>
+<tr><th>Aliasing</th><th>Hohe Frequenzen falten als Artefakte zurück</th></tr>
+<tr><th>Nyquist</th><th>Hälfte der Sample-Rate — höchste darstellbare Frequenz</th></tr>
+<tr><th>Normalisierung</th><th>Peak auf 0 dBFS skalieren</th></tr>
+<tr><th>Cepstrum</th><th>Inverse FFT der Log-Magnitude — für Minimalphase</th></tr>
+</table>
+  </div>
+</section>
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

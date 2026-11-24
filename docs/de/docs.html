@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StringSelectorApp - Dokumentation</title>
+<link rel="stylesheet" href="../style.css">
+  <style>
+.crossbar {
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+.crossbar a {
+  color: #8b949e;
+  text-decoration: none;
+  padding: 4px 10px;
+  transition: color 0.2s;
+  font-weight: 500;
+}
+.crossbar a:hover {
+  color: #58a6ff;
+}
+.crossbar-sep {
+  color: #30363d;
+  margin: 0 6px;
+}
+</style>
+</head>
+<body>
+<div class="crossbar">
+  <a href="https://smallbutfine.github.io/ChameleonTools/">ChameleonTools</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonDrummer/">Drummer</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/TaraDSP/">TaraDSP</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/stringselectorapp/">StringSelector</a>
+  <span class="crossbar-sep">|</span>
+  <a href="https://smallbutfine.github.io/ChameleonRecorder/">Recorder</a>
+</div>
+
+<header>
+  <div class="container">
+    <h1>STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Dokumentations-Hub</p>
+    <p class="tagline">Baue es, füttere es mit Daten und verstehe die Physik hinter jeder Zahl.</p>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="concepts.html">Konzepte</a>
+      <a href="docs.html">Doku</a>
+      <a href="gui.html">GUI</a>
+      <a href="manual.html">Handbuch</a>
+      <a href="download.html">Herunterladen</a>
+      <a href="../de/index.html">DE</a>
+      <a href="../es/index.html">ES</a>
+      <a href="../fr/index.html">FR</a>
+      <a href="../pt/index.html">PT</a>
+      <a href="../ru/index.html">RU</a>
+      <a href="../zh/index.html">ZH</a>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Dokumentation</h2>
+    <p>Alles, was du brauchst, um StringSelectorApp aus der Quelle zu bauen, seine Datenbanken zu erweitern und die Mathematik hinter den Spannungszahlen zu verstehen. Beginne mit den Anleitungen unten und tauche dann in die Referenzen ein.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Das Handbuch des Geigenbauers</h3>
+        <p>Eine vollständige Anleitung zur Physik, der Oberfläche, zum Lesen von Ergebnissen, zu Werkstatt-Berichten und zur Halsstab-Anpassung.</p>
+        <p><a href="manual.html"><strong>Handbuch lesen &rarr;</strong></a></p>
+      </div>
+      <div class="feature-card">
+        <h3>GUI-Referenz</h3>
+        <p>Jedes Bedienelement, jede Spalte des Ergebnisrasters, die visuelle Spannungskurve und eine Schritt-für-Schritt-Erstberechnung.</p>
+        <p><a href="gui.html"><strong>GUI-Referenz öffnen &rarr;</strong></a></p>
+      </div>
+      <div class="feature-card">
+        <h3>Downloads</h3>
+        <p>Vorgefertigte Binärdateien für Windows, macOS (Intel & Apple Silicon) und Linux (x86_64 & ARM).</p>
+        <p><a href="download.html"><strong>Binärdateien herunterladen &rarr;</strong></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Aus der Quelle bauen</h2>
+    <p>StringSelectorApp ist ein FreePascal / Lazarus Projekt. Das Repository enthält ein einziges Build-Skript, <code>build_all.bat</code>, das die GUI für jedes unterstützte Ziel kompiliert und die Ergebnisse in <code>Deploy/</code> verpackt.</p>
+
+    <h3>Voraussetzungen</h3>
+    <table>
+      <thead><tr><th>Werkzeug</th><th>Zweck</th><th>Standardpfad</th></tr></thead>
+      <tbody>
+        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Kompiliert den Pascal-Quellcode</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Erstellt das LCL-GUI-Projekt</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td>Cross-Binärdateien</td><td>Cross-Kompilierung für macOS & Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Erstellt den Windows-Installer</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td>GNU tar</td><td>Packt Linux-Tarballs</td><td><code>tar</code> im PATH</td></tr>
+        <tr><td>Python 3</td><td>Zippt macOS <code>.app</code>-Bundles mit korrekten Unix-Modi</td><td><code>python</code> im PATH</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Build-Befehle</h3>
+    <div class="command-block">
+      <span class="comment"># Alle 5 Ziele bauen und in Deploy/ verpacken</span><br>
+      ./build_all.bat<br><br>
+      <span class="comment"># Nur die Toolchain überprüfen (kein Build)</span><br>
+      ./build_all.bat --check
+    </div>
+    <p>Das Skript baut fünf Ziele: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code> und <code>linux-arm</code>. Die Ausgabe geht nach <code>dist\&lt;target&gt;\</code> und versionsgestempelte Pakete werden nach <code>Deploy\</code> kopiert.</p>
+
+    <h3>Umgebungsvariablen</h3>
+    <p>Jeder Toolchain-Pfad kann überschrieben werden, ohne das Skript zu bearbeiten. Setze diese vor dem Ausführen von <code>build_all.bat</code>:</p>
+    <table>
+      <thead><tr><th>Variable</th><th>Überschreibt</th><th>Standard</th></tr></thead>
+      <tbody>
+        <tr><td><code>FPC_DIR</code></td><td>Free Pascal Compiler-Verzeichnis</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td><code>LAZBUILD</code></td><td>Lazarus Build-Tool-Pfad</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td><code>CROSS_BIN_DIR</code></td><td>Cross-Compiler-Binärdateien</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td><code>ISCC</code></td><td>Inno Setup Compiler</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td><code>TAR</code></td><td>tar-Programm</td><td><code>tar</code></td></tr>
+        <tr><td><code>NO_VERSION_BUMP</code></td><td>Die aktuelle Version bauen, ohne das Patch-Level zu erhöhen</td><td>(nicht gesetzt)</td></tr>
+        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Das interaktive <code>pause</code> am Ende überspringen (nie in CI hängen bleiben)</td><td>(nicht gesetzt)</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Tipp:</strong> Der Build-Zähler in <code>Assets\version.txt</code> wird bei jedem Build erhöht, damit versionsgestempelte Artefakte nie kollidieren. Setze <code>NO_VERSION_BUMP=1</code> für idempotente Neu-Builds derselben Version.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Datenformat-Referenz</h2>
+    <p>StringSelectorApp ist datengetrieben. Zwei einfache Text-INI-Dateien liegen neben der ausführbaren Datei und werden beim Start geladen. Bearbeite sie in einem beliebigen Texteditor &mdash; keine Neukompilierung erforderlich.</p>
+
+    <h3>strings.ini &mdash; die Saaten-Datenbank</h3>
+    <p>Jeder <code>[Section]</code> ist ein Saaten-Satz. Die App liest jeden Abschnitt, behält diejenigen, deren <code>StringCount</code> mit der aktuellen Stimmung übereinstimmt, und ordnet sie danach, wie nah ihre Spannung am Zielwert ist.</p>
+    <pre>[ErnieBall_Regular_2221]
+Name=Ernie Ball 2221 Regular Slinky (10-46)
+StringCount=6
+G1=0.010
+W1=0.00002215
+G2=0.013
+W2=0.00003737
+G3=0.017
+W3=0.00006391
+G4=0.026
+W4=0.00012671
+G5=0.036
+W5=0.00023964
+G6=0.046
+W6=0.00038216</pre>
+    <table>
+      <thead><tr><th>Feld</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td><code>Name</code></td><td>Anzeigename im Ergebnisraster (Marke + Gauge).</td></tr>
+        <tr><td><code>StringCount</code></td><td>Anzahl der Saiten im Satz (1&ndash;9).</td></tr>
+        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Gauge jeder Saite in Zoll (einfache Dezimalzahl, z.B. <code>0.010</code>).</td></tr>
+        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Einheitsgewicht jeder Saite in lbs/Zoll. Dies ist der physische Wert, den die Formel verwendet &mdash; nicht die Gauge.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Warum Einheitsgewicht, nicht Gauge?</strong> Zwei Saiten mit derselben Gauge können sehr unterschiedliche Einheitsgewichte haben, abhängig von Material (Stahl, Nickelumwickelt, Edelstahl), Kernform und Wicklung. Die Spannung hängt vom Einheitsgewicht ab, also ist das der Wert, den die Datei speichert.
+    </div>
+
+    <h3>tunings.ini &mdash; die Stimmungs-Presets</h3>
+    <p>Jeder <code>[Tuning_N]</code>-Abschnitt ist ein Preset. Der <code>[Setup]</code>-Abschnitt am Anfang deklariert, wie viele Presets existieren (<code>TuningCount</code>). Die App liest genau diese Anzahl von Abschnitten in Reihenfolge.</p>
+    <pre>[Setup]
+TuningCount=28
+
+[Tuning_0]
+Name=Guitar: 6-String E-Standard (Default)
+StringCount=6
+N1=E4
+N2=B3
+N3=G3
+N4=D3
+N5=A2
+N6=E2</pre>
+    <table>
+      <thead><tr><th>Feld</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td><code>Name</code></td><td>Anzeigename im Instrument/Stimmungs-Combo.</td></tr>
+        <tr><td><code>StringCount</code></td><td>Anzahl der Saiten (4&ndash;9).</td></tr>
+        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Tonname jeder Saite, <strong>Saite 1 = höchste Saite</strong>. Format: Buchstabe + optionales <code>#</code>/<code>b</code> + Oktave, z.B. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Oktav-Konvention:</strong> Die wissenschaftliche Tonhöhennotation wird verwendet, also <code>A4 = 440 Hz</code> und <code>A2 = 110 Hz</code>. Der Tonname wird mit <code>f = A4 &times; 2^(n/12)</code> in eine Frequenz umgewandelt, wobei <code>n</code> der Halbtonabstand von A4 ist.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Physik-Formel-Referenz</h2>
+    <p>Jede Spannungszahl in der App stammt aus einer Gleichung &mdash; der idealen Flexsaiten-Spannungsformel, gelöst nach Pfund-Kraft.</p>
+
+    <h3>Saitenspannung</h3>
+    <div class="command-block">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <table>
+      <thead><tr><th>Symbol</th><th>Größe</th><th>Einheit</th></tr></thead>
+      <tbody>
+        <tr><td><code>T</code></td><td>Spannung</td><td>Pfund (lbs)</td></tr>
+        <tr><td><code>W</code></td><td>Einheitsgewicht der Saite</td><td>lbs / Zoll</td></tr>
+        <tr><td><code>L</code></td><td>Mensurlänge (schwingende Saatenlänge)</td><td>Zoll</td></tr>
+        <tr><td><code>f</code></td><td>Frequenz des Tons</td><td>Hz</td></tr>
+        <tr><td><code>386.4</code></td><td>Gravitationskonstante</td><td>in / s<sup>2</sup> (wandelt in Pfund-Kraft um)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Frequenz aus Tonnamen</h3>
+    <p>Jeder Ton wird unter Verwendung gleichstufiger Stimmung in eine Frequenz umgewandelt:</p>
+    <div class="command-block">
+      f = A4 &times; 2<sup>(n / 12)</sup>
+    </div>
+    <p>wobei <code>A4</code> die Kammerton-Referenz ist (standardmäßig 440 Hz, in der GUI einstellbar 390&ndash;460 Hz) und <code>n</code> die Anzahl der Halbtöne von A4 ist (z.B. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
+
+    <h3>Einheitenumrechnungen (ISO-Modus)</h3>
+    <table>
+      <thead><tr><th>Von</th><th>Zu</th><th>Multiplizieren mit</th></tr></thead>
+      <tbody>
+        <tr><td>Spannung (lbs)</td><td>Kilogramm</td><td><code>0.45359237</code></td></tr>
+        <tr><td>Spannung (lbs)</td><td>Newton</td><td><code>4.448</code> (über kg &times; 9.80665)</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Mensurlängen-Interpolation (Multiskala / Fanned-Fret)</h3>
+    <p>Für Instrumente mit unterschiedlichen Diskant- und Bass-Mensurlängen interpoliert die App linear über die Saiten. Für Saite <code>i</code> von <code>N</code> (0-basiert):</p>
+    <div class="command-block">
+      L<sub>i</sub> = ScaleTreble + (ScaleBass &minus; ScaleTreble) &times; (i / (N &minus; 1))
+    </div>
+    <p>Saite 1 verwendet die Diskant-Mensur, die tiefste Saite verwendet die Bass-Mensur, und alles dazwischen wird interpoliert. Für ein Instrument mit einheitlicher Mensur setze Diskant und Bass auf denselben Wert.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Wie man eigene Saiten hinzufügt</h2>
+    <p>Das Hinzufügen eines Saaten-Satzes ist einfach eine Bearbeitung von <code>strings.ini</code>. Die App lädt sie beim nächsten Start neu.</p>
+    <ol>
+      <li><strong>Öffne <code>strings.ini</code></strong> in einem beliebigen Texteditor (Notepad, VS Code, etc.). Sie liegt neben der ausführbaren Datei.</li>
+      <li><strong>Kopiere einen vorhandenen Abschnitt</strong>, der dieselbe Anzahl von Saiten wie dein neuer Satz hat.</li>
+      <li><strong>Füge ihn am Ende</strong> der Datei ein und gib ihm einen eindeutigen <code>[Section_Name]</code> (Buchstaben, Zahlen, Unterstriche &mdash; keine Leerzeichen).</li>
+      <li><strong>Setze <code>Name</code></strong> auf die Marke und Gauge, z.B. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
+      <li><strong>Fülle <code>G1</code>&hellip;<code>GN</code></strong> (Gauge in Zoll) und <code>W1</code>&hellip;<code>WN</code> (Einheitsgewicht in lbs/Zoll) für jede Saite aus.</li>
+      <li><strong>Speichere die Datei</strong> und starte die App neu. Dein Satz erscheint automatisch in der Auswertung.</li>
+    </ol>
+    <pre>[MyBrand_Custom_1052]
+Name=MyBrand Custom Set (10-52)
+StringCount=6
+G1=0.010
+W1=0.00002215
+G2=0.013
+W2=0.00003737
+G3=0.017
+W3=0.00006391
+G4=0.030
+W4=0.00016911
+G5=0.042
+W5=0.00031841
+G6=0.052
+W6=0.00049216</pre>
+    <h3>Wo man Einheitsgewichtsdaten findet</h3>
+    <ul>
+      <li><strong>Hersteller-Webseiten</strong> &mdash; Ernie Ball, D'Addario und Elixir veröffentlichen Einheitsgewichte für ihre Sätze.</li>
+      <li><strong>Online-Spannungsrechner</strong> &mdash; viele listen das Einheitsgewicht neben der Gauge auf.</li>
+      <li><strong>Selbst messen</strong> &mdash; wiege eine bekannte Länge Saite auf einer Präzisionswaage und teile.</li>
+    </ul>
+    <div class="warning">
+      <strong>Rate das Einheitsgewicht nicht allein aus der Gauge.</strong> Eine <code>.010"</code> Stahlsaite und eine <code>.010"</code> nickelumwickelte Saite können sich in der Spannung um 20% unterscheiden. Verwende das gemessene oder veröffentlichte Einheitsgewicht für genaue Ergebnisse.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Wie man benutzerdefinierte Stimmungen hinzufügt</h2>
+    <p>Es gibt zwei Möglichkeiten, eine Stimmung hinzuzufügen: manuell in <code>tunings.ini</code> oder mit dem <strong>Save Tuning</strong>-Button in der App.</p>
+
+    <h3>Option A &mdash; tunings.ini direkt bearbeiten</h3>
+    <ol>
+      <li><strong>Öffne <code>tunings.ini</code></strong> in einem Texteditor.</li>
+      <li><strong>Notiere den aktuellen <code>TuningCount</code></strong> im <code>[Setup]</code>-Abschnitt.</li>
+      <li><strong>Füge einen neuen Abschnitt</strong> mit dem Namen <code>[Tuning_N]</code> hinzu, wobei <code>N</code> der aktuelle Zähler ist (Abschnitte werden in Reihenfolge <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip; gelesen).</li>
+      <li><strong>Setze <code>Name</code>, <code>StringCount</code> und <code>N1</code>&hellip;<code>N9</code></strong> (Saite 1 = höchste Saite).</li>
+      <li><strong>Erhöhe <code>TuningCount</code></strong> in <code>[Setup]</code> um eins.</li>
+      <li><strong>Speichern und neu starten</strong> &mdash; die neue Stimmung erscheint im Instrument/Stimmungs-Combo.</li>
+    </ol>
+    <pre>[Setup]
+TuningCount=29
+
+[Tuning_28]
+Name=Guitar: 6-String My Custom Tuning
+StringCount=6
+N1=E4
+N2=B3
+N3=G3
+N4=D3
+N5=A2
+N6=D2</pre>
+
+    <h3>Option B &mdash; Den Save Tuning-Button verwenden</h3>
+    <ol>
+      <li>Wähle in der App ein Preset, das dem gewünschten nahekommt (oder wähle <strong>Custom / User-Defined...</strong>).</li>
+      <li>Passe die Töne, Transposition und Tonhöhe an, bis die Stimmung deinen Wünschen entspricht.</li>
+      <li>Klicke auf <strong>Save Tuning</strong> und gib einen beschreibenden Namen ein, wenn dazu aufgefordert.</li>
+      <li>Die App fügt einen neuen <code>[Tuning_N]</code>-Abschnitt an <code>tunings.ini</code> an, erhöht <code>TuningCount</code> und lädt die Preset-Liste neu.</li>
+    </ol>
+    <div class="note">
+      <strong>Tonnamen müssen einfach sein.</strong> Der Save Tuning-Button entfernt alle nachfolgenden Modifikatoren (z.B. <code>" (Drop)"</code>) vor dem Schreiben, also schreibe saubere Tonnamen wie <code>E4</code>, <code>Bb3</code> oder <code>F#1</code>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+  </div>
+</footer>
+</body>
+</html>

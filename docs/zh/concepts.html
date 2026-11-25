@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Concepts &amp; Physics</title>
+<title>StringSelectorApp - 概念与物理</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,358 +46,358 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">Concepts &amp; Physics</p>
-    <p class="tagline">The why behind every number &mdash; tension, gauge, scale, and the neck that holds it all together.</p>
+    <p class="subtitle">概念与物理</p>
+    <p class="tagline">每个数字背后的原因 — 张力、规格、弦长，以及将一切维系在一起的琴颈。</p>
     <nav>
       <a href="index.html">首页</a>
       <a href="concepts.html">概念</a>
       <a href="docs.html">文档</a>
-      <a href="gui.html">界面</a>
+      <a href="gui.html">图形界面</a>
       <a href="manual.html">手册</a>
       <a href="download.html">下载</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>What Is String Tension?</h2>
-    <p>String tension is the <strong>pulling force</strong> a string exerts on the instrument while it is tuned to pitch. Every string on your guitar is stretched between two fixed points &mdash; the bridge and the nut (or the fret you are holding) &mdash; and the amount of stretch is what we hear as pitch. The harder the string is pulled, the higher the note and the tighter it feels under your fingers.</p>
-    <p>Tension matters for three reasons that every tech and luthier deals with daily:</p>
+    <h2>什么是琴弦张力？</h2>
+    <p>琴弦张力是琴弦在调音到音高时施加在乐器上的<strong>拉力</strong>。你的吉他上的每根弦都被拉伸在两个固定点之间 — 琴桥和琴枕（或你按下的品丝）— 拉伸量就是我们听到的音高。弦被拉得越紧，音符越高，在手指下感觉越紧。</p>
+    <p>张力对每位技师和制琴师每天处理的三个原因很重要：</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Playability</h3>
-        <p>High-tension strings feel stiff, fight your fretting hand, and cause fatigue. Low-tension strings feel sloppy, buzz easily, and can rattle against frets. The right tension is the difference between a guitar that plays itself and one that fights back.</p>
+        <h3>可演奏性</h3>
+        <p>高张力弦感觉僵硬，与你的左手对抗，造成疲劳。低张力弦感觉松弛，容易嗡嗡作响，并可能碰弦打品。正确的张力是能自我演奏的吉他与与你对抗的吉他之间的区别。</p>
       </div>
       <div class="feature-card">
-        <h3>Setup &amp; Intonation</h3>
-        <p>Tension changes string stiffness and elasticity, which shifts intonation, action, and neck relief. A setup done at one tension will drift when you change to a different set or tuning.</p>
+        <h3>设置与音准</h3>
+        <p>张力改变弦的刚度和弹性，这会移动音准、弦距和琴颈弧度。在一个张力下做的设置，当你换到不同的套装或调音时会漂移。</p>
       </div>
       <div class="feature-card">
-        <h3>Structural Load</h3>
-        <p>A set of six strings can pull with 100&ndash;180 lbs of combined force. That load is constantly bending the neck, loading the bridge, and stressing the headstock. Knowing the total is essential before you adjust a truss rod or swap to a heavier set.</p>
+        <h3>结构负载</h3>
+        <p>一套六根弦可以以 100&ndash;180 磅的合力拉。该负载不断弯曲琴颈、加载琴桥并使琴头受力。在调整桁杆或换到更重的套装之前，知道总数是必不可少的。</p>
       </div>
     </div>
     <div class="note">
-      <strong>Rule of thumb:</strong> A typical electric guitar set (10&ndash;46) at standard tuning on a 25.5" scale pulls roughly <strong>105&ndash;110 lbs</strong> total. A bass set can exceed <strong>150 lbs</strong>. These are not small numbers &mdash; your neck is engineered around them.
+      <strong>经验法则：</strong> 一套典型的电吉他套装（10&ndash;46）在 25.5" 弦长的标准调音下总共拉约 <strong>105&ndash;110 磅</strong>。贝斯套装可超过 <strong>150 磅</strong>。这些不是小数字 — 你的琴颈是围绕它们设计的。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Tension Formula</h2>
-    <p>Every tension number StringSelectorApp produces comes from one equation &mdash; the ideal flexible-string formula, solved for pounds-force:</p>
+    <h2>张力公式</h2>
+    <p>StringSelectorApp 产生的每个张力数字都来自一个方程 — 理想柔性弦公式，以磅力求解：</p>
     <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
       T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
     </div>
-    <p>It looks intimidating, but each term is something you already understand. Here it is in plain language:</p>
+    <p>看起来令人生畏，但每一项都是你已经理解的东西。简单语言如下：</p>
     <table>
-      <thead><tr><th>Term</th><th>What it means</th><th>Unit</th><th>Plain-language explanation</th></tr></thead>
+      <thead><tr><th>项</th><th>含义</th><th>单位</th><th>简单语言解释</th></tr></thead>
       <tbody>
-        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td><td>The answer &mdash; how hard the string is pulling.</td></tr>
-        <tr><td><code>W</code></td><td>Unit weight</td><td>lbs / inch</td><td>How heavy the string is per inch of length. A thicker or denser string has a higher W. This is the single most important input &mdash; see the next section.</td></tr>
-        <tr><td><code>L</code></td><td>Scale length</td><td>inches</td><td>The vibrating length of the string &mdash; bridge to nut. Longer scale = more tension for the same note.</td></tr>
-        <tr><td><code>f</code></td><td>Frequency</td><td>Hz (cycles/sec)</td><td>The note itself. Higher notes (more Hz) need more tension to reach pitch on the same string.</td></tr>
-        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup></td><td>A conversion factor that turns the physics into pounds-force. You never change it &mdash; it is just the bridge between the metric world of the formula and the imperial units luthiers use.</td></tr>
+        <tr><td><code>T</code></td><td>张力</td><td>磅 (lbs)</td><td>答案 — 弦拉得有多紧。</td></tr>
+        <tr><td><code>W</code></td><td>单位重量</td><td>磅 / 英寸</td><td>弦每英寸长度有多重。更粗或更密的弦有更高的 W。这是最重要的输入 — 见下一节。</td></tr>
+        <tr><td><code>L</code></td><td>有效弦长</td><td>英寸</td><td>弦的振动长度 — 琴桥到琴枕。弦长越长 = 同一音符张力越大。</td></tr>
+        <tr><td><code>f</code></td><td>频率</td><td>Hz（周期/秒）</td><td>音符本身。更高的音符（更多 Hz）需要更多张力才能在同一根弦上达到音高。</td></tr>
+        <tr><td><code>386.4</code></td><td>重力常数</td><td>英寸 / s<sup>2</sup></td><td>将物理转换为磅力的转换因子。你从不更改它 — 它只是公式的度量世界与制琴师使用的英制单位之间的桥梁。</td></tr>
       </tbody>
     </table>
 
-    <h3>The calculation pipeline</h3>
-    <p>Here is how a single string travels from "note name" to "pounds of pull":</p>
+    <h3>计算流水线</h3>
+    <p>这是单根弦从「音符名」到「磅拉力」的旅程：</p>
     <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:0; margin:25px 0; font-size:0.9em;">
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Note Name</div>
-        <div style="color:#e0e0e0; margin-top:8px;">e.g. <code>E2</code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">From tuning preset</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">音符名</div>
+        <div style="color:#e0e0e0; margin-top:8px;">例如 <code>E2</code></div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">来自调音预设</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Frequency</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">频率</div>
         <div style="color:#e0e0e0; margin-top:8px;"><code>f = A4 &times; 2<sup>(n/12)</sup></code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Equal temperament, A4=440 Hz</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">十二平均律，A4=440 Hz</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Unit Weight + Scale</div>
-        <div style="color:#e0e0e0; margin-top:8px;"><code>W</code> from pack<br><code>L</code> from scale</div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Looked up from strings.ini</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">单位重量 + 弦长</div>
+        <div style="color:#e0e0e0; margin-top:8px;"><code>W</code> 来自套装<br><code>L</code> 来自弦长</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">从 strings.ini 查找</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Tension</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">张力</div>
         <div style="color:#e0e0e0; margin-top:8px;"><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Pounds of pull</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">磅拉力</div>
       </div>
     </div>
     <div class="note">
-      <strong>Why the formula matters to you:</strong> You do not need to do this math by hand &mdash; that is what the app is for. But understanding the four inputs means you can predict what will happen before you buy strings. Want more tension? Go to a heavier gauge, a longer scale, or tune up. Want less? The opposite. The formula makes those trade-offs predictable instead of guesswork.
+      <strong>为什么公式对你重要：</strong> 你不需要手算 — 这就是应用的用途。但理解四个输入意味着你可以在买弦之前预测会发生什么。想要更多张力？换更重的规格、更长的弦长，或调高。想要更少？反之。公式让这些权衡可预测而非猜测。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Unit Weight vs. Gauge</h2>
-    <p>This is the single most misunderstood concept in string tension, and the one that causes the most bad setups. <strong>Gauge is not tension.</strong> Gauge is just the diameter of the string. Tension depends on how much the string <em>weighs per inch</em> &mdash; its <strong>unit weight</strong>.</p>
+    <h2>单位重量 vs. 规格</h2>
+    <p>这是琴弦张力中最被误解的概念，也是造成最多糟糕设置的概念。<strong>规格不是张力。</strong>规格只是琴弦的直径。张力取决于琴弦<em>每英寸的重量</em> — 其<strong>单位重量</strong>。</p>
 
-    <h3>Why ".010" is not enough information</h3>
-    <p>A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string of the same gauge can differ by <strong>20% or more</strong> in tension. The diameter is identical, but the mass is not. Here is why:</p>
+    <h3>为什么「.010」信息不足</h3>
+    <p>一根 <code>.010"</code> 裸钢弦和一根 <code>.010"</code> 镀镍弦，相同规格，张力可能相差 <strong>20% 或更多</strong>。直径相同，但质量不同。原因如下：</p>
     <table>
-      <thead><tr><th>Factor</th><th>Effect on unit weight</th><th>Effect on tension</th></tr></thead>
+      <thead><tr><th>因素</th><th>对单位重量的影响</th><th>对张力的影响</th></tr></thead>
       <tbody>
-        <tr><td><strong>Material</strong></td><td>Steel, nickel-plated steel, stainless steel, and bronze all have different densities. Stainless is denser than plain steel; phosphor bronze is denser than nickel.</td><td>Same gauge, different material = different tension. A stainless .010 pulls harder than a nickel-plated .010.</td></tr>
-        <tr><td><strong>Winding</strong></td><td>Wound strings have a core wire wrapped with a thinner outer wire. The wrap adds mass without adding much diameter. Roundwound, flatwound, and tapewound all change the mass.</td><td>Flatwounds typically have higher unit weight than roundwounds of the same gauge &mdash; they feel stiffer and pull harder.</td></tr>
-        <tr><td><strong>Core shape</strong></td><td>Hex cores vs. round cores change how tightly the wrap seats, which changes the effective mass.</td><td>Hex-core strings often have slightly higher tension for the same gauge.</td></tr>
-        <tr><td><strong>Manufacturing tolerance</strong></td><td>Two manufacturers' ".010" can differ by a few thousandths of an inch in actual diameter.</td><td>Small gauge differences compound across a set.</td></tr>
+        <tr><td><strong>材料</strong></td><td>钢、镀镍钢、不锈钢和青铜的密度都不同。不锈钢比裸钢密；磷青铜比镍密。</td><td>相同规格，不同材料 = 不同张力。不锈钢 .010 比镀镍 .010 拉得更紧。</td></tr>
+        <tr><td><strong>绕线</strong></td><td>缠绕弦有一个芯线，外包更细的外线。缠绕增加质量而不增加太多直径。圆绕、平绕和带绕都改变质量。</td><td>平绕弦通常比相同规格的 圆绕弦单位重量更高 — 感觉更硬，拉得更紧。</td></tr>
+        <tr><td><strong>芯线形状</strong></td><td>六角芯 vs. 圆芯改变缠绕的紧密程度，从而改变有效质量。</td><td>六角芯弦往往在相同规格下张力略高。</td></tr>
+        <tr><td><strong>制造公差</strong></td><td>两个制造商的「.010」在实际直径上可能相差几千分之一英寸。</td><td>小的规格差异在整套中累积。</td></tr>
       </tbody>
     </table>
 
-    <h3>Same gauge, different tension &mdash; real examples</h3>
-    <p>These are illustrative values for plain steel vs. nickel-wound strings at the same gauge on a 25.5" scale tuned to E2 (82.4 Hz):</p>
+    <h3>相同规格，不同张力 — 真实示例</h3>
+    <p>这些是裸钢 vs. 镀镍弦在 25.5" 弦长调至 E2（82.4 Hz）同规格下的说明性数值：</p>
     <table>
-      <thead><tr><th>String</th><th>Gauge</th><th>Material</th><th>Unit weight (lbs/in)</th><th>Tension (lbs)</th></tr></thead>
+      <thead><tr><th>弦</th><th>规格</th><th>材料</th><th>单位重量（磅/英寸）</th><th>张力（磅）</th></tr></thead>
       <tbody>
-        <tr><td>Low E</td><td>.046</td><td>Plain steel (hypothetical)</td><td>0.000310</td><td>~15.1</td></tr>
-        <tr><td>Low E</td><td>.046</td><td>Nickel-wound (typical)</td><td>0.000382</td><td>~18.6</td></tr>
-        <tr><td>Low E</td><td>.046</td><td>Stainless roundwound</td><td>0.000405</td><td>~19.7</td></tr>
-        <tr><td>Low E</td><td>.046</td><td>Flatwound (tape)</td><td>0.000420</td><td>~20.4</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>裸钢（假设）</td><td>0.000310</td><td>~15.1</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>镀镍（典型）</td><td>0.000382</td><td>~18.6</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>不锈钢圆绕</td><td>0.000405</td><td>~19.7</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>平绕（带绕）</td><td>0.000420</td><td>~20.4</td></tr>
       </tbody>
     </table>
     <div class="warning">
-      <strong>Never guess unit weight from gauge alone.</strong> StringSelectorApp stores the measured or published unit weight for every string in every pack &mdash; that is the value the formula uses. If you are adding your own strings to <code>strings.ini</code>, use the manufacturer's published unit weight or measure it yourself (weigh a known length on a precision scale and divide). Do not estimate it from the gauge.
+      <strong>永远不要仅凭规格猜测单位重量。</strong>StringSelectorApp 为每个套装中的每根弦存储测量或发布的单位重量 — 这是公式使用的值。如果你向 <code>strings.ini</code> 添加自己的弦，请使用制造商发布的单位重量或自己测量（在精密秤上称量已知长度并相除）。不要从规格估计它。
     </div>
     <div class="note">
-      <strong>How to measure unit weight yourself:</strong> Cut a 10-inch length of string, weigh it in grams on a jeweler's scale, then convert: <code>W (lbs/in) = grams &divide; 453.592 &divide; 10</code>. A .046 nickel-wound low E should come out around 0.00038 lbs/in. If your measurement is way off, your scale is not precise enough or the string is not what you think it is.
+      <strong>如何自己测量单位重量：</strong>剪一段 10 英寸的琴弦，在珠宝秤上以克称重，然后换算：<code>W（磅/英寸）= 克 &divide; 453.592 &divide; 10</code>。一根 .046 镀镍 low E 应约为 0.00038 磅/英寸。如果你的测量偏差很大，你的秤不够精确或弦不是你以为的那样。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Scale Length</h2>
-    <p>Scale length is the vibrating length of the string &mdash; the distance from the bridge saddle to the nut. It is the second most important factor in tension after unit weight, and it is the one most players never think about until they switch guitars.</p>
+    <h2>有效弦长</h2>
+    <p>有效弦长是弦的振动长度 — 从琴桥鞍到琴枕的距离。它是张力中仅次于单位重量的第二重要因素，也是大多数演奏者在换吉他之前从不考虑的因素。</p>
 
-    <h3>Why 25.5" vs. 24.75" matters</h3>
-    <p>The two most common electric guitar scale lengths are Fender-style <strong>25.5"</strong> and Gibson-style <strong>24.75"</strong>. That 0.75" difference sounds tiny, but because tension scales with the <em>square</em> of scale length, the effect is roughly <strong>10%</strong>:</p>
+    <h3>为什么 25.5" vs. 24.75" 很重要</h3>
+    <p>两种最常见的电吉他有效弦长是 Fender 风格 <strong>25.5"</strong> 和 Gibson 风格 <strong>24.75"</strong>。这 0.75" 的差异听起来很小，但由于张力随有效弦长的<em>平方</em>缩放，影响约为 <strong>10%</strong>：</p>
     <div class="command-block" style="text-align:center;">
-      (25.5 / 24.75)<sup>2</sup> = 1.061 &nbsp;&rarr;&nbsp; ~6% more tension on the longer scale
+      (25.5 / 24.75)<sup>2</sup> = 1.061 &nbsp;&rarr;&nbsp; 较长弦长上约多 6% 张力
     </div>
-    <p>In practice, the perceived difference is closer to 8&ndash;10% because of how string stiffness and elasticity interact with scale. The shorter Gibson scale feels slinkier and easier to bend; the longer Fender scale feels tighter, has more snap, and stays in tune better under heavy bending. Neither is "right" &mdash; they are different tools.</p>
+    <p>实际上，感知差异接近 8&ndash;10%，因为弦的刚度和弹性与弦长的相互作用。较短的 Gibson 弦长更柔滑、更容易推弦；较长的 Fender 弦长更紧、更有冲击力，在大力推弦下保持音准更好。没有哪个是「正确」的 — 它们是不同的工具。</p>
     <table>
-      <thead><tr><th>Scale</th><th>Typical guitars</th><th>Feel</th><th>Tension vs. 25.5"</th></tr></thead>
+      <thead><tr><th>弦长</th><th>典型吉他</th><th>感觉</th><th>张力 vs. 25.5"</th></tr></thead>
       <tbody>
-        <tr><td>25.5"</td><td>Fender Stratocaster, Telecaster, Jazzmaster, Jaguar</td><td>Tight, snappy, clear</td><td>Baseline (100%)</td></tr>
-        <tr><td>24.75"</td><td>Gibson Les Paul, SG, ES-335</td><td>Slinky, warm, easy bends</td><td>~90&ndash;92%</td></tr>
-        <tr><td>25"</td><td>PRS, many modern electrics</td><td>Between the two</td><td>~96%</td></tr>
-        <tr><td>26.5"</td><td>Baritone guitars, some 7-string</td><td>Very tight, piano-like</td><td>~108%</td></tr>
-        <tr><td>34"</td><td>Electric bass (standard)</td><td>Bass tension territory</td><td>N/A (different regime)</td></tr>
+        <tr><td>25.5"</td><td>Fender Stratocaster、Telecaster、Jazzmaster、Jaguar</td><td>紧、脆、清晰</td><td>基准 (100%)</td></tr>
+        <tr><td>24.75"</td><td>Gibson Les Paul、SG、ES-335</td><td>柔滑、温暖、推弦容易</td><td>~90&ndash;92%</td></tr>
+        <tr><td>25"</td><td>PRS、许多现代电吉他</td><td>介于两者之间</td><td>~96%</td></tr>
+        <tr><td>26.5"</td><td>男中音吉他、一些 7 弦</td><td>非常紧、像钢琴</td><td>~108%</td></tr>
+        <tr><td>34"</td><td>电贝斯（标准）</td><td>贝斯张力领域</td><td>N/A（不同机制）</td></tr>
       </tbody>
     </table>
 
-    <h3>Multiscale / fanned-fret instruments</h3>
-    <p>Multiscale instruments (also called fanned-fret) use a <em>different scale length for each string</em>. The bass strings are longer, the treble strings are shorter, and the frets fan out across the fretboard. A typical 6-string multiscale might run 25.5" on the high E and 26.5" on the low E.</p>
-    <p>The reason is tension balance: on a single-scale guitar, the low strings always feel floppier than the high strings because they are thicker but tuned lower. By making the bass strings longer, a multiscale instrument evens out the tension across the set &mdash; the low strings get tighter, the high strings stay the same, and the whole set feels more uniform under your fingers.</p>
+    <h3>多尺度 / 扇形品丝乐器</h3>
+    <p>多尺度乐器（也称为扇形品丝）为每根弦使用<em>不同的有效弦长</em>。贝斯弦更长，高音弦更短，品丝在指板上呈扇形展开。一个典型的 6 弦多尺度可能高音 E 为 25.5"，低音 E 为 26.5"。</p>
+    <p>原因是张力平衡：在单尺度吉他上，低音弦总是感觉比高音弦松，因为它们更粗但调音更低。通过使贝斯弦更长，多尺度乐器在整套中均匀张力 — 低音弦变紧，高音弦保持不变，整套在手指下感觉更均匀。</p>
     <div class="note">
-      <strong>In StringSelectorApp:</strong> Set the <strong>Treble Scale</strong> and <strong>Bass Scale</strong> fields to your instrument's values. The app interpolates linearly across the strings &mdash; string 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is calculated proportionally. For a single-scale instrument, set both fields to the same value.
+      <strong>在 StringSelectorApp 中：</strong>将 <strong>Treble Scale</strong> 和 <strong>Bass Scale</strong> 字段设置为乐器的值。应用跨弦线性插值 — 第 1 根弦使用高音侧弦长，最低音弦使用低音侧弦长，中间的一切按比例计算。对于单尺度乐器，将两个字段设为相同值。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Tuning and Frequency</h2>
-    <p>The formula needs a frequency in Hz, but you give it a note name like <code>E2</code> or <code>Bb3</code>. The app converts one to the other using <strong>equal temperament</strong> &mdash; the tuning system that divides the octave into 12 equal semitones.</p>
+    <h2>调音与频率</h2>
+    <p>公式需要一个以 Hz 为单位的频率，但你给它一个音符名，如 <code>E2</code> 或 <code>Bb3</code>。应用使用<strong>十二平均律</strong> — 将八度分成 12 个相等半音的调音系统 — 将一个转换为另一个。</p>
 
-    <h3>How note names become frequencies</h3>
-    <p>Equal temperament is built on one reference: <strong>A4 = 440 Hz</strong> (concert pitch). Every other note is a fixed number of semitones away from A4, and each semitone is a frequency ratio of the 12th root of 2 (approximately 1.0595). The formula is:</p>
+    <h3>音符名如何变成频率</h3>
+    <p>十二平均律建立在一个参考上：<strong>A4 = 440 Hz</strong>（音乐会音高）。每个其他音符距离 A4 固定数量的半音，每个半音是 2 的 12 次根的频率比（约 1.0595）。公式为：</p>
     <div class="command-block" style="text-align:center;">
       f = A4 &times; 2<sup>(n / 12)</sup>
     </div>
-    <p>where <code>n</code> is the number of semitones from A4 (positive = above, negative = below). A few examples:</p>
+    <p>其中 <code>n</code> 是距 A4 的半音数（正 = 上方，负 = 下方）。一些示例：</p>
     <table>
-      <thead><tr><th>注意</th><th>Semitones from A4 (n)</th><th>Frequency (Hz)</th></tr></thead>
+      <thead><tr><th>音符</th><th>距 A4 的半音 (n)</th><th>频率 (Hz)</th></tr></thead>
       <tbody>
         <tr><td>A4</td><td>0</td><td>440.00</td></tr>
-        <tr><td>E4 (high E string)</td><td>+5</td><td>329.63</td></tr>
+        <tr><td>E4（高音 E 弦）</td><td>+5</td><td>329.63</td></tr>
         <tr><td>D4</td><td>-2</td><td>293.66</td></tr>
-        <tr><td>A2 (5th string, guitar)</td><td>-24</td><td>110.00</td></tr>
-        <tr><td>E2 (6th string, guitar)</td><td>-29</td><td>82.41</td></tr>
+        <tr><td>A2（吉他第 5 弦）</td><td>-24</td><td>110.00</td></tr>
+        <tr><td>E2（吉他第 6 弦）</td><td>-29</td><td>82.41</td></tr>
         <tr><td>Bb3</td><td>-1</td><td>233.08</td></tr>
       </tbody>
     </table>
 
-    <h3>Transposition</h3>
-    <p>Transposition shifts every string up or down by the same interval &mdash; for example, tuning the whole guitar up a half-step (Eb Standard) or down a whole step (D Standard). In the app, the <strong>Transpose</strong> field does this for you: enter <code>+1</code> for up a half-step, <code>-2</code> for down a whole step, and every note in the tuning is shifted before the frequency is calculated.</p>
+    <h3>移调</h3>
+    <p>移调将每根弦上下移动相同的音程 — 例如，将整个吉他调高半音（Eb Standard）或调低一个全音（D Standard）。在应用中，<strong>Transpose</strong> 字段为你做到这一点：输入 <code>+1</code> 表示上升半音，<code>-2</code> 表示下降全音，调音中的每个音符在计算频率之前移动。</p>
     <div class="note">
-      <strong>Concert pitch is adjustable.</strong> The app defaults to A4 = 440 Hz, but you can change it (390&ndash;460 Hz) in the GUI. This matters for period instruments, orchestral work, or if you tune to a reference that is not 440. A 432 Hz reference, for example, lowers every frequency by about 32 cents &mdash; and lowers tension slightly with it.
+      <strong>音乐会音高可调。</strong>应用默认为 A4 = 440 Hz，但你可以在图形界面中更改（390&ndash;460 Hz）。这对古乐器、管弦乐工作，或如果你调到不是 440 的参考很重要。例如，432 Hz 参考将每个频率降低约 32 音分 — 并略微降低张力。
     </div>
     <div class="warning">
-      <strong>Tension follows frequency.</strong> Tuning up raises frequency, which raises tension &mdash; and tuning down lowers both. A whole-step drop in tuning reduces tension by roughly 12% across the set. That is why drop-tuned guitars often need heavier strings to keep the tension where it feels right.
+      <strong>张力跟随频率。</strong>调高会提高频率，从而提高张力 — 调低会降低两者。调音下降一个全音会使整套张力降低约 12%。这就是为什么 drop 调音的吉他通常需要更重的弦来保持张力在感觉正确的位置。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Balanced Tension</h2>
-    <p>"Balanced tension" means the strings in a set pull with a <em>consistent feel</em> across the fretboard &mdash; not that they all have the same tension number. This is a subtle but crucial distinction.</p>
+    <h2>平衡张力</h2>
+    <p>「平衡张力」意味着一套中的弦在指板上以<em>一致的感受</em>拉 — 而不是它们都有相同的张力数字。这是一个微妙但至关重要的区别。</p>
 
-    <h3>Why "balanced" is not "equal"</h3>
-    <p>If every string had the same tension in pounds, the set would feel wrong. The low strings would feel too tight and the high strings too loose, because your fingers perceive tension relative to the string's gauge and pitch. A balanced set has a <strong>tension curve</strong> that accounts for this &mdash; typically the bass strings sit slightly higher in tension than the treble strings, and the curve is smooth rather than jagged.</p>
-    <p>String manufacturers design their sets around this principle. A typical electric set might have tensions like this on a 25.5" scale:</p>
+    <h3>为什么「平衡」不是「相等」</h3>
+    <p>如果每根弦都有相同的磅数张力，整套会感觉不对。低音弦会感觉太紧，高音弦太松，因为你的手指感知张力是相对于弦的规格和音高的。平衡的套装有一个考虑到这一点的<strong>张力曲线</strong> — 通常贝斯弦的张力略高于高音弦，曲线平滑而非锯齿状。</p>
+    <p>弦制造商围绕这一原则设计他们的套装。一套典型的电吉他套装在 25.5" 弦长下可能有以下张力：</p>
     <table>
-      <thead><tr><th>String</th><th>注意</th><th>Gauge</th><th>Tension (lbs)</th><th>Relative feel</th></tr></thead>
+      <thead><tr><th>弦</th><th>音符</th><th>规格</th><th>张力（磅）</th><th>相对感觉</th></tr></thead>
       <tbody>
-        <tr><td>1 (high E)</td><td>E4</td><td>.010</td><td>16.2</td><td>Reference</td></tr>
-        <tr><td>2 (B)</td><td>B3</td><td>.013</td><td>15.9</td><td>Slightly looser</td></tr>
-        <tr><td>3 (G)</td><td>G3</td><td>.017</td><td>16.8</td><td>Slightly tighter</td></tr>
-        <tr><td>4 (D)</td><td>D3</td><td>.026</td><td>17.5</td><td>Tighter</td></tr>
-        <tr><td>5 (A)</td><td>A2</td><td>.036</td><td>18.0</td><td>Tighter</td></tr>
-        <tr><td>6 (low E)</td><td>E2</td><td>.046</td><td>18.6</td><td>Tightest</td></tr>
+        <tr><td>1（高音 E）</td><td>E4</td><td>.010</td><td>16.2</td><td>参考</td></tr>
+        <tr><td>2（B）</td><td>B3</td><td>.013</td><td>15.9</td><td>略松</td></tr>
+        <tr><td>3（G）</td><td>G3</td><td>.017</td><td>16.8</td><td>略紧</td></tr>
+        <tr><td>4（D）</td><td>D3</td><td>.026</td><td>17.5</td><td>更紧</td></tr>
+        <tr><td>5（A）</td><td>A2</td><td>.036</td><td>18.0</td><td>更紧</td></tr>
+        <tr><td>6（低音 E）</td><td>E2</td><td>.046</td><td>18.6</td><td>最紧</td></tr>
       </tbody>
     </table>
-    <p>Notice the curve: it dips slightly at the B string, then climbs toward the low E. That is intentional &mdash; it matches how tension feels across the set. A set where the low E pulls 16 lbs and the high E pulls 18 lbs would feel backwards.</p>
+    <p>注意曲线：它在 B 弦处略微下降，然后向低音 E 攀升。这是故意的 — 它符合张力在整套中的感觉。一套低音 E 拉 16 磅而高音 E 拉 18 磅的套装会感觉相反。</p>
 
-    <h3>Heavy-bottom sets</h3>
-    <p>A "heavy-bottom" set (e.g. 10&ndash;52 or 11&ndash;49) puts more tension on the bass strings while keeping the treble strings light. This is popular for:</p>
+    <h3>低音重套装</h3>
+    <p>「低音重」套装（例如 10&ndash;52 或 11&ndash;49）在贝斯弦上放置更多张力，同时保持高音弦轻。这适用于：</p>
     <ul>
-      <li><strong>Drop tunings</strong> &mdash; the heavier bass strings keep tension up when you drop the low string.</li>
-      <li><strong>Rhythm players</strong> who want a tight, punchy low end without stiff trebles for bending.</li>
-      <li><strong>Baritone and multiscale instruments</strong> where the bass strings need extra tension to speak clearly.</li>
+      <li><strong>Drop 调音</strong> — 较重的贝斯弦在你降低低音弦时保持张力。</li>
+      <li><strong>节奏吉他手</strong>，想要紧凑、有力的低音而没有僵硬的高音用于推弦。</li>
+      <li><strong>男中音和多尺度乐器</strong>，贝斯弦需要额外张力才能清晰发声。</li>
     </ul>
-    <p>The trade-off is that the tension curve becomes steeper &mdash; the low strings pull noticeably harder than the high strings. That can be exactly what you want, or it can make the set feel unbalanced if overdone.</p>
+    <p>权衡是张力曲线变得更陡 — 低音弦明显比高音弦拉得更紧。这可能正是你想要的，或者如果过度，可能使套装感觉不平衡。</p>
 
-    <h3>The visual tension curve</h3>
-    <p>StringSelectorApp plots tension as a curve across the strings, so you can see the balance at a glance. A well-balanced set shows a smooth, gently sloping line. A poorly matched set shows spikes and dips &mdash; a string that is way too tight or too loose stands out immediately.</p>
+    <h3>可视化张力曲线</h3>
+    <p>StringSelectorApp 将张力绘制为跨弦的曲线，让你一眼看出平衡。一套良好平衡的套装显示平滑、略微倾斜的线。一套匹配糟糕的套装显示峰和谷 — 一根太紧或太松的弦立即突出。</p>
     <div class="note">
-      <strong>How to read the curve:</strong> A flat line means every string has the same tension (rarely what you want). A smooth upward slope from treble to bass is typical and comfortable. A jagged line with a spike means one string is mismatched &mdash; swap it for a different gauge from a single-string pack, or choose a different set.
+      <strong>如何读取曲线：</strong>平线意味着每根弦张力相同（很少是你想要的）。从高音到低音平滑上升是典型且舒适的。带峰的锯齿线意味着一根弦不匹配 — 从单弦套装中换用不同规格，或选择不同的套装。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Truss Rod and Neck Relief</h2>
-    <p>The truss rod is the steel rod inside the neck that counteracts string tension. Understanding how it works is the difference between a setup that lasts and one that fights you every time the weather changes.</p>
+    <h2>桁杆与琴颈弧度</h2>
+    <p>桁杆是琴颈内的钢杆，抵消弦张力。理解其工作原理是持久设置与每次天气变化都与您对抗的设置之间的区别。</p>
 
-    <h3>How string tension affects the neck</h3>
-    <p>A guitar neck is a lever. The strings pull the headstock forward (toward the bridge), and that force tries to bend the neck into a forward bow &mdash; creating <strong>relief</strong> (a slight concave curve). Without counterforce, the neck would bow so much the strings would sit miles above the frets.</p>
-    <p>The amount of bow depends on:</p>
+    <h3>弦张力如何影响琴颈</h3>
+    <p>吉他琴颈是一个杠杆。弦将琴头向前拉（朝向琴桥），该力试图将琴颈弯成向前弓 — 产生<strong>弧度</strong>（轻微凹曲线）。没有反向力，琴颈会弯曲到弦 sits 在品丝上方几英里处。</p>
+    <p>弯曲量取决于：</p>
     <ul>
-      <li><strong>Total string tension</strong> &mdash; more strings, heavier gauges, higher tunings, or longer scales all increase the pull.</li>
-      <li><strong>Neck stiffness</strong> &mdash; a thicker or multi-piece neck (maple/rosewood, mahogany/maple) resists bowing more than a thin one-piece neck.</li>
-      <li><strong>Truss rod tension</strong> &mdash; the rod pulls back against the strings. Tightening it (clockwise) counteracts the bow; loosening it (counter-clockwise) lets the neck bow more.</li>
+      <li><strong>总弦张力</strong> — 更多弦、更重规格、更高调音或更长弦长都增加拉力。</li>
+      <li><strong>琴颈刚度</strong> — 更厚或多片琴颈（枫木/玫瑰木、桃花心木/枫木）比薄的单片琴颈更能抵抗弯曲。</li>
+      <li><strong>桁杆张力</strong> — 杆向后拉对抗弦。拧紧它（顺时针）抵消弓；松开它（逆时针）让琴颈弯更多。</li>
     </ul>
 
-    <h3>Why total tension matters</h3>
-    <p>When you change string sets or tunings, the total tension on the neck changes &mdash; and the truss rod setting that was perfect for the old set is now wrong for the new one. A rough guide:</p>
+    <h3>为什么总张力很重要</h3>
+    <p>当你更换弦套装或调音时，琴颈上的总张力会改变 — 对旧套装完美的桁杆设置现在对新套装是错误的。粗略指南：</p>
     <table>
-      <thead><tr><th>Change</th><th>Effect on total tension</th><th>Typical truss rod response</th></tr></thead>
+      <thead><tr><th>变化</th><th>对总张力的影响</th><th>典型桁杆响应</th></tr></thead>
       <tbody>
-        <tr><td>Go up a gauge (e.g. 10s &rarr; 11s)</td><td>Increase (~10&ndash;15%)</td><td>Tighten (clockwise) 1/8 to 1/4 turn</td></tr>
-        <tr><td>Go down a gauge (11s &rarr; 10s)</td><td>Decrease</td><td>Loosen (counter-clockwise) 1/8 to 1/4 turn</td></tr>
-        <tr><td>Tune down a whole step</td><td>Decrease (~12%)</td><td>Loosen slightly, or leave and accept more relief</td></tr>
-        <tr><td>Tune up a half-step</td><td>Increase (~6%)</td><td>Tighten slightly</td></tr>
-        <tr><td>Switch to a longer scale</td><td>Increase (~6&ndash;10%)</td><td>Tighten</td></tr>
-        <tr><td>Add a string (6 &rarr; 7)</td><td>Increase (significant)</td><td>Tighten, possibly more than 1/4 turn</td></tr>
+        <tr><td>升一个规格（例如 10 &rarr; 11）</td><td>增加（~10&ndash;15%）</td><td>拧紧（顺时针）1/8 到 1/4 圈</td></tr>
+        <tr><td>降一个规格（11 &rarr; 10）</td><td>减少</td><td>松开（逆时针）1/8 到 1/4 圈</td></tr>
+        <tr><td>调音下降全音</td><td>减少（~12%）</td><td>稍微松开，或保持并接受更多弧度</td></tr>
+        <tr><td>调音上升半音</td><td>增加（~6%）</td><td>稍微拧紧</td></tr>
+        <tr><td>切换到更长弦长</td><td>增加（~6&ndash;10%）</td><td>拧紧</td></tr>
+        <tr><td>添加一根弦（6 &rarr; 7）</td><td>增加（显著）</td><td>拧紧，可能超过 1/4 圈</td></tr>
       </tbody>
     </table>
     <div class="warning">
-      <strong>Never force the truss rod.</strong> If it will not turn smoothly, stop. A broken truss rod is a very expensive repair. When in doubt, take it to a qualified tech. The app gives you an <em>estimate</em> &mdash; it is a starting point, not a substitute for a careful setup on the instrument in front of you.
+      <strong>永远不要强行拧桁杆。</strong>如果它不能平稳转动，停止。断掉的桁杆是非常昂贵的维修。如有疑问，请将其带给合格的技师。应用给你一个<em>估计</em> — 它是起点，而非对你面前乐器仔细设置的替代。
     </div>
 
-    <h3>How the app estimates truss rod adjustment</h3>
-    <p>StringSelectorApp compares the total tension of your current setup against a reference (the tension the neck was set up for). The difference, combined with the neck's stiffness profile, gives an estimated number of truss rod turns. The report presents this as a recommendation &mdash; "tighten approximately 1/8 turn" &mdash; that you then verify by measuring relief with a feeler gauge or straightedge.</p>
+    <h3>应用如何估计桁杆调整</h3>
+    <p>StringSelectorApp 将你当前设置的总张力与参考（琴颈所设置的张力）比较。差异结合琴颈的刚度曲线，给出估计的桁杆圈数。报告将其呈现为建议 —「拧紧约 1/8 圈」— 然后你通过用塞尺或直尺测量弧度来验证。</p>
     <div class="note">
-      <strong>The 0.010" relief rule:</strong> A common starting point for electric guitar is 0.010" of relief at the 7th fret (measured with a feeler gauge while holding the low E at the 1st and 15th frets). This gives a tiny bit of forward bow for clean string vibration without fret buzz. Adjust to taste and playing style &mdash; some players want 0.005" (flatter, faster), others want 0.015" (more bow, lighter touch).
+      <strong>0.010" 弧度规则：</strong>电吉他的常见起点是第 7 品处 0.010" 的弧度（用塞尺测量，同时按住第 1 和 15 品的低音 E）。这给出一点向前弓以清洁弦振动而不打品。按口味和演奏风格调整 — 有些人想要 0.005"（更平、更快），有些人想要 0.015"（更多弓、更轻的触感）。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Workshop Report</h2>
-    <p>The workshop report is StringSelectorApp's deliverable &mdash; a printable HTML document that captures everything about a setup so you can archive it, hand it to a client, or compare it against a future setup.</p>
+    <h2>工坊报告</h2>
+    <p>工坊报告是 StringSelectorApp 的交付物 — 一份可打印的 HTML 文档，捕获有关设置的一切，以便你存档、交给客户或与未来设置比较。</p>
 
-    <h3>What the report includes</h3>
+    <h3>报告包括什么</h3>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Instrument &amp; Setup Header</h3>
-        <p>Instrument name, tuning, scale length, string pack, date, and technician. Everything you need to identify the job at a glance.</p>
+        <h3>乐器与设置标题</h3>
+        <p>乐器名称、调音、弦长、琴弦套装、日期和技师。一眼识别工作所需的一切。</p>
       </div>
       <div class="feature-card">
-        <h3>Tension Table</h3>
-        <p>Every string with its note, gauge, unit weight, frequency, and tension in both pounds and kilograms (or Newtons in ISO mode). The raw data behind the setup.</p>
+        <h3>张力表</h3>
+        <p>每根弦的音符、规格、单位重量、频率和以磅和千克（或 ISO 模式下的牛顿）计的张力。设置背后的原始数据。</p>
       </div>
       <div class="feature-card">
-        <h3>Visual Tension Curve</h3>
-        <p>A graph of tension across the strings, so you (and the client) can see the balance at a glance. Spikes and dips are immediately visible.</p>
+        <h3>可视化张力曲线</h3>
+        <p>跨弦张力图，让你（和客户）一眼看出平衡。峰和谷立即可见。</p>
       </div>
       <div class="feature-card">
-        <h3>Truss Rod Recommendation</h3>
-        <p>Total tension vs. reference, with an estimated truss rod turn count. The starting point for neck adjustment &mdash; not a substitute for measuring relief.</p>
+        <h3>桁杆建议</h3>
+        <p>总张力 vs. 参考，带估计的桁杆圈数。琴颈调整的起点 — 而非测量弧度的替代。</p>
       </div>
       <div class="feature-card">
-        <h3>Notes &amp; Observations</h3>
-        <p>A free-text section for anything the numbers do not capture: fret wear, neck feel, player feedback, humidity, anything that explains the setup.</p>
+        <h3>笔记与观察</h3>
+        <p>一个自由文本部分，用于数字未捕获的任何内容：品丝磨损、琴颈感觉、演奏者反馈、湿度、任何解释设置的内容。</p>
       </div>
       <div class="feature-card">
-        <h3>Print-Ready Layout</h3>
-        <p>Clean HTML that prints to a single page (or two) on standard paper. Hand it to the client, file it, or email it as a PDF.</p>
+        <h3>打印就绪布局</h3>
+        <p>干净的 HTML，打印到标准纸张的一页（或两页）。交给客户、归档或作为 PDF 通过电子邮件发送。</p>
       </div>
     </div>
 
-    <h3>Why to archive setups</h3>
-    <p>A guitar is a dynamic system. Neck relief changes with humidity, temperature, and string age. Fret wear changes action. Players change tunings. Without a record, you are guessing every time the guitar comes back. With an archived report, you can see exactly what the setup was <em>last time</em> &mdash; and what changed.</p>
+    <h3>为什么要存档设置</h3>
+    <p>吉他是一个动态系统。琴颈弧度随湿度、温度和弦龄变化。品丝磨损改变弦距。演奏者改变调音。没有记录，每次吉他回来你都在猜测。通过存档报告，你可以看到设置<em>上次</em>到底是什么样 — 以及什么改变了。</p>
     <ul>
-      <li><strong>Repeat setups with confidence.</strong> When a client returns, pull up the last report and you know the starting point.</li>
-      <li><strong>Diagnose changes.</strong> If the guitar now buzzes where it did not before, compare the tension curve &mdash; a new string set or a humidity shift will show up.</li>
-      <li><strong>Client trust.</strong> A printed report shows the client you measured, calculated, and documented &mdash; not just eyeballed it.</li>
-      <li><strong>Warranty &amp; liability.</strong> If a neck warps or a truss rod breaks, the report documents what tension the instrument was subjected to and what you recommended.</li>
+      <li><strong>自信地重复设置。</strong>当客户回来时，拉出上次报告，你就知道起点。</li>
+      <li><strong>诊断变化。</strong>如果吉他现在在以前不嗡嗡的地方嗡嗡，比较张力曲线 — 新弦套装或湿度变化会显示出来。</li>
+      <li><strong>客户信任。</strong>打印报告向客户展示你测量、计算和记录了 — 而不仅仅是目测。</li>
+      <li><strong>保修与责任。</strong>如果琴颈翘曲或桁杆断裂，报告记录了乐器所承受的张力以及你的建议。</li>
     </ul>
 
-    <h3>How to use it with clients</h3>
+    <h3>如何与客户一起使用</h3>
     <ol>
-      <li><strong>Run the calculation</strong> with the client's instrument, tuning, and string choice in front of you.</li>
-      <li><strong>Review the tension curve together.</strong> If a string looks mismatched, discuss alternatives before installing.</li>
-      <li><strong>Generate the report</strong> and print it (or save as PDF).</li>
-      <li><strong>Walk the client through it.</strong> Show them the total tension, the truss rod recommendation, and the balance curve. Most players have never seen this information &mdash; it is a value-add that sets you apart.</li>
-      <li><strong>File a copy</strong> in your records and give a copy to the client. Note the date and any follow-up work needed (e.g. "recheck relief after 48 hours").</li>
+      <li><strong>运行计算</strong>，面前放着客户的乐器、调音和琴弦选择。</li>
+      <li><strong>一起检查张力曲线。</strong>如果一根弦看起来不匹配，在安装之前讨论替代方案。</li>
+      <li><strong>生成报告</strong>并打印（或保存为 PDF）。</li>
+      <li><strong>带客户浏览一遍。</strong>向他们展示总张力、桁杆建议和平衡曲线。大多数演奏者从未见过这些信息 — 这是使你与众不同的增值。</li>
+      <li><strong>归档一份副本</strong>在你的记录中，并给客户一份副本。注明日期和任何需要的后续工作（例如「48 小时后复查弧度」）。</li>
     </ol>
     <div class="note">
-      <strong>Pro tip:</strong> Generate the report <em>before</em> you touch the truss rod. The report captures the "before" state. After adjustment, measure relief, generate a second report, and you have a before/after record that documents exactly what changed and why.
+      <strong>专业提示：</strong>在你触摸桁杆<em>之前</em>生成报告。报告捕获「之前」状态。调整后，测量弧度，生成第二份报告，你就有一份前后记录，记录了具体改变了什么以及为什么。
     </div>
     <div class="warning">
-      <strong>The report is a record, not a prescription.</strong> The tension numbers are calculated from published unit weights and standard formulas. Real necks vary. Always verify relief by measurement on the actual instrument, and use the truss rod estimate as a starting point &mdash; never as a mandate.
+      <strong>报告是记录，而非处方。</strong>张力数字是从发布的单位重量和标准公式计算的。真实琴颈各不相同。始终通过测量实际乐器上的弧度来验证，并将桁杆估计用作起点 — 绝不用作强制。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Quick Reference</h2>
+    <h2>快速参考</h2>
     <table>
-      <thead><tr><th>Concept</th><th>One-line summary</th></tr></thead>
+      <thead><tr><th>概念</th><th>一句话总结</th></tr></thead>
       <tbody>
-        <tr><td><strong>String tension</strong></td><td>The pulling force of a tuned string &mdash; affects playability, setup, and structural load.</td></tr>
-        <tr><td><strong>Tension formula</strong></td><td><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code> &mdash; unit weight, scale, and frequency determine tension.</td></tr>
-        <tr><td><strong>Unit weight vs. gauge</strong></td><td>Gauge is diameter; unit weight is mass per inch. Same gauge, different material/winding = different tension.</td></tr>
-        <tr><td><strong>Scale length</strong></td><td>Longer scale = more tension (squared relationship). 25.5" vs. 24.75" is ~10% difference.</td></tr>
-        <tr><td><strong>Multiscale</strong></td><td>Different scale per string to balance tension across the set &mdash; longer bass strings, shorter trebles.</td></tr>
-        <tr><td><strong>Equal temperament</strong></td><td>12 equal semitones per octave, built on A4 = 440 Hz. <code>f = A4 &times; 2<sup>(n/12)</sup></code>.</td></tr>
-        <tr><td><strong>Transposition</strong></td><td>Shift every string by the same interval &mdash; raises or lowers all frequencies and tensions together.</td></tr>
-        <tr><td><strong>Balanced tension</strong></td><td>A smooth tension curve across the set, not equal numbers &mdash; bass slightly tighter than treble.</td></tr>
-        <tr><td><strong>Heavy-bottom set</strong></td><td>More tension on bass strings, lighter trebles &mdash; for drop tunings and tight low end.</td></tr>
-        <tr><td><strong>Neck relief</strong></td><td>Forward bow in the neck from string tension, counteracted by the truss rod.</td></tr>
-        <tr><td><strong>Truss rod</strong></td><td>Steel rod that pulls back against string tension. Tighten to reduce relief, loosen to allow more.</td></tr>
-        <tr><td><strong>Workshop report</strong></td><td>Printable record of the setup &mdash; tension table, curve, truss rod estimate, and notes.</td></tr>
+        <tr><td><strong>琴弦张力</strong></td><td>调好音的弦的拉力 — 影响可演奏性、设置和结构负载。</td></tr>
+        <tr><td><strong>张力公式</strong></td><td><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code> — 单位重量、弦长和频率决定张力。</td></tr>
+        <tr><td><strong>单位重量 vs. 规格</strong></td><td>规格是直径；单位重量是每英寸质量。相同规格，不同材料/绕线 = 不同张力。</td></tr>
+        <tr><td><strong>有效弦长</strong></td><td>弦长越长 = 张力越大（平方关系）。25.5" vs. 24.75" 约 10% 差异。</td></tr>
+        <tr><td><strong>多尺度</strong></td><td>每根弦不同弦长以平衡整套张力 — 贝斯更长，高音更短。</td></tr>
+        <tr><td><strong>十二平均律</strong></td><td>每八度 12 个相等半音，建立在 A4 = 440 Hz 上。<code>f = A4 &times; 2<sup>(n/12)</sup></code>。</td></tr>
+        <tr><td><strong>移调</strong></td><td>将每根弦移动相同音程 — 一起升或降所有频率和张力。</td></tr>
+        <tr><td><strong>平衡张力</strong></td><td>整套中平滑的张力曲线，而非相等数字 — 贝斯略紧于高音。</td></tr>
+        <tr><td><strong>低音重套装</strong></td><td>贝斯弦更多张力，高音更轻 — 用于 drop 调音和紧凑低音。</td></tr>
+        <tr><td><strong>琴颈弧度</strong></td><td>弦张力引起的琴颈向前弓，由桁杆抵消。</td></tr>
+        <tr><td><strong>桁杆</strong></td><td>向后拉对抗弦张力的钢杆。拧紧以减少弧度，松开以允许更多。</td></tr>
+        <tr><td><strong>工坊报告</strong></td><td>设置的可打印记录 — 张力表、曲线、桁杆估计和笔记。</td></tr>
       </tbody>
     </table>
   </div>
@@ -405,8 +405,8 @@
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - 根据 MIT 许可证发布。</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub 仓库</a></p>
   </div>
 </footer>
 </body>

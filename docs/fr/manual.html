@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - The Luthier's Manual</title>
+<title>StringSelectorApp - Le Manuel du Luthier</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,393 +46,130 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">The Luthier's Manual</p>
+    <p class="subtitle">Le Manuel du Luthier</p>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="concepts.html">Concepts</a>
-      <a href="docs.html">Documentation</a>
-      <a href="gui.html">IUG</a>
+      <a href="docs.html">Docs</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manuel</a>
       <a href="download.html">Télécharger</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-<h2>TaraDSP — The Producer's Manual</h2>
-<p># TaraDSP — The Producer's Manual</p>
-
-<p><strong>A comprehensive guide to convolution, impulse responses, and mastering-grade audio processing with TaraDSP.</strong></p>
-
-<p>Written for musicians, audio engineers, mastering engineers, and producers.</p>
-
-<hr>
-
-<h3 id="table-of-contents">Table of Contents</h3>
-<p>## Table of Contents</p>
-
-<p>1. [What is TaraDSP?](#1-what-is-taradsp)</p>
-<p>2. [The Science of Convolution](#2-the-science-of-convolution)</p>
-<p>3. [Impulse Responses: The Sonic DNA](#3-impulse-responses-the-sonic-dna)</p>
-<p>4. [The Processing Chain](#4-the-processing-chain)</p>
-<p>5. [Mastering Dither](#5-mastering-dither)</p>
-<p>6. [Minimum Phase](#6-minimum-phase)</p>
-<p>7. [Resampling](#7-resampling)</p>
-<p>8. [Fades and Trimming](#8-fades-and-trimming)</p>
-<p>9. [Practical Workflows](#9-practical-workflows)</p>
-<p>10. [Combining Two IRs](#10-combining-two-irs)</p>
-<p>11. [Tips from the Trenches](#11-tips-from-the-trenches)</p>
-<p>12. [Technical Reference](#12-technical-reference)</p>
-
-<hr>
-
-<h3 id="1-what-is-taradsp">1. What is TaraDSP?</h3>
-<p>## 1. What is TaraDSP?</p>
-
-<p>TaraDSP is a professional audio processing tool that does one thing exceptionally well: <strong>FFT-based convolution</strong>. If you've ever used a guitar cabinet simulator, a convolution reverb, or a mastering chain with analog-modeled EQ, you've used convolution.</p>
-
-<p>TaraDSP gives you that power in a lightweight, cross-platform package. Windows, macOS, Linux. CLI for batch processing, GUI for interactive work.</p>
-
-<hr>
-
-<h3 id="2-the-science-of-convolution">2. The Science of Convolution</h3>
-<p>## 2. The Science of Convolution</p>
-
-<h4>What convolution does</h4>
-<p>### What convolution does</p>
-
-<p>Convolution applies the sonic characteristics of one signal (the <strong>impulse response</strong>) to another (your audio). When you play a dry guitar through a cabinet, the cabinet colors the sound — resonances, frequency response, decay. Convolution mathematically applies that coloring.</p>
-
-<h4>Why FFT?</h4>
-<p>### Why FFT?</p>
-
-<p>Direct convolution is O(n²) — billions of operations for a 1-second file. The FFT reduces this to O(n log n) via the <strong>convolution theorem</strong>:</p>
-
-<blockquote>Convolution in time = Multiplication in frequency</blockquote>
-
-<p>1. FFT both signals → frequency domain</p>
-<p>2. Multiply them → one multiply per bin</p>
-<p>3. Inverse FFT → back to time domain</p>
-
-<p><strong>5000× speedup.</strong> PFFFT further accelerates with SIMD (SSE/NEON) — 4-8 samples per instruction.</p>
-
-<hr>
-
-<h3 id="3-impulse-responses-the-sonic-dna">3. Impulse Responses: The Sonic DNA</h3>
-<p>## 3. Impulse Responses: The Sonic DNA</p>
-
-<p>An impulse response is a recording of a click through a system, capturing its complete sonic fingerprint.</p>
-
-<table>
-<tr><td>Type</td><td>Captures</td><td>Length</td><td>Use case</td></tr>
-<tr><td>Cabinet IR</td><td>Speaker + cab + mic</td><td>0.5–2s</td><td>Guitar/bass cab sim</td></tr>
-<tr><td>Room IR</td><td>Room acoustics</td><td>1–4s</td><td>Convolution reverb</td></tr>
-<tr><td>Hardware IR</td><td>EQ, compressor, tape</td><td>0.1–1s</td><td>Analog gear emulation</td></tr>
-<tr><td>Plate/Spring IR</td><td>Mechanical reverb</td><td>1–3s</td><td>Vintage reverb</td></tr>
-</table>
-
-<p><strong>Where to find them:</strong> Free IR libraries (Guitar Hack, God's Cab, Seacow), commercial (Celestion, Redwirez, York Audio), or DIY (click through your cab, record with a mic).</p>
-
-<hr>
-
-<h3 id="4-the-processing-chain">4. The Processing Chain</h3>
-<p>## 4. The Processing Chain</p>
-
-<p>When you run TaraDSP, audio passes through this chain. Each step is optional.</p>
-
-<h4>Step 1: Load Input</h4>
-<p>### Step 1: Load Input</p>
-<p>Reads WAV (8/16/24/32-bit PCM or float), converts to 32-bit float internally.</p>
-
-<h4>Step 2: Load IR (optional)</h4>
-<p>### Step 2: Load IR (optional)</p>
-<p>If no IR specified → passthrough mode (mastering only: dither, normalize, fades).</p>
-
-<h4>Step 3: Trim Silence (optional)</h4>
-<p>### Step 3: Trim Silence (optional)</p>
-<p><code>-t <dB></code> — removes silence below threshold from IR. Typical: -60 dB.</p>
-
-<h4>Step 4: Apply Fades (optional)</h4>
-<p>### Step 4: Apply Fades (optional)</p>
-<p><code>-f <ms></code> — fade-out on IR. Always applies 1ms fade-in (click prevention).</p>
-
-<h4>Step 5: Resample (optional)</h4>
-<p>### Step 5: Resample (optional)</p>
-<p><code>-r <Hz></code> — resamples input + IR to target rate. Engine priority: SoX (libsoxr) → R8Brain → FinalCD → linear.</p>
-
-<h4>Step 6: Convolve</h4>
-<p>### Step 6: Convolve</p>
-<p>FFT convolution via PFFFT. Output length = input + IR - 1 samples.</p>
-
-<h4>Step 7: Minimum Phase (optional)</h4>
-<p>### Step 7: Minimum Phase (optional)</p>
-<p><code>--min</code> — removes pre-ringing, reduces latency. Uses real cepstrum method.</p>
-
-<h4>Step 8: Normalize</h4>
-<p>### Step 8: Normalize</p>
-<p>Peak normalize to 1.0 (0 dBFS).</p>
-
-<h4>Step 9: Truncate (optional)</h4>
-<p>### Step 9: Truncate (optional)</p>
-<p><code>-l <samples></code> — limit output length. For modelers: 1024 (GP-200), 2048 (Helix).</p>
-
-<h4>Step 10: Dither and Save</h4>
-<p>### Step 10: Dither and Save</p>
-<p><code>-b <16|24|32></code> — 16-bit gets TPDF dither + error feedback. 24/32-bit: no dither.</p>
-
-<hr>
-
-<h3 id="5-mastering-dither">5. Mastering Dither</h3>
-<p>## 5. Mastering Dither</p>
-
-<h4>The problem</h4>
-<p>### The problem</p>
-<p>Quantizing 24-bit to 16-bit without dither creates harmonic distortion at low levels.</p>
-
-<h4>The solution: TPDF</h4>
-<p>### The solution: TPDF</p>
-<p>Adds 2 LSB of triangular noise before quantization. Converts distortion to a constant noise floor — less audible, more natural.</p>
-
-<p>TaraDSP's implementation:</p>
-<ul>
-<li>**TPDF noise**: Two random values summed (triangular distribution)</li>
-<li>**Error feedback**: Quantization error fed back, shaping the noise spectrum</li>
-<li>**Signal-dependent scaling**: 70% dither at very low levels (< -90 dBFS)</li>
-</ul>
-
-<h4>When to use</h4>
-<p>### When to use</p>
-<ul>
-<li>**Always dither for 16-bit** — always better than truncation</li>
-<li>**Never dither for 24/32-bit** — quantization error is below the noise floor</li>
-<li>**Dither once** — at the final output stage only</li>
-</ul>
-
-<hr>
-
-<h3 id="6-minimum-phase">6. Minimum Phase</h3>
-<p>## 6. Minimum Phase</p>
-
-<h4>Pre-ringing</h4>
-<p>### Pre-ringing</p>
-<p>Linear-phase IRs have symmetric energy — before AND after the main impulse. The energy before is <strong>pre-ringing</strong>, which sounds unnatural (in nature, sound arrives after, never before).</p>
-
-<h4>What minimum phase does</h4>
-<p>### What minimum phase does</p>
-<p>Transforms a linear-phase IR into minimum phase:</p>
-<ul>
-<li>No pre-ringing</li>
-<li>Lower latency</li>
-<li>Same frequency response (magnitude unchanged)</li>
-</ul>
-
-<h4>Algorithm</h4>
-<p>### Algorithm</p>
-<p>Real cepstrum method: FFT → log magnitude → inverse FFT (cepstrum) → fold → FFT → complex spectrum → inverse FFT.</p>
-
-<h4>When to use</h4>
-<p>### When to use</p>
-<ul>
-<li>**Always for cabinet simulation** — removes the "hollow" sound</li>
-<li>**Always for real-time** — lower latency</li>
-<li>**Optional for reverb** — some prefer linear-phase spaciousness</li>
-</ul>
-
-<hr>
-
-<h3 id="7-resampling">7. Resampling</h3>
-<p>## 7. Resampling</p>
-
-<h4>Why</h4>
-<p>### Why</p>
-<ul>
-<li>Mismatched rates (44.1k IR, 48k project)</li>
-<li>Target device expects specific rate</li>
-<li>CD release (44.1k)</li>
-</ul>
-
-<h4>Aliasing</h4>
-<p>### Aliasing</p>
-<p>Downsampling without filtering causes frequencies above Nyquist to fold back as metallic artifacts.</p>
-
-<h4>Engine priority</h4>
-<p>### Engine priority</p>
-<p>1. <strong>SoX Resampler (libsoxr)</strong> — VHQ, proper anti-aliasing. Best option.</p>
-<p>2. <strong>R8Brain</strong> — VHQ, used when libsoxr unavailable.</p>
-<p>3. <strong>FinalCD</strong> — external tool.</p>
-<p>4. <strong>Linear interpolation</strong> — fallback, no anti-aliasing.</p>
-
-<p>Install libsoxr for best results. Ships as <code>libsoxr.dll</code> / <code>.dylib</code> / <code>.so.0</code>.</p>
-
-<hr>
-
-<h3 id="8-fades-and-trimming">8. Fades and Trimming</h3>
-<p>## 8. Fades and Trimming</p>
-
-<h4>Trim silence</h4>
-<p>### Trim silence</p>
-<p>IRs often have silence at start/end. Trim removes it:</p>
-<ul>
-<li>`-60` — typical for IRs</li>
-<li>`-80` — aggressive</li>
-<li>`0` — disabled</li>
-</ul>
-
-<h4>Fades</h4>
-<p>### Fades</p>
-<ul>
-<li>**Fade-in**: Always 1ms (automatic) — prevents start clicks</li>
-<li>**Fade-out**: User-specified (`-f <ms>`) — prevents end clicks</li>
-</ul>
-
-<p>Linear gain ramp: 1.0 → 0.0 (fade-out) or 0.0 → 1.0 (fade-in).</p>
-
-<hr>
-
-<h3 id="9-practical-workflows">9. Practical Workflows</h3>
-<p>## 9. Practical Workflows</p>
-
-<h4>Guitar Cabinet Simulation</h4>
-<p>### Guitar Cabinet Simulation</p>
-<pre><code>
-TaraDSP -x guitar_di.wav -y cab_57.wav -o guitar_amped.wav --min -l 2048 -b 24
-</code></pre>
-
-<h4>Convolution Reverb</h4>
-<p>### Convolution Reverb</p>
-<pre><code>
-TaraDSP -x vocal_dry.wav -y concert_hall.wav -o vocal_reverb.wav -f 100 -b 24
-</code></pre>
-
-<h4>Mastering with Dither</h4>
-<p>### Mastering with Dither</p>
-<pre><code>
-TaraDSP -x mix_24bit.wav -o master_16bit.wav -b 16
-</code></pre>
-
-<h4>Sample Rate Conversion</h4>
-<p>### Sample Rate Conversion</p>
-<pre><code>
-TaraDSP -x recording_96k.wav -o master_44k1.wav -r 44100 -b 16
-</code></pre>
-
-<h4>Batch Processing</h4>
-<p>### Batch Processing</p>
-<pre><code>
-for %f in (*.wav) do TaraDSP -x "%f" -y cab_ir.wav -o "processed_%f" --min -b 24
-</code></pre>
-
-<hr>
-
-<h3 id="10-tips-from-the-trenches">10. Tips from the Trenches</h3>
-<p>## 10. Tips from the Trenches</p>
-
-<h4>IR selection</h4>
-<p>### IR selection</p>
-<ul>
-<li>**Shorter = tighter**: 0.5s IR has less low-end rumble than 2s</li>
-<li>**Mic position matters**: on-axis = bright, off-axis = dark</li>
-<li>**Distance adds room**: close-miked = dry, room-miked = spacious</li>
-<li>**Minimum phase is almost always better for cabs**</li>
-</ul>
-
-<h4>Level management</h4>
-<p>### Level management</p>
-<ul>
-<li>**Normalize after convolution**, not before</li>
-<li>**Use 24-bit throughout** — dither only at final output</li>
-<li>**Check mono compatibility** — stereo IRs can have phase issues</li>
-</ul>
-
-<h4>Common mistakes</h4>
-<p>### Common mistakes</p>
-<ul>
-<li>**Linear-phase IRs for cabs** — always use `--min`</li>
-<li>**Dithering multiple times** — dither once, at the end</li>
-<li>**Forgetting to normalize** — convolution can boost 6-12 dB</li>
-<li>**16-bit for intermediate files** — use 24-bit or 32-bit</li>
-</ul>
-
-<hr>
-
-<h3 id="11-technical-reference">11. Technical Reference</h3>
-<p>## 11. Technical Reference</p>
-
-<h4>CLI Options</h4>
-<p>### CLI Options</p>
-
-<table>
-<tr><td>Option</td><td>Long form</td><td>Value</td><td>Description</td></tr>
-<tr><td>`-x`</td><td>`--in1`</td><td>`<file>`</td><td>Input WAV file</td></tr>
-<tr><td>`-y`</td><td>`--in2`</td><td>`<file>`</td><td>IR WAV (optional)</td></tr>
-<tr><td>`-o`</td><td>`--output`</td><td>`<file>`</td><td>Output WAV</td></tr>
-<tr><td>`-b`</td><td>`--bits`</td><td>`16\</td><td>24\</td><td>32`</td><td>Bit depth (default: 24)</td></tr>
-<tr><th>`-r`</th><th>`--rate`</th><th>`<Hz>`</th><th>Target sample rate</th></tr>
-<tr><th>`-l`</th><th>`--length`</th><th>`<samples>`</th><th>Truncate length</th></tr>
-<tr><th>`-t`</th><th>`--trim`</th><th>`<dB>`</th><th>Trim silence threshold</th></tr>
-<tr><th>`-f`</th><th>`--fade`</th><th>`<ms>`</th><th>Fade-out duration</th></tr>
-<tr><th>`-m`</th><th>`--mono`</th><th>(flag)</th><th>Mono output</th></tr>
-<tr><th></th><th>`--min`</th><th>(flag)</th><th>Minimum phase</th></tr>
-<tr><th>`-h`</th><th>`--help`</th><th>(flag)</th><th>Show help</th></tr>
-</table>
-
-<h4>Configuration File</h4>
-<p>### Configuration File</p>
-
-<pre><code>
-[Metadata]
-Artist=Your Studio Name
-
-[Audio]
-TargetBits=24
-DitherAmount=1.0
-
-[Hardware]
-TruncateLen=0
-</code></pre>
-
-<h4>Exit Codes</h4>
-<p>### Exit Codes</p>
-
-<table>
-<tr><td>Code</td><td>Meaning</td></tr>
-<tr><td>0</td><td>Success</td></tr>
-<tr><td>1</td><td>Error</td></tr>
-</table>
-
-<hr>
-
-<h3 id="glossary">Glossary</h3>
-<p>## Glossary</p>
-
-<table>
-<tr><td>Term</td><td>Definition</td></tr>
-<tr><td>Convolution</td><td>Applying one signal's characteristics to another</td></tr>
-<tr><td>IR</td><td>Impulse response — sonic fingerprint of a system</td></tr>
-<tr><td>FFT</td><td>Fast Fourier Transform</td></tr>
-<tr><td>PFFFT</td><td>Pretty Fast FFT — audio-optimized FFT library</td></tr>
-<tr><th>Minimum Phase</th><th>No pre-ringing, energy at and after impulse</th></tr>
-<tr><th>Linear Phase</th><th>Symmetric pre- and post-ringing</th></tr>
-<tr><th>Pre-ringing</th><th>Energy before the main impulse</th></tr>
-<tr><th>TPDF</th><th>Triangular PDF dither — converts distortion to noise</th></tr>
-<tr><th>Error Feedback</th><th>Feeding quantization error back to shape noise</th></tr>
-<tr><th>Aliasing</th><th>High frequencies folding back as artifacts</th></tr>
-<tr><th>Nyquist</th><th>Half the sample rate — highest representable frequency</th></tr>
-<tr><th>Normalization</th><th>Scaling peak to 0 dBFS</th></tr>
-<tr><th>Cepstrum</th><th>Inverse FFT of log magnitude — for minimum phase</th></tr>
-</table>
+    <h2>Le Manuel du Luthier</h2>
+    <p>Un guide complet et axé atelier sur la tension des cordes, le choix des cordes, le réglage du manche et la documentation professionnelle avec StringSelectorApp. Écrit pour les luthiers, techniciens de guitare et musiciens sérieux qui veulent comprendre <em>pourquoi</em> un jeu se comporte comme il le fait — et comment le régler avec confiance.</p>
+
+    <h3>Table des Matières</h3>
+    <ol>
+      <li><a href="#what">Qu'est-ce que StringSelectorApp ?</a></li>
+      <li><a href="#tension">La Physique de la Tension des Cordes</a></li>
+      <li><a href="#unitweight">Le Poids Unitaire : le Chiffre qui Compte</a></li>
+      <li><a href="#scale">La Longueur de Diapason et Pourquoi Elle Change Tout</a></li>
+      <li><a href="#tuning">Accordage, Hauteur et Transposition</a></li>
+      <li><a href="#balance">Tension Équilibrée vs. Égale</a></li>
+      <li><a href="#trussrod">Truss Rod et Relief du Manche</a></li>
+      <li><a href="#report">Le Rapport d'Atelier</a></li>
+      <li><a href="#workflow">Le Flux de Travail Professionnel</a></li>
+      <li><a href="#reference">Référence Technique</a></li>
+    </ol>
+
+    <h3 id="what">1. Qu'est-ce que StringSelectorApp ?</h3>
+    <p>StringSelectorApp est un calculateur de tension des cordes et générateur de rapports d'atelier pour guitares et basses. Vous lui donnez un instrument, un accordage, une longueur de diapason et un jeu de cordes — et il vous donne la tension exacte de chaque corde, classe les meilleurs jeux de cordes de sa base de données et produit un rapport imprimable que vous pouvez remettre à un client ou classer pour plus tard.</p>
+    <p>Ce n'est pas un outil de commande de cordes ni une recommandation de marque. C'est un outil de <em>mesure et de documentation</em>. La valeur réside dans la connaissance des vrais chiffres derrière un setup, pour que vos décisions viennent de données plutôt que d'habitude ou de supposition.</p>
+    <div class="note">
+      <strong>Pour qui :</strong> Les luthiers et techniciens de guitare qui installent des instruments professionnellement, les constructeurs qui doivent équilibrer des instruments multiscale et baryton, et les musiciens qui veulent comprendre leur propre matériel. Si vous touchez un truss rod, cet outil est pour vous.
+    </div>
+
+    <h3 id="tension">2. La Physique de la Tension des Cordes</h3>
+    <p>La tension est la force de traction qu'une corde accordée exerce sur l'instrument. Chaque corde est tendue entre le chevalet et le sillet, et la quantité d'étirement est la hauteur que vous entendez. Plus de traction signifie une note plus aiguë et une sensation plus tendue. Tout l'instrument — surtout le manche — est conçu autour de la somme de ces forces.</p>
+    <p>StringSelectorApp calcule la tension à partir d'une seule équation, la formule de corde flexible idéale résolue en livres-force :</p>
+    <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <ul>
+      <li><code>T</code> — tension en livres.</li>
+      <li><code>W</code> — poids unitaire de la corde (lbs par pouce).</li>
+      <li><code>L</code> — longueur de diapason (la longueur vibrante, en pouces).</li>
+      <li><code>f</code> — fréquence de la note, en Hz.</li>
+      <li><code>386.4</code> — la constante gravitationnelle qui convertit le résultat en livres-force.</li>
+    </ul>
+    <p>Vous ne faites jamais ce calcul à la main — l'app le fait instantanément. Mais comprendre les quatre entrées vous permet de prédire le résultat avant d'acheter une seule corde.</p>
+
+    <h3 id="unitweight">3. Le Poids Unitaire : le Chiffre qui Compte</h3>
+    <p>L'entrée la plus importante est le <strong>poids unitaire</strong> — combien la corde pèse par pouce. Ce n'est pas le tirant. Deux cordes de tirant identique (disons les deux <code>.010"</code>) peuvent différer de 20 % ou plus en tension à cause du matériau (acier nu, nickelé, inox, bronze), du bobinage (roundwound, flatwound, tapewound) et de la forme de l'âme.</p>
+    <p>C'est pourquoi StringSelectorApp stocke le poids unitaire mesuré ou publié pour chaque corde de chaque paquet, au lieu de le deviner à partir du tirant. Lorsque vous ajoutez vos propres cordes à <code>strings.ini</code>, utilisez le poids unitaire publié par le fabricant ou mesurez-le vous-même : coupez une longueur de 10 pouces, pesez-la en grammes sur une balance de précision et convertissez avec <code>W (lbs/in) = grammes ÷ 453.592 ÷ 10</code>.</p>
+    <div class="warning">
+      <strong>N'estimez jamais le poids unitaire à partir du seul tirant.</strong> Une corde en acier nu de <code>.010"</code> et une corde nickelée de <code>.010"</code> ne sont pas interchangeables en tension. Faites confiance au chiffre mesuré, pas à l'étiquette du paquet.
+    </div>
+
+    <h3 id="scale">4. La Longueur de Diapason et Pourquoi Elle Change Tout</h3>
+    <p>La longueur de diapason est la longueur vibrante de la corde — chevalet au sillet. C'est le deuxième plus grand facteur de tension, et comme la tension évolue avec le <em>carré</em> de la longueur de diapason, les petites différences comptent. La classique Fender <strong>25.5"</strong> et la Gibson <strong>24.75"</strong> diffèrent d'environ 6 % en tension selon la formule, et plus près de 8&ndash;10 % en sensation.</p>
+    <p>Pour les instruments multiscale (fanned-fret) et baryton, chaque corde a une longueur de diapason différente. StringSelectorApp interpole linéairement entre le diapason aigu et grave que vous saisissez, de sorte que les cordes graves obtiennent la longueur supplémentaire dont elles ont besoin pour s'équilibrer contre les aiguës. Saisissez toujours le bon diapason aigu et grave pour l'instrument sur votre établi.</p>
+
+    <h3 id="tuning">5. Accordage, Hauteur et Transposition</h3>
+    <p>L'app convertit les noms de notes en fréquences en utilisant le tempérament égal, construit sur A4 = 440 Hz (réglable 390&ndash;460 Hz pour le travail d'époque ou orchestral). Le champ <strong>Transpose</strong> décale tout l'accordage d'un intervalle fixe — pratique pour vérifier les accordages Eb, D ou Drop sans éditer les préréglages.</p>
+    <div class="note">
+      <strong>La tension suit la fréquence.</strong> Accorder plus haut élève la fréquence et la tension ; accorder plus bas les baisse. Une baisse d'un ton complet réduit la tension d'environ 12 % sur le jeu — c'est exactement pourquoi les instruments en drop tuning ont souvent besoin de cordes plus lourdes pour bien se sentir.
+    </div>
+
+    <h3 id="balance">6. Tension Équilibrée vs. Égale</h3>
+    <p>« Équilibrée » ne signifie pas que chaque corde a le même nombre de livres. Vos doigts perçoivent la tension par rapport au tirant et à la hauteur d'une corde, donc un jeu bien équilibré a une courbe de tension lisse — typiquement les cordes graves se situent légèrement plus haut que les aiguës. Un jeu où le mi grave tire 16 lbs et le mi aigu 18 lbs semblerait inversé.</p>
+    <p>StringSelectorApp trace cette courbe pour vous. Une ligne lisse et doucement montante de l'aigu au grave est l'objectif confortable et professionnel. Une ligne dentelée avec un pic signifie qu'une corde est mal assortie — remplacez-la d'un pack de corde unique ou choisissez un autre jeu. Les jeux « heavy-bottom » (10&ndash;52, 11&ndash;49) penchent délibérément la courbe pour les drop tunings et un bas d'ensemble tendu.</p>
+
+    <h3 id="trussrod">7. Truss Rod et Relief du Manche</h3>
+    <p>Le truss rod est la tige d'acier à l'intérieur du manche qui contrebalance la tension des cordes. Les cordes tirent la tête vers l'avant, créant du relief (un léger arc vers l'avant) ; la tige tire en arrière. Lorsque vous changez de jeux ou d'accordages, la tension totale change, et le réglage du truss rod qui était parfait pour l'ancien setup est maintenant faux pour le nouveau.</p>
+    <p>StringSelectorApp compare votre tension totale à une référence et estime les tours de truss rod nécessaires — « serrez d'environ 1/8 de tour », par exemple. Traitez cela comme un point de départ, puis vérifiez en mesurant le relief : une cible courante pour la guitare électrique est 0.010" à la 7e frette, mesurée avec une jauge d'épaisseur en tenant le mi grave à la 1re et 15e frette.</p>
+    <div class="warning">
+      <strong>Ne forcez jamais le truss rod.</strong> S'il ne tourne pas en douceur, arrêtez — un truss rod cassé est une réparation coûteuse. L'estimation de l'app est un point de départ mathématique, pas un substitut à la mesure soigneuse et à l'expérience sur l'instrument devant vous.
+    </div>
+
+    <h3 id="report">8. Le Rapport d'Atelier</h3>
+    <p>Le rapport d'atelier est le livrable — un document HTML imprimable qui capture tout le setup : en-tête instrument et accordage, un tableau de tension complet (note, tirant, poids unitaire, fréquence, tension en lbs et kg/N), la courbe de tension visuelle, la recommandation du truss rod et une section de notes en texte libre.</p>
+    <p>Archivez chaque rapport. Une guitare est un système dynamique — le relief change avec l'humidité et l'âge des cordes, les frettes s'usent, les musiciens changent d'accordages. Avec un rapport archivé, vous pouvez répéter un setup exactement, diagnostiquer ce qui a changé quand une guitare revient en bourdonnant, et montrer au client une preuve documentée de votre travail. Générez le rapport <em>avant</em> de toucher au truss rod pour capturer l'état « avant », puis à nouveau après, pour un dossier avant/après propre.</p>
+
+    <h3 id="workflow">9. Le Flux de Travail Professionnel</h3>
+    <ol>
+      <li><strong>Parlez au musicien.</strong> Demandez l'accordage, le style et toute plainte de sensation. Un musicien qui dit que le bas est « mou » décrit un problème de tension que vous pouvez mesurer.</li>
+      <li><strong>Sélectionnez l'instrument et l'accordage</strong> dans l'app, ou choisissez Custom et saisissez les notes vous-même.</li>
+      <li><strong>Saisissez le bon diapason</strong> — aigu et grave. Pour les instruments multiscale, c'est critique.</li>
+      <li><strong>Calculez</strong> et lisez la recommandation principale et la courbe de tension.</li>
+      <li><strong>Discutez des alternatives</strong> avec le musicien si une corde semble mal assortie, avant d'installer quoi que ce soit.</li>
+      <li><strong>Générez le rapport</strong>, puis faites le travail mécanique (changement de cordes, truss rod, justesse).</li>
+      <li><strong>Remesurez et archivez</strong> le rapport final à côté du rapport avant.</li>
+    </ol>
+
+    <h3 id="reference">10. Référence Technique</h3>
+    <table>
+      <thead><tr><th>Terme</th><th>Signification</th></tr></thead>
+      <tbody>
+        <tr><td>Tension</td><td>Force de traction d'une corde accordée, en livres.</td></tr>
+        <tr><td>Poids unitaire</td><td>Masse par pouce de corde (lbs/in) — l'entrée de tension clé, pas le tirant.</td></tr>
+        <tr><td>Longueur de diapason</td><td>Longueur vibrante, chevalet au sillet, en pouces.</td></tr>
+        <tr><td>Tempérament égal</td><td>12 demi-tons égaux par octave, A4 = 440 Hz.</td></tr>
+        <tr><td>Tension équilibrée</td><td>Une courbe de tension lisse sur le jeu, graves légèrement plus tendues que les aiguës.</td></tr>
+        <tr><td>Relief</td><td>Arc vers l'avant du manche dû à la tension des cordes, contrebalancé par le truss rod.</td></tr>
+        <tr><td>Jeu heavy-bottom</td><td>Plus de tension sur les cordes graves, aiguës plus légères — pour les drop tunings.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>La seule règle à retenir :</strong> mesurez, ne devinez pas. StringSelectorApp transforme la physique invisible d'un setup en chiffres que vous pouvez voir, documenter et répéter — c'est ce qui sépare un setup professionnel d'un setup chanceux.
+    </div>
   </div>
 </section>
+
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publié sous licence MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Dépôt GitHub</a></p>
   </div>
 </footer>
 </body>

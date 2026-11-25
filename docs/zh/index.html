@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - String Tension Calculator</title>
+<title>StringSelectorApp - 琴弦张力计算器</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -45,90 +45,90 @@
 
 <header>
   <div class="container">
-    <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">String Tension Calculator & Workshop Reporter</p>
-    <p class="tagline">Know your tension. Balance your setup. Build with confidence.</p>
+    <h1><img src="../chameleon.jpg" alt="变色龙" style="width:48px; height:48px; border-radius:50%; vertical-align:middle; margin-right:10px; border:2px solid #30363d;" />STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">琴弦张力计算器与工坊报告生成器</p>
+    <p class="tagline">了解你的张力。平衡你的配置。自信地构建。</p>
     <nav>
       <a href="index.html">首页</a>
       <a href="concepts.html">概念</a>
       <a href="docs.html">文档</a>
-      <a href="gui.html">界面</a>
+      <a href="gui.html">图形界面</a>
       <a href="manual.html">手册</a>
       <a href="download.html">下载</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-    <h2>What is StringSelectorApp?</h2>
-    <p>StringSelectorApp is a <strong>string tension calculator</strong> for guitars and basses. It combines string gauge data, unit weight, tuning presets, and scale length to calculate the exact tension of every string in real time.</p>
+    <h2>什么是 StringSelectorApp？</h2>
+    <p>StringSelectorApp 是一款用于吉他和贝斯的<strong>琴弦张力计算器</strong>。它结合琴弦规格数据、单位重量、调音预设和有效弦长，实时计算每根琴弦的确切张力。</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Real-Time Calculation</h3>
-        <p>Enter your tuning, scale length, and string pack. Click Calculate. See every string's tension instantly.</p>
+        <h3>实时计算</h3>
+        <p>输入你的调音、有效弦长和琴弦套装。点击计算。立即看到每根琴弦的张力。</p>
       </div>
       <div class="feature-card">
-        <h3>37 String Packs</h3>
-        <p>Ernie Ball, D'Addario, Elixir, and more. Pre-loaded with gauge and unit weight data.</p>
+        <h3>37 种琴弦套装</h3>
+        <p>Ernie Ball、D'Addario、Elixir 等。预加载了规格和单位重量数据。</p>
       </div>
       <div class="feature-card">
-        <h3>28 Tuning Presets</h3>
-        <p>Standard, Drop, Open, and custom tunings for 4-9 string instruments. Save your own.</p>
+        <h3>28 个调音预设</h3>
+        <p>标准、Drop、Open 和自定义调音，适用于 4-9 弦乐器。保存你自己的。</p>
       </div>
       <div class="feature-card">
-        <h3>Visual Tension Curve</h3>
-        <p>See which strings are too tight or too loose at a glance. Balance your set in seconds.</p>
+        <h3>可视化张力曲线</h3>
+        <p>一眼看出哪些琴弦太紧或太松。几秒钟内平衡你的套装。</p>
       </div>
       <div class="feature-card">
-        <h3>Workshop Reports</h3>
-        <p>Generate a printable HTML report with tension table, curve, and truss rod recommendation.</p>
+        <h3>工坊报告</h3>
+        <p>生成可打印的 HTML 报告，包含张力表、曲线和桁杆调整建议。</p>
       </div>
       <div class="feature-card">
-        <h3>Truss Rod Assistant</h3>
-        <p>Compare total tension vs. reference. Get estimated truss rod turns for neck adjustment.</p>
+        <h3>桁杆助手</h3>
+        <p>比较总张力与参考值。获得用于琴颈调整的桁杆估计圈数。</p>
       </div>
     </div>
   </div>
 </section>
 <section>
   <div class="container">
-    <h2>Downloads</h2>
-    <p>Prebuilt binaries are attached to every <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub Release</a>:</p>
+    <h2>下载</h2>
+    <p>预编译二进制文件附加在每个 <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub 发布版</a> 中：</p>
     <table class="download-table">
-      <thead><tr><th>Platform</th><th>Artifact</th><th>Notes</th></tr></thead>
+      <thead><tr><th>平台</th><th>产物</th><th>备注</th></tr></thead>
       <tbody>
-        <tr><td>Windows 64-bit</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup installer</td></tr>
-        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Universal app bundle</td></tr>
-        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Universal app bundle</td></tr>
-        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extract and run</td></tr>
-        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extract and run</td></tr>
+        <tr><td>Windows 64 位</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup 安装程序</td></tr>
+        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>通用应用包</td></tr>
+        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>通用应用包</td></tr>
+        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>解压并运行</td></tr>
+        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>解压并运行</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 <section>
   <div class="container">
-    <h2>System Requirements</h2>
+    <h2>系统要求</h2>
     <table>
-      <thead><tr><th>Component</th><th>Requirement</th></tr></thead>
+      <thead><tr><th>组件</th><th>要求</th></tr></thead>
       <tbody>
-        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, or Linux (x86_64/ARM)</td></tr>
-        <tr><td>CPU</td><td>x86_64 or ARM</td></tr>
-        <tr><td>RAM</td><td>512 MB minimum</td></tr>
+        <tr><td>操作系统</td><td>Windows 10+、macOS 10.13+ 或 Linux（x86_64/ARM）</td></tr>
+        <tr><td>CPU</td><td>x86_64 或 ARM</td></tr>
+        <tr><td>内存</td><td>最低 512 MB</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - 根据 MIT 许可证发布。</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub 仓库</a></p>
   </div>
 </footer>
 </body>

@@ -54,381 +54,118 @@
       <a href="gui.html">GUI</a>
       <a href="manual.html">Handbuch</a>
       <a href="download.html">Herunterladen</a>
-      <a href="../de/index.html">DE</a>
-      <a href="../es/index.html">ES</a>
-      <a href="../fr/index.html">FR</a>
-      <a href="../pt/index.html">PT</a>
-      <a href="../ru/index.html">RU</a>
-      <a href="../zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-<h2>TaraDSP — Das Handbuch des Produzenten</h2>
-<p># TaraDSP — Das Handbuch des Produzenten</p>
-
-<p><strong>Eine umfassende Anleitung zu Faltung, Impulsantworten und Audioverarbeitung auf Mastering-Niveau mit TaraDSP.</strong></p>
-
-<p>Für Musiker, Tontechniker, Mastering-Ingenieure und Produzenten geschrieben.</p>
-
-<hr>
-
-<h3 id="table-of-contents">Inhaltsverzeichnis</h3>
-<p>## Inhaltsverzeichnis</p>
-
-<p>1. [Was ist TaraDSP?](#1-was-ist-taradsp)</p>
-<p>2. [Die Wissenschaft der Faltung](#2-die-wissenschaft-der-faltung)</p>
-<p>3. [Impulsantworten: Die klangliche DNA](#3-impulsantworten-die-klangliche-dna)</p>
-<p>4. [Die Verarbeitungskette](#4-die-verarbeitungskette)</p>
-<p>5. [Mastering-Dithering](#5-mastering-dithering)</p>
-<p>6. [Minimalphasen-System](#6-minimalphasen-system)</p>
-<p>7. [Resampling](#7-resampling)</p>
-<p>8. [Fades und Trimming](#8-fades-und-trimming)</p>
-<p>9. [Praktische Workflows](#9-praktische-workflows)</p>
-<p>10. [Zwei IRs kombinieren](#10-zwei-irs-kombinieren)</p>
-<p>11. [Tipps aus der Praxis](#11-tipps-aus-der-praxis)</p>
-<p>12. [Technische Referenz](#12-technische-referenz)</p>
-
-<hr>
-
-<h3 id="1-was-ist-taradsp">1. Was ist TaraDSP?</h3>
-<p>## 1. Was ist TaraDSP?</p>
-
-<p>TaraDSP ist ein professionelles Audio-Verarbeitungswerkzeug, das eine Sache außergewöhnlich gut macht: <strong>FFT-basierte Faltung</strong>. Wenn du jemals einen Gitarrenkabinett-Simulator, einen Faltungs-Hall oder eine Mastering-Kette mit analogem EQ verwendet hast, hast du Faltung verwendet.</p>
-
-<p>TaraDSP gibt dir diese Leistung in einem leichten, plattformübergreifenden Paket. Windows, macOS, Linux. CLI für Stapelverarbeitung, GUI für interaktive Arbeit.</p>
-
-<hr>
-
-<h3 id="2-die-wissenschaft-der-faltung">2. Die Wissenschaft der Faltung</h3>
-<p>## 2. Die Wissenschaft der Faltung</p>
-
-<h4>Was Faltung tut</h4>
-<p>### Was Faltung tut</p>
-
-<p>Faltung wendet die klanglichen Eigenschaften eines Signals (die <strong>Impulsantwort</strong>) auf ein anderes (dein Audio) an. Wenn du eine trockene Gitarre durch ein Kabinett spielst, färbt das Kabinett den Klang — Resonanzen, Frequenzgang, Abklingverhalten. Faltung wendet diese Färbung mathematisch an.</p>
-
-<h4>Warum FFT?</h4>
-<p>### Warum FFT?</p>
-
-<p>Direkte Faltung ist O(n²) — Milliarden von Operationen für eine 1-Sekunden-Datei. Die FFT reduziert dies auf O(n log n) durch den <strong>Faltungssatz</strong>:</p>
-
-<blockquote>Faltung in der Zeit = Multiplikation im Frequenzbereich</blockquote>
-
-<p>1. FFT beider Signale → Frequenzbereich</p>
-<p>2. Multipliziere sie → eine Multiplikation pro Bin</p>
-<p>3. Inverse FFT → zurück in den Zeitbereich</p>
-
-<p><strong>5000× Beschleunigung.</strong> PFFFT beschleunigt weiter mit SIMD (SSE/NEON) — 4-8 Samples pro Instruktion.</p>
-
-<hr>
-
-<h3 id="3-impulsantworten-die-klangliche-dna">3. Impulsantworten: Die klangliche DNA</h3>
-<p>## 3. Impulsantworten: Die klangliche DNA</p>
-
-<p>Eine Impulsantwort ist eine Aufnahme eines Klicks durch ein System, die seinen vollständigen klanglichen Fingerabdruck erfasst.</p>
-
-<table>
-<tr><td>Typ</td><td>Erfasst</td><td>Länge</td><td>Anwendungsfall</td></tr>
-<tr><td>Kabinett-IR</td><td>Lautsprecher + Kabinett + Mikrofon</td><td>0.5–2s</td><td>Gitarren-/Bass-Kabinett-Simulation</td></tr>
-<tr><td>Raum-IR</td><td>Raumakustik</td><td>1–4s</td><td>Faltungs-Hall</td></tr>
-<tr><td>Hardware-IR</td><td>EQ, Kompressor, Band</td><td>0.1–1s</td><td>Analog-Geräte-Emulation</td></tr>
-<tr><td>Platte/Feder-IR</td><td>Mechanischer Hall</td><td>1–3s</td><td>Vintage-Hall</td></tr>
-</table>
-
-<p><strong>Wo man sie findet:</strong> Kostenlose IR-Bibliotheken (Guitar Hack, God's Cab, Seacow), kommerzielle (Celestion, Redwirez, York Audio) oder DIY (Klick durch dein Kabinett, mit einem Mikrofon aufnehmen).</p>
-
-<hr>
-
-<h3 id="4-die-verarbeitungskette">4. Die Verarbeitungskette</h3>
-<p>## 4. Die Verarbeitungskette</p>
-
-<p>Wenn du TaraDSP ausführst, durchläuft das Audio diese Kette. Jeder Schritt ist optional.</p>
-
-<h4>Schritt 1: Eingabe laden</h4>
-<p>### Schritt 1: Eingabe laden</p>
-<p>Liest WAV (8/16/24/32-Bit PCM oder Float), konvertiert intern zu 32-Bit Float.</p>
-
-<h4>Schritt 2: IR laden (optional)</h4>
-<p>### Schritt 2: IR laden (optional)</p>
-<p>Wenn kein IR angegeben → Durchlass-Modus (nur Mastering: Dithering, Normalisierung, Fades).</p>
-
-<h4>Schritt 3: Stille trimmen (optional)</h4>
-<p>### Schritt 3: Stille trimmen (optional)</p>
-<p><code>-t <dB></code> — entfernt Stille unterhalb der Schwelle aus dem IR. Typisch: -60 dB.</p>
-
-<h4>Schritt 4: Fades anwenden (optional)</h4>
-<p>### Schritt 4: Fades anwenden (optional)</p>
-<p><code>-f <ms></code> — Fade-Out auf dem IR. Wendet immer 1ms Fade-In an (Klick-Vermeidung).</p>
-
-<h4>Schritt 5: Resampling (optional)</h4>
-<p>### Schritt 5: Resampling (optional)</p>
-<p><code>-r <Hz></code> — resampelt Eingabe + IR auf Zielrate. Engine-Priorität: SoX (libsoxr) → R8Brain → FinalCD → linear.</p>
-
-<h4>Schritt 6: Falten</h4>
-<p>### Schritt 6: Falten</p>
-<p>FFT-Faltung über PFFFT. Ausgabelänge = Eingabe + IR - 1 Samples.</p>
-
-<h4>Schritt 7: Minimalphase (optional)</h4>
-<p>### Schritt 7: Minimalphase (optional)</p>
-<p><code>--min</code> — entfernt Pre-Ringing, reduziert Latenz. Verwendet die Real-Cepstrum-Methode.</p>
-
-<h4>Schritt 8: Normalisieren</h4>
-<p>### Schritt 8: Normalisieren</p>
-<p>Peak-Normalisierung auf 1.0 (0 dBFS).</p>
-
-<h4>Schritt 9: Kürzen (optional)</h4>
-<p>### Schritt 9: Kürzen (optional)</p>
-<p><code>-l <samples></code> — Ausgabelänge begrenzen. Für Modeler: 1024 (GP-200), 2048 (Helix).</p>
-
-<h4>Schritt 10: Dithering und Speichern</h4>
-<p>### Schritt 10: Dithering und Speichern</p>
-<p><code>-b <16|24|32></code> — 16-Bit erhält TPDF-Dithering + Fehler-Feedback. 24/32-Bit: kein Dithering.</p>
-
-<hr>
-
-<h3 id="5-mastering-dithering">5. Mastering-Dithering</h3>
-<p>## 5. Mastering-Dithering</p>
-
-<h4>Das Problem</h4>
-<p>### Das Problem</p>
-<p>Quantisierung von 24-Bit auf 16-Bit ohne Dithering erzeugt harmonische Verzerrung bei niedrigen Pegeln.</p>
-
-<h4>Die Lösung: TPDF</h4>
-<p>### Die Lösung: TPDF</p>
-<p>Fügt 2 LSB dreieckiges Rauschen vor der Quantisierung hinzu. Wandelt Verzerrung in einen konstanten Rauschpegel um — weniger hörbar, natürlicher.</p>
-
-<p>TaraDSPs Implementierung:</p>
-<ul>
-<li>**TPDF-Rauschen**: Zwei Zufallswerte summiert (dreieckige Verteilung)</li>
-<li>**Fehler-Feedback**: Quantisierungsfehler rückgekoppelt, formt das Rauschspektrum</li>
-<li>**Signalabhängige Skalierung**: 70% Dithering bei sehr niedrigen Pegeln (< -90 dBFS)</li>
-</ul>
-
-<h4>Wann verwenden</h4>
-<p>### Wann verwenden</p>
-<ul>
-<li>**Immer für 16-Bit dithern** — immer besser als Kürzung</li>
-<li>**Nie für 24/32-Bit dithern** — Quantisierungsfehler liegt unter dem Rauschpegel</li>
-<li>**Einmal dithern** — nur bei der finalen Ausgabestufe</li>
-</ul>
-
-<hr>
-
-<h3 id="6-minimalphasen-system">6. Minimalphasen-System</h3>
-<p>## 6. Minimalphasen-System</p>
-
-<h4>Pre-Ringing</h4>
-<p>### Pre-Ringing</p>
-<p>Linearphasen-IRs haben symmetrische Energie — vor UND nach dem Hauptimpuls. Die Energie davor ist <strong>Pre-Ringing</strong>, das unnatürlich klingt (in der Natur kommt Schall nach, nie davor).</p>
-
-<h4>Was Minimalphase tut</h4>
-<p>### Was Minimalphase tut</p>
-<p>Wandelt einen Linearphasen-IR in Minimalphase um:</p>
-<ul>
-<li>Kein Pre-Ringing</li>
-<li>Niedrigere Latenz</li>
-<li>Gleicher Frequenzgang (Magnitude unverändert)</li>
-</ul>
-
-<h4>Algorithmus</h4>
-<p>### Algorithmus</p>
-<p>Real-Cepstrum-Methode: FFT → Log-Magnitude → inverse FFT (Cepstrum) → Falten → FFT → komplexes Spektrum → inverse FFT.</p>
-
-<h4>Wann verwenden</h4>
-<p>### Wann verwenden</p>
-<ul>
-<li>**Immer für Kabinett-Simulation** — entfernt den "hohlen" Klang</li>
-<li>**Immer für Echtzeit** — niedrigere Latenz</li>
-<li>**Optional für Hall** — einige bevorzugen die räumliche Linearphase</li>
-</ul>
-
-<hr>
-
-<h3 id="7-resampling">7. Resampling</h3>
-<p>## 7. Resampling</p>
-
-<h4>Warum</h4>
-<p>### Warum</p>
-<ul>
-<li>Nicht übereinstimmende Raten (44.1k IR, 48k Projekt)</li>
-<li>Zielgerät erwartet spezifische Rate</li>
-<li>CD-Veröffentlichung (44.1k)</li>
-</ul>
-
-<h4>Aliasing</h4>
-<p>### Aliasing</p>
-<p>Heruntertasten ohne Filterung führt dazu, dass Frequenzen über Nyquist als metallische Artefakte zurückfalten.</p>
-
-<h4>Engine-Priorität</h4>
-<p>### Engine-Priorität</p>
-<p>1. <strong>SoX Resampler (libsoxr)</strong> — VHQ, korrekte Anti-Aliasing. Beste Option.</p>
-<p>2. <strong>R8Brain</strong> — VHQ, verwendet wenn libsoxr nicht verfügbar.</p>
-<p>3. <strong>FinalCD</strong> — externes Werkzeug.</p>
-<p>4. <strong>Lineare Interpolation</strong> — Fallback, kein Anti-Aliasing.</p>
-
-<p>Installiere libsoxr für beste Ergebnisse. Wird als <code>libsoxr.dll</code> / <code>.dylib</code> / <code>.so.0</code> geliefert.</p>
-
-<hr>
-
-<h3 id="8-fades-und-trimming">8. Fades und Trimming</h3>
-<p>## 8. Fades und Trimming</p>
-
-<h4>Stille trimmen</h4>
-<p>### Stille trimmen</p>
-<p>IRs haben oft Stille am Anfang/Ende. Trimmen entfernt sie:</p>
-<ul>
-<li>`-60` — typisch für IRs</li>
-<li>`-80` — aggressiv</li>
-<li>`0` — deaktiviert</li>
-</ul>
-
-<h4>Fades</h4>
-<p>### Fades</p>
-<ul>
-<li>**Fade-In**: Immer 1ms (automatisch) — verhindert Start-Klicks</li>
-<li>**Fade-Out**: Benutzerdefiniert (`-f <ms>`) — verhindert End-Klicks</li>
-</ul>
-
-<p>Linearer Verstärkungsramp: 1.0 → 0.0 (Fade-Out) oder 0.0 → 1.0 (Fade-In).</p>
-
-<hr>
-
-<h3 id="9-praktische-workflows">9. Praktische Workflows</h3>
-<p>## 9. Praktische Workflows</p>
-
-<h4>Gitarrenkabinett-Simulation</h4>
-<p>### Gitarrenkabinett-Simulation</p>
-<pre><code>
-TaraDSP -x guitar_di.wav -y cab_57.wav -o guitar_amped.wav --min -l 2048 -b 24
-</code></pre>
-
-<h4>Faltungs-Hall</h4>
-<p>### Faltungs-Hall</p>
-<pre><code>
-TaraDSP -x vocal_dry.wav -y concert_hall.wav -o vocal_reverb.wav -f 100 -b 24
-</code></pre>
-
-<h4>Mastering mit Dithering</h4>
-<p>### Mastering mit Dithering</p>
-<pre><code>
-TaraDSP -x mix_24bit.wav -o master_16bit.wav -b 16
-</code></pre>
-
-<h4>Sample-Raten-Konvertierung</h4>
-<p>### Sample-Raten-Konvertierung</p>
-<pre><code>
-TaraDSP -x recording_96k.wav -o master_44k1.wav -r 44100 -b 16
-</code></pre>
-
-<h4>Stapelverarbeitung</h4>
-<p>### Stapelverarbeitung</p>
-<pre><code>
-for %f in (*.wav) do TaraDSP -x "%f" -y cab_ir.wav -o "processed_%f" --min -b 24
-</code></pre>
-
-<hr>
-
-<h3 id="10-tipps-aus-der-praxis">10. Tipps aus der Praxis</h3>
-<p>## 10. Tipps aus der Praxis</p>
-
-<h4>IR-Auswahl</h4>
-<p>### IR-Auswahl</p>
-<ul>
-<li>**Kürzer = straffer**: 0.5s IR hat weniger Bass-Grummeln als 2s</li>
-<li>**Mikrofonposition ist wichtig**: On-Axis = hell, Off-Axis = dunkel</li>
-<li>**Abstand fügt Raum hinzu**: Nahmikrofoniert = trocken, raummikrofoniert = räumlich</li>
-<li>**Minimalphase ist fast immer besser für Kabinette**</li>
-</ul>
-
-<h4>Pegelverwaltung</h4>
-<p>### Pegelverwaltung</p>
-<ul>
-<li>**Nach der Faltung normalisieren**, nicht davor</li>
-<li>**Durchgehend 24-Bit verwenden** — nur bei finaler Ausgabe dithern</li>
-<li>**Mono-Kompatibilität prüfen** — Stereo-IRs können Phasenprobleme haben</li>
-</ul>
-
-<h4>Häufige Fehler</h4>
-<p>### Häufige Fehler</p>
-<ul>
-<li>**Linearphasen-IRs für Kabinette** — immer `--min` verwenden</li>
-<li>**Mehrfach dithern** — einmal dithern, am Ende</li>
-<li>**Normalisierung vergessen** — Faltung kann 6-12 dB verstärken</li>
-<li>**16-Bit für Zwischendateien** — 24-Bit oder 32-Bit verwenden</li>
-</ul>
-
-<hr>
-
-<h3 id="11-technische-referenz">11. Technische Referenz</h3>
-<p>## 11. Technische Referenz</p>
-
-<h4>CLI-Optionen</h4>
-<p>### CLI-Optionen</p>
-
-<table>
-<tr><td>Option</td><td>Langform</td><td>Wert</td><td>Beschreibung</td></tr>
-<tr><td>`-x`</td><td>`--in1`</td><td>`<file>`</td><td>Eingabe-WAV-Datei</td></tr>
-<tr><td>`-y`</td><td>`--in2`</td><td>`<file>`</td><td>IR-WAV (optional)</td></tr>
-<tr><td>`-o`</td><td>`--output`</td><td>`<file>`</td><td>Ausgabe-WAV</td></tr>
-<tr><td>`-b`</td><td>`--bits`</td><td>`16\</td><td>24\</td><td>32`</td><td>Bit-Tiefe (Standard: 24)</td></tr>
-<tr><th>`-r`</th><th>`--rate`</th><th>`<Hz>`</th><th>Ziel-Sample-Rate</th></tr>
-<tr><th>`-l`</th><th>`--length`</th><th>`<samples>`</th><th>Kürzungslänge</th></tr>
-<tr><th>`-t`</th><th>`--trim`</th><th>`<dB>`</th><th>Trim-Schwellenwert</th></tr>
-<tr><th>`-f`</th><th>`--fade`</th><th>`<ms>`</th><th>Fade-Out-Dauer</th></tr>
-<tr><th>`-m`</th><th>`--mono`</th><th>(Flag)</th><th>Mono-Ausgabe</th></tr>
-<tr><th></th><th>`--min`</th><th>(Flag)</th><th>Minimalphase</th></tr>
-<tr><th>`-h`</th><th>`--help`</th><th>(Flag)</th><th>Hilfe anzeigen</th></tr>
-</table>
-
-<h4>Konfigurationsdatei</h4>
-<p>### Konfigurationsdatei</p>
-
-<pre><code>
-[Metadata]
-Artist=Your Studio Name
-
-[Audio]
-TargetBits=24
-DitherAmount=1.0
-
-[Hardware]
-TruncateLen=0
-</code></pre>
-
-<h4>Exit-Codes</h4>
-<p>### Exit-Codes</p>
-
-<table>
-<tr><td>Code</td><td>Bedeutung</td></tr>
-<tr><td>0</td><td>Erfolg</td></tr>
-<tr><td>1</td><td>Fehler</td></tr>
-</table>
-
-<hr>
-
-<h3 id="glossary">Glossar</h3>
-<p>## Glossar</p>
-
-<table>
-<tr><td>Begriff</td><td>Definition</td></tr>
-<tr><td>Faltung</td><td>Eine Signalcharakteristik auf ein anderes anwenden</td></tr>
-<tr><td>IR</td><td>Impulsantwort — klanglicher Fingerabdruck eines Systems</td></tr>
-<tr><td>FFT</td><td>Schnelle Fourier-Transformation</td></tr>
-<tr><td>PFFFT</td><td>Pretty Fast FFT — audio-optimierte FFT-Bibliothek</td></tr>
-<tr><th>Minimalphase</th><th>Kein Pre-Ringing, Energie bei und nach dem Impuls</th></tr>
-<tr><th>Linearphase</th><th>Symmetrisches Pre- und Post-Ringing</th></tr>
-<tr><th>Pre-Ringing</th><th>Energie vor dem Hauptimpuls</th></tr>
-<tr><th>TPDF</th><th>Dreieckige PDF-Dithering — wandelt Verzerrung in Rauschen um</th></tr>
-<tr><th>Fehler-Feedback</th><th>Quantisierungsfehler rückkoppeln, um Rauschen zu formen</th></tr>
-<tr><th>Aliasing</th><th>Hohe Frequenzen falten als Artefakte zurück</th></tr>
-<tr><th>Nyquist</th><th>Hälfte der Sample-Rate — höchste darstellbare Frequenz</th></tr>
-<tr><th>Normalisierung</th><th>Peak auf 0 dBFS skalieren</th></tr>
-<tr><th>Cepstrum</th><th>Inverse FFT der Log-Magnitude — für Minimalphase</th></tr>
-</table>
+    <h2>Das Handbuch des Geigenbauers</h2>
+    <p>Eine vollständige, werkstattorientierte Anleitung zu Saitenspannung, Saitenauswahl, Hals-Setup und professioneller Dokumentation mit StringSelectorApp. Geschrieben für Geigenbauer, Gitarrentechniker und ambitionierte Musiker, die verstehen wollen, <em>warum</em> sich ein Satz so anfühlt, wie er sich anfühlt — und wie man ihn mit Vertrauen einstellt.</p>
+
+    <h3>Inhaltsverzeichnis</h3>
+    <ol>
+      <li><a href="#what">Was ist StringSelectorApp?</a></li>
+      <li><a href="#tension">Die Physik der Saitenspannung</a></li>
+      <li><a href="#unitweight">Gewicht pro Einheit: Die Zahl, die zählt</a></li>
+      <li><a href="#scale">Mensur und warum sie alles verändert</a></li>
+      <li><a href="#tuning">Stimmung, Tonhöhe und Transposition</a></li>
+      <li><a href="#balance">Ausgewogene vs. gleiche Spannung</a></li>
+      <li><a href="#trussrod">Halsstab und Halskrümmung</a></li>
+      <li><a href="#report">Der Werkstattbericht</a></li>
+      <li><a href="#workflow">Der professionelle Workflow</a></li>
+      <li><a href="#reference">Technische Referenz</a></li>
+    </ol>
+
+    <h3 id="what">1. Was ist StringSelectorApp?</h3>
+    <p>StringSelectorApp ist ein Saitenspannungs-Rechner und Werkstatt-Reporter für Gitarren und Bässe. Du gibst ein Instrument, eine Stimmung, eine Mensur und einen Satz Saiten ein — und es sagt dir die exakte Spannung jeder Saite, sortiert die am besten passenden Saitensätze aus seiner Datenbank und erstellt einen druckbaren Bericht, den du einem Kunden aushändigen oder für später ablegen kannst.</p>
+    <p>Es ist kein Saiten-Bestellwerkzeug und keine Markenempfehlung. Es ist ein <em>Mess- und Dokumentationswerkzeug</em>. Der Wert liegt darin, die echten Zahlen hinter einem Setup zu kennen, damit deine Entscheidungen aus Daten statt aus Gewohnheit oder Vermutung kommen.</p>
+    <div class="note">
+      <strong>Für wen es ist:</strong> Geigenbauer und Gitarrentechniker, die Instrumente professionell einrichten, Erbauer, die Multiscale- und Bariton-Instrumente ausbalancieren müssen, und Musiker, die ihr eigenes Equipment verstehen wollen. Wenn du einen Halsstab anfasst, ist dieses Werkzeug für dich.
+    </div>
+
+    <h3 id="tension">2. Die Physik der Saitenspannung</h3>
+    <p>Spannung ist die Zugkraft, die eine gestimmte Saite auf das Instrument ausübt. Jede Saite ist zwischen Steg und Sattel gedehnt, und die Menge der Dehnung ist die Tonhöhe, die du hörst. Mehr Zug bedeutet eine höhere Note und ein engeres Gefühl. Das ganze Instrument — besonders der Hals — ist um die Summe dieser Kräfte herum konstruiert.</p>
+    <p>StringSelectorApp berechnet die Spannung aus einer einzigen Gleichung, der Formel für die ideale flexible Saite, gelöst nach Pfund-Kraft:</p>
+    <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <ul>
+      <li><code>T</code> — Spannung in Pfund.</li>
+      <li><code>W</code> — Gewicht pro Einheit der Saite (lbs pro Zoll).</li>
+      <li><code>L</code> — Mensur (die schwingende Länge, in Zoll).</li>
+      <li><code>f</code> — Frequenz der Note in Hz.</li>
+      <li><code>386.4</code> — die Gravitationskonstante, die das Ergebnis in Pfund-Kraft umwandelt.</li>
+    </ul>
+    <p>Du machst diese Mathematik nie von Hand — die App erledigt sie sofort. Aber das Verständnis der vier Eingaben lässt dich das Ergebnis vorhersagen, bevor du eine einzige Saite kaufst.</p>
+
+    <h3 id="unitweight">3. Gewicht pro Einheit: Die Zahl, die zählt</h3>
+    <p>Die wichtigste Eingabe ist das <strong>Gewicht pro Einheit</strong> — wie viel die Saite pro Zoll wiegt. Es ist nicht der Durchmesser. Zwei Saiten mit identischem Durchmesser (sagen wir beide <code>.010"</code>) können sich in der Spannung um 20% oder mehr unterscheiden, wegen Material (blanker Stahl, nickelplattiert, Edelstahl, Bronze), Wicklung (Roundwound, Flatwound, Tapewound) und Kernform.</p>
+    <p>Deshalb speichert StringSelectorApp das gemessene oder veröffentlichte Gewicht pro Einheit für jede Saite in jedem Satz, statt es aus dem Durchmesser zu raten. Wenn du eigene Saiten zu <code>strings.ini</code> hinzufügst, verwende das veröffentlichte Gewicht des Herstellers oder miss es selbst: Schneide ein 10-Zoll-Stück ab, wiege es in Gramm auf einer Präzisionswaage und rechne um mit <code>W (lbs/in) = Gramm ÷ 453.592 ÷ 10</code>.</p>
+    <div class="warning">
+      <strong>Schätze das Gewicht pro Einheit nie allein aus dem Durchmesser.</strong> Eine <code>.010"</code> blanke Stahlsaite und eine <code>.010"</code> nickelumwickelte Saite sind in der Spannung nicht austauschbar. Vertraue der gemessenen Zahl, nicht dem Etikett auf der Packung.
+    </div>
+
+    <h3 id="scale">4. Mensur und warum sie alles verändert</h3>
+    <p>Die Mensur ist die schwingende Länge der Saite — Steg zu Sattel. Sie ist der zweitgrößte Faktor der Spannung, und weil die Spannung mit dem <em>Quadrat</em> der Mensur skaliert, zählen kleine Unterschiede. Die klassische Fender <strong>25.5"</strong> und Gibson <strong>24.75"</strong> unterscheiden sich laut Formel um etwa 6% in der Spannung und im Gefühl näher an 8&ndash;10%.</p>
+    <p>Für Multiscale- (Fanned-Fret) und Bariton-Instrumente hat jede Saite eine andere Mensur. StringSelectorApp interpoliert linear zwischen der eingegebenen Treble- und Bass-Mensur, sodass die tiefen Saiten die zusätzliche Länge bekommen, die sie zur Balance gegen die hohen Saiten brauchen. Gib immer die korrekte Treble- und Bass-Mensur für das Instrument auf deiner Werkbank ein.</p>
+
+    <h3 id="tuning">5. Stimmung, Tonhöhe und Transposition</h3>
+    <p>Die App wandelt Notennamen in Frequenzen um, basierend auf gleichstufiger Stimmung mit A4 = 440 Hz (einstellbar 390&ndash;460 Hz für historische oder orchestrale Arbeit). Das Feld <strong>Transpose</strong> verschiebt die ganze Stimmung um ein festes Intervall — praktisch, um Eb, D oder Drop-Stimmungen zu prüfen, ohne Presets zu bearbeiten.</p>
+    <div class="note">
+      <strong>Spannung folgt der Frequenz.</strong> Höher stimmen erhöht Frequenz und Spannung; tiefer stimmen senkt beide. Ein ganzer Ton tiefer reduziert die Spannung um etwa 12% über den Satz — genau deshalb brauchen Drop-Stimmungen oft schwerere Saiten, um sich richtig anzufühlen.
+    </div>
+
+    <h3 id="balance">6. Ausgewogene vs. gleiche Spannung</h3>
+    <p>„Ausgewogen" bedeutet nicht, dass jede Saite die gleiche Pfundzahl hat. Deine Finger nehmen Spannung relativ zum Durchmesser und zur Tonhöhe einer Saite wahr, also hat ein gut ausgewogener Satz eine glatte Spannungskurve — typischerweise sitzen die Basssaiten leicht höher als die hohen. Ein Satz, bei dem die tiefe E 16 lbs zieht und die hohe E 18 lbs, würde sich rückwärts anfühlen.</p>
+    <p>StringSelectorApp zeichnet diese Kurve für dich. Eine glatte, sanft ansteigende Linie von Treble zu Bass ist das komfortable, professionelle Ziel. Eine gezackte Linie mit einem Peak bedeutet, dass eine Saite nicht passt — tausche sie aus einem Einzeilsatz-Pack oder wähle einen anderen Satz. „Heavy-Bottom"-Sätze (10&ndash;52, 11&ndash;49) steuern die Kurve bewusst steiler für Drop-Stimmungen und ein enges Bassende.</p>
+
+    <h3 id="trussrod">7. Halsstab und Halskrümmung</h3>
+    <p>Der Halsstab ist die Stahlstange im Hals, die der Saitenspannung entgegenwirkt. Die Saiten ziehen die Kopfplatte nach vorne und erzeugen Krümmung (eine leichte Vorwärtskrümmung); der Stab zieht zurück. Wenn du Sätze oder Stimmungen änderst, ändert sich die Gesamtspannung, und die Halsstab-Einstellung, die für das alte Setup perfekt war, ist jetzt für das neue falsch.</p>
+    <p>StringSelectorApp vergleicht deine Gesamtspannung mit einer Referenz und schätzt die benötigten Halsstab-Umdrehungen — „etwa 1/8 Umdrehung anziehen" zum Beispiel. Behandle dies als Ausgangspunkt und verifiziere dann durch Messung der Krümmung: Ein häufiges Ziel für E-Gitarren ist 0.010" am 7. Bund, gemessen mit einer Fühlerlehre, während die tiefe E am 1. und 15. Bund gehalten wird.</p>
+    <div class="warning">
+      <strong>Erzwinge nie den Halsstab.</strong> Wenn er sich nicht glatt drehen lässt, hör auf — ein gebrochener Halsstab ist eine teure Reparatur. Die Schätzung der App ist ein mathematischer Ausgangspunkt, kein Ersatz für sorgfältige Messung und Erfahrung am Instrument vor dir.
+    </div>
+
+    <h3 id="report">8. Der Werkstattbericht</h3>
+    <p>Der Werkstattbericht ist das Ergebnis — ein druckbares HTML-Dokument, das das gesamte Setup erfasst: Instrumenten- und Stimmungs-Header, eine vollständige Spannungstabelle (Note, Durchmesser, Gewicht pro Einheit, Frequenz, Spannung in lbs und kg/N), die visuelle Spannungskurve, die Halsstab-Empfehlung und einen Freitext-Notizbereich.</p>
+    <p>Archiviere jeden Bericht. Eine Gitarre ist ein dynamisches System — die Krümmung verschiebt sich mit Luftfeuchtigkeit und Saitenalter, Bünde verschleißen, Musiker ändern Stimmungen. Mit einem archivierten Bericht kannst du ein Setup exakt wiederholen, diagnostizieren, was sich geändert hat, wenn eine Gitarre surrend zurückkommt, und dem Kunden dokumentierten Beweis deiner Arbeit zeigen. Erstelle den Bericht <em>vor</em> dem Halsstab-Eingriff, um den „Vorher"-Zustand zu erfassen, dann noch einmal danach, für eine saubere Vorher/Nachher-Aufzeichnung.</p>
+
+    <h3 id="workflow">9. Der professionelle Workflow</h3>
+    <ol>
+      <li><strong>Sprich mit dem Spieler.</strong> Frage nach Stimmung, Stil und etwaigen Feel-Beschwerden. Ein Spieler, der sagt, das Bassende sei „schlapp", beschreibt ein Spannungsproblem, das du messen kannst.</li>
+      <li><strong>Wähle Instrument und Stimmung</strong> in der App oder wähle Custom und gib die Noten selbst ein.</li>
+      <li><strong>Gib die korrekte Mensur ein</strong> — Treble und Bass. Bei Multiscale-Instrumenten ist das kritisch.</li>
+      <li><strong>Berechne</strong> und lies die Top-Empfehlung und die Spannungskurve.</li>
+      <li><strong>Besprich Alternativen</strong> mit dem Spieler, wenn eine Saite nicht passt, bevor du etwas einbaust.</li>
+      <li><strong>Erstelle den Bericht</strong>, dann mache die mechanische Arbeit (Saitenwechsel, Halsstab, Intonation).</li>
+      <li><strong>Messe erneut und archiviere</strong> den finalen Bericht neben dem Vorher-Bericht.</li>
+    </ol>
+
+    <h3 id="reference">10. Technische Referenz</h3>
+    <table>
+      <thead><tr><th>Begriff</th><th>Bedeutung</th></tr></thead>
+      <tbody>
+        <tr><td>Spannung</td><td>Zugkraft einer gestimmten Saite, in Pfund.</td></tr>
+        <tr><td>Gewicht pro Einheit</td><td>Masse pro Zoll Saite (lbs/in) — die Schlüssel-Spannungseingabe, nicht Durchmesser.</td></tr>
+        <tr><td>Mensur</td><td>Schwingende Länge, Steg zu Sattel, in Zoll.</td></tr>
+        <tr><td>Gleichstufige Stimmung</td><td>12 gleiche Halbtöne pro Oktave, A4 = 440 Hz.</td></tr>
+        <tr><td>Ausgewogene Spannung</td><td>Eine glatte Spannungskurve über den Satz, Bass leicht enger als Treble.</td></tr>
+        <tr><td>Halskrümmung</td><td>Vorwärtskrümmung im Hals durch Saitenspannung, entgegengewirkt durch den Halsstab.</td></tr>
+        <tr><td>Heavy-Bottom-Satz</td><td>Mehr Spannung auf Basssaiten, leichtere hohe — für Drop-Stimmungen.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Die eine Regel, die du behalten solltest:</strong> Messe, rate nicht. StringSelectorApp verwandelt die unsichtbare Physik eines Setups in Zahlen, die du sehen, dokumentieren und wiederholen kannst — das ist es, was ein professionelles Setup von einem glücklichen trennt.
+    </div>
   </div>
 </section>
+
 <footer>
   <div class="container">
     <p>StringSelectorApp - Veröffentlicht unter der MIT-Lizenz.</p>

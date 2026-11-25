@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Download</title>
+<title>StringSelectorApp - Télécharger</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -49,54 +49,54 @@
     <nav>
       <a href="index.html">Accueil</a>
       <a href="concepts.html">Concepts</a>
-      <a href="docs.html">Documentation</a>
-      <a href="gui.html">IUG</a>
+      <a href="docs.html">Docs</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manuel</a>
       <a href="download.html">Télécharger</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-    <h2>Downloads</h2>
-    <p>Prebuilt binaries are attached to every <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub Release</a>:</p>
+    <h2>Téléchargements</h2>
+    <p>Les binaires précompilés sont joints à chaque <a href="https://github.com/smallbutfine/stringselectorapp/releases">Release GitHub</a> :</p>
     <table class="download-table">
-      <thead><tr><th>Platform</th><th>Artifact</th><th>Notes</th></tr></thead>
+      <thead><tr><th>Plateforme</th><th>Artefact</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>Windows 64-bit</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup installer. Includes GUI and config files.</td></tr>
-        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Universal app bundle. Unzip and drag to Applications.</td></tr>
-        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Universal app bundle. Unzip and drag to Applications.</td></tr>
-        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extract and run. No dependencies.</td></tr>
-        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extract and run. No dependencies.</td></tr>
+        <tr><td>Windows 64 bits</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Installateur Inno Setup. Inclut la GUI et les fichiers de config.</td></tr>
+        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Bundle d'app universel. Décompressez et glissez vers Applications.</td></tr>
+        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Bundle d'app universel. Décompressez et glissez vers Applications.</td></tr>
+        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extrayez et lancez. Aucune dépendance.</td></tr>
+        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extrayez et lancez. Aucune dépendance.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>macOS:</strong> The app is not code-signed. On first launch, use <strong>right-click -> Open</strong> (or <code>xattr -dr com.apple.quarantine</code> in Terminal).
+      <strong>macOS :</strong> L'app n'est pas signée. Au premier lancement, utilisez <strong>clic droit -&gt; Ouvrir</strong> (ou <code>xattr -dr com.apple.quarantine</code> dans le Terminal).
     </div>
-    <h3>Building from Source</h3>
-    <pre>./build_all.bat            # all 5 targets + packages into Deploy/
-./build_all.bat --check    # verify the toolchain only</pre>
-    <h3>System Requirements</h3>
+    <h3>Compilation depuis les Sources</h3>
+    <pre>./build_all.bat            # les 5 cibles + paquets dans Deploy/
+./build_all.bat --check    # vérifier la chaîne d'outils uniquement</pre>
+    <h3>Configuration Requise</h3>
     <table>
-      <thead><tr><th>Component</th><th>Requirement</th></tr></thead>
+      <thead><tr><th>Composant</th><th>Exigence</th></tr></thead>
       <tbody>
-        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, or Linux (x86_64/ARM)</td></tr>
-        <tr><td>CPU</td><td>x86_64 or ARM</td></tr>
-        <tr><td>RAM</td><td>512 MB minimum</td></tr>
+        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, ou Linux (x86_64/ARM)</td></tr>
+        <tr><td>CPU</td><td>x86_64 ou ARM</td></tr>
+        <tr><td>RAM</td><td>512 Mo minimum</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publié sous licence MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Dépôt GitHub</a></p>
   </div>
 </footer>
 </body>

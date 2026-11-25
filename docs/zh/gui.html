@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - GUI Reference</title>
+<title>StringSelectorApp - 图形界面参考</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,159 +46,159 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">GUI Reference</p>
-    <p class="tagline">Every control, every column, and your first calculation in minutes.</p>
+    <p class="subtitle">图形界面参考</p>
+    <p class="tagline">每个控件、每个列，以及几分钟内完成你的第一次计算。</p>
     <nav>
       <a href="index.html">首页</a>
       <a href="concepts.html">概念</a>
       <a href="docs.html">文档</a>
-      <a href="gui.html">界面</a>
+      <a href="gui.html">图形界面</a>
       <a href="manual.html">手册</a>
       <a href="download.html">下载</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>Launching the App</h2>
-    <p>StringSelectorApp is a single-window desktop application. How you start it depends on your platform:</p>
+    <h2>启动应用</h2>
+    <p>StringSelectorApp 是一款单窗口桌面应用。启动方式取决于你的平台：</p>
     <table>
-      <thead><tr><th>Platform</th><th>Launch</th></tr></thead>
+      <thead><tr><th>平台</th><th>启动</th></tr></thead>
       <tbody>
-        <tr><td>Windows</td><td>Run the Inno Setup installer, then launch <strong>StringSelectorApp</strong> from the Start menu, or run <code>StringSelectorApp.exe</code> directly.</td></tr>
-        <tr><td>macOS</td><td>Unzip the downloaded <code>.zip</code> and drag <strong>StringSelectorApp.app</strong> to Applications. On first launch, right-click &rarr; <strong>Open</strong> (the app is not code-signed).</td></tr>
-        <tr><td>Linux</td><td>Extract the <code>.tar.gz</code> and run the <code>StringSelectorApp</code> binary. No dependencies.</td></tr>
+        <tr><td>Windows</td><td>运行 Inno Setup 安装程序，然后从开始菜单启动 <strong>StringSelectorApp</strong>，或直接运行 <code>StringSelectorApp.exe</code>。</td></tr>
+        <tr><td>macOS</td><td>解压下载的 <code>.zip</code> 并将 <strong>StringSelectorApp.app</strong> 拖到应用程序。首次启动时，右键 &rarr; <strong>打开</strong>（应用未进行代码签名）。</td></tr>
+        <tr><td>Linux</td><td>解压 <code>.tar.gz</code> 并运行 <code>StringSelectorApp</code> 二进制文件。无依赖。</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Data files must sit next to the executable.</strong> The app loads <code>strings.ini</code> and <code>tunings.ini</code> from its own folder at startup. If either file is missing, the app shows an error and runs in a limited mode.
+      <strong>数据文件必须位于可执行文件旁边。</strong> 应用启动时从自己的文件夹加载 <code>strings.ini</code> 和 <code>tunings.ini</code>。如果任一文件缺失，应用会显示错误并以有限模式运行。
     </div>
-    <p>The window opens centered on screen with a dark studio theme. The top label shows a status line (<em>"Execute calculation..."</em> until you run one), and a red safety notice reminds you to generate the PDF report before ordering strings or touching the truss rod.</p>
+    <p>窗口在屏幕上居中打开，采用深色工作室主题。顶部标签显示状态行（在你运行之前显示 <em>"Execute calculation..."</em>），红色安全提示提醒你在订购琴弦或调整桁杆之前生成 PDF 报告。</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Controls Reference</h2>
-    <p>The window is organized into four bands: the status line, the instrument/tuning row, the action row, the fine-tuning row, and the results grid. Every control is listed below in the order it appears.</p>
+    <h2>控件参考</h2>
+    <p>窗口组织为四个带：状态行、乐器/调音行、操作行、微调行和结果网格。每个控件按出现顺序列出如下。</p>
 
-    <h3>Status &amp; safety</h3>
+    <h3>状态与安全</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>控件</th><th>类型</th><th>作用</th></tr></thead>
       <tbody>
-        <tr><td>Status label</td><td>Read-only label</td><td>Shows the top recommendation after a calculation: the best-matching pack, total set tension, and the truss rod guidance. Reads <em>"Execute calculation..."</em> before the first run.</td></tr>
-        <tr><td>Safety notice</td><td>Read-only label (red)</td><td>Permanent reminder to generate and read the PDF report before ordering strings or making mechanical adjustments.</td></tr>
+        <tr><td>状态标签</td><td>只读标签</td><td>显示计算后的主要建议：最匹配的套装、整套总张力和桁杆指导。首次运行前显示 <em>"Execute calculation..."</em>。</td></tr>
+        <tr><td>安全提示</td><td>只读标签（红色）</td><td>永久提醒在订购琴弦或进行机械调整之前生成并阅读 PDF 报告。</td></tr>
       </tbody>
     </table>
 
-    <h3>Instrument &amp; tuning row</h3>
+    <h3>乐器与调音行</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>控件</th><th>类型</th><th>作用</th></tr></thead>
       <tbody>
-        <tr><td>Instrument combo</td><td>Dropdown</td><td>Selects the instrument/tuning profile. Populated from <code>tunings.ini</code> (e.g. <em>"Guitar: 6-String E-Standard"</em>), plus a final <strong>Custom / User-Defined...</strong> entry that lets you edit notes directly in the grid.</td></tr>
-        <tr><td>Tuning combo</td><td>Dropdown</td><td>Tuning modifier applied on top of the profile: <strong>Standard (Profile Preset)</strong> or <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, which drops the lowest string two semitones and raises its target tension by 1 lb.</td></tr>
-        <tr><td>String count</td><td>Spin (4&ndash;9)</td><td>Number of strings. When a preset is selected this is set automatically from the preset; in Custom mode you set it yourself and the grid resizes.</td></tr>
-        <tr><td>Scale treble</td><td>Text (inches)</td><td>Scale length of the treble side (string 1). Default <code>25.5</code>.</td></tr>
-        <tr><td>Scale bass</td><td>Text (inches)</td><td>Scale length of the bass side (lowest string). Default <code>25.5</code>. Set this different from treble for multiscale / fanned-fret instruments.</td></tr>
+        <tr><td>乐器组合框</td><td>下拉</td><td>选择乐器/调音配置文件。从 <code>tunings.ini</code> 填充（例如 <em>"Guitar: 6-String E-Standard"</em>），外加最后一个 <strong>Custom / User-Defined...</strong> 条目，让你直接在网格中编辑音符。</td></tr>
+        <tr><td>调音组合框</td><td>下拉</td><td>应用于配置文件之上的调音修饰符：<strong>Standard (Profile Preset)</strong> 或 <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>，后者将最低音弦降低两个半音并将其目标张力提高 1 磅。</td></tr>
+        <tr><td>琴弦数量</td><td>微调 (4&ndash;9)</td><td>琴弦数量。选择预设时自动从预设设置；在自定义模式下你自行设置，网格会调整大小。</td></tr>
+        <tr><td>高音侧弦长</td><td>文本（英寸）</td><td>高音侧的有效弦长（1 弦）。默认 <code>25.5</code>。</td></tr>
+        <tr><td>低音侧弦长</td><td>文本（英寸）</td><td>低音侧的有效弦长（最低音弦）。默认 <code>25.5</code>。对于多尺度 / 扇形品丝乐器，将其设置为与高音侧不同。</td></tr>
       </tbody>
     </table>
 
-    <h3>Action row</h3>
+    <h3>操作行</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>控件</th><th>类型</th><th>作用</th></tr></thead>
       <tbody>
-        <tr><td>Calculate</td><td>Button</td><td>Runs the tension calculation. Evaluates every pack in <code>strings.ini</code> that matches the string count, ranks them by closeness to the target tension, fills the results grid with the top 5, and shows a summary dialog.</td></tr>
-        <tr><td>Export CSV</td><td>Button</td><td>Writes the entire results grid to a semicolon-separated <code>.csv</code> file (one row per grid row, all 8 columns).</td></tr>
-        <tr><td>Save Tuning</td><td>Button</td><td>Prompts for a name and appends the current tuning as a new <code>[Tuning_N]</code> preset in <code>tunings.ini</code>, then reloads the preset list.</td></tr>
-        <tr><td>Print PDF Report</td><td>Button</td><td>Generates <code>Workshop_Report.html</code> next to the executable and opens it in your browser. Use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive or print it.</td></tr>
+        <tr><td>Calculate</td><td>按钮</td><td>运行张力计算。评估 <code>strings.ini</code> 中每个与琴弦数量匹配的套装，按接近目标张力的程度排名，用前 5 名填充结果网格，并显示摘要对话框。</td></tr>
+        <tr><td>Export CSV</td><td>按钮</td><td>将整个结果网格写入一个分号分隔的 <code>.csv</code> 文件（每行网格一行，全部 8 列）。</td></tr>
+        <tr><td>Save Tuning</td><td>按钮</td><td>提示输入名称并将当前调音作为新的 <code>[Tuning_N]</code> 预设追加到 <code>tunings.ini</code>，然后重新加载预设列表。</td></tr>
+        <tr><td>Print PDF Report</td><td>按钮</td><td>在可执行文件旁边生成 <code>Workshop_Report.html</code> 并在浏览器中打开。使用 <strong>Ctrl+P &rarr; 另存为 PDF</strong> 进行存档或打印。</td></tr>
       </tbody>
     </table>
 
-    <h3>Fine-tuning row</h3>
+    <h3>微调行</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>控件</th><th>类型</th><th>作用</th></tr></thead>
       <tbody>
-        <tr><td>Transpose</td><td>Spin (&minus;12&hellip;+12 ST)</td><td>Shifts every note by the given number of semitones before calculating. Useful for checking alternate keys (Eb, D, Drop C, etc.) without editing the preset.</td></tr>
-        <tr><td>Pitch (Concert A4)</td><td>Spin (390&ndash;460 Hz)</td><td>Reference pitch for frequency calculation. Default <code>440</code> Hz. Lower it for baroque/old-pitch tunings.</td></tr>
-        <tr><td>Guitar Base Tension</td><td>Text (lbs)</td><td>Reference total tension the guitar neck is set up for. Default <code>100.0</code>. Used to compute the truss rod difference.</td></tr>
-        <tr><td>Bass Base Tension</td><td>Text (lbs)</td><td>Reference total tension the bass neck is set up for. Default <code>160.0</code>. Used when the selected tuning is a bass tuning.</td></tr>
-        <tr><td>ISO checkbox</td><td>Checkbox</td><td>Toggles tension display between <strong>lbs</strong> (unchecked) and <strong>kg / N</strong> (checked). Affects the tension column, the total, and the color thresholds.</td></tr>
+        <tr><td>Transpose</td><td>微调 (&minus;12&hellip;+12 ST)</td><td>在计算前将每个音符移动给定的半音数。用于在不编辑预设的情况下检查替代调（Eb、D、Drop C 等）。</td></tr>
+        <tr><td>Pitch (Concert A4)</td><td>微调 (390&ndash;460 Hz)</td><td>频率计算的参考音高。默认 <code>440</code> Hz。为巴洛克/古老音高调音降低它。</td></tr>
+        <tr><td>Guitar Base Tension</td><td>文本（磅）</td><td>吉他琴颈所设置的参考总张力。默认 <code>100.0</code>。用于计算桁杆差值。</td></tr>
+        <tr><td>Bass Base Tension</td><td>文本（磅）</td><td>贝斯琴颈所设置的参考总张力。默认 <code>160.0</code>。当选中的调音是贝斯调音时使用。</td></tr>
+        <tr><td>ISO 复选框</td><td>复选框</td><td>在 <strong>lbs</strong>（未勾选）和 <strong>kg / N</strong>（勾选）之间切换张力显示。影响张力列、总计和颜色阈值。</td></tr>
       </tbody>
     </table>
 
-    <h3>String packs &mdash; how selection works</h3>
-    <p>There is no manual "string pack list" control. Instead, when you click <strong>Calculate</strong>, the app reads every pack in <code>strings.ini</code> whose <code>StringCount</code> matches the current tuning, computes the tension of each, and ranks them by <strong>total variance from the target tension</strong> (lower is better). The grid then shows the <strong>top 5</strong> packs, each followed by its per-string rows. The status line names the single best match.</p>
+    <h3>琴弦套装 — 选择如何运作</h3>
+    <p>没有手动「琴弦套装列表」控件。相反，当你点击 <strong>Calculate</strong> 时，应用读取 <code>strings.ini</code> 中每个 <code>StringCount</code> 与当前调音匹配的套装，计算每个的张力，并按<strong>与目标张力的总偏差</strong>排名（越低越好）。网格显示<strong>前 5 名</strong>套装，每个后面跟着其逐弦行。状态行指明最佳匹配。</p>
     <div class="note">
-      <strong>Target tension</strong> is 15 lbs per guitar string and 40 lbs per bass string (strings below &minus;25 semitones from A4 are treated as bass). The Drop modifier adds 1 lb to the lowest string's target.
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Results Grid Columns</h2>
-    <p>After a calculation the grid fills with up to 5 ranked packs. Each pack occupies a block of rows &mdash; one row per string &mdash; and the columns are:</p>
-    <table>
-      <thead><tr><th>#</th><th>Column</th><th>What it shows</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>Product / Pack Name</td><td>The pack name with its rank badge, e.g. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> is the best match.</td></tr>
-        <tr><td>1</td><td>Tuning</td><td>The note name for that string (e.g. <code>E4</code>), after transpose and any Drop modifier.</td></tr>
-        <tr><td>2</td><td>Frequency (Hz)</td><td>Calculated frequency of the note at the current concert pitch.</td></tr>
-        <tr><td>3</td><td>String Position</td><td>String number, <code>String 1</code> = highest string.</td></tr>
-        <tr><td>4</td><td>Exact Gauge (Inch / mm)</td><td>Gauge in inches and millimetres, e.g. <code>0.010" (0.25 mm)</code>.</td></tr>
-        <tr><td>5</td><td>Tension (lbs) or Tension (kg / N)</td><td>Calculated tension for that string. Header and values switch with the ISO checkbox. Cell background is color-coded (see below).</td></tr>
-        <tr><td>6</td><td>Scale (Inches)</td><td>The scale length used for that string (interpolated on multiscale instruments).</td></tr>
-        <tr><td>7</td><td>Tension Visual Curve</td><td>A small line graph of the whole pack's tension across all strings, with the current row's point highlighted.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Tension cell color coding</h3>
-    <p>The tension cell (column 5) is shaded to give an at-a-glance read on whether a string is too loose, balanced, or too tight. Thresholds depend on instrument type and unit system:</p>
-    <table>
-      <thead><tr><th>Instrument</th><th>Units</th><th>Too loose (blue)</th><th>Balanced (green)</th><th>Too tight (red)</th></tr></thead>
-      <tbody>
-        <tr><td>Guitar</td><td>lbs</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
-        <tr><td>Guitar</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
-        <tr><td>Bass</td><td>lbs</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
-        <tr><td>Bass</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
-      </tbody>
-    </table>
-    <div class="note">
-      <strong>Reading the colors:</strong> blue = the string is below the comfortable tension band (may feel slack or buzz), green = in the sweet spot, red = above the band (may feel stiff or stress the neck). A well-balanced set is mostly green.
+      <strong>目标张力</strong>为每根吉他弦 15 磅，每根贝斯弦 40 磅（低于 A4 的 &minus;25 半音的弦被视为贝斯）。Drop 修饰符为最低音弦的目标增加 1 磅。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Visual Tension Curve</h2>
-    <p>Column 7 draws a compact line graph for each pack. It plots the tension of every string in the pack from string 1 (treble) on the left to the lowest string on the right.</p>
+    <h2>结果网格列</h2>
+    <p>计算后网格填充最多 5 个排名套装。每个套装占据一个行块 — 每根弦一行 — 列为：</p>
+    <table>
+      <thead><tr><th>#</th><th>列</th><th>显示内容</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>产品 / 套装名称</td><td>套装名称及其排名徽章，例如 <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>。<code>#1</code> 是最佳匹配。</td></tr>
+        <tr><td>1</td><td>调音</td><td>该弦的音符名（例如 <code>E4</code>），在 transpose 和任何 Drop 修饰符之后。</td></tr>
+        <tr><td>2</td><td>频率 (Hz)</td><td>在当前音乐会音高下计算的音符频率。</td></tr>
+        <tr><td>3</td><td>琴弦位置</td><td>琴弦编号，<code>String 1</code> = 最高音弦。</td></tr>
+        <tr><td>4</td><td>精确规格（英寸 / mm）</td><td>以英寸和毫米计的规格，例如 <code>0.010" (0.25 mm)</code>。</td></tr>
+        <tr><td>5</td><td>张力 (lbs) 或张力 (kg / N)</td><td>该弦的计算张力。标题和数值随 ISO 复选框切换。单元格背景颜色编码（见下文）。</td></tr>
+        <tr><td>6</td><td>弦长（英寸）</td><td>用于该弦的有效弦长（在多尺度乐器上插值）。</td></tr>
+        <tr><td>7</td><td>张力可视化曲线</td><td>整个套装所有弦张力的小折线图，当前行的点高亮显示。</td></tr>
+      </tbody>
+    </table>
+
+    <h3>张力单元格颜色编码</h3>
+    <p>张力单元格（第 5 列）被着色，以一眼看出弦是否太松、平衡或太紧。阈值取决于乐器类型和单位制：</p>
+    <table>
+      <thead><tr><th>乐器</th><th>单位</th><th>太松（蓝色）</th><th>平衡（绿色）</th><th>太紧（红色）</th></tr></thead>
+      <tbody>
+        <tr><td>吉他</td><td>磅</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
+        <tr><td>吉他</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
+        <tr><td>贝斯</td><td>磅</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
+        <tr><td>贝斯</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>读懂颜色：</strong>蓝色 = 弦低于舒适张力带（可能感觉松弛或嗡嗡作响），绿色 = 在最佳点，红色 = 高于张力带（可能感觉僵硬或使琴颈受力）。一套良好平衡的套装大部分是绿色。
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>可视化张力曲线</h2>
+    <p>第 7 列为每个套装绘制一个紧凑的折线图。它绘制套装中每根弦的张力，从左边第 1 弦（高音）到右边最低音弦。</p>
     <ul>
-      <li><strong>Horizontal axis</strong> &mdash; strings, ordered high to low (string 1 on the left).</li>
-      <li><strong>Vertical axis</strong> &mdash; tension, scaled to a fixed ceiling: <strong>25 lbs</strong> for guitar, <strong>60 lbs</strong> for bass. Points are clamped to the cell so nothing overflows.</li>
-      <li><strong>Green line</strong> &mdash; connects the per-string tension points, so you see the shape of the set at a glance.</li>
-      <li><strong>White square</strong> &mdash; marks the point for the string in the current row, so you can tie a row back to its position on the curve.</li>
-      <li><strong>Dotted midline</strong> &mdash; a faint horizontal reference across the middle of the cell.</li>
+      <li><strong>横轴</strong> &mdash; 琴弦，从高到低排序（第 1 弦在左边）。</li>
+      <li><strong>纵轴</strong> &mdash; 张力，缩放到固定上限：吉他 <strong>25 磅</strong>，贝斯 <strong>60 磅</strong>。点被限制在单元格内，确保不会溢出。</li>
+      <li><strong>绿线</strong> &mdash; 连接每根弦的张力点，让你一眼看出套装形状。</li>
+      <li><strong>白色方块</strong> &mdash; 标记当前行弦的点，让你把行与曲线上的位置联系起来。</li>
+      <li><strong>点状中线</strong> &mdash; 单元格中部的一条淡水平参考线。</li>
     </ul>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Flat / balanced</h3>
-        <p>A roughly horizontal line means every string sits at a similar tension &mdash; the classic "balanced" feel many players look for.</p>
+        <h3>平坦 / 平衡</h3>
+        <p>大致水平的线意味着每根弦处于相似张力 — 许多演奏者追求的古典「平衡」感觉。</p>
       </div>
       <div class="feature-card">
-        <h3>Heavy-bottom</h3>
-        <p>A line that rises toward the low strings means the bass side is heavier &mdash; common on sets marketed as "Skinny Top Heavy Bottom" and preferred by many rhythm players.</p>
+        <h3>低音重</h3>
+        <p>向低音弦上升的线意味着低音侧更重 — 常见于标为「Skinny Top Heavy Bottom」的套装，许多节奏演奏者更喜欢。</p>
       </div>
       <div class="feature-card">
-        <h3>Light-bottom</h3>
-        <p>A line that falls toward the low strings means the bass strings are looser than the trebles &mdash; check for a floppy low end or a set mismatched to the tuning.</p>
+        <h3>低音轻</h3>
+        <p>向低音弦下降的线意味着低音弦比高音弦更松 — 检查低音端是否松弛或套装与调音不匹配。</p>
       </div>
     </div>
   </div>
@@ -206,64 +206,64 @@
 
 <section>
   <div class="container">
-    <h2>First Calculation Walkthrough</h2>
-    <p>This walkthrough takes you from launch to a complete result in under a minute. We'll calculate a standard 6-string guitar in E-Standard on a 25.5" scale.</p>
+    <h2>第一次计算演练</h2>
+    <p>本演练在不到一分钟内带你从启动到完整结果。我们将计算一把 25.5" 弦长的标准 6 弦吉他，E-Standard 调音。</p>
     <ol>
-      <li><strong>Launch the app.</strong> The window opens with the status line reading <em>"Execute calculation..."</em> and the grid showing only headers.</li>
-      <li><strong>Select the instrument/tuning.</strong> Open the <strong>Instrument combo</strong> and choose <em>"Guitar: 6-String E-Standard (Default)"</em>. The string count automatically becomes 6.</li>
-      <li><strong>Leave the tuning modifier on Standard.</strong> The <strong>Tuning combo</strong> defaults to <em>Standard (Profile Preset)</em> &mdash; no drop tuning for this example.</li>
-      <li><strong>Check the scale lengths.</strong> <strong>Scale treble</strong> and <strong>Scale bass</strong> both default to <code>25.5</code> &mdash; correct for a standard single-scale guitar. Leave them as-is.</li>
-      <li><strong>Confirm the fine-tuning row.</strong> Transpose is <code>0</code>, Pitch is <code>440</code> Hz, Guitar Base Tension is <code>100.0</code> lbs. These are the defaults &mdash; leave them for now.</li>
-      <li><strong>Click Calculate.</strong> The app evaluates every 6-string pack in <code>strings.ini</code>, ranks them, and fills the grid with the top 5. A summary dialog lists each pack's total tension, neck status, and average variance.</li>
-      <li><strong>Read the status line.</strong> It now shows the single best match, e.g. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
-      <li><strong>Scan the grid.</strong> Each pack block shows per-string note, frequency, gauge, tension (color-coded), scale, and the visual curve. Look for mostly-green tension cells and a balanced curve.</li>
-      <li><strong>Generate the report.</strong> Click <strong>Print PDF Report</strong>. The workshop report opens in your browser &mdash; use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive it.</li>
+      <li><strong>启动应用。</strong>窗口打开，状态行显示 <em>"Execute calculation..."</em>，网格只显示标题。</li>
+      <li><strong>选择乐器/调音。</strong>打开 <strong>乐器组合框</strong>并选择 <em>"Guitar: 6-String E-Standard (Default)"</em>。琴弦数量自动变为 6。</li>
+      <li><strong>将调音修饰符保持 Standard。</strong><strong>调音组合框</strong>默认为 <em>Standard (Profile Preset)</em> &mdash; 此示例无 drop 调音。</li>
+      <li><strong>检查弦长。</strong><strong>高音侧弦长</strong>和<strong>低音侧弦长</strong>都默认为 <code>25.5</code> &mdash; 对于标准单尺度吉他正确。保持不变。</li>
+      <li><strong>确认微调行。</strong>Transpose 为 <code>0</code>，Pitch 为 <code>440</code> Hz，Guitar Base Tension 为 <code>100.0</code> 磅。这些是默认值 &mdash; 暂时保持不变。</li>
+      <li><strong>点击 Calculate。</strong>应用评估 <code>strings.ini</code> 中每个 6 弦套装，排名并用前 5 名填充网格。摘要对话框列出每个套装的总张力、琴颈状态和平均偏差。</li>
+      <li><strong>读取状态行。</strong>现在显示最佳匹配，例如 <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>。</li>
+      <li><strong>浏览网格。</strong>每个套装块显示逐弦音符、频率、规格、张力（颜色编码）、弦长和可视化曲线。寻找大部分绿色的张力单元格和平衡的曲线。</li>
+      <li><strong>生成报告。</strong>点击 <strong>Print PDF Report</strong>。工坊报告在浏览器中打开 &mdash; 使用 <strong>Ctrl+P &rarr; 另存为 PDF</strong> 存档。</li>
     </ol>
     <div class="note">
-      <strong>What the truss rod guidance means:</strong> the status line compares the total set tension to your base tension. Within &plusmn;3 lbs it says the neck is OK. Above that it suggests tightening (clockwise) or loosening (counter-clockwise) by roughly one quarter-turn per 10 lbs of difference.
+      <strong>桁杆指导的含义：</strong>状态行将套装总张力与你的基础张力比较。在 &plusmn;3 磅内表示琴颈 OK。高于此值建议拧紧（顺时针）或松开（逆时针）大约每 10 磅差异四分之一圈。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Tips for Reading the Results</h2>
+    <h2>读取结果的小贴士</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Balanced &ne; equal</h3>
-        <p>A balanced set has a smooth curve, not necessarily identical numbers. Many players prefer a slightly heavier bass side for rhythm work &mdash; the "heavy-bottom" curve is a feature, not a flaw.</p>
+        <h3>平衡 &ne; 相等</h3>
+        <p>平衡的套装有平滑的曲线，不一定数字相同。许多人更喜欢略重的低音侧用于节奏演奏 &mdash; 「低音重」曲线是特点，而非缺陷。</p>
       </div>
       <div class="feature-card">
-        <h3>Watch the total</h3>
-        <p>Per-string tension matters, but the <strong>total set tension</strong> is what loads the neck. Adding a string or tuning up can push the total past what the truss rod was set for.</p>
+        <h3>关注总计</h3>
+        <p>逐弦张力很重要，但<strong>整套总张力</strong>才是加载琴颈的。添加一根弦或调高会推高总计超过桁杆所设置的范围。</p>
       </div>
       <div class="feature-card">
-        <h3>Gauge is not tension</h3>
-        <p>Two packs with the same gauge (e.g. both 10-46) can differ in tension because of unit weight. Trust the calculated tension and the curve, not the gauge label alone.</p>
+        <h3>规格不是张力</h3>
+        <p>两个相同规格的套装（例如都是 10-46）可能因单位重量而张力不同。相信计算出的张力和曲线，而不仅仅是规格标签。</p>
       </div>
       <div class="feature-card">
-        <h3>Scale length matters</h3>
-        <p>A 25.5" scale has noticeably more tension than a 24.75" scale with the same strings. Always enter the correct treble and bass scale for the instrument in front of you.</p>
+        <h3>弦长很重要</h3>
+        <p>25.5" 弦长比 24.75" 弦长用同样的弦张力明显更大。始终为你面前的乐器输入正确的高音侧和低音侧弦长。</p>
       </div>
       <div class="feature-card">
-        <h3>Use transpose for keys</h3>
-        <p>Want to check Eb or Drop C without editing presets? Set the <strong>Transpose</strong> spin to &minus;1 or &minus;2 and recalculate &mdash; every note shifts and the tension updates.</p>
+        <h3>用 transpose 查调</h3>
+        <p>想检查 Eb 或 Drop C 而不编辑预设？将 <strong>Transpose</strong> 微调设为 &minus;1 或 &minus;2 并重新计算 &mdash; 每个音符移动，张力更新。</p>
       </div>
       <div class="feature-card">
-        <h3>Calibrate your base</h3>
-        <p>The truss rod advice is only as good as your base tension. Set it by calculating the strings the neck is <em>currently</em> set up for, then use that total as the base for future comparisons.</p>
+        <h3>校准你的基准</h3>
+        <p>桁杆建议的好坏取决于你的基础张力。通过计算琴颈<em>当前</em>所设置的弦来设定它，然后将该总计用作未来比较的基准。</p>
       </div>
     </div>
     <div class="warning">
-      <strong>Truss rod adjustments are iterative and unforgiving.</strong> Turn in small increments (1/8 turn), retune to pitch, let the wood settle, then re-measure. When in doubt, stop and consult a professional luthier &mdash; the app's guidance is a mathematical estimate, not a substitute for experience.
+      <strong>桁杆调整是迭代且无情的。</strong>以小增量转动（1/8 圈），重新调音，让木材稳定，然后重新测量。如有疑问，停止并咨询专业的制琴师 &mdash; 应用的指导是数学估计，而非经验的替代品。
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - 根据 MIT 许可证发布。</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub 仓库</a></p>
   </div>
 </footer>
 </body>

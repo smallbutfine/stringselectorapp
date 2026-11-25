@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Documentation</title>
+<title>StringSelectorApp - 文档中心</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,21 +46,21 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">Documentation Hub</p>
-    <p class="tagline">Build it, feed it data, and understand the physics behind every number.</p>
+    <p class="subtitle">文档中心</p>
+    <p class="tagline">构建它、用数据喂养它，并理解每个数字背后的物理原理。</p>
     <nav>
       <a href="index.html">首页</a>
       <a href="concepts.html">概念</a>
       <a href="docs.html">文档</a>
-      <a href="gui.html">界面</a>
+      <a href="gui.html">图形界面</a>
       <a href="manual.html">手册</a>
       <a href="download.html">下载</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
@@ -68,22 +68,22 @@
 <section>
   <div class="container">
     <h2>文档</h2>
-    <p>Everything you need to build StringSelectorApp from source, extend its databases, and understand the math behind the tension numbers. Start with the guides below, then dig into the references.</p>
+    <p>从源代码构建 StringSelectorApp、扩展其数据库并理解张力数字背后数学所需的一切。从下面的指南开始，然后深入研究参考资料。</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>The Luthier's Manual</h3>
-        <p>A complete walkthrough of the physics, the interface, reading results, workshop reports, and truss rod adjustment.</p>
-        <p><a href="manual.html"><strong>Read the Manual &rarr;</strong></a></p>
+        <h3>制琴师手册</h3>
+        <p>物理原理、界面、读取结果、工坊报告和桁杆调整的完整演练。</p>
+        <p><a href="manual.html"><strong>阅读手册 &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>GUI Reference</h3>
-        <p>Every control, every results-grid column, the visual tension curve, and a step-by-step first calculation.</p>
-        <p><a href="gui.html"><strong>Open the GUI Reference &rarr;</strong></a></p>
+        <h3>图形界面参考</h3>
+        <p>每个控件、每个结果网格列、可视化张力曲线，以及逐步的第一次计算。</p>
+        <p><a href="gui.html"><strong>打开图形界面参考 &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>Downloads</h3>
-        <p>Prebuilt binaries for Windows, macOS (Intel &amp; Apple Silicon), and Linux (x86_64 &amp; ARM).</p>
-        <p><a href="download.html"><strong>Get the binaries &rarr;</strong></a></p>
+        <h3>下载</h3>
+        <p>适用于 Windows、macOS（Intel 和 Apple Silicon）和 Linux（x86_64 和 ARM）的预编译二进制文件。</p>
+        <p><a href="download.html"><strong>获取二进制文件 &rarr;</strong></a></p>
       </div>
     </div>
   </div>
@@ -91,58 +91,58 @@
 
 <section>
   <div class="container">
-    <h2>Building from Source</h2>
-    <p>StringSelectorApp is a FreePascal / Lazarus project. The repository ships a single build script, <code>build_all.bat</code>, that compiles the GUI for every supported target and packages the results into <code>Deploy/</code>.</p>
+    <h2>从源代码构建</h2>
+    <p>StringSelectorApp 是一个 FreePascal / Lazarus 项目。仓库提供了一个构建脚本 <code>build_all.bat</code>，它为每个支持的目标编译图形界面并将结果打包到 <code>Deploy/</code> 中。</p>
 
-    <h3>Prerequisites</h3>
+    <h3>先决条件</h3>
     <table>
-      <thead><tr><th>Tool</th><th>Purpose</th><th>Default location</th></tr></thead>
+      <thead><tr><th>工具</th><th>用途</th><th>默认位置</th></tr></thead>
       <tbody>
-        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Compiles the Pascal source</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Builds the LCL GUI project</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td>Cross-binaries</td><td>Cross-compile for macOS &amp; Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Builds the Windows installer</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td>GNU tar</td><td>Packages Linux tarballs</td><td><code>tar</code> on PATH</td></tr>
-        <tr><td>Python 3</td><td>Zips macOS <code>.app</code> bundles with correct Unix modes</td><td><code>python</code> on PATH</td></tr>
+        <tr><td>Free Pascal Compiler（FPC 3.2.x）</td><td>编译 Pascal 源代码</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td>Lazarus（<code>lazbuild</code>）</td><td>构建 LCL 图形界面项目</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td>交叉二进制文件</td><td>为 macOS 和 Linux 交叉编译</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td>Inno Setup 6（<code>ISCC.exe</code>）</td><td>构建 Windows 安装程序</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td>GNU tar</td><td>打包 Linux tarball</td><td>PATH 上的 <code>tar</code></td></tr>
+        <tr><td>Python 3</td><td>以正确的 Unix 模式压缩 macOS <code>.app</code> 包</td><td>PATH 上的 <code>python</code></td></tr>
       </tbody>
     </table>
 
-    <h3>Build commands</h3>
+    <h3>构建命令</h3>
     <div class="command-block">
-      <span class="comment"># Build all 5 targets and package into Deploy/</span><br>
+      <span class="comment"># 构建全部 5 个目标并打包到 Deploy/</span><br>
       ./build_all.bat<br><br>
-      <span class="comment"># Verify the toolchain only (no build)</span><br>
+      <span class="comment"># 仅验证工具链（不构建）</span><br>
       ./build_all.bat --check
     </div>
-    <p>The script builds five targets: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code>, and <code>linux-arm</code>. Output goes to <code>dist\&lt;target&gt;\</code> and version-stamped packages are copied to <code>Deploy\</code>.</p>
+    <p>该脚本构建五个目标：<code>win64</code>、<code>macos-intel</code>、<code>macos-aarch64</code>、<code>linux-x64</code> 和 <code>linux-arm</code>。输出到 <code>dist\&lt;target&gt;\</code>，带版本号的包被复制到 <code>Deploy\</code>。</p>
 
-    <h3>Environment variables</h3>
-    <p>Every toolchain path can be overridden without editing the script. Set these before running <code>build_all.bat</code>:</p>
+    <h3>环境变量</h3>
+    <p>每个工具链路径都可以在不编辑脚本的情况下覆盖。在运行 <code>build_all.bat</code> 之前设置这些：</p>
     <table>
-      <thead><tr><th>Variable</th><th>Overrides</th><th>Default</th></tr></thead>
+      <thead><tr><th>变量</th><th>覆盖</th><th>默认</th></tr></thead>
       <tbody>
-        <tr><td><code>FPC_DIR</code></td><td>Free Pascal compiler directory</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td><code>LAZBUILD</code></td><td>Lazarus build tool path</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td><code>CROSS_BIN_DIR</code></td><td>Cross-compiler binaries</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td><code>ISCC</code></td><td>Inno Setup compiler</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td><code>TAR</code></td><td>tar executable</td><td><code>tar</code></td></tr>
-        <tr><td><code>NO_VERSION_BUMP</code></td><td>Build the current version without incrementing the patch level</td><td>(unset)</td></tr>
-        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Skip the interactive <code>pause</code> at the end (never hang in CI)</td><td>(unset)</td></tr>
+        <tr><td><code>FPC_DIR</code></td><td>Free Pascal 编译器目录</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td><code>LAZBUILD</code></td><td>Lazarus 构建工具路径</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td><code>CROSS_BIN_DIR</code></td><td>交叉编译器二进制文件</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td><code>ISCC</code></td><td>Inno Setup 编译器</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td><code>TAR</code></td><td>tar 可执行文件</td><td><code>tar</code></td></tr>
+        <tr><td><code>NO_VERSION_BUMP</code></td><td>构建当前版本而不递增补丁号</td><td>（未设置）</td></tr>
+        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>跳过末尾的交互式 <code>pause</code>（在 CI 中永不挂起）</td><td>（未设置）</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Tip:</strong> The build counter in <code>Assets\version.txt</code> is bumped on every build so version-stamped artifacts never collide. Set <code>NO_VERSION_BUMP=1</code> for idempotent rebuilds of the same version.
+      <strong>提示：</strong> <code>Assets\version.txt</code> 中的构建计数器每次构建都会递增，因此带版本号的产物永远不会冲突。设置 <code>NO_VERSION_BUMP=1</code> 可幂等地重建同一版本。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Data File Format Reference</h2>
-    <p>StringSelectorApp is data-driven. Two plain-text INI files sit next to the executable and are loaded at startup. Edit them in any text editor &mdash; no recompilation required.</p>
+    <h2>数据文件格式参考</h2>
+    <p>StringSelectorApp 是数据驱动的。两个纯文本 INI 文件位于可执行文件旁边，并在启动时加载。在任意文本编辑器中编辑它们 — 无需重新编译。</p>
 
-    <h3>strings.ini &mdash; the string database</h3>
-    <p>Each <code>[Section]</code> is one string pack. The app reads every section, keeps the ones whose <code>StringCount</code> matches the current tuning, and ranks them by how close their tension is to the target.</p>
+    <h3>strings.ini — 琴弦数据库</h3>
+    <p>每个 <code>[Section]</code> 是一个琴弦套装。应用读取每个部分，保留 <code>StringCount</code> 与当前调音匹配的那些，并按其张力接近目标的程度排名。</p>
     <pre>[ErnieBall_Regular_2221]
 Name=Ernie Ball 2221 Regular Slinky (10-46)
 StringCount=6
@@ -159,20 +159,20 @@ W5=0.00023964
 G6=0.046
 W6=0.00038216</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>字段</th><th>含义</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the results grid (brand + gauge).</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings in the pack (1&ndash;9).</td></tr>
-        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Gauge of each string in inches (plain decimal, e.g. <code>0.010</code>).</td></tr>
-        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Unit weight of each string in lbs/inch. This is the physical value the formula uses &mdash; not the gauge.</td></tr>
+        <tr><td><code>Name</code></td><td>结果网格中显示的名称（品牌 + 规格）。</td></tr>
+        <tr><td><code>StringCount</code></td><td>套装中的琴弦数量（1&ndash;9）。</td></tr>
+        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>每根弦的规格（英寸，简单小数，例如 <code>0.010</code>）。</td></tr>
+        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>每根弦的单位重量（磅/英寸）。这是公式使用的物理值 — 而非规格。</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Why unit weight, not gauge?</strong> Two strings with the same gauge can have very different unit weights depending on material (plain steel, nickel-wound, stainless), core shape, and winding. Tension depends on unit weight, so that is what the file stores.
+      <strong>为什么用单位重量而非规格？</strong>两根相同规格的琴弦可能因材料（裸钢、镀镍、不锈钢）、芯线和绕线形状而单位重量大不相同。张力取决于单位重量，因此文件中存储的是它。
     </div>
 
-    <h3>tunings.ini &mdash; the tuning presets</h3>
-    <p>Each <code>[Tuning_N]</code> section is one preset. The <code>[Setup]</code> section at the top declares how many presets exist (<code>TuningCount</code>). The app reads exactly that many sections in order.</p>
+    <h3>tunings.ini — 调音预设</h3>
+    <p>每个 <code>[Tuning_N]</code> 部分是一个预设。顶部的 <code>[Setup]</code> 部分声明存在多少个预设（<code>TuningCount</code>）。应用按顺序读取恰好那么多部分。</p>
     <pre>[Setup]
 TuningCount=28
 
@@ -186,75 +186,75 @@ N4=D3
 N5=A2
 N6=E2</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>字段</th><th>含义</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the instrument/tuning combo.</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings (4&ndash;9).</td></tr>
-        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Note name of each string, <strong>string 1 = highest string</strong>. Format: letter + optional <code>#</code>/<code>b</code> + octave, e.g. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
+        <tr><td><code>Name</code></td><td>乐器/调音组合框中显示的名称。</td></tr>
+        <tr><td><code>StringCount</code></td><td>琴弦数量（4&ndash;9）。</td></tr>
+        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>每根弦的音符名，<strong>1 弦 = 最高音弦</strong>。格式：字母 + 可选 <code>#</code>/<code>b</code> + 八度，例如 <code>E4</code>、<code>A2</code>、<code>C#3</code>、<code>Bb3</code>。</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Octave convention:</strong> Scientific pitch notation is used, so <code>A4 = 440 Hz</code> and <code>A2 = 110 Hz</code>. The note name is converted to a frequency with <code>f = A4 &times; 2^(n/12)</code>, where <code>n</code> is the semitone distance from A4.
+      <strong>八度约定：</strong>使用科学音高记号，因此 <code>A4 = 440 Hz</code>，<code>A2 = 110 Hz</code>。音符名通过 <code>f = A4 &times; 2^(n/12)</code> 转换为频率，其中 <code>n</code> 是距 A4 的半音距离。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Physics Formula Reference</h2>
-    <p>Every tension number in the app comes from one equation &mdash; the ideal flexible-string tension formula, solved for pounds-force.</p>
+    <h2>物理公式参考</h2>
+    <p>应用中每个张力数字都来自一个方程 — 理想柔性弦张力公式，以磅力求解。</p>
 
-    <h3>String tension</h3>
+    <h3>琴弦张力</h3>
     <div class="command-block">
       T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
     </div>
     <table>
-      <thead><tr><th>Symbol</th><th>Quantity</th><th>Unit</th></tr></thead>
+      <thead><tr><th>符号</th><th>量</th><th>单位</th></tr></thead>
       <tbody>
-        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td></tr>
-        <tr><td><code>W</code></td><td>Unit weight of the string</td><td>lbs / inch</td></tr>
-        <tr><td><code>L</code></td><td>Scale length (vibrating string length)</td><td>inches</td></tr>
-        <tr><td><code>f</code></td><td>Frequency of the note</td><td>Hz</td></tr>
-        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup> (converts to pounds-force)</td></tr>
+        <tr><td><code>T</code></td><td>张力</td><td>磅 (lbs)</td></tr>
+        <tr><td><code>W</code></td><td>琴弦的单位重量</td><td>磅 / 英寸</td></tr>
+        <tr><td><code>L</code></td><td>有效弦长（振动弦长）</td><td>英寸</td></tr>
+        <tr><td><code>f</code></td><td>音符频率</td><td>Hz</td></tr>
+        <tr><td><code>386.4</code></td><td>重力常数</td><td>英寸 / s<sup>2</sup>（转换为磅力）</td></tr>
       </tbody>
     </table>
 
-    <h3>Frequency from note name</h3>
-    <p>Each note is converted to a frequency using equal temperament:</p>
+    <h3>从音符名得到频率</h3>
+    <p>每个音符使用十二平均律转换为频率：</p>
     <div class="command-block">
       f = A4 &times; 2<sup>(n / 12)</sup>
     </div>
-    <p>where <code>A4</code> is the concert-pitch reference (440 Hz by default, adjustable 390&ndash;460 Hz in the GUI) and <code>n</code> is the number of semitones from A4 (e.g. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
+    <p>其中 <code>A4</code> 是音乐会音高参考（默认 440 Hz，图形界面中可调 390&ndash;460 Hz），<code>n</code> 是距 A4 的半音数（例如 E4 = +5，A2 = &minus;24，E2 = &minus;29）。</p>
 
-    <h3>Unit conversions (ISO mode)</h3>
+    <h3>单位换算（ISO 模式）</h3>
     <table>
-      <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+      <thead><tr><th>从</th><th>到</th><th>乘以</th></tr></thead>
       <tbody>
-        <tr><td>Tension (lbs)</td><td>Kilograms</td><td><code>0.45359237</code></td></tr>
-        <tr><td>Tension (lbs)</td><td>Newtons</td><td><code>4.448</code> (via kg &times; 9.80665)</td></tr>
+        <tr><td>张力（磅）</td><td>千克</td><td><code>0.45359237</code></td></tr>
+        <tr><td>张力（磅）</td><td>牛顿</td><td><code>4.448</code>（经 kg &times; 9.80665）</td></tr>
       </tbody>
     </table>
 
-    <h3>Scale length interpolation (multiscale / fanned-fret)</h3>
-    <p>For instruments with different treble and bass scale lengths, the app interpolates linearly across the strings. For string <code>i</code> of <code>N</code> (0-based):</p>
+    <h3>弦长插值（多尺度 / 扇形品丝）</h3>
+    <p>对于高音侧和低音侧弦长不同的乐器，应用跨弦线性插值。对于第 <code>i</code> 根弦（共 <code>N</code> 根，从 0 开始）：</p>
     <div class="command-block">
       L<sub>i</sub> = ScaleTreble + (ScaleBass &minus; ScaleTreble) &times; (i / (N &minus; 1))
     </div>
-    <p>String 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is interpolated. For a single-scale instrument, set treble and bass to the same value.</p>
+    <p>第 1 根弦使用高音侧弦长，最低音弦使用低音侧弦长，中间的一切都被插值。对于单尺度乐器，将高音侧和低音侧设为相同值。</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Your Own Strings</h2>
-    <p>Adding a string pack is just editing <code>strings.ini</code>. The app reloads it on next launch.</p>
+    <h2>如何添加你自己的琴弦</h2>
+    <p>添加琴弦套装就是编辑 <code>strings.ini</code>。应用会在下次启动时重新加载它。</p>
     <ol>
-      <li><strong>Open <code>strings.ini</code></strong> in any text editor (Notepad, VS Code, etc.). It lives next to the executable.</li>
-      <li><strong>Copy an existing section</strong> that has the same number of strings as your new pack.</li>
-      <li><strong>Paste it at the end</strong> of the file and give it a unique <code>[Section_Name]</code> (letters, numbers, underscores &mdash; no spaces).</li>
-      <li><strong>Set <code>Name</code></strong> to the brand and gauge, e.g. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
-      <li><strong>Fill in <code>G1</code>&hellip;<code>GN</code></strong> (gauge in inches) and <code>W1</code>&hellip;<code>WN</code> (unit weight in lbs/inch) for every string.</li>
-      <li><strong>Save the file</strong> and relaunch the app. Your pack appears in the evaluation automatically.</li>
+      <li><strong>在任意文本编辑器（记事本、VS Code 等）中打开 <code>strings.ini</code></strong>。它位于可执行文件旁边。</li>
+      <li><strong>复制一个具有相同琴弦数量的现有部分</strong>作为你的新套装。</li>
+      <li><strong>将其粘贴到文件末尾</strong>并赋予唯一的 <code>[Section_Name]</code>（字母、数字、下划线 — 无空格）。</li>
+      <li><strong>设置 <code>Name</code></strong>为品牌和规格，例如 <code>Name=MyBrand Custom Set (10-52)</code>。</li>
+      <li><strong>为每根弦填写 <code>G1</code>&hellip;<code>GN</code></strong>（英寸规格）和 <code>W1</code>&hellip;<code>WN</code>（磅/英寸单位重量）。</li>
+      <li><strong>保存文件</strong>并重新启动应用。你的套装会自动出现在评估中。</li>
     </ol>
     <pre>[MyBrand_Custom_1052]
 Name=MyBrand Custom Set (10-52)
@@ -271,31 +271,31 @@ G5=0.042
 W5=0.00031841
 G6=0.052
 W6=0.00049216</pre>
-    <h3>Where to find unit weight data</h3>
+    <h3>在哪里找到单位重量数据</h3>
     <ul>
-      <li><strong>Manufacturer websites</strong> &mdash; Ernie Ball, D'Addario, and Elixir publish unit weights for their sets.</li>
-      <li><strong>Online tension calculators</strong> &mdash; many list unit weight alongside gauge.</li>
-      <li><strong>DIY measurement</strong> &mdash; weigh a known length of string on a precision scale and divide.</li>
+      <li><strong>制造商网站</strong> — Ernie Ball、D'Addario 和 Elixir 发布其套装的 单位重量。</li>
+      <li><strong>在线张力计算器</strong> — 许多在规格旁列出单位重量。</li>
+      <li><strong>DIY 测量</strong> — 在精密秤上称量已知长度的琴弦并相除。</li>
     </ul>
     <div class="warning">
-      <strong>Don't guess unit weight from gauge alone.</strong> A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string can differ by 20% in tension. Use the measured or published unit weight for accurate results.
+      <strong>不要仅凭规格猜测单位重量。</strong>一根 <code>.010"</code> 裸钢弦和一根 <code>.010"</code> 镀镍弦的张力可能相差 20%。使用测量或发布的单位重量以获得准确结果。
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Custom Tunings</h2>
-    <p>There are two ways to add a tuning: by hand in <code>tunings.ini</code>, or with the <strong>Save Tuning</strong> button inside the app.</p>
+    <h2>如何添加自定义调音</h2>
+    <p>有两种添加调音的方式：在 <code>tunings.ini</code> 中手动添加，或使用应用内的 <strong>Save Tuning</strong> 按钮。</p>
 
-    <h3>Option A &mdash; Edit tunings.ini directly</h3>
+    <h3>选项 A — 直接编辑 tunings.ini</h3>
     <ol>
-      <li><strong>Open <code>tunings.ini</code></strong> in a text editor.</li>
-      <li><strong>Note the current <code>TuningCount</code></strong> in the <code>[Setup]</code> section.</li>
-      <li><strong>Add a new section</strong> named <code>[Tuning_N]</code> where <code>N</code> is the current count (sections are read in order <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
-      <li><strong>Set <code>Name</code>, <code>StringCount</code>, and <code>N1</code>&hellip;<code>N9</code></strong> (string 1 = highest string).</li>
-      <li><strong>Increment <code>TuningCount</code></strong> in <code>[Setup]</code> by one.</li>
-      <li><strong>Save and relaunch</strong> &mdash; the new tuning appears in the instrument/tuning combo.</li>
+      <li><strong>在文本编辑器中打开 <code>tunings.ini</code></strong>。</li>
+      <li><strong>注意 <code>[Setup]</code> 部分中当前的 <code>TuningCount</code></strong>。</li>
+      <li><strong>添加一个名为 <code>[Tuning_N]</code> 的新部分</strong>，其中 <code>N</code> 是当前计数（各部分按顺序 <code>Tuning_0</code>、<code>Tuning_1</code>、&hellip; 读取）。</li>
+      <li><strong>设置 <code>Name</code>、<code>StringCount</code> 和 <code>N1</code>&hellip;<code>N9</code></strong>（1 弦 = 最高音弦）。</li>
+      <li><strong>将 <code>[Setup]</code> 中的 <code>TuningCount</code> 加一</strong>。</li>
+      <li><strong>保存并重新启动</strong> — 新调音出现在乐器/调音组合框中。</li>
     </ol>
     <pre>[Setup]
 TuningCount=29
@@ -310,23 +310,23 @@ N4=D3
 N5=A2
 N6=D2</pre>
 
-    <h3>Option B &mdash; Use the Save Tuning button</h3>
+    <h3>选项 B — 使用 Save Tuning 按钮</h3>
     <ol>
-      <li>In the app, pick a preset close to what you want (or choose <strong>Custom / User-Defined...</strong>).</li>
-      <li>Adjust the notes, transpose, and pitch until the tuning is what you want.</li>
-      <li>Click <strong>Save Tuning</strong> and enter a descriptive name when prompted.</li>
-      <li>The app appends a new <code>[Tuning_N]</code> section to <code>tunings.ini</code>, bumps <code>TuningCount</code>, and reloads the preset list.</li>
+      <li>在应用中，选择一个接近你想要的预设（或选择 <strong>Custom / User-Defined...</strong>）。</li>
+      <li>调整音符、transpose 和 pitch，直到调音是你想要的。</li>
+      <li>点击 <strong>Save Tuning</strong> 并在提示时输入描述性名称。</li>
+      <li>应用将新的 <code>[Tuning_N]</code> 部分追加到 <code>tunings.ini</code>，递增 <code>TuningCount</code> 并重新加载预设列表。</li>
     </ol>
     <div class="note">
-      <strong>Note names must be plain.</strong> The Save Tuning button strips any trailing modifier (e.g. <code>" (Drop)"</code>) before writing, so write clean note names like <code>E4</code>, <code>Bb3</code>, or <code>F#1</code>.
+      <strong>音符名必须简单。</strong>Save Tuning 按钮在写入前会去除任何尾随修饰符（例如 <code>" (Drop)"</code>），因此请写干净的音符名，如 <code>E4</code>、<code>Bb3</code> 或 <code>F#1</code>。
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - 根据 MIT 许可证发布。</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub 仓库</a></p>
   </div>
 </footer>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Documentation</title>
+<title>StringSelectorApp - Центр Документации</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,8 +46,8 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">Documentation Hub</p>
-    <p class="tagline">Build it, feed it data, and understand the physics behind every number.</p>
+    <p class="subtitle">Центр Документации</p>
+    <p class="tagline">Соберите его, наполните данными и поймите физику, стоящую за каждым числом.</p>
     <nav>
       <a href="index.html">Главная</a>
       <a href="concepts.html">Концепции</a>
@@ -55,12 +55,12 @@
       <a href="gui.html">GUI</a>
       <a href="manual.html">Руководство</a>
       <a href="download.html">Скачать</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
@@ -68,22 +68,22 @@
 <section>
   <div class="container">
     <h2>Документация</h2>
-    <p>Everything you need to build StringSelectorApp from source, extend its databases, and understand the math behind the tension numbers. Start with the guides below, then dig into the references.</p>
+    <p>Всё, что вам нужно, чтобы собрать StringSelectorApp из исходного кода, расширить его базы данных и понять математику, стоящую за числами натяжения. Начните с руководств ниже, затем углубитесь в справочники.</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>The Luthier's Manual</h3>
-        <p>A complete walkthrough of the physics, the interface, reading results, workshop reports, and truss rod adjustment.</p>
-        <p><a href="manual.html"><strong>Read the Manual &rarr;</strong></a></p>
+        <h3>Руководство Лютьера</h3>
+        <p>Полный разбор физики, интерфейса, чтения результатов, отчётов мастерской и регулировки анкера.</p>
+        <p><a href="manual.html"><strong>Читать Руководство &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>GUI Reference</h3>
-        <p>Every control, every results-grid column, the visual tension curve, and a step-by-step first calculation.</p>
-        <p><a href="gui.html"><strong>Open the GUI Reference &rarr;</strong></a></p>
+        <h3>Справочник по GUI</h3>
+        <p>Каждый элемент управления, каждая колонка сетки результатов, визуальная кривая натяжения и пошаговый первый расчёт.</p>
+        <p><a href="gui.html"><strong>Открыть Справочник по GUI &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>Downloads</h3>
-        <p>Prebuilt binaries for Windows, macOS (Intel &amp; Apple Silicon), and Linux (x86_64 &amp; ARM).</p>
-        <p><a href="download.html"><strong>Get the binaries &rarr;</strong></a></p>
+        <h3>Загрузки</h3>
+        <p>Готовые бинарники для Windows, macOS (Intel и Apple Silicon) и Linux (x86_64 и ARM).</p>
+        <p><a href="download.html"><strong>Получить бинарники &rarr;</strong></a></p>
       </div>
     </div>
   </div>
@@ -91,58 +91,58 @@
 
 <section>
   <div class="container">
-    <h2>Building from Source</h2>
-    <p>StringSelectorApp is a FreePascal / Lazarus project. The repository ships a single build script, <code>build_all.bat</code>, that compiles the GUI for every supported target and packages the results into <code>Deploy/</code>.</p>
+    <h2>Сборка из Исходного Кода</h2>
+    <p>StringSelectorApp — это проект FreePascal / Lazarus. Репозиторий содержит единый скрипт сборки <code>build_all.bat</code>, который компилирует GUI для каждой поддерживаемой цели и упаковывает результаты в <code>Deploy/</code>.</p>
 
-    <h3>Prerequisites</h3>
+    <h3>Предварительные требования</h3>
     <table>
-      <thead><tr><th>Tool</th><th>Purpose</th><th>Default location</th></tr></thead>
+      <thead><tr><th>Инструмент</th><th>Назначение</th><th>Расположение по умолчанию</th></tr></thead>
       <tbody>
-        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Compiles the Pascal source</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Builds the LCL GUI project</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td>Cross-binaries</td><td>Cross-compile for macOS &amp; Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Builds the Windows installer</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td>GNU tar</td><td>Packages Linux tarballs</td><td><code>tar</code> on PATH</td></tr>
-        <tr><td>Python 3</td><td>Zips macOS <code>.app</code> bundles with correct Unix modes</td><td><code>python</code> on PATH</td></tr>
+        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Компилирует исходный код Pascal</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Собирает проект GUI LCL</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td>Кросс-бинарники</td><td>Кросс-компиляция для macOS и Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Собирает установщик Windows</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td>GNU tar</td><td>Упаковывает Linux-архивы tar</td><td><code>tar</code> в PATH</td></tr>
+        <tr><td>Python 3</td><td>Упаковывает macOS <code>.app</code>-бандлы с правильными Unix-правами</td><td><code>python</code> в PATH</td></tr>
       </tbody>
     </table>
 
-    <h3>Build commands</h3>
+    <h3>Команды сборки</h3>
     <div class="command-block">
-      <span class="comment"># Build all 5 targets and package into Deploy/</span><br>
+      <span class="comment"># Собрать все 5 целей и упаковать в Deploy/</span><br>
       ./build_all.bat<br><br>
-      <span class="comment"># Verify the toolchain only (no build)</span><br>
+      <span class="comment"># Проверить только цепочку инструментов (без сборки)</span><br>
       ./build_all.bat --check
     </div>
-    <p>The script builds five targets: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code>, and <code>linux-arm</code>. Output goes to <code>dist\&lt;target&gt;\</code> and version-stamped packages are copied to <code>Deploy\</code>.</p>
+    <p>Скрипт собирает пять целей: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code> и <code>linux-arm</code>. Вывод идёт в <code>dist\&lt;target&gt;\</code>, а пакеты с версией копируются в <code>Deploy\</code>.</p>
 
-    <h3>Environment variables</h3>
-    <p>Every toolchain path can be overridden without editing the script. Set these before running <code>build_all.bat</code>:</p>
+    <h3>Переменные окружения</h3>
+    <p>Каждый путь цепочки инструментов можно переопределить без редактирования скрипта. Задайте их перед запуском <code>build_all.bat</code>:</p>
     <table>
-      <thead><tr><th>Variable</th><th>Overrides</th><th>Default</th></tr></thead>
+      <thead><tr><th>Переменная</th><th>Переопределяет</th><th>По умолчанию</th></tr></thead>
       <tbody>
-        <tr><td><code>FPC_DIR</code></td><td>Free Pascal compiler directory</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td><code>LAZBUILD</code></td><td>Lazarus build tool path</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td><code>CROSS_BIN_DIR</code></td><td>Cross-compiler binaries</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td><code>ISCC</code></td><td>Inno Setup compiler</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td><code>TAR</code></td><td>tar executable</td><td><code>tar</code></td></tr>
-        <tr><td><code>NO_VERSION_BUMP</code></td><td>Build the current version without incrementing the patch level</td><td>(unset)</td></tr>
-        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Skip the interactive <code>pause</code> at the end (never hang in CI)</td><td>(unset)</td></tr>
+        <tr><td><code>FPC_DIR</code></td><td>Каталог компилятора Free Pascal</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td><code>LAZBUILD</code></td><td>Путь к инструменту сборки Lazarus</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td><code>CROSS_BIN_DIR</code></td><td>Бинарники кросс-компилятора</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td><code>ISCC</code></td><td>Компилятор Inno Setup</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td><code>TAR</code></td><td>Исполняемый файл tar</td><td><code>tar</code></td></tr>
+        <tr><td><code>NO_VERSION_BUMP</code></td><td>Собрать текущую версию без увеличения номера патча</td><td>(не задано)</td></tr>
+        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Пропустить интерактивный <code>pause</code> в конце (никогда не зависать в CI)</td><td>(не задано)</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Tip:</strong> The build counter in <code>Assets\version.txt</code> is bumped on every build so version-stamped artifacts never collide. Set <code>NO_VERSION_BUMP=1</code> for idempotent rebuilds of the same version.
+      <strong>Совет:</strong> Счётчик сборок в <code>Assets\version.txt</code> увеличивается при каждой сборке, чтобы артефакты с версией никогда не конфликтовали. Задайте <code>NO_VERSION_BUMP=1</code> для идемпотентных пересборок той же версии.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Data File Format Reference</h2>
-    <p>StringSelectorApp is data-driven. Two plain-text INI files sit next to the executable and are loaded at startup. Edit them in any text editor &mdash; no recompilation required.</p>
+    <h2>Справочник по Формату Файлов Данных</h2>
+    <p>StringSelectorApp управляется данными. Два текстовых INI-файла лежат рядом с исполняемым файлом и загружаются при запуске. Редактируйте их в любом текстовом редакторе — перекомпиляция не требуется.</p>
 
-    <h3>strings.ini &mdash; the string database</h3>
-    <p>Each <code>[Section]</code> is one string pack. The app reads every section, keeps the ones whose <code>StringCount</code> matches the current tuning, and ranks them by how close their tension is to the target.</p>
+    <h3>strings.ini — база данных струн</h3>
+    <p>Каждая <code>[Section]</code> — это набор струн. Приложение читает каждую секцию, оставляет те, чей <code>StringCount</code> совпадает с текущим строем, и ранжирует их по близости натяжения к целевому.</p>
     <pre>[ErnieBall_Regular_2221]
 Name=Ernie Ball 2221 Regular Slinky (10-46)
 StringCount=6
@@ -159,20 +159,20 @@ W5=0.00023964
 G6=0.046
 W6=0.00038216</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the results grid (brand + gauge).</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings in the pack (1&ndash;9).</td></tr>
-        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Gauge of each string in inches (plain decimal, e.g. <code>0.010</code>).</td></tr>
-        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Unit weight of each string in lbs/inch. This is the physical value the formula uses &mdash; not the gauge.</td></tr>
+        <tr><td><code>Name</code></td><td>Отображаемое имя в сетке результатов (бренд + калибр).</td></tr>
+        <tr><td><code>StringCount</code></td><td>Количество струн в наборе (1&ndash;9).</td></tr>
+        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Калибр каждой струны в дюймах (простое десятичное, напр. <code>0.010</code>).</td></tr>
+        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Вес единицы длины каждой струны в фунтах/дюйм. Это физическое значение, используемое формулой — не калибр.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Why unit weight, not gauge?</strong> Two strings with the same gauge can have very different unit weights depending on material (plain steel, nickel-wound, stainless), core shape, and winding. Tension depends on unit weight, so that is what the file stores.
+      <strong>Почему вес единицы длины, а не калибр?</strong> Две струны с одинаковым калибром могут иметь очень разный вес единицы длины в зависимости от материала (голая сталь, никелированная, нержавейка), формы сердечника и намотки. Натяжение зависит от веса единицы длины, поэтому именно он хранится в файле.
     </div>
 
-    <h3>tunings.ini &mdash; the tuning presets</h3>
-    <p>Each <code>[Tuning_N]</code> section is one preset. The <code>[Setup]</code> section at the top declares how many presets exist (<code>TuningCount</code>). The app reads exactly that many sections in order.</p>
+    <h3>tunings.ini — пресеты строя</h3>
+    <p>Каждая секция <code>[Tuning_N]</code> — это пресет. Секция <code>[Setup]</code> вверху объявляет, сколько пресетов существует (<code>TuningCount</code>). Приложение читает ровно столько секций по порядку.</p>
     <pre>[Setup]
 TuningCount=28
 
@@ -186,75 +186,75 @@ N4=D3
 N5=A2
 N6=E2</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>Поле</th><th>Значение</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the instrument/tuning combo.</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings (4&ndash;9).</td></tr>
-        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Note name of each string, <strong>string 1 = highest string</strong>. Format: letter + optional <code>#</code>/<code>b</code> + octave, e.g. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
+        <tr><td><code>Name</code></td><td>Отображаемое имя в списке инструмента/строя.</td></tr>
+        <tr><td><code>StringCount</code></td><td>Количество струн (4&ndash;9).</td></tr>
+        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Название ноты каждой струны, <strong>струна 1 = самая высокая струна</strong>. Формат: буква + необязательные <code>#</code>/<code>b</code> + октава, напр. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Octave convention:</strong> Scientific pitch notation is used, so <code>A4 = 440 Hz</code> and <code>A2 = 110 Hz</code>. The note name is converted to a frequency with <code>f = A4 &times; 2^(n/12)</code>, where <code>n</code> is the semitone distance from A4.
+      <strong>Соглашение об октавах:</strong> Используется научная нотация высоты, поэтому <code>A4 = 440 Гц</code> и <code>A2 = 110 Гц</code>. Название ноты преобразуется в частоту по формуле <code>f = A4 &times; 2^(n/12)</code>, где <code>n</code> — расстояние в полутонах от A4.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Physics Formula Reference</h2>
-    <p>Every tension number in the app comes from one equation &mdash; the ideal flexible-string tension formula, solved for pounds-force.</p>
+    <h2>Справочник по Физическим Формулам</h2>
+    <p>Каждое число натяжения в приложении берётся из одного уравнения — формулы натяжения идеальной гибкой струны, решённой относительно фунтов-силы.</p>
 
-    <h3>String tension</h3>
+    <h3>Натяжение струны</h3>
     <div class="command-block">
       T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
     </div>
     <table>
-      <thead><tr><th>Symbol</th><th>Quantity</th><th>Unit</th></tr></thead>
+      <thead><tr><th>Символ</th><th>Величина</th><th>Единица</th></tr></thead>
       <tbody>
-        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td></tr>
-        <tr><td><code>W</code></td><td>Unit weight of the string</td><td>lbs / inch</td></tr>
-        <tr><td><code>L</code></td><td>Scale length (vibrating string length)</td><td>inches</td></tr>
-        <tr><td><code>f</code></td><td>Frequency of the note</td><td>Hz</td></tr>
-        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup> (converts to pounds-force)</td></tr>
+        <tr><td><code>T</code></td><td>Натяжение</td><td>фунты (lbs)</td></tr>
+        <tr><td><code>W</code></td><td>Вес единицы длины струны</td><td>фунты / дюйм</td></tr>
+        <tr><td><code>L</code></td><td>Мензура (длина вибрирующей струны)</td><td>дюймы</td></tr>
+        <tr><td><code>f</code></td><td>Частота ноты</td><td>Гц</td></tr>
+        <tr><td><code>386.4</code></td><td>Гравитационная постоянная</td><td>дюйм / с<sup>2</sup> (преобразует в фунты-силы)</td></tr>
       </tbody>
     </table>
 
-    <h3>Frequency from note name</h3>
-    <p>Each note is converted to a frequency using equal temperament:</p>
+    <h3>Частота из названия ноты</h3>
+    <p>Каждая нота преобразуется в частоту с использованием равномерного строя:</p>
     <div class="command-block">
       f = A4 &times; 2<sup>(n / 12)</sup>
     </div>
-    <p>where <code>A4</code> is the concert-pitch reference (440 Hz by default, adjustable 390&ndash;460 Hz in the GUI) and <code>n</code> is the number of semitones from A4 (e.g. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
+    <p>где <code>A4</code> — опорный концертный тон (440 Гц по умолчанию, регулируется 390&ndash;460 Гц в GUI), а <code>n</code> — число полутонов от A4 (напр. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
 
-    <h3>Unit conversions (ISO mode)</h3>
+    <h3>Преобразования единиц (режим ISO)</h3>
     <table>
-      <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+      <thead><tr><th>Из</th><th>В</th><th>Умножить на</th></tr></thead>
       <tbody>
-        <tr><td>Tension (lbs)</td><td>Kilograms</td><td><code>0.45359237</code></td></tr>
-        <tr><td>Tension (lbs)</td><td>Newtons</td><td><code>4.448</code> (via kg &times; 9.80665)</td></tr>
+        <tr><td>Натяжение (фунты)</td><td>Килограммы</td><td><code>0.45359237</code></td></tr>
+        <tr><td>Натяжение (фунты)</td><td>Ньютоны</td><td><code>4.448</code> (через кг &times; 9.80665)</td></tr>
       </tbody>
     </table>
 
-    <h3>Scale length interpolation (multiscale / fanned-fret)</h3>
-    <p>For instruments with different treble and bass scale lengths, the app interpolates linearly across the strings. For string <code>i</code> of <code>N</code> (0-based):</p>
+    <h3>Интерполяция мензуры (multiscale / fanned-fret)</h3>
+    <p>Для инструментов с разной мензурой агу и баса приложение интерполирует линейно по струнам. Для струны <code>i</code> из <code>N</code> (с нуля):</p>
     <div class="command-block">
       L<sub>i</sub> = ScaleTreble + (ScaleBass &minus; ScaleTreble) &times; (i / (N &minus; 1))
     </div>
-    <p>String 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is interpolated. For a single-scale instrument, set treble and bass to the same value.</p>
+    <p>Струна 1 использует мензуру агу, самая низкая струна использует мензуру баса, а всё промежуточное интерполируется. Для инструмента с одной мензурой задайте агу и бас одинаковым значением.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Your Own Strings</h2>
-    <p>Adding a string pack is just editing <code>strings.ini</code>. The app reloads it on next launch.</p>
+    <h2>Как Добавить Свои Струны</h2>
+    <p>Добавление набора струн — это просто редактирование <code>strings.ini</code>. Приложение перезагружает его при следующем запуске.</p>
     <ol>
-      <li><strong>Open <code>strings.ini</code></strong> in any text editor (Notepad, VS Code, etc.). It lives next to the executable.</li>
-      <li><strong>Copy an existing section</strong> that has the same number of strings as your new pack.</li>
-      <li><strong>Paste it at the end</strong> of the file and give it a unique <code>[Section_Name]</code> (letters, numbers, underscores &mdash; no spaces).</li>
-      <li><strong>Set <code>Name</code></strong> to the brand and gauge, e.g. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
-      <li><strong>Fill in <code>G1</code>&hellip;<code>GN</code></strong> (gauge in inches) and <code>W1</code>&hellip;<code>WN</code> (unit weight in lbs/inch) for every string.</li>
-      <li><strong>Save the file</strong> and relaunch the app. Your pack appears in the evaluation automatically.</li>
+      <li><strong>Откройте <code>strings.ini</code></strong> в любом текстовом редакторе (Блокнот, VS Code и т.д.). Он лежит рядом с исполняемым файлом.</li>
+      <li><strong>Скопируйте существующую секцию</strong> с тем же числом струн, что и ваш новый набор.</li>
+      <li><strong>Вставьте её в конец</strong> файла и дайте уникальное <code>[Section_Name]</code> (буквы, цифры, подчёркивания — без пробелов).</li>
+      <li><strong>Задайте <code>Name</code></strong> с брендом и калибром, напр. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
+      <li><strong>Заполните <code>G1</code>&hellip;<code>GN</code></strong> (калибр в дюймах) и <code>W1</code>&hellip;<code>WN</code> (вес единицы длины в фунтах/дюйм) для каждой струны.</li>
+      <li><strong>Сохраните файл</strong> и перезапустите приложение. Ваш набор автоматически появится в оценке.</li>
     </ol>
     <pre>[MyBrand_Custom_1052]
 Name=MyBrand Custom Set (10-52)
@@ -271,31 +271,31 @@ G5=0.042
 W5=0.00031841
 G6=0.052
 W6=0.00049216</pre>
-    <h3>Where to find unit weight data</h3>
+    <h3>Где найти данные о весе единицы длины</h3>
     <ul>
-      <li><strong>Manufacturer websites</strong> &mdash; Ernie Ball, D'Addario, and Elixir publish unit weights for their sets.</li>
-      <li><strong>Online tension calculators</strong> &mdash; many list unit weight alongside gauge.</li>
-      <li><strong>DIY measurement</strong> &mdash; weigh a known length of string on a precision scale and divide.</li>
+      <li><strong>Сайты производителей</strong> — Ernie Ball, D'Addario и Elixir публикуют веса единицы длины для своих наборов.</li>
+      <li><strong>Онлайн-калькуляторы натяжения</strong> — многие указывают вес единицы длины рядом с калибром.</li>
+      <li><strong>DIY-измерение</strong> — взвесьте известную длину струны на точных весах и разделите.</li>
     </ul>
     <div class="warning">
-      <strong>Don't guess unit weight from gauge alone.</strong> A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string can differ by 20% in tension. Use the measured or published unit weight for accurate results.
+      <strong>Не угадывайте вес единицы длины только по калибру.</strong> Струна из голой стали <code>.010"</code> и никелированная струна <code>.010"</code> могут отличаться на 20% по натяжению. Используйте измеренный или опубликованный вес единицы длины для точных результатов.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Custom Tunings</h2>
-    <p>There are two ways to add a tuning: by hand in <code>tunings.ini</code>, or with the <strong>Save Tuning</strong> button inside the app.</p>
+    <h2>Как Добавить Пользовательские Строи</h2>
+    <p>Есть два способа добавить строй: вручную в <code>tunings.ini</code> или кнопкой <strong>Save Tuning</strong> внутри приложения.</p>
 
-    <h3>Option A &mdash; Edit tunings.ini directly</h3>
+    <h3>Вариант A — Редактировать tunings.ini напрямую</h3>
     <ol>
-      <li><strong>Open <code>tunings.ini</code></strong> in a text editor.</li>
-      <li><strong>Note the current <code>TuningCount</code></strong> in the <code>[Setup]</code> section.</li>
-      <li><strong>Add a new section</strong> named <code>[Tuning_N]</code> where <code>N</code> is the current count (sections are read in order <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
-      <li><strong>Set <code>Name</code>, <code>StringCount</code>, and <code>N1</code>&hellip;<code>N9</code></strong> (string 1 = highest string).</li>
-      <li><strong>Increment <code>TuningCount</code></strong> in <code>[Setup]</code> by one.</li>
-      <li><strong>Save and relaunch</strong> &mdash; the new tuning appears in the instrument/tuning combo.</li>
+      <li><strong>Откройте <code>tunings.ini</code></strong> в текстовом редакторе.</li>
+      <li><strong>Отметьте текущий <code>TuningCount</code></strong> в секции <code>[Setup]</code>.</li>
+      <li><strong>Добавьте новую секцию</strong> с именем <code>[Tuning_N]</code>, где <code>N</code> — текущее количество (секции читаются по порядку <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
+      <li><strong>Задайте <code>Name</code>, <code>StringCount</code> и <code>N1</code>&hellip;<code>N9</code></strong> (струна 1 = самая высокая).</li>
+      <li><strong>Увеличьте <code>TuningCount</code></strong> в <code>[Setup]</code> на единицу.</li>
+      <li><strong>Сохраните и перезапустите</strong> — новый строй появится в списке инструмента/строя.</li>
     </ol>
     <pre>[Setup]
 TuningCount=29
@@ -310,23 +310,23 @@ N4=D3
 N5=A2
 N6=D2</pre>
 
-    <h3>Option B &mdash; Use the Save Tuning button</h3>
+    <h3>Вариант B — Использовать кнопку Save Tuning</h3>
     <ol>
-      <li>In the app, pick a preset close to what you want (or choose <strong>Custom / User-Defined...</strong>).</li>
-      <li>Adjust the notes, transpose, and pitch until the tuning is what you want.</li>
-      <li>Click <strong>Save Tuning</strong> and enter a descriptive name when prompted.</li>
-      <li>The app appends a new <code>[Tuning_N]</code> section to <code>tunings.ini</code>, bumps <code>TuningCount</code>, and reloads the preset list.</li>
+      <li>В приложении выберите пресет, близкий к нужному (или выберите <strong>Custom / User-Defined...</strong>).</li>
+      <li>Настройте ноты, transpose и pitch, пока строй не станет нужным.</li>
+      <li>Нажмите <strong>Save Tuning</strong> и введите описательное имя при запросе.</li>
+      <li>Приложение добавит новую секцию <code>[Tuning_N]</code> в <code>tunings.ini</code>, увеличит <code>TuningCount</code> и перезагрузит список пресетов.</li>
     </ol>
     <div class="note">
-      <strong>Note names must be plain.</strong> The Save Tuning button strips any trailing modifier (e.g. <code>" (Drop)"</code>) before writing, so write clean note names like <code>E4</code>, <code>Bb3</code>, or <code>F#1</code>.
+      <strong>Названия нот должны быть простыми.</strong> Кнопка Save Tuning удаляет любой завершающий модификатор (напр. <code>" (Drop)"</code>) перед записью, поэтому пишите чистые названия нот, такие как <code>E4</code>, <code>Bb3</code> или <code>F#1</code>.
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Выпущено под лицензией MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Репозиторий GitHub</a></p>
   </div>
 </footer>
 </body>

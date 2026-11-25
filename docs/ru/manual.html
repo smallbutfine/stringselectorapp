@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - The Luthier's Manual</title>
+<title>StringSelectorApp - Руководство Лютьера</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,7 +46,7 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">The Luthier's Manual</p>
+    <p class="subtitle">Руководство Лютьера</p>
     <nav>
       <a href="index.html">Главная</a>
       <a href="concepts.html">Концепции</a>
@@ -54,385 +54,122 @@
       <a href="gui.html">GUI</a>
       <a href="manual.html">Руководство</a>
       <a href="download.html">Скачать</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-<h2>TaraDSP — The Producer's Manual</h2>
-<p># TaraDSP — The Producer's Manual</p>
-
-<p><strong>A comprehensive guide to convolution, impulse responses, and mastering-grade audio processing with TaraDSP.</strong></p>
-
-<p>Written for musicians, audio engineers, mastering engineers, and producers.</p>
-
-<hr>
-
-<h3 id="table-of-contents">Table of Contents</h3>
-<p>## Table of Contents</p>
-
-<p>1. [What is TaraDSP?](#1-what-is-taradsp)</p>
-<p>2. [The Science of Convolution](#2-the-science-of-convolution)</p>
-<p>3. [Impulse Responses: The Sonic DNA](#3-impulse-responses-the-sonic-dna)</p>
-<p>4. [The Processing Chain](#4-the-processing-chain)</p>
-<p>5. [Mastering Dither](#5-mastering-dither)</p>
-<p>6. [Minimum Phase](#6-minimum-phase)</p>
-<p>7. [Resampling](#7-resampling)</p>
-<p>8. [Fades and Trimming](#8-fades-and-trimming)</p>
-<p>9. [Practical Workflows](#9-practical-workflows)</p>
-<p>10. [Combining Two IRs](#10-combining-two-irs)</p>
-<p>11. [Tips from the Trenches](#11-tips-from-the-trenches)</p>
-<p>12. [Technical Reference](#12-technical-reference)</p>
-
-<hr>
-
-<h3 id="1-what-is-taradsp">1. What is TaraDSP?</h3>
-<p>## 1. What is TaraDSP?</p>
-
-<p>TaraDSP is a professional audio processing tool that does one thing exceptionally well: <strong>FFT-based convolution</strong>. If you've ever used a guitar cabinet simulator, a convolution reverb, or a mastering chain with analog-modeled EQ, you've used convolution.</p>
-
-<p>TaraDSP gives you that power in a lightweight, cross-platform package. Windows, macOS, Linux. CLI for batch processing, GUI for interactive work.</p>
-
-<hr>
-
-<h3 id="2-the-science-of-convolution">2. The Science of Convolution</h3>
-<p>## 2. The Science of Convolution</p>
-
-<h4>What convolution does</h4>
-<p>### What convolution does</p>
-
-<p>Convolution applies the sonic characteristics of one signal (the <strong>impulse response</strong>) to another (your audio). When you play a dry guitar through a cabinet, the cabinet colors the sound — resonances, frequency response, decay. Convolution mathematically applies that coloring.</p>
-
-<h4>Why FFT?</h4>
-<p>### Why FFT?</p>
-
-<p>Direct convolution is O(n²) — billions of operations for a 1-second file. The FFT reduces this to O(n log n) via the <strong>convolution theorem</strong>:</p>
-
-<blockquote>Convolution in time = Multiplication in frequency</blockquote>
-
-<p>1. FFT both signals → frequency domain</p>
-<p>2. Multiply them → one multiply per bin</p>
-<p>3. Inverse FFT → back to time domain</p>
-
-<p><strong>5000× speedup.</strong> PFFFT further accelerates with SIMD (SSE/NEON) — 4-8 samples per instruction.</p>
-
-<hr>
-
-<h3 id="3-impulse-responses-the-sonic-dna">3. Impulse Responses: The Sonic DNA</h3>
-<p>## 3. Impulse Responses: The Sonic DNA</p>
-
-<p>An impulse response is a recording of a click through a system, capturing its complete sonic fingerprint.</p>
-
-<table>
-<tr><td>Type</td><td>Captures</td><td>Length</td><td>Use case</td></tr>
-<tr><td>Cabinet IR</td><td>Speaker + cab + mic</td><td>0.5–2s</td><td>Guitar/bass cab sim</td></tr>
-<tr><td>Room IR</td><td>Room acoustics</td><td>1–4s</td><td>Convolution reverb</td></tr>
-<tr><td>Hardware IR</td><td>EQ, compressor, tape</td><td>0.1–1s</td><td>Analog gear emulation</td></tr>
-<tr><td>Plate/Spring IR</td><td>Mechanical reverb</td><td>1–3s</td><td>Vintage reverb</td></tr>
-</table>
-
-<p><strong>Where to find them:</strong> Free IR libraries (Guitar Hack, God's Cab, Seacow), commercial (Celestion, Redwirez, York Audio), or DIY (click through your cab, record with a mic).</p>
-
-<hr>
-
-<h3 id="4-the-processing-chain">4. The Processing Chain</h3>
-<p>## 4. The Processing Chain</p>
-
-<p>When you run TaraDSP, audio passes through this chain. Each step is optional.</p>
-
-<h4>Step 1: Load Input</h4>
-<p>### Step 1: Load Input</p>
-<p>Reads WAV (8/16/24/32-bit PCM or float), converts to 32-bit float internally.</p>
-
-<h4>Step 2: Load IR (optional)</h4>
-<p>### Step 2: Load IR (optional)</p>
-<p>If no IR specified → passthrough mode (mastering only: dither, normalize, fades).</p>
-
-<h4>Step 3: Trim Silence (optional)</h4>
-<p>### Step 3: Trim Silence (optional)</p>
-<p><code>-t <dB></code> — removes silence below threshold from IR. Typical: -60 dB.</p>
-
-<h4>Step 4: Apply Fades (optional)</h4>
-<p>### Step 4: Apply Fades (optional)</p>
-<p><code>-f <ms></code> — fade-out on IR. Always applies 1ms fade-in (click prevention).</p>
-
-<h4>Step 5: Resample (optional)</h4>
-<p>### Step 5: Resample (optional)</p>
-<p><code>-r <Hz></code> — resamples input + IR to target rate. Engine priority: SoX (libsoxr) → R8Brain → FinalCD → linear.</p>
-
-<h4>Step 6: Convolve</h4>
-<p>### Step 6: Convolve</p>
-<p>FFT convolution via PFFFT. Output length = input + IR - 1 samples.</p>
-
-<h4>Step 7: Minimum Phase (optional)</h4>
-<p>### Step 7: Minimum Phase (optional)</p>
-<p><code>--min</code> — removes pre-ringing, reduces latency. Uses real cepstrum method.</p>
-
-<h4>Step 8: Normalize</h4>
-<p>### Step 8: Normalize</p>
-<p>Peak normalize to 1.0 (0 dBFS).</p>
-
-<h4>Step 9: Truncate (optional)</h4>
-<p>### Step 9: Truncate (optional)</p>
-<p><code>-l <samples></code> — limit output length. For modelers: 1024 (GP-200), 2048 (Helix).</p>
-
-<h4>Step 10: Dither and Save</h4>
-<p>### Step 10: Dither and Save</p>
-<p><code>-b <16|24|32></code> — 16-bit gets TPDF dither + error feedback. 24/32-bit: no dither.</p>
-
-<hr>
-
-<h3 id="5-mastering-dither">5. Mastering Dither</h3>
-<p>## 5. Mastering Dither</p>
-
-<h4>The problem</h4>
-<p>### The problem</p>
-<p>Quantizing 24-bit to 16-bit without dither creates harmonic distortion at low levels.</p>
-
-<h4>The solution: TPDF</h4>
-<p>### The solution: TPDF</p>
-<p>Adds 2 LSB of triangular noise before quantization. Converts distortion to a constant noise floor — less audible, more natural.</p>
-
-<p>TaraDSP's implementation:</p>
-<ul>
-<li>**TPDF noise**: Two random values summed (triangular distribution)</li>
-<li>**Error feedback**: Quantization error fed back, shaping the noise spectrum</li>
-<li>**Signal-dependent scaling**: 70% dither at very low levels (< -90 dBFS)</li>
-</ul>
-
-<h4>When to use</h4>
-<p>### When to use</p>
-<ul>
-<li>**Always dither for 16-bit** — always better than truncation</li>
-<li>**Never dither for 24/32-bit** — quantization error is below the noise floor</li>
-<li>**Dither once** — at the final output stage only</li>
-</ul>
-
-<hr>
-
-<h3 id="6-minimum-phase">6. Minimum Phase</h3>
-<p>## 6. Minimum Phase</p>
-
-<h4>Pre-ringing</h4>
-<p>### Pre-ringing</p>
-<p>Linear-phase IRs have symmetric energy — before AND after the main impulse. The energy before is <strong>pre-ringing</strong>, which sounds unnatural (in nature, sound arrives after, never before).</p>
-
-<h4>What minimum phase does</h4>
-<p>### What minimum phase does</p>
-<p>Transforms a linear-phase IR into minimum phase:</p>
-<ul>
-<li>No pre-ringing</li>
-<li>Lower latency</li>
-<li>Same frequency response (magnitude unchanged)</li>
-</ul>
-
-<h4>Algorithm</h4>
-<p>### Algorithm</p>
-<p>Real cepstrum method: FFT → log magnitude → inverse FFT (cepstrum) → fold → FFT → complex spectrum → inverse FFT.</p>
-
-<h4>When to use</h4>
-<p>### When to use</p>
-<ul>
-<li>**Always for cabinet simulation** — removes the "hollow" sound</li>
-<li>**Always for real-time** — lower latency</li>
-<li>**Optional for reverb** — some prefer linear-phase spaciousness</li>
-</ul>
-
-<hr>
-
-<h3 id="7-resampling">7. Resampling</h3>
-<p>## 7. Resampling</p>
-
-<h4>Why</h4>
-<p>### Why</p>
-<ul>
-<li>Mismatched rates (44.1k IR, 48k project)</li>
-<li>Target device expects specific rate</li>
-<li>CD release (44.1k)</li>
-</ul>
-
-<h4>Aliasing</h4>
-<p>### Aliasing</p>
-<p>Downsampling without filtering causes frequencies above Nyquist to fold back as metallic artifacts.</p>
-
-<h4>Engine priority</h4>
-<p>### Engine priority</p>
-<p>1. <strong>SoX Resampler (libsoxr)</strong> — VHQ, proper anti-aliasing. Best option.</p>
-<p>2. <strong>R8Brain</strong> — VHQ, used when libsoxr unavailable.</p>
-<p>3. <strong>FinalCD</strong> — external tool.</p>
-<p>4. <strong>Linear interpolation</strong> — fallback, no anti-aliasing.</p>
-
-<p>Install libsoxr for best results. Ships as <code>libsoxr.dll</code> / <code>.dylib</code> / <code>.so.0</code>.</p>
-
-<hr>
-
-<h3 id="8-fades-and-trimming">8. Fades and Trimming</h3>
-<p>## 8. Fades and Trimming</p>
-
-<h4>Trim silence</h4>
-<p>### Trim silence</p>
-<p>IRs often have silence at start/end. Trim removes it:</p>
-<ul>
-<li>`-60` — typical for IRs</li>
-<li>`-80` — aggressive</li>
-<li>`0` — disabled</li>
-</ul>
-
-<h4>Fades</h4>
-<p>### Fades</p>
-<ul>
-<li>**Fade-in**: Always 1ms (automatic) — prevents start clicks</li>
-<li>**Fade-out**: User-specified (`-f <ms>`) — prevents end clicks</li>
-</ul>
-
-<p>Linear gain ramp: 1.0 → 0.0 (fade-out) or 0.0 → 1.0 (fade-in).</p>
-
-<hr>
-
-<h3 id="9-practical-workflows">9. Practical Workflows</h3>
-<p>## 9. Practical Workflows</p>
-
-<h4>Guitar Cabinet Simulation</h4>
-<p>### Guitar Cabinet Simulation</p>
-<pre><code>
-TaraDSP -x guitar_di.wav -y cab_57.wav -o guitar_amped.wav --min -l 2048 -b 24
-</code></pre>
-
-<h4>Convolution Reverb</h4>
-<p>### Convolution Reverb</p>
-<pre><code>
-TaraDSP -x vocal_dry.wav -y concert_hall.wav -o vocal_reverb.wav -f 100 -b 24
-</code></pre>
-
-<h4>Mastering with Dither</h4>
-<p>### Mastering with Dither</p>
-<pre><code>
-TaraDSP -x mix_24bit.wav -o master_16bit.wav -b 16
-</code></pre>
-
-<h4>Sample Rate Conversion</h4>
-<p>### Sample Rate Conversion</p>
-<pre><code>
-TaraDSP -x recording_96k.wav -o master_44k1.wav -r 44100 -b 16
-</code></pre>
-
-<h4>Batch Processing</h4>
-<p>### Batch Processing</p>
-<pre><code>
-for %f in (*.wav) do TaraDSP -x "%f" -y cab_ir.wav -o "processed_%f" --min -b 24
-</code></pre>
-
-<hr>
-
-<h3 id="10-tips-from-the-trenches">10. Tips from the Trenches</h3>
-<p>## 10. Tips from the Trenches</p>
-
-<h4>IR selection</h4>
-<p>### IR selection</p>
-<ul>
-<li>**Shorter = tighter**: 0.5s IR has less low-end rumble than 2s</li>
-<li>**Mic position matters**: on-axis = bright, off-axis = dark</li>
-<li>**Distance adds room**: close-miked = dry, room-miked = spacious</li>
-<li>**Minimum phase is almost always better for cabs**</li>
-</ul>
-
-<h4>Level management</h4>
-<p>### Level management</p>
-<ul>
-<li>**Normalize after convolution**, not before</li>
-<li>**Use 24-bit throughout** — dither only at final output</li>
-<li>**Check mono compatibility** — stereo IRs can have phase issues</li>
-</ul>
-
-<h4>Common mistakes</h4>
-<p>### Common mistakes</p>
-<ul>
-<li>**Linear-phase IRs for cabs** — always use `--min`</li>
-<li>**Dithering multiple times** — dither once, at the end</li>
-<li>**Forgetting to normalize** — convolution can boost 6-12 dB</li>
-<li>**16-bit for intermediate files** — use 24-bit or 32-bit</li>
-</ul>
-
-<hr>
-
-<h3 id="11-technical-reference">11. Technical Reference</h3>
-<p>## 11. Technical Reference</p>
-
-<h4>CLI Options</h4>
-<p>### CLI Options</p>
-
-<table>
-<tr><td>Option</td><td>Long form</td><td>Value</td><td>Description</td></tr>
-<tr><td>`-x`</td><td>`--in1`</td><td>`<file>`</td><td>Input WAV file</td></tr>
-<tr><td>`-y`</td><td>`--in2`</td><td>`<file>`</td><td>IR WAV (optional)</td></tr>
-<tr><td>`-o`</td><td>`--output`</td><td>`<file>`</td><td>Output WAV</td></tr>
-<tr><td>`-b`</td><td>`--bits`</td><td>`16\</td><td>24\</td><td>32`</td><td>Bit depth (default: 24)</td></tr>
-<tr><th>`-r`</th><th>`--rate`</th><th>`<Hz>`</th><th>Target sample rate</th></tr>
-<tr><th>`-l`</th><th>`--length`</th><th>`<samples>`</th><th>Truncate length</th></tr>
-<tr><th>`-t`</th><th>`--trim`</th><th>`<dB>`</th><th>Trim silence threshold</th></tr>
-<tr><th>`-f`</th><th>`--fade`</th><th>`<ms>`</th><th>Fade-out duration</th></tr>
-<tr><th>`-m`</th><th>`--mono`</th><th>(flag)</th><th>Mono output</th></tr>
-<tr><th></th><th>`--min`</th><th>(flag)</th><th>Minimum phase</th></tr>
-<tr><th>`-h`</th><th>`--help`</th><th>(flag)</th><th>Show help</th></tr>
-</table>
-
-<h4>Configuration File</h4>
-<p>### Configuration File</p>
-
-<pre><code>
-[Metadata]
-Artist=Your Studio Name
-
-[Audio]
-TargetBits=24
-DitherAmount=1.0
-
-[Hardware]
-TruncateLen=0
-</code></pre>
-
-<h4>Exit Codes</h4>
-<p>### Exit Codes</p>
-
-<table>
-<tr><td>Code</td><td>Meaning</td></tr>
-<tr><td>0</td><td>Success</td></tr>
-<tr><td>1</td><td>Error</td></tr>
-</table>
-
-<hr>
-
-<h3 id="glossary">Glossary</h3>
-<p>## Glossary</p>
-
-<table>
-<tr><td>Term</td><td>Definition</td></tr>
-<tr><td>Convolution</td><td>Applying one signal's characteristics to another</td></tr>
-<tr><td>IR</td><td>Impulse response — sonic fingerprint of a system</td></tr>
-<tr><td>FFT</td><td>Fast Fourier Transform</td></tr>
-<tr><td>PFFFT</td><td>Pretty Fast FFT — audio-optimized FFT library</td></tr>
-<tr><th>Minimum Phase</th><th>No pre-ringing, energy at and after impulse</th></tr>
-<tr><th>Linear Phase</th><th>Symmetric pre- and post-ringing</th></tr>
-<tr><th>Pre-ringing</th><th>Energy before the main impulse</th></tr>
-<tr><th>TPDF</th><th>Triangular PDF dither — converts distortion to noise</th></tr>
-<tr><th>Error Feedback</th><th>Feeding quantization error back to shape noise</th></tr>
-<tr><th>Aliasing</th><th>High frequencies folding back as artifacts</th></tr>
-<tr><th>Nyquist</th><th>Half the sample rate — highest representable frequency</th></tr>
-<tr><th>Normalization</th><th>Scaling peak to 0 dBFS</th></tr>
-<tr><th>Cepstrum</th><th>Inverse FFT of log magnitude — for minimum phase</th></tr>
-</table>
+    <h2>Руководство Лютьера</h2>
+    <p>Полное, ориентированное на мастерскую руководство по натяжению струн, выбору струн, настройке грифа и профессиональной документации с StringSelectorApp. Написано для лютьеров, гитарных техников и серьёзных музыкантов, которые хотят понять, <em>почему</em> набор ощущается так, как он ощущается — и как настроить его с уверенностью.</p>
+
+    <h3>Оглавление</h3>
+    <ol>
+      <li><a href="#what">Что такое StringSelectorApp?</a></li>
+      <li><a href="#tension">Физика Натяжения Струн</a></li>
+      <li><a href="#unitweight">Вес Единицы Длины: Число, Которое Имеет Значение</a></li>
+      <li><a href="#scale">Мензура и Почему Она Меняет Всё</a></li>
+      <li><a href="#tuning">Строй, Высота и Транспозиция</a></li>
+      <li><a href="#balance">Сбалансированное vs. Равное Натяжение</a></li>
+      <li><a href="#trussrod">Анкер и Прогиб Грифа</a></li>
+      <li><a href="#report">Отчёт Мастерской</a></li>
+      <li><a href="#workflow">Профессиональный Рабочий Процесс</a></li>
+      <li><a href="#reference">Технический Справочник</a></li>
+    </ol>
+
+    <h3 id="what">1. Что такое StringSelectorApp?</h3>
+    <p>StringSelectorApp — это калькулятор натяжения струн и генератор отчётов мастерской для гитар и басов. Вы даёте ему инструмент, строй, мензуру и набор струн — и он сообщает точное натяжение каждой струны, ранжирует наилучшие наборы из своей базы данных и создаёт печатный отчёт, который вы можете передать клиенту или заархивировать на будущее.</p>
+    <p>Это не инструмент заказа струн и не рекомендация бренда. Это инструмент <em>измерения и документирования</em>. Ценность в знании реальных чисел, стоящих за настройкой, чтобы ваши решения исходили из данных, а не из привычки или догадки.</p>
+    <div class="note">
+      <strong>Для кого:</strong> Лютьеры и гитарные техники, профессионально настраивающие инструменты, мастера, которым нужно балансировать multiscale- и баритон-инструменты, и музыканты, которые хотят понять своё оборудование. Если вы трогаете анкер, этот инструмент для вас.
+    </div>
+
+    <h3 id="tension">2. Физика Натяжения Струн</h3>
+    <p>Натяжение — это тянущая сила, которую настроенная струна оказывает на инструмент. Каждая струна растянута между бриджем и порожком, и величина растяжения и есть высота, которую вы слышите. Больше тяги означает более высокую ноту и более тугое ощущение. Весь инструмент — особенно гриф — сконструирован вокруг суммы этих сил.</p>
+    <p>StringSelectorApp вычисляет натяжение из одного уравнения — формулы идеальной гибкой струны, решённой в фунтах-силы:</p>
+    <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
+      T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
+    </div>
+    <ul>
+      <li><code>T</code> — натяжение в фунтах.</li>
+      <li><code>W</code> — вес единицы длины струны (фунтов на дюйм).</li>
+      <li><code>L</code> — мензура (вибрирующая длина, в дюймах).</li>
+      <li><code>f</code> — частота ноты в Гц.</li>
+      <li><code>386.4</code> — гравитационная постоянная, преобразующая результат в фунты-силы.</li>
+    </ul>
+    <p>Вы никогда не делаете эту математику вручную — приложение делает её мгновенно. Но понимание четырёх входов позволяет предсказать результат до покупки единственной струны.</p>
+
+    <h3 id="unitweight">3. Вес Единицы Длины: Число, Которое Имеет Значение</h3>
+    <p>Самый важный вход — <strong>вес единицы длины</strong> — сколько струна весит на дюйм. Это не калибр. Две струны идентичного калибра (скажем, обе <code>.010"</code>) могут различаться на 20% или более по натяжению из-за материала (голая сталь, никелированная, нержавейка, бронза), намотки (roundwound, flatwound, tapewound) и формы сердечника.</p>
+    <p>Вот почему StringSelectorApp хранит измеренный или опубликованный вес единицы длины для каждой струны в каждом наборе, а не угадывает по калибру. Когда вы добавляете свои струны в <code>strings.ini</code>, используйте опубликованный производителем вес единицы длины или измерьте сами: отрежьте 10 дюймов, взвесьте в граммах на точных весах и переведите по формуле <code>W (фунты/дюйм) = граммы ÷ 453.592 ÷ 10</code>.</p>
+    <div class="warning">
+      <strong>Никогда не оценивайте вес единицы длины только по калибру.</strong> Струна из голой стали <code>.010"</code> и никелированная струна <code>.010"</code> не взаимозаменяемы по натяжению. Доверяйте измеренному числу, а не этикетке на упаковке.
+    </div>
+
+    <h3 id="scale">4. Мензура и Почему Она Меняет Всё</h3>
+    <p>Мензура — это вибрирующая длина струны — бридж к порожку. Это второй по величине фактор натяжения, и поскольку натяжение масштабируется с <em>квадратом</em> мензуры, малые различия важны. Классическая Fender <strong>25.5"</strong> и Gibson <strong>24.75"</strong> различаются примерно на 6% по натяжению по формуле и ближе к 8&ndash;10% по ощущению.</p>
+    <p>Для инструментов multiscale (fanned-fret) и баритон каждая струна имеет разную мензуру. StringSelectorApp интерполирует линейно между введённой вами treble- и bass-мензурой, так что низкие струны получают дополнительную длину, необходимую для баланса против высоких. Всегда вводите правильную treble- и bass-мензуру для инструмента на вашем верстаке.</p>
+
+    <h3 id="tuning">5. Строй, Высота и Транспозиция</h3>
+    <p>Приложение преобразует названия нот в частоты, используя равномерный строй на основе A4 = 440 Гц (регулируется 390&ndash;460 Гц для старинной или оркестровой работы). Поле <strong>Transpose</strong> сдвигает весь строй на фиксированный интервал — удобно для проверки строёв Eb, D или Drop без редактирования пресетов.</p>
+    <div class="note">
+      <strong>Натяжение следует за частотой.</strong> Настройка выше повышает частоту и натяжение; настройка ниже их понижает. Падение на целый тон снижает натяжение примерно на 12% по набору — именно поэтому инструменты в drop-строе часто нуждаются в более тяжёлых струнах, чтобы ощущаться правильно.
+    </div>
+
+    <h3 id="balance">6. Сбалансированное vs. Равное Натяжение</h3>
+    <p>«Сбалансированное» не означает, что у каждой струны одинаковое число фунтов. Ваши пальцы воспринимают натяжение относительно калибра и высоты струны, поэтому хорошо сбалансированный набор имеет гладкую кривую натяжения — обычно басовые струны сидят слегка выше, чем высокие. Набор, где низкая E тянет 16 фунтов, а высокая E 18 фунтов, ощущался бы наоборот.</p>
+    <p>StringSelectorApp рисует эту кривую для вас. Гладкая, слегка поднимающаяся линия от treble к bass — комфортная, профессиональная цель. Зубчатая линия с пиком означает, что одна струна не подходит — замените её из набора одиночных струн или выберите другой набор. Наборы «heavy-bottom» (10&ndash;52, 11&ndash;49) намеренно делают кривую круче для drop-строев и тугого низа.</p>
+
+    <h3 id="trussrod">7. Анкер и Прогиб Грифа</h3>
+    <p>Анкер — это стальной стержень внутри грифа, который противодействует натяжению струн. Струны тянут голову вперёд, создавая прогиб (лёгкий передний изгиб); стержень тянет назад. Когда вы меняете наборы или строи, общее натяжение меняется, и настройка анкера, идеальная для старой установки, теперь неверна для новой.</p>
+    <p>StringSelectorApp сравнивает ваше общее натяжение с опорным и оценивает необходимые обороты анкера — «затяните примерно на 1/8 оборота», например. Считайте это отправной точкой, затем проверьте, измерив прогиб: распространённая цель для электрогитары — 0.010" на 7-м ладу, измеренная щупом при удержании низкой E на 1-м и 15-м ладах.</p>
+    <div class="warning">
+      <strong>Никогда не форсируйте анкер.</strong> Если он не поворачивается плавно, остановитесь — сломанный анкер это дорогой ремонт. Оценка приложения — математическая отправная точка, а не замена тщательному измерению и опыту на инструменте перед вами.
+    </div>
+
+    <h3 id="report">8. Отчёт Мастерской</h3>
+    <p>Отчёт мастерской — это результат — печатный HTML-документ, фиксирующий всю установку: заголовок инструмента и строя, полную таблицу натяжения (нота, калибр, вес единицы длины, частота, натяжение в фунтах и кг/Н), визуальную кривую натяжения, рекомендацию по анкеру и секцию свободных заметок.</p>
+    <p>Архивируйте каждый отчёт. Гитара — динамическая система — прогиб смещается с влажностью и возрастом струн, лады изнашиваются, музыканты меняют строи. С архивированным отчётом вы можете точно повторить установку, диагностировать, что изменилось, когда гитара возвращается гудящей, и показать клиенту документированное доказательство вашей работы. Сгенерируйте отчёт <em>до</em> прикосновения к анкеру, чтобы зафиксировать состояние «до», затем снова после, для чистой записи до/после.</p>
+
+    <h3 id="workflow">9. Профессиональный Рабочий Процесс</h3>
+    <ol>
+      <li><strong>Поговорите с музыкантом.</strong> Спросите о строе, стиле и любых жалобах на ощущение. Музыкант, говорящий, что низ «слабый», описывает проблему натяжения, которую вы можете измерить.</li>
+      <li><strong>Выберите инструмент и строй</strong> в приложении или выберите Custom и введите ноты сами.</li>
+      <li><strong>Введите правильную мензуру</strong> — treble и bass. Для инструментов multiscale это критично.</li>
+      <li><strong>Рассчитайте</strong> и прочитайте главную рекомендацию и кривую натяжения.</li>
+      <li><strong>Обсудите альтернативы</strong> с музыкантом, если струна выглядит неподходящей, до установки чего-либо.</li>
+      <li><strong>Сгенерируйте отчёт</strong>, затем сделайте механическую работу (замена струн, анкер, интонация).</li>
+      <li><strong>Перемерьте и заархивируйте</strong> финальный отчёт рядом с предыдущим.</li>
+    </ol>
+
+    <h3 id="reference">10. Технический Справочник</h3>
+    <table>
+      <thead><tr><th>Термин</th><th>Значение</th></tr></thead>
+      <tbody>
+        <tr><td>Натяжение</td><td>Тянущая сила настроенной струны, в фунтах.</td></tr>
+        <tr><td>Вес единицы длины</td><td>Масса на дюйм струны (фунты/дюйм) — ключевой вход натяжения, не калибр.</td></tr>
+        <tr><td>Мензура</td><td>Вибрирующая длина, бридж к порожку, в дюймах.</td></tr>
+        <tr><td>Равномерный строй</td><td>12 равных полутонов на октаву, A4 = 440 Гц.</td></tr>
+        <tr><td>Сбалансированное натяжение</td><td>Гладкая кривая натяжения по набору, бас слегка туже treble.</td></tr>
+        <tr><td>Прогиб</td><td>Передний изгиб грифа от натяжения струн, противодействуемый анкером.</td></tr>
+        <tr><td>Набор heavy-bottom</td><td>Больше натяжения на басовых струнах, легче высокие — для drop-строев.</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Единственное правило, которое нужно помнить:</strong> измеряйте, не угадывайте. StringSelectorApp превращает невидимую физику установки в числа, которые вы можете видеть, документировать и повторять — именно это отличает профессиональную настройку от удачной.
+    </div>
   </div>
 </section>
+
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Выпущено под лицензией MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Репозиторий GitHub</a></p>
   </div>
 </footer>
 </body>

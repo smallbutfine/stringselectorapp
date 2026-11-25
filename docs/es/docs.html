@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Documentation</title>
+<title>StringSelectorApp - Centro de Documentación</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,21 +46,21 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">Documentation Hub</p>
-    <p class="tagline">Build it, feed it data, and understand the physics behind every number.</p>
+    <p class="subtitle">Centro de Documentación</p>
+    <p class="tagline">Compílalo, aliméntalo con datos y entiende la física detrás de cada número.</p>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="concepts.html">Conceptos</a>
       <a href="docs.html">Documentación</a>
-      <a href="gui.html">IU</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manual</a>
       <a href="download.html">Descargar</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
@@ -68,22 +68,22 @@
 <section>
   <div class="container">
     <h2>Documentación</h2>
-    <p>Everything you need to build StringSelectorApp from source, extend its databases, and understand the math behind the tension numbers. Start with the guides below, then dig into the references.</p>
+    <p>Todo lo que necesitas para compilar StringSelectorApp desde el código fuente, extender sus bases de datos y entender las matemáticas detrás de los números de tensión. Empieza con las guías de abajo, luego profundiza en las referencias.</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>The Luthier's Manual</h3>
-        <p>A complete walkthrough of the physics, the interface, reading results, workshop reports, and truss rod adjustment.</p>
-        <p><a href="manual.html"><strong>Read the Manual &rarr;</strong></a></p>
+        <h3>El Manual del Luthier</h3>
+        <p>Un recorrido completo de la física, la interfaz, la lectura de resultados, los informes de taller y el ajuste del alma.</p>
+        <p><a href="manual.html"><strong>Leer el Manual &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>GUI Reference</h3>
-        <p>Every control, every results-grid column, the visual tension curve, and a step-by-step first calculation.</p>
-        <p><a href="gui.html"><strong>Open the GUI Reference &rarr;</strong></a></p>
+        <h3>Referencia de la GUI</h3>
+        <p>Cada control, cada columna de la cuadrícula de resultados, la curva visual de tensión y un primer cálculo paso a paso.</p>
+        <p><a href="gui.html"><strong>Abrir la Referencia de la GUI &rarr;</strong></a></p>
       </div>
       <div class="feature-card">
-        <h3>Downloads</h3>
-        <p>Prebuilt binaries for Windows, macOS (Intel &amp; Apple Silicon), and Linux (x86_64 &amp; ARM).</p>
-        <p><a href="download.html"><strong>Get the binaries &rarr;</strong></a></p>
+        <h3>Descargas</h3>
+        <p>Binarios precompilados para Windows, macOS (Intel y Apple Silicon) y Linux (x86_64 y ARM).</p>
+        <p><a href="download.html"><strong>Obtener los binarios &rarr;</strong></a></p>
       </div>
     </div>
   </div>
@@ -91,58 +91,58 @@
 
 <section>
   <div class="container">
-    <h2>Building from Source</h2>
-    <p>StringSelectorApp is a FreePascal / Lazarus project. The repository ships a single build script, <code>build_all.bat</code>, that compiles the GUI for every supported target and packages the results into <code>Deploy/</code>.</p>
+    <h2>Compilación desde el Código Fuente</h2>
+    <p>StringSelectorApp es un proyecto FreePascal / Lazarus. El repositorio incluye un único script de compilación, <code>build_all.bat</code>, que compila la GUI para cada objetivo soportado y empaqueta los resultados en <code>Deploy/</code>.</p>
 
-    <h3>Prerequisites</h3>
+    <h3>Requisitos previos</h3>
     <table>
-      <thead><tr><th>Tool</th><th>Purpose</th><th>Default location</th></tr></thead>
+      <thead><tr><th>Herramienta</th><th>Propósito</th><th>Ubicación por defecto</th></tr></thead>
       <tbody>
-        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Compiles the Pascal source</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Builds the LCL GUI project</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td>Cross-binaries</td><td>Cross-compile for macOS &amp; Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Builds the Windows installer</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td>GNU tar</td><td>Packages Linux tarballs</td><td><code>tar</code> on PATH</td></tr>
-        <tr><td>Python 3</td><td>Zips macOS <code>.app</code> bundles with correct Unix modes</td><td><code>python</code> on PATH</td></tr>
+        <tr><td>Free Pascal Compiler (FPC 3.2.x)</td><td>Compila el código Pascal</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td>Lazarus (<code>lazbuild</code>)</td><td>Compila el proyecto GUI LCL</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td>Binarios cruzados</td><td>Compilación cruzada para macOS y Linux</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td>Inno Setup 6 (<code>ISCC.exe</code>)</td><td>Compila el instalador de Windows</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td>GNU tar</td><td>Empaqueta los tarballs de Linux</td><td><code>tar</code> en PATH</td></tr>
+        <tr><td>Python 3</td><td>Empaqueta los bundles <code>.app</code> de macOS con los modos Unix correctos</td><td><code>python</code> en PATH</td></tr>
       </tbody>
     </table>
 
-    <h3>Build commands</h3>
+    <h3>Comandos de compilación</h3>
     <div class="command-block">
-      <span class="comment"># Build all 5 targets and package into Deploy/</span><br>
+      <span class="comment"># Compilar los 5 objetivos y empaquetar en Deploy/</span><br>
       ./build_all.bat<br><br>
-      <span class="comment"># Verify the toolchain only (no build)</span><br>
+      <span class="comment"># Verificar solo la cadena de herramientas (sin compilar)</span><br>
       ./build_all.bat --check
     </div>
-    <p>The script builds five targets: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code>, and <code>linux-arm</code>. Output goes to <code>dist\&lt;target&gt;\</code> and version-stamped packages are copied to <code>Deploy\</code>.</p>
+    <p>El script compila cinco objetivos: <code>win64</code>, <code>macos-intel</code>, <code>macos-aarch64</code>, <code>linux-x64</code> y <code>linux-arm</code>. La salida va a <code>dist\&lt;target&gt;\</code> y los paquetes con versión se copian a <code>Deploy\</code>.</p>
 
-    <h3>Environment variables</h3>
-    <p>Every toolchain path can be overridden without editing the script. Set these before running <code>build_all.bat</code>:</p>
+    <h3>Variables de entorno</h3>
+    <p>Cada ruta de la cadena de herramientas puede sobrescribirse sin editar el script. Establece estas antes de ejecutar <code>build_all.bat</code>:</p>
     <table>
-      <thead><tr><th>Variable</th><th>Overrides</th><th>Default</th></tr></thead>
+      <thead><tr><th>Variable</th><th>Sobrescribe</th><th>Por defecto</th></tr></thead>
       <tbody>
-        <tr><td><code>FPC_DIR</code></td><td>Free Pascal compiler directory</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
-        <tr><td><code>LAZBUILD</code></td><td>Lazarus build tool path</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
-        <tr><td><code>CROSS_BIN_DIR</code></td><td>Cross-compiler binaries</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
-        <tr><td><code>ISCC</code></td><td>Inno Setup compiler</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
-        <tr><td><code>TAR</code></td><td>tar executable</td><td><code>tar</code></td></tr>
-        <tr><td><code>NO_VERSION_BUMP</code></td><td>Build the current version without incrementing the patch level</td><td>(unset)</td></tr>
-        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Skip the interactive <code>pause</code> at the end (never hang in CI)</td><td>(unset)</td></tr>
+        <tr><td><code>FPC_DIR</code></td><td>Directorio del compilador Free Pascal</td><td><code>C:\fpcupdeluxe\fpc\bin\i386-win32</code></td></tr>
+        <tr><td><code>LAZBUILD</code></td><td>Ruta de la herramienta de compilación Lazarus</td><td><code>C:\fpcupdeluxe\lazarus\lazbuild.exe</code></td></tr>
+        <tr><td><code>CROSS_BIN_DIR</code></td><td>Binarios del compilador cruzado</td><td><code>C:\fpcupdeluxe\cross\bin</code></td></tr>
+        <tr><td><code>ISCC</code></td><td>Compilador Inno Setup</td><td><code>C:\Program Files (x86)\Inno Setup 6\ISCC.exe</code></td></tr>
+        <tr><td><code>TAR</code></td><td>Ejecutable tar</td><td><code>tar</code></td></tr>
+        <tr><td><code>NO_VERSION_BUMP</code></td><td>Compilar la versión actual sin incrementar el nivel de parche</td><td>(sin establecer)</td></tr>
+        <tr><td><code>CI</code> / <code>NO_PAUSE</code></td><td>Omitir la <code>pause</code> interactiva al final (nunca colgar en CI)</td><td>(sin establecer)</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Tip:</strong> The build counter in <code>Assets\version.txt</code> is bumped on every build so version-stamped artifacts never collide. Set <code>NO_VERSION_BUMP=1</code> for idempotent rebuilds of the same version.
+      <strong>Consejo:</strong> El contador de compilación en <code>Assets\version.txt</code> se incrementa en cada compilación para que los artefactos con versión nunca colisionen. Establece <code>NO_VERSION_BUMP=1</code> para recompilaciones idempotentes de la misma versión.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Data File Format Reference</h2>
-    <p>StringSelectorApp is data-driven. Two plain-text INI files sit next to the executable and are loaded at startup. Edit them in any text editor &mdash; no recompilation required.</p>
+    <h2>Referencia del Formato de Archivos de Datos</h2>
+    <p>StringSelectorApp está basado en datos. Dos archivos INI de texto plano están junto al ejecutable y se cargan al iniciar. Edítalos en cualquier editor de texto — no se requiere recompilación.</p>
 
-    <h3>strings.ini &mdash; the string database</h3>
-    <p>Each <code>[Section]</code> is one string pack. The app reads every section, keeps the ones whose <code>StringCount</code> matches the current tuning, and ranks them by how close their tension is to the target.</p>
+    <h3>strings.ini — la base de datos de cuerdas</h3>
+    <p>Cada <code>[Section]</code> es un paquete de cuerdas. La app lee cada sección, conserva las que coinciden en <code>StringCount</code> con la afinación actual y las clasifica por cercanía de su tensión al objetivo.</p>
     <pre>[ErnieBall_Regular_2221]
 Name=Ernie Ball 2221 Regular Slinky (10-46)
 StringCount=6
@@ -159,20 +159,20 @@ W5=0.00023964
 G6=0.046
 W6=0.00038216</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>Campo</th><th>Significado</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the results grid (brand + gauge).</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings in the pack (1&ndash;9).</td></tr>
-        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Gauge of each string in inches (plain decimal, e.g. <code>0.010</code>).</td></tr>
-        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Unit weight of each string in lbs/inch. This is the physical value the formula uses &mdash; not the gauge.</td></tr>
+        <tr><td><code>Name</code></td><td>Nombre mostrado en la cuadrícula de resultados (marca + calibre).</td></tr>
+        <tr><td><code>StringCount</code></td><td>Número de cuerdas en el paquete (1&ndash;9).</td></tr>
+        <tr><td><code>G1</code>&hellip;<code>G9</code></td><td>Calibre de cada cuerda en pulgadas (decimal simple, p. ej. <code>0.010</code>).</td></tr>
+        <tr><td><code>W1</code>&hellip;<code>W9</code></td><td>Peso unitario de cada cuerda en lbs/pulgada. Este es el valor físico que usa la fórmula — no el calibre.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Why unit weight, not gauge?</strong> Two strings with the same gauge can have very different unit weights depending on material (plain steel, nickel-wound, stainless), core shape, and winding. Tension depends on unit weight, so that is what the file stores.
+      <strong>¿Por qué peso unitario y no calibre?</strong> Dos cuerdas con el mismo calibre pueden tener pesos unitarios muy diferentes según el material (acero plano, niquelado, inoxidable), la forma del núcleo y el devanado. La tensión depende del peso unitario, así que eso es lo que almacena el archivo.
     </div>
 
-    <h3>tunings.ini &mdash; the tuning presets</h3>
-    <p>Each <code>[Tuning_N]</code> section is one preset. The <code>[Setup]</code> section at the top declares how many presets exist (<code>TuningCount</code>). The app reads exactly that many sections in order.</p>
+    <h3>tunings.ini — los presets de afinación</h3>
+    <p>Cada sección <code>[Tuning_N]</code> es un preset. La sección <code>[Setup]</code> en la parte superior declara cuántos presets existen (<code>TuningCount</code>). La app lee exactamente esa cantidad de secciones en orden.</p>
     <pre>[Setup]
 TuningCount=28
 
@@ -186,75 +186,75 @@ N4=D3
 N5=A2
 N6=E2</pre>
     <table>
-      <thead><tr><th>Field</th><th>Meaning</th></tr></thead>
+      <thead><tr><th>Campo</th><th>Significado</th></tr></thead>
       <tbody>
-        <tr><td><code>Name</code></td><td>Display name shown in the instrument/tuning combo.</td></tr>
-        <tr><td><code>StringCount</code></td><td>Number of strings (4&ndash;9).</td></tr>
-        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Note name of each string, <strong>string 1 = highest string</strong>. Format: letter + optional <code>#</code>/<code>b</code> + octave, e.g. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
+        <tr><td><code>Name</code></td><td>Nombre mostrado en el combo de instrumento/afinación.</td></tr>
+        <tr><td><code>StringCount</code></td><td>Número de cuerdas (4&ndash;9).</td></tr>
+        <tr><td><code>N1</code>&hellip;<code>N9</code></td><td>Nombre de la nota de cada cuerda, <strong>cuerda 1 = cuerda más aguda</strong>. Formato: letra + <code>#</code>/<code>b</code> opcional + octava, p. ej. <code>E4</code>, <code>A2</code>, <code>C#3</code>, <code>Bb3</code>.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Octave convention:</strong> Scientific pitch notation is used, so <code>A4 = 440 Hz</code> and <code>A2 = 110 Hz</code>. The note name is converted to a frequency with <code>f = A4 &times; 2^(n/12)</code>, where <code>n</code> is the semitone distance from A4.
+      <strong>Convención de octavas:</strong> Se usa notación científica de tono, así que <code>A4 = 440 Hz</code> y <code>A2 = 110 Hz</code>. El nombre de la nota se convierte a frecuencia con <code>f = A4 &times; 2^(n/12)</code>, donde <code>n</code> es la distancia en semitonos desde A4.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Physics Formula Reference</h2>
-    <p>Every tension number in the app comes from one equation &mdash; the ideal flexible-string tension formula, solved for pounds-force.</p>
+    <h2>Referencia de Fórmulas Físicas</h2>
+    <p>Cada número de tensión en la app proviene de una ecuación — la fórmula de tensión de cuerda flexible ideal, resuelta para libras-fuerza.</p>
 
-    <h3>String tension</h3>
+    <h3>Tensión de cuerda</h3>
     <div class="command-block">
       T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
     </div>
     <table>
-      <thead><tr><th>Symbol</th><th>Quantity</th><th>Unit</th></tr></thead>
+      <thead><tr><th>Símbolo</th><th>Cantidad</th><th>Unidad</th></tr></thead>
       <tbody>
-        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td></tr>
-        <tr><td><code>W</code></td><td>Unit weight of the string</td><td>lbs / inch</td></tr>
-        <tr><td><code>L</code></td><td>Scale length (vibrating string length)</td><td>inches</td></tr>
-        <tr><td><code>f</code></td><td>Frequency of the note</td><td>Hz</td></tr>
-        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup> (converts to pounds-force)</td></tr>
+        <tr><td><code>T</code></td><td>Tensión</td><td>libras (lbs)</td></tr>
+        <tr><td><code>W</code></td><td>Peso unitario de la cuerda</td><td>lbs / pulgada</td></tr>
+        <tr><td><code>L</code></td><td>Longitud de escala (longitud de cuerda vibrante)</td><td>pulgadas</td></tr>
+        <tr><td><code>f</code></td><td>Frecuencia de la nota</td><td>Hz</td></tr>
+        <tr><td><code>386.4</code></td><td>Constante gravitacional</td><td>in / s<sup>2</sup> (convierte a libras-fuerza)</td></tr>
       </tbody>
     </table>
 
-    <h3>Frequency from note name</h3>
-    <p>Each note is converted to a frequency using equal temperament:</p>
+    <h3>Frecuencia a partir del nombre de nota</h3>
+    <p>Cada nota se convierte a frecuencia usando temperamento igual:</p>
     <div class="command-block">
       f = A4 &times; 2<sup>(n / 12)</sup>
     </div>
-    <p>where <code>A4</code> is the concert-pitch reference (440 Hz by default, adjustable 390&ndash;460 Hz in the GUI) and <code>n</code> is the number of semitones from A4 (e.g. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
+    <p>donde <code>A4</code> es la referencia de tono de concierto (440 Hz por defecto, ajustable 390&ndash;460 Hz en la GUI) y <code>n</code> es el número de semitonos desde A4 (p. ej. E4 = +5, A2 = &minus;24, E2 = &minus;29).</p>
 
-    <h3>Unit conversions (ISO mode)</h3>
+    <h3>Conversiones de unidades (modo ISO)</h3>
     <table>
-      <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+      <thead><tr><th>De</th><th>A</th><th>Multiplicar por</th></tr></thead>
       <tbody>
-        <tr><td>Tension (lbs)</td><td>Kilograms</td><td><code>0.45359237</code></td></tr>
-        <tr><td>Tension (lbs)</td><td>Newtons</td><td><code>4.448</code> (via kg &times; 9.80665)</td></tr>
+        <tr><td>Tensión (lbs)</td><td>Kilogramos</td><td><code>0.45359237</code></td></tr>
+        <tr><td>Tensión (lbs)</td><td>Newtons</td><td><code>4.448</code> (vía kg &times; 9.80665)</td></tr>
       </tbody>
     </table>
 
-    <h3>Scale length interpolation (multiscale / fanned-fret)</h3>
-    <p>For instruments with different treble and bass scale lengths, the app interpolates linearly across the strings. For string <code>i</code> of <code>N</code> (0-based):</p>
+    <h3>Interpolación de longitud de escala (multiscale / fanned-fret)</h3>
+    <p>Para instrumentos con diferentes longitudes de escala de agudos y graves, la app interpola linealmente a través de las cuerdas. Para la cuerda <code>i</code> de <code>N</code> (base 0):</p>
     <div class="command-block">
       L<sub>i</sub> = ScaleTreble + (ScaleBass &minus; ScaleTreble) &times; (i / (N &minus; 1))
     </div>
-    <p>String 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is interpolated. For a single-scale instrument, set treble and bass to the same value.</p>
+    <p>La cuerda 1 usa la escala de agudos, la cuerda más grave usa la escala de graves, y todo lo intermedio se interpola. Para un instrumento de escala única, establece agudos y graves al mismo valor.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Your Own Strings</h2>
-    <p>Adding a string pack is just editing <code>strings.ini</code>. The app reloads it on next launch.</p>
+    <h2>Cómo Añadir Tus Propias Cuerdas</h2>
+    <p>Añadir un paquete de cuerdas es solo editar <code>strings.ini</code>. La app lo recarga en el siguiente inicio.</p>
     <ol>
-      <li><strong>Open <code>strings.ini</code></strong> in any text editor (Notepad, VS Code, etc.). It lives next to the executable.</li>
-      <li><strong>Copy an existing section</strong> that has the same number of strings as your new pack.</li>
-      <li><strong>Paste it at the end</strong> of the file and give it a unique <code>[Section_Name]</code> (letters, numbers, underscores &mdash; no spaces).</li>
-      <li><strong>Set <code>Name</code></strong> to the brand and gauge, e.g. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
-      <li><strong>Fill in <code>G1</code>&hellip;<code>GN</code></strong> (gauge in inches) and <code>W1</code>&hellip;<code>WN</code> (unit weight in lbs/inch) for every string.</li>
-      <li><strong>Save the file</strong> and relaunch the app. Your pack appears in the evaluation automatically.</li>
+      <li><strong>Abre <code>strings.ini</code></strong> en cualquier editor de texto (Notepad, VS Code, etc.). Está junto al ejecutable.</li>
+      <li><strong>Copia una sección existente</strong> que tenga el mismo número de cuerdas que tu nuevo paquete.</li>
+      <li><strong>Pégala al final</strong> del archivo y dale un <code>[Section_Name]</code> único (letras, números, guiones bajos — sin espacios).</li>
+      <li><strong>Establece <code>Name</code></strong> con la marca y el calibre, p. ej. <code>Name=MyBrand Custom Set (10-52)</code>.</li>
+      <li><strong>Rellena <code>G1</code>&hellip;<code>GN</code></strong> (calibre en pulgadas) y <code>W1</code>&hellip;<code>WN</code> (peso unitario en lbs/pulgada) para cada cuerda.</li>
+      <li><strong>Guarda el archivo</strong> y reinicia la app. Tu paquete aparece automáticamente en la evaluación.</li>
     </ol>
     <pre>[MyBrand_Custom_1052]
 Name=MyBrand Custom Set (10-52)
@@ -271,31 +271,31 @@ G5=0.042
 W5=0.00031841
 G6=0.052
 W6=0.00049216</pre>
-    <h3>Where to find unit weight data</h3>
+    <h3>Dónde encontrar datos de peso unitario</h3>
     <ul>
-      <li><strong>Manufacturer websites</strong> &mdash; Ernie Ball, D'Addario, and Elixir publish unit weights for their sets.</li>
-      <li><strong>Online tension calculators</strong> &mdash; many list unit weight alongside gauge.</li>
-      <li><strong>DIY measurement</strong> &mdash; weigh a known length of string on a precision scale and divide.</li>
+      <li><strong>Sitios web de fabricantes</strong> — Ernie Ball, D'Addario y Elixir publican pesos unitarios de sus conjuntos.</li>
+      <li><strong>Calculadoras de tensión online</strong> — muchas listan el peso unitario junto al calibre.</li>
+      <li><strong>Medición DIY</strong> — pesa una longitud conocida de cuerda en una balanza de precisión y divide.</li>
     </ul>
     <div class="warning">
-      <strong>Don't guess unit weight from gauge alone.</strong> A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string can differ by 20% in tension. Use the measured or published unit weight for accurate results.
+      <strong>No adivines el peso unitario solo por el calibre.</strong> Una cuerda de acero plano de <code>.010"</code> y una cuerda niquelada de <code>.010"</code> pueden diferir en un 20% en tensión. Usa el peso unitario medido o publicado para resultados precisos.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>How to Add Custom Tunings</h2>
-    <p>There are two ways to add a tuning: by hand in <code>tunings.ini</code>, or with the <strong>Save Tuning</strong> button inside the app.</p>
+    <h2>Cómo Añadir Afinaciones Personalizadas</h2>
+    <p>Hay dos formas de añadir una afinación: a mano en <code>tunings.ini</code>, o con el botón <strong>Save Tuning</strong> dentro de la app.</p>
 
-    <h3>Option A &mdash; Edit tunings.ini directly</h3>
+    <h3>Opción A — Editar tunings.ini directamente</h3>
     <ol>
-      <li><strong>Open <code>tunings.ini</code></strong> in a text editor.</li>
-      <li><strong>Note the current <code>TuningCount</code></strong> in the <code>[Setup]</code> section.</li>
-      <li><strong>Add a new section</strong> named <code>[Tuning_N]</code> where <code>N</code> is the current count (sections are read in order <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
-      <li><strong>Set <code>Name</code>, <code>StringCount</code>, and <code>N1</code>&hellip;<code>N9</code></strong> (string 1 = highest string).</li>
-      <li><strong>Increment <code>TuningCount</code></strong> in <code>[Setup]</code> by one.</li>
-      <li><strong>Save and relaunch</strong> &mdash; the new tuning appears in the instrument/tuning combo.</li>
+      <li><strong>Abre <code>tunings.ini</code></strong> en un editor de texto.</li>
+      <li><strong>Anota el <code>TuningCount</code> actual</strong> en la sección <code>[Setup]</code>.</li>
+      <li><strong>Añade una nueva sección</strong> llamada <code>[Tuning_N]</code> donde <code>N</code> es el conteo actual (las secciones se leen en orden <code>Tuning_0</code>, <code>Tuning_1</code>, &hellip;).</li>
+      <li><strong>Establece <code>Name</code>, <code>StringCount</code> y <code>N1</code>&hellip;<code>N9</code></strong> (cuerda 1 = cuerda más aguda).</li>
+      <li><strong>Incrementa <code>TuningCount</code></strong> en <code>[Setup]</code> en uno.</li>
+      <li><strong>Guarda y reinicia</strong> — la nueva afinación aparece en el combo de instrumento/afinación.</li>
     </ol>
     <pre>[Setup]
 TuningCount=29
@@ -310,23 +310,23 @@ N4=D3
 N5=A2
 N6=D2</pre>
 
-    <h3>Option B &mdash; Use the Save Tuning button</h3>
+    <h3>Opción B — Usar el botón Save Tuning</h3>
     <ol>
-      <li>In the app, pick a preset close to what you want (or choose <strong>Custom / User-Defined...</strong>).</li>
-      <li>Adjust the notes, transpose, and pitch until the tuning is what you want.</li>
-      <li>Click <strong>Save Tuning</strong> and enter a descriptive name when prompted.</li>
-      <li>The app appends a new <code>[Tuning_N]</code> section to <code>tunings.ini</code>, bumps <code>TuningCount</code>, and reloads the preset list.</li>
+      <li>En la app, elige un preset cercano a lo que quieres (o elige <strong>Custom / User-Defined...</strong>).</li>
+      <li>Ajusta las notas, transpose y pitch hasta que la afinación sea la que quieres.</li>
+      <li>Haz clic en <strong>Save Tuning</strong> e introduce un nombre descriptivo cuando se solicite.</li>
+      <li>La app añade una nueva sección <code>[Tuning_N]</code> a <code>tunings.ini</code>, incrementa <code>TuningCount</code> y recarga la lista de presets.</li>
     </ol>
     <div class="note">
-      <strong>Note names must be plain.</strong> The Save Tuning button strips any trailing modifier (e.g. <code>" (Drop)"</code>) before writing, so write clean note names like <code>E4</code>, <code>Bb3</code>, or <code>F#1</code>.
+      <strong>Los nombres de notas deben ser simples.</strong> El botón Save Tuning elimina cualquier modificador final (p. ej. <code>" (Drop)"</code>) antes de escribir, así que escribe nombres de notas limpios como <code>E4</code>, <code>Bb3</code> o <code>F#1</code>.
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publicado bajo la Licencia MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Repositorio GitHub</a></p>
   </div>
 </footer>
 </body>

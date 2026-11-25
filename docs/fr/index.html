@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - String Tension Calculator</title>
+<title>StringSelectorApp - Calculateur de Tension des Cordes</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -45,90 +45,90 @@
 
 <header>
   <div class="container">
-    <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">String Tension Calculator & Workshop Reporter</p>
-    <p class="tagline">Know your tension. Balance your setup. Build with confidence.</p>
+    <h1><img src="../chameleon.jpg" alt="Caméléon" style="width:48px; height:48px; border-radius:50%; vertical-align:middle; margin-right:10px; border:2px solid #30363d;" />STRING<span class="accent">SELECTOR</span></h1>
+    <p class="subtitle">Calculateur de Tension des Cordes et Générateur de Rapports d'Atelier</p>
+    <p class="tagline">Connaissez votre tension. Équilibrez votre configuration. Construisez avec confiance.</p>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="concepts.html">Concepts</a>
-      <a href="docs.html">Documentation</a>
-      <a href="gui.html">IUG</a>
+      <a href="docs.html">Docs</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manuel</a>
       <a href="download.html">Télécharger</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 <section>
   <div class="container">
-    <h2>What is StringSelectorApp?</h2>
-    <p>StringSelectorApp is a <strong>string tension calculator</strong> for guitars and basses. It combines string gauge data, unit weight, tuning presets, and scale length to calculate the exact tension of every string in real time.</p>
+    <h2>Qu'est-ce que StringSelectorApp ?</h2>
+    <p>StringSelectorApp est un <strong>calculateur de tension des cordes</strong> pour guitares et basses. Il combine les données de tirant des cordes, le poids unitaire, les préréglages d'accordage et la longueur de diapason pour calculer la tension exacte de chaque corde en temps réel.</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Real-Time Calculation</h3>
-        <p>Enter your tuning, scale length, and string pack. Click Calculate. See every string's tension instantly.</p>
+        <h3>Calcul en Temps Réel</h3>
+        <p>Entrez votre accordage, la longueur de diapason et le paquet de cordes. Cliquez sur Calculer. Voyez la tension de chaque corde instantanément.</p>
       </div>
       <div class="feature-card">
-        <h3>37 String Packs</h3>
-        <p>Ernie Ball, D'Addario, Elixir, and more. Pre-loaded with gauge and unit weight data.</p>
+        <h3>37 Paquets de Cordes</h3>
+        <p>Ernie Ball, D'Addario, Elixir, et plus. Préchargés avec les données de tirant et de poids unitaire.</p>
       </div>
       <div class="feature-card">
-        <h3>28 Tuning Presets</h3>
-        <p>Standard, Drop, Open, and custom tunings for 4-9 string instruments. Save your own.</p>
+        <h3>28 Préréglages d'Accordage</h3>
+        <p>Standard, Drop, Open et accordages personnalisés pour instruments à 4-9 cordes. Sauvegardez les vôtres.</p>
       </div>
       <div class="feature-card">
-        <h3>Visual Tension Curve</h3>
-        <p>See which strings are too tight or too loose at a glance. Balance your set in seconds.</p>
+        <h3>Courbe de Tension Visuelle</h3>
+        <p>Voyez d'un coup d'œil quelles cordes sont trop tendues ou trop détendues. Équilibrez votre jeu en quelques secondes.</p>
       </div>
       <div class="feature-card">
-        <h3>Workshop Reports</h3>
-        <p>Generate a printable HTML report with tension table, curve, and truss rod recommendation.</p>
+        <h3>Rapports d'Atelier</h3>
+        <p>Générez un rapport HTML imprimable avec tableau de tension, courbe et recommandation de truss rod.</p>
       </div>
       <div class="feature-card">
-        <h3>Truss Rod Assistant</h3>
-        <p>Compare total tension vs. reference. Get estimated truss rod turns for neck adjustment.</p>
+        <h3>Assistant de Truss Rod</h3>
+        <p>Comparez la tension totale vs. référence. Obtenez les tours estimés du truss rod pour l'ajustement du manche.</p>
       </div>
     </div>
   </div>
 </section>
 <section>
   <div class="container">
-    <h2>Downloads</h2>
-    <p>Prebuilt binaries are attached to every <a href="https://github.com/smallbutfine/stringselectorapp/releases">GitHub Release</a>:</p>
+    <h2>Téléchargements</h2>
+    <p>Les binaires précompilés sont joints à chaque <a href="https://github.com/smallbutfine/stringselectorapp/releases">Release GitHub</a> :</p>
     <table class="download-table">
-      <thead><tr><th>Platform</th><th>Artifact</th><th>Notes</th></tr></thead>
+      <thead><tr><th>Plateforme</th><th>Artefact</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>Windows 64-bit</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Inno Setup installer</td></tr>
-        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Universal app bundle</td></tr>
-        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Universal app bundle</td></tr>
-        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extract and run</td></tr>
-        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extract and run</td></tr>
+        <tr><td>Windows 64 bits</td><td><code>StringSelectorApp_&lt;version&gt;_Setup.exe</code></td><td>Installateur Inno Setup</td></tr>
+        <tr><td>macOS Intel</td><td><code>StringSelectorApp&lt;version&gt;-macos-intel.zip</code></td><td>Bundle d'app universel</td></tr>
+        <tr><td>macOS Apple Silicon</td><td><code>StringSelectorApp&lt;version&gt;-macos-aarch64.zip</code></td><td>Bundle d'app universel</td></tr>
+        <tr><td>Linux x86_64</td><td><code>StringSelectorApp&lt;version&gt;-linux-x64.tar.gz</code></td><td>Extrayez et lancez</td></tr>
+        <tr><td>Linux ARM</td><td><code>StringSelectorApp&lt;version&gt;-linux-arm.tar.gz</code></td><td>Extrayez et lancez</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 <section>
   <div class="container">
-    <h2>System Requirements</h2>
+    <h2>Configuration Requise</h2>
     <table>
-      <thead><tr><th>Component</th><th>Requirement</th></tr></thead>
+      <thead><tr><th>Composant</th><th>Exigence</th></tr></thead>
       <tbody>
-        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, or Linux (x86_64/ARM)</td></tr>
-        <tr><td>CPU</td><td>x86_64 or ARM</td></tr>
-        <tr><td>RAM</td><td>512 MB minimum</td></tr>
+        <tr><td>OS</td><td>Windows 10+, macOS 10.13+, ou Linux (x86_64/ARM)</td></tr>
+        <tr><td>CPU</td><td>x86_64 ou ARM</td></tr>
+        <tr><td>RAM</td><td>512 Mo minimum</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publié sous licence MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Dépôt GitHub</a></p>
   </div>
 </footer>
 </body>

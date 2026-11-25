@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - GUI Reference</title>
+<title>StringSelectorApp - Справочник по GUI</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,8 +46,8 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">GUI Reference</p>
-    <p class="tagline">Every control, every column, and your first calculation in minutes.</p>
+    <p class="subtitle">Справочник по GUI</p>
+    <p class="tagline">Каждый элемент управления, каждая колонка и ваш первый расчёт за считанные минуты.</p>
     <nav>
       <a href="index.html">Главная</a>
       <a href="concepts.html">Концепции</a>
@@ -55,150 +55,150 @@
       <a href="gui.html">GUI</a>
       <a href="manual.html">Руководство</a>
       <a href="download.html">Скачать</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>Launching the App</h2>
-    <p>StringSelectorApp is a single-window desktop application. How you start it depends on your platform:</p>
+    <h2>Запуск Приложения</h2>
+    <p>StringSelectorApp — это настольное приложение с одним окном. Способ запуска зависит от вашей платформы:</p>
     <table>
-      <thead><tr><th>Platform</th><th>Launch</th></tr></thead>
+      <thead><tr><th>Платформа</th><th>Запуск</th></tr></thead>
       <tbody>
-        <tr><td>Windows</td><td>Run the Inno Setup installer, then launch <strong>StringSelectorApp</strong> from the Start menu, or run <code>StringSelectorApp.exe</code> directly.</td></tr>
-        <tr><td>macOS</td><td>Unzip the downloaded <code>.zip</code> and drag <strong>StringSelectorApp.app</strong> to Applications. On first launch, right-click &rarr; <strong>Open</strong> (the app is not code-signed).</td></tr>
-        <tr><td>Linux</td><td>Extract the <code>.tar.gz</code> and run the <code>StringSelectorApp</code> binary. No dependencies.</td></tr>
+        <tr><td>Windows</td><td>Запустите установщик Inno Setup, затем запустите <strong>StringSelectorApp</strong> из меню Пуск или выполните <code>StringSelectorApp.exe</code> напрямую.</td></tr>
+        <tr><td>macOS</td><td>Распакуйте скачанный <code>.zip</code> и перетащите <strong>StringSelectorApp.app</strong> в Приложения. При первом запуске правый клик &rarr; <strong>Открыть</strong> (приложение не подписано).</td></tr>
+        <tr><td>Linux</td><td>Распакуйте <code>.tar.gz</code> и запустите бинарник <code>StringSelectorApp</code>. Без зависимостей.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Data files must sit next to the executable.</strong> The app loads <code>strings.ini</code> and <code>tunings.ini</code> from its own folder at startup. If either file is missing, the app shows an error and runs in a limited mode.
+      <strong>Файлы данных должны лежать рядом с исполняемым файлом.</strong> Приложение загружает <code>strings.ini</code> и <code>tunings.ini</code> из своей папки при запуске. Если какой-либо файл отсутствует, приложение показывает ошибку и работает в ограниченном режиме.
     </div>
-    <p>The window opens centered on screen with a dark studio theme. The top label shows a status line (<em>"Execute calculation..."</em> until you run one), and a red safety notice reminds you to generate the PDF report before ordering strings or touching the truss rod.</p>
+    <p>Окно открывается по центру экрана с тёмной студийной темой. Верхняя метка показывает строку состояния (<em>"Execute calculation..."</em> до первого запуска), а красное предупреждение напоминает сгенерировать PDF-отчёт перед заказом струн или регулировкой анкера.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Controls Reference</h2>
-    <p>The window is organized into four bands: the status line, the instrument/tuning row, the action row, the fine-tuning row, and the results grid. Every control is listed below in the order it appears.</p>
+    <h2>Справочник по Элементам Управления</h2>
+    <p>Окно организовано в четыре полосы: строка состояния, строка инструмента/строя, строка действий, строка тонкой настройки и сетка результатов. Каждый элемент перечислен ниже в порядке появления.</p>
 
-    <h3>Status &amp; safety</h3>
+    <h3>Состояние и безопасность</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Элемент</th><th>Тип</th><th>Что делает</th></tr></thead>
       <tbody>
-        <tr><td>Status label</td><td>Read-only label</td><td>Shows the top recommendation after a calculation: the best-matching pack, total set tension, and the truss rod guidance. Reads <em>"Execute calculation..."</em> before the first run.</td></tr>
-        <tr><td>Safety notice</td><td>Read-only label (red)</td><td>Permanent reminder to generate and read the PDF report before ordering strings or making mechanical adjustments.</td></tr>
+        <tr><td>Метка состояния</td><td>Метка только для чтения</td><td>Показывает главную рекомендацию после расчёта: наиболее подходящий набор, общее натяжение и рекомендацию по анкеру. Показывает <em>"Execute calculation..."</em> до первого запуска.</td></tr>
+        <tr><td>Предупреждение безопасности</td><td>Метка только для чтения (красная)</td><td>Постоянное напоминание сгенерировать и прочитать PDF-отчёт перед заказом струн или механическими регулировками.</td></tr>
       </tbody>
     </table>
 
-    <h3>Instrument &amp; tuning row</h3>
+    <h3>Строка инструмента и строя</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Элемент</th><th>Тип</th><th>Что делает</th></tr></thead>
       <tbody>
-        <tr><td>Instrument combo</td><td>Dropdown</td><td>Selects the instrument/tuning profile. Populated from <code>tunings.ini</code> (e.g. <em>"Guitar: 6-String E-Standard"</em>), plus a final <strong>Custom / User-Defined...</strong> entry that lets you edit notes directly in the grid.</td></tr>
-        <tr><td>Tuning combo</td><td>Dropdown</td><td>Tuning modifier applied on top of the profile: <strong>Standard (Profile Preset)</strong> or <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, which drops the lowest string two semitones and raises its target tension by 1 lb.</td></tr>
-        <tr><td>String count</td><td>Spin (4&ndash;9)</td><td>Number of strings. When a preset is selected this is set automatically from the preset; in Custom mode you set it yourself and the grid resizes.</td></tr>
-        <tr><td>Scale treble</td><td>Text (inches)</td><td>Scale length of the treble side (string 1). Default <code>25.5</code>.</td></tr>
-        <tr><td>Scale bass</td><td>Text (inches)</td><td>Scale length of the bass side (lowest string). Default <code>25.5</code>. Set this different from treble for multiscale / fanned-fret instruments.</td></tr>
+        <tr><td>Список инструментов</td><td>Выпадающий</td><td>Выбирает профиль инструмента/строя. Заполняется из <code>tunings.ini</code> (например, <em>"Guitar: 6-String E-Standard"</em>), плюс финальная запись <strong>Custom / User-Defined...</strong>, которая позволяет редактировать ноты прямо в сетке.</td></tr>
+        <tr><td>Список строя</td><td>Выпадающий</td><td>Модификатор строя, применяемый поверх профиля: <strong>Standard (Profile Preset)</strong> или <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, который опускает самую низкую струну на два полутона и повышает её целевое натяжение на 1 фунт.</td></tr>
+        <tr><td>Количество струн</td><td>Спин (4&ndash;9)</td><td>Количество струн. При выборе пресета устанавливается автоматически; в режиме Custom вы задаёте сами, и сетка меняет размер.</td></tr>
+        <tr><td>Мензура (агу)</td><td>Текст (дюймы)</td><td>Длина мензуры стороны агу (струна 1). По умолчанию <code>25.5</code>.</td></tr>
+        <tr><td>Мензура (бас)</td><td>Текст (дюймы)</td><td>Длина мензуры басовой стороны (самая низкая струна). По умолчанию <code>25.5</code>. Задайте отлично от агу для инструментов multiscale / fanned-fret.</td></tr>
       </tbody>
     </table>
 
-    <h3>Action row</h3>
+    <h3>Строка действий</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Элемент</th><th>Тип</th><th>Что делает</th></tr></thead>
       <tbody>
-        <tr><td>Calculate</td><td>Button</td><td>Runs the tension calculation. Evaluates every pack in <code>strings.ini</code> that matches the string count, ranks them by closeness to the target tension, fills the results grid with the top 5, and shows a summary dialog.</td></tr>
-        <tr><td>Export CSV</td><td>Button</td><td>Writes the entire results grid to a semicolon-separated <code>.csv</code> file (one row per grid row, all 8 columns).</td></tr>
-        <tr><td>Save Tuning</td><td>Button</td><td>Prompts for a name and appends the current tuning as a new <code>[Tuning_N]</code> preset in <code>tunings.ini</code>, then reloads the preset list.</td></tr>
-        <tr><td>Print PDF Report</td><td>Button</td><td>Generates <code>Workshop_Report.html</code> next to the executable and opens it in your browser. Use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive or print it.</td></tr>
+        <tr><td>Calculate</td><td>Кнопка</td><td>Запускает расчёт натяжения. Оценивает каждый набор в <code>strings.ini</code>, совпадающий по количеству струн, ранжирует по близости к целевому натяжению, заполняет сетку 5 лучшими и показывает диалог-сводку.</td></tr>
+        <tr><td>Export CSV</td><td>Кнопка</td><td>Записывает всю сетку результатов в <code>.csv</code>-файл, разделённый точкой с запятой (одна строка на строку сетки, все 8 колонок).</td></tr>
+        <tr><td>Save Tuning</td><td>Кнопка</td><td>Запрашивает имя и добавляет текущий строй как новый пресет <code>[Tuning_N]</code> в <code>tunings.ini</code>, затем перезагружает список пресетов.</td></tr>
+        <tr><td>Print PDF Report</td><td>Кнопка</td><td>Генерирует <code>Workshop_Report.html</code> рядом с исполняемым файлом и открывает его в браузере. Используйте <strong>Ctrl+P &rarr; Сохранить как PDF</strong> для архива или печати.</td></tr>
       </tbody>
     </table>
 
-    <h3>Fine-tuning row</h3>
+    <h3>Строка тонкой настройки</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Элемент</th><th>Тип</th><th>Что делает</th></tr></thead>
       <tbody>
-        <tr><td>Transpose</td><td>Spin (&minus;12&hellip;+12 ST)</td><td>Shifts every note by the given number of semitones before calculating. Useful for checking alternate keys (Eb, D, Drop C, etc.) without editing the preset.</td></tr>
-        <tr><td>Pitch (Concert A4)</td><td>Spin (390&ndash;460 Hz)</td><td>Reference pitch for frequency calculation. Default <code>440</code> Hz. Lower it for baroque/old-pitch tunings.</td></tr>
-        <tr><td>Guitar Base Tension</td><td>Text (lbs)</td><td>Reference total tension the guitar neck is set up for. Default <code>100.0</code>. Used to compute the truss rod difference.</td></tr>
-        <tr><td>Bass Base Tension</td><td>Text (lbs)</td><td>Reference total tension the bass neck is set up for. Default <code>160.0</code>. Used when the selected tuning is a bass tuning.</td></tr>
-        <tr><td>ISO checkbox</td><td>Checkbox</td><td>Toggles tension display between <strong>lbs</strong> (unchecked) and <strong>kg / N</strong> (checked). Affects the tension column, the total, and the color thresholds.</td></tr>
+        <tr><td>Transpose</td><td>Спин (&minus;12&hellip;+12 ST)</td><td>Сдвигает каждую ноту на заданное число полутонов перед расчётом. Полезно для проверки альтернативных тональностей (Eb, D, Drop C и т.д.) без редактирования пресета.</td></tr>
+        <tr><td>Pitch (Concert A4)</td><td>Спин (390&ndash;460 Гц)</td><td>Опорный тон для расчёта частоты. По умолчанию <code>440</code> Гц. Понизьте для барочных/старинных строёв.</td></tr>
+        <tr><td>Guitar Base Tension</td><td>Текст (фунты)</td><td>Опорное общее натяжение, под которое настроен гриф гитары. По умолчанию <code>100.0</code>. Используется для расчёта разницы анкера.</td></tr>
+        <tr><td>Bass Base Tension</td><td>Текст (фунты)</td><td>Опорное общее натяжение, под которое настроен гриф баса. По умолчанию <code>160.0</code>. Используется, когда выбран басовый строй.</td></tr>
+        <tr><td>Флажок ISO</td><td>Флажок</td><td>Переключает отображение натяжения между <strong>lbs</strong> (снят) и <strong>kg / N</strong> (установлен). Влияет на колонку натяжения, итог и цветовые пороги.</td></tr>
       </tbody>
     </table>
 
-    <h3>String packs &mdash; how selection works</h3>
-    <p>There is no manual "string pack list" control. Instead, when you click <strong>Calculate</strong>, the app reads every pack in <code>strings.ini</code> whose <code>StringCount</code> matches the current tuning, computes the tension of each, and ranks them by <strong>total variance from the target tension</strong> (lower is better). The grid then shows the <strong>top 5</strong> packs, each followed by its per-string rows. The status line names the single best match.</p>
+    <h3>Наборы струн — как работает выбор</h3>
+    <p>Нет ручного элемента «список наборов струн». Вместо этого при нажатии <strong>Calculate</strong> приложение читает каждый набор в <code>strings.ini</code>, чей <code>StringCount</code> совпадает с текущим строем, вычисляет натяжение каждого и ранжирует по <strong>общей дисперсии от целевого натяжения</strong> (меньше — лучше). Сетка показывает <strong>5 лучших</strong> наборов, за каждым следуют его строки по струнам. Строка состояния называет единственный лучший.</p>
     <div class="note">
-      <strong>Target tension</strong> is 15 lbs per guitar string and 40 lbs per bass string (strings below &minus;25 semitones from A4 are treated as bass). The Drop modifier adds 1 lb to the lowest string's target.
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Results Grid Columns</h2>
-    <p>After a calculation the grid fills with up to 5 ranked packs. Each pack occupies a block of rows &mdash; one row per string &mdash; and the columns are:</p>
-    <table>
-      <thead><tr><th>#</th><th>Column</th><th>What it shows</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>Product / Pack Name</td><td>The pack name with its rank badge, e.g. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> is the best match.</td></tr>
-        <tr><td>1</td><td>Tuning</td><td>The note name for that string (e.g. <code>E4</code>), after transpose and any Drop modifier.</td></tr>
-        <tr><td>2</td><td>Frequency (Hz)</td><td>Calculated frequency of the note at the current concert pitch.</td></tr>
-        <tr><td>3</td><td>String Position</td><td>String number, <code>String 1</code> = highest string.</td></tr>
-        <tr><td>4</td><td>Exact Gauge (Inch / mm)</td><td>Gauge in inches and millimetres, e.g. <code>0.010" (0.25 mm)</code>.</td></tr>
-        <tr><td>5</td><td>Tension (lbs) or Tension (kg / N)</td><td>Calculated tension for that string. Header and values switch with the ISO checkbox. Cell background is color-coded (see below).</td></tr>
-        <tr><td>6</td><td>Scale (Inches)</td><td>The scale length used for that string (interpolated on multiscale instruments).</td></tr>
-        <tr><td>7</td><td>Tension Visual Curve</td><td>A small line graph of the whole pack's tension across all strings, with the current row's point highlighted.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Tension cell color coding</h3>
-    <p>The tension cell (column 5) is shaded to give an at-a-glance read on whether a string is too loose, balanced, or too tight. Thresholds depend on instrument type and unit system:</p>
-    <table>
-      <thead><tr><th>Instrument</th><th>Units</th><th>Too loose (blue)</th><th>Balanced (green)</th><th>Too tight (red)</th></tr></thead>
-      <tbody>
-        <tr><td>Guitar</td><td>lbs</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
-        <tr><td>Guitar</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
-        <tr><td>Bass</td><td>lbs</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
-        <tr><td>Bass</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
-      </tbody>
-    </table>
-    <div class="note">
-      <strong>Reading the colors:</strong> blue = the string is below the comfortable tension band (may feel slack or buzz), green = in the sweet spot, red = above the band (may feel stiff or stress the neck). A well-balanced set is mostly green.
+      <strong>Целевое натяжение</strong> — 15 фунтов на струну гитары и 40 фунтов на струну баса (струны ниже &minus;25 полутонов от A4 считаются басовыми). Модификатор Drop добавляет 1 фунт к цели самой низкой струны.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Visual Tension Curve</h2>
-    <p>Column 7 draws a compact line graph for each pack. It plots the tension of every string in the pack from string 1 (treble) on the left to the lowest string on the right.</p>
+    <h2>Колонки Сетки Результатов</h2>
+    <p>После расчёта сетка заполняется до 5 ранжированными наборами. Каждый набор занимает блок строк — по строке на струну — и колонки следующие:</p>
+    <table>
+      <thead><tr><th>#</th><th>Колонка</th><th>Что показывает</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Название Продукта / Набора</td><td>Название набора с бейджем ранга, напр. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> — лучший.</td></tr>
+        <tr><td>1</td><td>Строй</td><td>Название ноты для этой струны (напр. <code>E4</code>), после transpose и любого модификатора Drop.</td></tr>
+        <tr><td>2</td><td>Частота (Гц)</td><td>Рассчитанная частота ноты при текущем концертном тоне.</td></tr>
+        <tr><td>3</td><td>Позиция Струны</td><td>Номер струны, <code>String 1</code> = самая высокая струна.</td></tr>
+        <tr><td>4</td><td>Точный Калибр (Дюйм / мм)</td><td>Калибр в дюймах и миллиметрах, напр. <code>0.010" (0.25 мм)</code>.</td></tr>
+        <tr><td>5</td><td>Натяжение (фунты) или Натяжение (кг / Н)</td><td>Рассчитанное натяжение для этой струны. Заголовок и значения переключаются флажком ISO. Фон ячейки цветокодирован (см. ниже).</td></tr>
+        <tr><td>6</td><td>Мензура (Дюймы)</td><td>Длина мензуры, использованная для этой струны (интерполируется на инструментах multiscale).</td></tr>
+        <tr><td>7</td><td>Визуальная Кривая Натяжения</td><td>Небольшой линейный график натяжения всего набора по всем струнам с подсветкой точки текущей строки.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Цветовое кодирование ячейки натяжения</h3>
+    <p>Ячейка натяжения (колонка 5) затенена, чтобы с первого взгляда понять, слишком ли слабая, сбалансированная или слишком тугая струна. Пороги зависят от типа инструмента и системы единиц:</p>
+    <table>
+      <thead><tr><th>Инструмент</th><th>Единицы</th><th>Слишком слабая (синий)</th><th>Сбалансированная (зелёный)</th><th>Слишком тугая (красный)</th></tr></thead>
+      <tbody>
+        <tr><td>Гитара</td><td>фунты</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
+        <tr><td>Гитара</td><td>кг</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
+        <tr><td>Бас</td><td>фунты</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
+        <tr><td>Бас</td><td>кг</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Чтение цветов:</strong> синий = струна ниже комфортного диапазона (может ощущаться слабой или зудеть), зелёный = в идеальной точке, красный = выше диапазона (может ощущаться жёсткой или напрягать гриф). Хорошо сбалансированный набор в основном зелёный.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>Визуальная Кривая Натяжения</h2>
+    <p>Колонка 7 рисует компактный линейный график для каждого набора. Он отображает натяжение каждой струны набора от струны 1 (агу) слева до самой низкой струны справа.</p>
     <ul>
-      <li><strong>Horizontal axis</strong> &mdash; strings, ordered high to low (string 1 on the left).</li>
-      <li><strong>Vertical axis</strong> &mdash; tension, scaled to a fixed ceiling: <strong>25 lbs</strong> for guitar, <strong>60 lbs</strong> for bass. Points are clamped to the cell so nothing overflows.</li>
-      <li><strong>Green line</strong> &mdash; connects the per-string tension points, so you see the shape of the set at a glance.</li>
-      <li><strong>White square</strong> &mdash; marks the point for the string in the current row, so you can tie a row back to its position on the curve.</li>
-      <li><strong>Dotted midline</strong> &mdash; a faint horizontal reference across the middle of the cell.</li>
+      <li><strong>Горизонтальная ось</strong> &mdash; струны, упорядоченные от высокой к низкой (струна 1 слева).</li>
+      <li><strong>Вертикальная ось</strong> &mdash; натяжение, масштабированное к фиксированному потолку: <strong>25 фунтов</strong> для гитары, <strong>60 фунтов</strong> для баса. Точки ограничены ячейкой, чтобы ничего не выходило за края.</li>
+      <li><strong>Зелёная линия</strong> &mdash; соединяет точки натяжения по струнам, чтобы вы видели форму набора с первого взгляда.</li>
+      <li><strong>Белый квадрат</strong> &mdash; отмечает точку струны текущей строки, чтобы привязать строку к её позиции на кривой.</li>
+      <li><strong>Пунктирная средняя линия</strong> &mdash; слабая горизонтальная опора посередине ячейки.</li>
     </ul>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Flat / balanced</h3>
-        <p>A roughly horizontal line means every string sits at a similar tension &mdash; the classic "balanced" feel many players look for.</p>
+        <h3>Плоская / сбалансированная</h3>
+        <p>Приблизительно горизонтальная линия означает, что каждая струна при схожем натяжении &mdash; классический «сбалансированный» отклик, который многие ищут.</p>
       </div>
       <div class="feature-card">
-        <h3>Heavy-bottom</h3>
-        <p>A line that rises toward the low strings means the bass side is heavier &mdash; common on sets marketed as "Skinny Top Heavy Bottom" and preferred by many rhythm players.</p>
+        <h3>Тяжёлый низ</h3>
+        <p>Линия, поднимающаяся к низким струнам, означает, что басовая сторона тяжелее &mdash; часто встречается в наборах «Skinny Top Heavy Bottom» и предпочитается многими ритм-гитаристами.</p>
       </div>
       <div class="feature-card">
-        <h3>Light-bottom</h3>
-        <p>A line that falls toward the low strings means the bass strings are looser than the trebles &mdash; check for a floppy low end or a set mismatched to the tuning.</p>
+        <h3>Лёгкий низ</h3>
+        <p>Линия, падающая к низким струнам, означает, что басовые струны слабее агу &mdash; проверьте слабый низ или набор, не подходящий к строю.</p>
       </div>
     </div>
   </div>
@@ -206,64 +206,64 @@
 
 <section>
   <div class="container">
-    <h2>First Calculation Walkthrough</h2>
-    <p>This walkthrough takes you from launch to a complete result in under a minute. We'll calculate a standard 6-string guitar in E-Standard on a 25.5" scale.</p>
+    <h2>Пошаговый Разбор Первого Расчёта</h2>
+    <p>Этот разбор проведёт вас от запуска до полного результата менее чем за минуту. Мы рассчитаем стандартную 6-струнную гитару в E-Standard с мензурой 25.5".</p>
     <ol>
-      <li><strong>Launch the app.</strong> The window opens with the status line reading <em>"Execute calculation..."</em> and the grid showing only headers.</li>
-      <li><strong>Select the instrument/tuning.</strong> Open the <strong>Instrument combo</strong> and choose <em>"Guitar: 6-String E-Standard (Default)"</em>. The string count automatically becomes 6.</li>
-      <li><strong>Leave the tuning modifier on Standard.</strong> The <strong>Tuning combo</strong> defaults to <em>Standard (Profile Preset)</em> &mdash; no drop tuning for this example.</li>
-      <li><strong>Check the scale lengths.</strong> <strong>Scale treble</strong> and <strong>Scale bass</strong> both default to <code>25.5</code> &mdash; correct for a standard single-scale guitar. Leave them as-is.</li>
-      <li><strong>Confirm the fine-tuning row.</strong> Transpose is <code>0</code>, Pitch is <code>440</code> Hz, Guitar Base Tension is <code>100.0</code> lbs. These are the defaults &mdash; leave them for now.</li>
-      <li><strong>Click Calculate.</strong> The app evaluates every 6-string pack in <code>strings.ini</code>, ranks them, and fills the grid with the top 5. A summary dialog lists each pack's total tension, neck status, and average variance.</li>
-      <li><strong>Read the status line.</strong> It now shows the single best match, e.g. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
-      <li><strong>Scan the grid.</strong> Each pack block shows per-string note, frequency, gauge, tension (color-coded), scale, and the visual curve. Look for mostly-green tension cells and a balanced curve.</li>
-      <li><strong>Generate the report.</strong> Click <strong>Print PDF Report</strong>. The workshop report opens in your browser &mdash; use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive it.</li>
+      <li><strong>Запустите приложение.</strong> Окно открывается со строкой состояния <em>"Execute calculation..."</em> и сеткой, показывающей только заголовки.</li>
+      <li><strong>Выберите инструмент/строй.</strong> Откройте <strong>Список инструментов</strong> и выберите <em>"Guitar: 6-String E-Standard (Default)"</em>. Количество струн автоматически станет 6.</li>
+      <li><strong>Оставьте модификатор строя Standard.</strong> <strong>Список строя</strong> по умолчанию <em>Standard (Profile Preset)</em> &mdash; без drop-строя для этого примера.</li>
+      <li><strong>Проверьте длины мензуры.</strong> <strong>Мензура (агу)</strong> и <strong>Мензура (бас)</strong> обе по умолчанию <code>25.5</code> &mdash; верно для стандартной одношарнирной гитары. Оставьте как есть.</li>
+      <li><strong>Подтвердите строку тонкой настройки.</strong> Transpose <code>0</code>, Pitch <code>440</code> Гц, Guitar Base Tension <code>100.0</code> фунтов. Это значения по умолчанию &mdash; оставьте пока.</li>
+      <li><strong>Нажмите Calculate.</strong> Приложение оценивает каждый 6-струнный набор в <code>strings.ini</code>, ранжирует и заполняет сетку 5 лучшими. Диалог-сводка перечисляет общее натяжение каждого набора, состояние грифа и среднюю дисперсию.</li>
+      <li><strong>Прочитайте строку состояния.</strong> Теперь она показывает лучший, напр. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
+      <li><strong>Просмотрите сетку.</strong> Каждый блок набора показывает ноту по струне, частоту, калибр, натяжение (цветокодированное), мензуру и визуальную кривую. Ищите в основном зелёные ячейки натяжения и сбалансированную кривую.</li>
+      <li><strong>Сгенерируйте отчёт.</strong> Нажмите <strong>Print PDF Report</strong>. Отчёт мастерской откроется в браузере &mdash; используйте <strong>Ctrl+P &rarr; Сохранить как PDF</strong> для архива.</li>
     </ol>
     <div class="note">
-      <strong>What the truss rod guidance means:</strong> the status line compares the total set tension to your base tension. Within &plusmn;3 lbs it says the neck is OK. Above that it suggests tightening (clockwise) or loosening (counter-clockwise) by roughly one quarter-turn per 10 lbs of difference.
+      <strong>Что означает рекомендация по анкеру:</strong> строка состояния сравнивает общее натяжение набора с вашей базовой. В пределах &plusmn;3 фунтов говорит, что гриф OK. Выше — предлагает подтянуть (по часовой) или ослабить (против часовой) примерно на четверть оборота на каждые 10 фунтов разницы.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Tips for Reading the Results</h2>
+    <h2>Советы по Чтению Результатов</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Balanced &ne; equal</h3>
-        <p>A balanced set has a smooth curve, not necessarily identical numbers. Many players prefer a slightly heavier bass side for rhythm work &mdash; the "heavy-bottom" curve is a feature, not a flaw.</p>
+        <h3>Сбалансированный &ne; равный</h3>
+        <p>Сбалансированный набор имеет гладкую кривую, не обязательно одинаковые числа. Многие предпочитают слегка более тяжёлую басовую сторону для ритм-работы &mdash; кривая «тяжёлый низ» это особенность, а не недостаток.</p>
       </div>
       <div class="feature-card">
-        <h3>Watch the total</h3>
-        <p>Per-string tension matters, but the <strong>total set tension</strong> is what loads the neck. Adding a string or tuning up can push the total past what the truss rod was set for.</p>
+        <h3>Следите за итогом</h3>
+        <p>Натяжение по струне важно, но <strong>общее натяжение набора</strong> — это то, что нагружает гриф. Добавление струны или строй выше может поднять итог выше того, под что был настроен анкер.</p>
       </div>
       <div class="feature-card">
-        <h3>Gauge is not tension</h3>
-        <p>Two packs with the same gauge (e.g. both 10-46) can differ in tension because of unit weight. Trust the calculated tension and the curve, not the gauge label alone.</p>
+        <h3>Калибр — не натяжение</h3>
+        <p>Два набора с одинаковым калибром (напр. оба 10-46) могут различаться по натяжению из-за веса единицы длины. Доверяйте рассчитанному натяжению и кривой, а не только метке калибра.</p>
       </div>
       <div class="feature-card">
-        <h3>Scale length matters</h3>
-        <p>A 25.5" scale has noticeably more tension than a 24.75" scale with the same strings. Always enter the correct treble and bass scale for the instrument in front of you.</p>
+        <h3>Мензура важна</h3>
+        <p>Мензура 25.5" имеет заметно больше натяжения, чем 24.75" с теми же струнами. Всегда вводите правильную мензуру агу и баса для инструмента перед вами.</p>
       </div>
       <div class="feature-card">
-        <h3>Use transpose for keys</h3>
-        <p>Want to check Eb or Drop C without editing presets? Set the <strong>Transpose</strong> spin to &minus;1 or &minus;2 and recalculate &mdash; every note shifts and the tension updates.</p>
+        <h3>Используйте transpose для тональностей</h3>
+        <p>Хотите проверить Eb или Drop C без редактирования пресетов? Установите спин <strong>Transpose</strong> в &minus;1 или &minus;2 и пересчитайте &mdash; каждая нота сдвинется, натяжение обновится.</p>
       </div>
       <div class="feature-card">
-        <h3>Calibrate your base</h3>
-        <p>The truss rod advice is only as good as your base tension. Set it by calculating the strings the neck is <em>currently</em> set up for, then use that total as the base for future comparisons.</p>
+        <h3>Калибруйте свою базу</h3>
+        <p>Совет по анкеру хорош настолько, насколько хороша ваша базовая. Задайте её, рассчитав струны, под которые гриф настроен <em>сейчас</em>, затем используйте этот итог как базу для будущих сравнений.</p>
       </div>
     </div>
     <div class="warning">
-      <strong>Truss rod adjustments are iterative and unforgiving.</strong> Turn in small increments (1/8 turn), retune to pitch, let the wood settle, then re-measure. When in doubt, stop and consult a professional luthier &mdash; the app's guidance is a mathematical estimate, not a substitute for experience.
+      <strong>Регулировки анкера итеративны и беспощадны.</strong> Поворачивайте малыми шагами (1/8 оборота), настраивайте на тон, дайте дереву устояться, затем перемерьте. При сомнениях остановитесь и проконсультируйтесь с профессиональным лютьером &mdash; рекомендация приложения это математическая оценка, а не замена опыту.
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Выпущено под лицензией MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Репозиторий GitHub</a></p>
   </div>
 </footer>
 </body>

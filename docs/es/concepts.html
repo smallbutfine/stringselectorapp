@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - Concepts &amp; Physics</title>
+<title>StringSelectorApp - Conceptos y Física</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,358 +46,358 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">Concepts &amp; Physics</p>
-    <p class="tagline">The why behind every number &mdash; tension, gauge, scale, and the neck that holds it all together.</p>
+    <p class="subtitle">Conceptos y Física</p>
+    <p class="tagline">El porqué detrás de cada número — tensión, calibre, escala y el mástil que lo mantiene todo unido.</p>
     <nav>
       <a href="index.html">Inicio</a>
       <a href="concepts.html">Conceptos</a>
       <a href="docs.html">Documentación</a>
-      <a href="gui.html">IU</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manual</a>
       <a href="download.html">Descargar</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>What Is String Tension?</h2>
-    <p>String tension is the <strong>pulling force</strong> a string exerts on the instrument while it is tuned to pitch. Every string on your guitar is stretched between two fixed points &mdash; the bridge and the nut (or the fret you are holding) &mdash; and the amount of stretch is what we hear as pitch. The harder the string is pulled, the higher the note and the tighter it feels under your fingers.</p>
-    <p>Tension matters for three reasons that every tech and luthier deals with daily:</p>
+    <h2>¿Qué es la Tensión de Cuerdas?</h2>
+    <p>La tensión de cuerdas es la <strong>fuerza de tracción</strong> que una cuerda ejerce sobre el instrumento mientras está afinada al tono. Cada cuerda de tu guitarra se estira entre dos puntos fijos — el puente y la cejuela (o el traste que estás pulsando) — y la cantidad de estiramiento es lo que escuchamos como tono. Cuanto más se tira de la cuerda, más agudo es la nota y más tensa se siente bajo tus dedos.</p>
+    <p>La tensión importa por tres razones con las que cada técnico y luthier trata a diario:</p>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Playability</h3>
-        <p>High-tension strings feel stiff, fight your fretting hand, and cause fatigue. Low-tension strings feel sloppy, buzz easily, and can rattle against frets. The right tension is the difference between a guitar that plays itself and one that fights back.</p>
+        <h3>Tocabilidad</h3>
+        <p>Las cuerdas de alta tensión se sienten rígidas, luchan con tu mano izquierda y causan fatiga. Las cuerdas de baja tensión se sienten flojas, zumban fácilmente y pueden vibrar contra los trastes. La tensión correcta es la diferencia entre una guitarra que se toca sola y una que se resiste.</p>
       </div>
       <div class="feature-card">
-        <h3>Setup &amp; Intonation</h3>
-        <p>Tension changes string stiffness and elasticity, which shifts intonation, action, and neck relief. A setup done at one tension will drift when you change to a different set or tuning.</p>
+        <h3>Setup e Intonación</h3>
+        <p>La tensión cambia la rigidez y elasticidad de la cuerda, lo que desplaza la entonación, la acción y el alivio del mástil. Un setup hecho a una tensión se desviará cuando cambies a un conjunto o afinación diferente.</p>
       </div>
       <div class="feature-card">
-        <h3>Structural Load</h3>
-        <p>A set of six strings can pull with 100&ndash;180 lbs of combined force. That load is constantly bending the neck, loading the bridge, and stressing the headstock. Knowing the total is essential before you adjust a truss rod or swap to a heavier set.</p>
+        <h3>Carga Estructural</h3>
+        <p>Un conjunto de seis cuerdas puede tirar con 100&ndash;180 lbs de fuerza combinada. Esa carga está doblando constantemente el mástil, cargando el puente y estresando el clavijero. Conocer el total es esencial antes de ajustar un alma o cambiar a un conjunto más pesado.</p>
       </div>
     </div>
     <div class="note">
-      <strong>Rule of thumb:</strong> A typical electric guitar set (10&ndash;46) at standard tuning on a 25.5" scale pulls roughly <strong>105&ndash;110 lbs</strong> total. A bass set can exceed <strong>150 lbs</strong>. These are not small numbers &mdash; your neck is engineered around them.
+      <strong>Regla general:</strong> Un conjunto típico de guitarra eléctrica (10&ndash;46) en afinación estándar con escala de 25.5" tira de aproximadamente <strong>105&ndash;110 lbs</strong> en total. Un conjunto de bajo puede superar las <strong>150 lbs</strong>. No son números pequeños — tu mástil está diseñado en torno a ellos.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Tension Formula</h2>
-    <p>Every tension number StringSelectorApp produces comes from one equation &mdash; the ideal flexible-string formula, solved for pounds-force:</p>
+    <h2>La Fórmula de Tensión</h2>
+    <p>Cada número de tensión que produce StringSelectorApp proviene de una ecuación — la fórmula de cuerda flexible ideal, resuelta para libras-fuerza:</p>
     <div class="command-block" style="font-size:1.1em; text-align:center; padding:20px;">
       T = (W &times; (2 &times; L &times; f)<sup>2</sup>) / 386.4
     </div>
-    <p>It looks intimidating, but each term is something you already understand. Here it is in plain language:</p>
+    <p>Parece intimidante, pero cada término es algo que ya entiendes. Aquí está en lenguaje sencillo:</p>
     <table>
-      <thead><tr><th>Term</th><th>What it means</th><th>Unit</th><th>Plain-language explanation</th></tr></thead>
+      <thead><tr><th>Término</th><th>Qué significa</th><th>Unidad</th><th>Explicación en lenguaje sencillo</th></tr></thead>
       <tbody>
-        <tr><td><code>T</code></td><td>Tension</td><td>pounds (lbs)</td><td>The answer &mdash; how hard the string is pulling.</td></tr>
-        <tr><td><code>W</code></td><td>Unit weight</td><td>lbs / inch</td><td>How heavy the string is per inch of length. A thicker or denser string has a higher W. This is the single most important input &mdash; see the next section.</td></tr>
-        <tr><td><code>L</code></td><td>Scale length</td><td>inches</td><td>The vibrating length of the string &mdash; bridge to nut. Longer scale = more tension for the same note.</td></tr>
-        <tr><td><code>f</code></td><td>Frequency</td><td>Hz (cycles/sec)</td><td>The note itself. Higher notes (more Hz) need more tension to reach pitch on the same string.</td></tr>
-        <tr><td><code>386.4</code></td><td>Gravitational constant</td><td>in / s<sup>2</sup></td><td>A conversion factor that turns the physics into pounds-force. You never change it &mdash; it is just the bridge between the metric world of the formula and the imperial units luthiers use.</td></tr>
+        <tr><td><code>T</code></td><td>Tensión</td><td>libras (lbs)</td><td>La respuesta — cuán fuerte tira la cuerda.</td></tr>
+        <tr><td><code>W</code></td><td>Peso unitario</td><td>lbs / pulgada</td><td>Cuán pesada es la cuerda por pulgada de longitud. Una cuerda más gruesa o densa tiene un W mayor. Esta es la entrada más importante — ver la siguiente sección.</td></tr>
+        <tr><td><code>L</code></td><td>Longitud de escala</td><td>pulgadas</td><td>La longitud vibrante de la cuerda — puente a cejuela. Escala más larga = más tensión para la misma nota.</td></tr>
+        <tr><td><code>f</code></td><td>Frecuencia</td><td>Hz (ciclos/seg)</td><td>La nota en sí. Las notas más agudas (más Hz) necesitan más tensión para alcanzar el tono en la misma cuerda.</td></tr>
+        <tr><td><code>386.4</code></td><td>Constante gravitacional</td><td>in / s<sup>2</sup></td><td>Un factor de conversión que convierte la física en libras-fuerza. Nunca lo cambias — es solo el puente entre el mundo métrico de la fórmula y las unidades imperiales que usan los luthiers.</td></tr>
       </tbody>
     </table>
 
-    <h3>The calculation pipeline</h3>
-    <p>Here is how a single string travels from "note name" to "pounds of pull":</p>
+    <h3>El pipeline de cálculo</h3>
+    <p>Así es como una sola cuerda viaja desde "nombre de nota" hasta "libras de tracción":</p>
     <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:0; margin:25px 0; font-size:0.9em;">
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Note Name</div>
-        <div style="color:#e0e0e0; margin-top:8px;">e.g. <code>E2</code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">From tuning preset</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Nombre de Nota</div>
+        <div style="color:#e0e0e0; margin-top:8px;">p. ej. <code>E2</code></div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Desde el preset de afinación</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Frequency</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Frecuencia</div>
         <div style="color:#e0e0e0; margin-top:8px;"><code>f = A4 &times; 2<sup>(n/12)</sup></code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Equal temperament, A4=440 Hz</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Temperamento igual, A4=440 Hz</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Unit Weight + Scale</div>
-        <div style="color:#e0e0e0; margin-top:8px;"><code>W</code> from pack<br><code>L</code> from scale</div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Looked up from strings.ini</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Peso Unitario + Escala</div>
+        <div style="color:#e0e0e0; margin-top:8px;"><code>W</code> del paquete<br><code>L</code> de la escala</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Buscado en strings.ini</div>
       </div>
       <div style="display:flex; align-items:center; color:#ff6432; font-size:1.8em; padding:0 8px;">&rarr;</div>
       <div style="flex:1; min-width:120px; background:#1a0f0a; border:2px solid #ff6432; padding:15px; text-align:center;">
-        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Tension</div>
+        <div style="color:#ffaa44; font-weight:bold; font-size:1.1em;">Tensión</div>
         <div style="color:#e0e0e0; margin-top:8px;"><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code></div>
-        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Pounds of pull</div>
+        <div style="color:#aa6644; font-size:0.85em; margin-top:5px;">Libras de tracción</div>
       </div>
     </div>
     <div class="note">
-      <strong>Why the formula matters to you:</strong> You do not need to do this math by hand &mdash; that is what the app is for. But understanding the four inputs means you can predict what will happen before you buy strings. Want more tension? Go to a heavier gauge, a longer scale, or tune up. Want less? The opposite. The formula makes those trade-offs predictable instead of guesswork.
+      <strong>Por qué la fórmula te importa:</strong> No necesitas hacer esta matemática a mano — para eso está la app. Pero entender las cuatro entradas significa que puedes predecir qué pasará antes de comprar cuerdas. ¿Quieres más tensión? Ve a un calibre más pesado, una escala más larga, o afina más alto. ¿Quieres menos? Lo contrario. La fórmula hace que esos compromisos sean predecibles en lugar de adivinanzas.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Unit Weight vs. Gauge</h2>
-    <p>This is the single most misunderstood concept in string tension, and the one that causes the most bad setups. <strong>Gauge is not tension.</strong> Gauge is just the diameter of the string. Tension depends on how much the string <em>weighs per inch</em> &mdash; its <strong>unit weight</strong>.</p>
+    <h2>Peso Unitario vs. Calibre</h2>
+    <p>Este es el concepto más malentendido en la tensión de cuerdas, y el que causa más setups malos. <strong>El calibre no es tensión.</strong> El calibre es solo el diámetro de la cuerda. La tensión depende de cuánto <em>pesa por pulgada</em> la cuerda — su <strong>peso unitario</strong>.</p>
 
-    <h3>Why ".010" is not enough information</h3>
-    <p>A <code>.010"</code> plain steel string and a <code>.010"</code> nickel-wound string of the same gauge can differ by <strong>20% or more</strong> in tension. The diameter is identical, but the mass is not. Here is why:</p>
+    <h3>Por qué ".010" no es información suficiente</h3>
+    <p>Una cuerda de acero plano de <code>.010"</code> y una cuerda niquelada de <code>.010"</code> del mismo calibre pueden diferir en un <strong>20% o más</strong> en tensión. El diámetro es idéntico, pero la masa no. Aquí está por qué:</p>
     <table>
-      <thead><tr><th>Factor</th><th>Effect on unit weight</th><th>Effect on tension</th></tr></thead>
+      <thead><tr><th>Factor</th><th>Efecto en el peso unitario</th><th>Efecto en la tensión</th></tr></thead>
       <tbody>
-        <tr><td><strong>Material</strong></td><td>Steel, nickel-plated steel, stainless steel, and bronze all have different densities. Stainless is denser than plain steel; phosphor bronze is denser than nickel.</td><td>Same gauge, different material = different tension. A stainless .010 pulls harder than a nickel-plated .010.</td></tr>
-        <tr><td><strong>Winding</strong></td><td>Wound strings have a core wire wrapped with a thinner outer wire. The wrap adds mass without adding much diameter. Roundwound, flatwound, and tapewound all change the mass.</td><td>Flatwounds typically have higher unit weight than roundwounds of the same gauge &mdash; they feel stiffer and pull harder.</td></tr>
-        <tr><td><strong>Core shape</strong></td><td>Hex cores vs. round cores change how tightly the wrap seats, which changes the effective mass.</td><td>Hex-core strings often have slightly higher tension for the same gauge.</td></tr>
-        <tr><td><strong>Manufacturing tolerance</strong></td><td>Two manufacturers' ".010" can differ by a few thousandths of an inch in actual diameter.</td><td>Small gauge differences compound across a set.</td></tr>
+        <tr><td><strong>Material</strong></td><td>El acero, el acero niquelado, el inoxidable y el bronce tienen densidades diferentes. El inoxidable es más denso que el acero plano; el bronce fosforoso es más denso que el níquel.</td><td>Mismo calibre, material diferente = tensión diferente. Un .010 inoxidable tira más fuerte que un .010 niquelado.</td></tr>
+        <tr><td><strong>Devanado</strong></td><td>Las cuerdas entorchadas tienen un núcleo envuelto con un alambre exterior más fino. La envoltura añade masa sin añadir mucho diámetro. Roundwound, flatwound y tapewound cambian la masa.</td><td>Las flatwound suelen tener mayor peso unitario que las roundwound del mismo calibre — se sienten más rígidas y tiran más fuerte.</td></tr>
+        <tr><td><strong>Forma del núcleo</strong></td><td>Núcleos hexagonales vs. redondos cambian cuán ajustada se asienta la envoltura, lo que cambia la masa efectiva.</td><td>Las cuerdas de núcleo hexagonal suelen tener tensión ligeramente mayor para el mismo calibre.</td></tr>
+        <tr><td><strong>Tolerancia de fabricación</strong></td><td>El ".010" de dos fabricantes puede diferir en unos milésimas de pulgada en el diámetro real.</td><td>Las pequeñas diferencias de calibre se acumulan en un conjunto.</td></tr>
       </tbody>
     </table>
 
-    <h3>Same gauge, different tension &mdash; real examples</h3>
-    <p>These are illustrative values for plain steel vs. nickel-wound strings at the same gauge on a 25.5" scale tuned to E2 (82.4 Hz):</p>
+    <h3>Mismo calibre, tensión diferente — ejemplos reales</h3>
+    <p>Estos son valores ilustrativos para cuerdas de acero plano vs. niqueladas del mismo calibre en escala de 25.5" afinadas a E2 (82.4 Hz):</p>
     <table>
-      <thead><tr><th>String</th><th>Gauge</th><th>Material</th><th>Unit weight (lbs/in)</th><th>Tension (lbs)</th></tr></thead>
+      <thead><tr><th>Cuerda</th><th>Calibre</th><th>Material</th><th>Peso unitario (lbs/in)</th><th>Tensión (lbs)</th></tr></thead>
       <tbody>
-        <tr><td>Low E</td><td>.046</td><td>Plain steel (hypothetical)</td><td>0.000310</td><td>~15.1</td></tr>
-        <tr><td>Low E</td><td>.046</td><td>Nickel-wound (typical)</td><td>0.000382</td><td>~18.6</td></tr>
-        <tr><td>Low E</td><td>.046</td><td>Stainless roundwound</td><td>0.000405</td><td>~19.7</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>Acero plano (hipotético)</td><td>0.000310</td><td>~15.1</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>Niquelado (típico)</td><td>0.000382</td><td>~18.6</td></tr>
+        <tr><td>Low E</td><td>.046</td><td>Inoxidable roundwound</td><td>0.000405</td><td>~19.7</td></tr>
         <tr><td>Low E</td><td>.046</td><td>Flatwound (tape)</td><td>0.000420</td><td>~20.4</td></tr>
       </tbody>
     </table>
     <div class="warning">
-      <strong>Never guess unit weight from gauge alone.</strong> StringSelectorApp stores the measured or published unit weight for every string in every pack &mdash; that is the value the formula uses. If you are adding your own strings to <code>strings.ini</code>, use the manufacturer's published unit weight or measure it yourself (weigh a known length on a precision scale and divide). Do not estimate it from the gauge.
+      <strong>Nunca adivines el peso unitario solo por el calibre.</strong> StringSelectorApp almacena el peso unitario medido o publicado para cada cuerda en cada paquete — ese es el valor que usa la fórmula. Si añades tus propias cuerdas a <code>strings.ini</code>, usa el peso unitario publicado por el fabricante o mídelo tú mismo (pesa una longitud conocida en una balanza de precisión y divide). No lo estimes a partir del calibre.
     </div>
     <div class="note">
-      <strong>How to measure unit weight yourself:</strong> Cut a 10-inch length of string, weigh it in grams on a jeweler's scale, then convert: <code>W (lbs/in) = grams &divide; 453.592 &divide; 10</code>. A .046 nickel-wound low E should come out around 0.00038 lbs/in. If your measurement is way off, your scale is not precise enough or the string is not what you think it is.
+      <strong>Cómo medir el peso unitario tú mismo:</strong> Corta un trozo de cuerda de 10 pulgadas, pésalo en gramos en una balanza de joyero, luego convierte: <code>W (lbs/in) = gramos &divide; 453.592 &divide; 10</code>. Un low E niquelado de .046 debería dar alrededor de 0.00038 lbs/in. Si tu medición está muy desviada, tu balanza no es lo bastante precisa o la cuerda no es lo que crees.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Scale Length</h2>
-    <p>Scale length is the vibrating length of the string &mdash; the distance from the bridge saddle to the nut. It is the second most important factor in tension after unit weight, and it is the one most players never think about until they switch guitars.</p>
+    <h2>Longitud de Escala</h2>
+    <p>La longitud de escala es la longitud vibrante de la cuerda — la distancia desde la selleta del puente hasta la cejuela. Es el segundo factor más importante en la tensión después del peso unitario, y es el que la mayoría de los músicos nunca piensan hasta que cambian de guitarra.</p>
 
-    <h3>Why 25.5" vs. 24.75" matters</h3>
-    <p>The two most common electric guitar scale lengths are Fender-style <strong>25.5"</strong> and Gibson-style <strong>24.75"</strong>. That 0.75" difference sounds tiny, but because tension scales with the <em>square</em> of scale length, the effect is roughly <strong>10%</strong>:</p>
+    <h3>Por qué importa 25.5" vs. 24.75"</h3>
+    <p>Las dos longitudes de escala de guitarra eléctrica más comunes son la estilo Fender de <strong>25.5"</strong> y la estilo Gibson de <strong>24.75"</strong>. Esa diferencia de 0.75" suena minúscula, pero como la tensión escala con el <em>cuadrado</em> de la longitud de escala, el efecto es aproximadamente <strong>10%</strong>:</p>
     <div class="command-block" style="text-align:center;">
-      (25.5 / 24.75)<sup>2</sup> = 1.061 &nbsp;&rarr;&nbsp; ~6% more tension on the longer scale
+      (25.5 / 24.75)<sup>2</sup> = 1.061 &nbsp;&rarr;&nbsp; ~6% más tensión en la escala más larga
     </div>
-    <p>In practice, the perceived difference is closer to 8&ndash;10% because of how string stiffness and elasticity interact with scale. The shorter Gibson scale feels slinkier and easier to bend; the longer Fender scale feels tighter, has more snap, and stays in tune better under heavy bending. Neither is "right" &mdash; they are different tools.</p>
+    <p>En la práctica, la diferencia percibida es más cercana al 8&ndash;10% debido a cómo la rigidez y elasticidad de la cuerda interactúan con la escala. La escala Gibson más corta se siente más suelta y fácil de doblar; la escala Fender más larga se siente más tensa, tiene más pegada y se mantiene afinada mejor bajo bendings fuertes. Ninguna es "correcta" — son herramientas diferentes.</p>
     <table>
-      <thead><tr><th>Scale</th><th>Typical guitars</th><th>Feel</th><th>Tension vs. 25.5"</th></tr></thead>
+      <thead><tr><th>Escala</th><th>Guitarras típicas</th><th>Tacto</th><th>Tensión vs. 25.5"</th></tr></thead>
       <tbody>
-        <tr><td>25.5"</td><td>Fender Stratocaster, Telecaster, Jazzmaster, Jaguar</td><td>Tight, snappy, clear</td><td>Baseline (100%)</td></tr>
-        <tr><td>24.75"</td><td>Gibson Les Paul, SG, ES-335</td><td>Slinky, warm, easy bends</td><td>~90&ndash;92%</td></tr>
-        <tr><td>25"</td><td>PRS, many modern electrics</td><td>Between the two</td><td>~96%</td></tr>
-        <tr><td>26.5"</td><td>Baritone guitars, some 7-string</td><td>Very tight, piano-like</td><td>~108%</td></tr>
-        <tr><td>34"</td><td>Electric bass (standard)</td><td>Bass tension territory</td><td>N/A (different regime)</td></tr>
+        <tr><td>25.5"</td><td>Fender Stratocaster, Telecaster, Jazzmaster, Jaguar</td><td>Tensa, nítida, clara</td><td>Base (100%)</td></tr>
+        <tr><td>24.75"</td><td>Gibson Les Paul, SG, ES-335</td><td>Suelta, cálida, bendings fáciles</td><td>~90&ndash;92%</td></tr>
+        <tr><td>25"</td><td>PRS, muchas eléctricas modernas</td><td>Entre las dos</td><td>~96%</td></tr>
+        <tr><td>26.5"</td><td>Guitarras barítono, algunas de 7 cuerdas</td><td>Muy tensa, tipo piano</td><td>~108%</td></tr>
+        <tr><td>34"</td><td>Bajo eléctrico (estándar)</td><td>Territorio de tensión de bajo</td><td>N/A (régimen diferente)</td></tr>
       </tbody>
     </table>
 
-    <h3>Multiscale / fanned-fret instruments</h3>
-    <p>Multiscale instruments (also called fanned-fret) use a <em>different scale length for each string</em>. The bass strings are longer, the treble strings are shorter, and the frets fan out across the fretboard. A typical 6-string multiscale might run 25.5" on the high E and 26.5" on the low E.</p>
-    <p>The reason is tension balance: on a single-scale guitar, the low strings always feel floppier than the high strings because they are thicker but tuned lower. By making the bass strings longer, a multiscale instrument evens out the tension across the set &mdash; the low strings get tighter, the high strings stay the same, and the whole set feels more uniform under your fingers.</p>
+    <h3>Instrumentos multiscale / fanned-fret</h3>
+    <p>Los instrumentos multiscale (también llamados fanned-fret) usan una <em>longitud de escala diferente para cada cuerda</em>. Las cuerdas graves son más largas, las agudas más cortas, y los trastes se abanican a lo largo del diapasón. Un multiscale típico de 6 cuerdas podría ir de 25.5" en el mi agudo a 26.5" en el mi grave.</p>
+    <p>La razón es el equilibrio de tensión: en una guitarra de escala única, las cuerdas graves siempre se sienten más flojas que las agudas porque son más gruesas pero afinadas más bajo. Al hacer las cuerdas graves más largas, un instrumento multiscale iguala la tensión a lo largo del conjunto — las graves se tensan, las agudas se mantienen igual, y todo el conjunto se siente más uniforme bajo tus dedos.</p>
     <div class="note">
-      <strong>In StringSelectorApp:</strong> Set the <strong>Treble Scale</strong> and <strong>Bass Scale</strong> fields to your instrument's values. The app interpolates linearly across the strings &mdash; string 1 uses the treble scale, the lowest string uses the bass scale, and everything in between is calculated proportionally. For a single-scale instrument, set both fields to the same value.
+      <strong>En StringSelectorApp:</strong> Establece los campos <strong>Treble Scale</strong> y <strong>Bass Scale</strong> con los valores de tu instrumento. La app interpola linealmente a través de las cuerdas — la cuerda 1 usa la escala de agudos, la cuerda más grave usa la escala de graves, y todo lo intermedio se calcula proporcionalmente. Para un instrumento de escala única, establece ambos campos al mismo valor.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Tuning and Frequency</h2>
-    <p>The formula needs a frequency in Hz, but you give it a note name like <code>E2</code> or <code>Bb3</code>. The app converts one to the other using <strong>equal temperament</strong> &mdash; the tuning system that divides the octave into 12 equal semitones.</p>
+    <h2>Afinación y Frecuencia</h2>
+    <p>La fórmula necesita una frecuencia en Hz, pero tú le das un nombre de nota como <code>E2</code> o <code>Bb3</code>. La app convierte uno en el otro usando <strong>temperamento igual</strong> — el sistema de afinación que divide la octava en 12 semitonos iguales.</p>
 
-    <h3>How note names become frequencies</h3>
-    <p>Equal temperament is built on one reference: <strong>A4 = 440 Hz</strong> (concert pitch). Every other note is a fixed number of semitones away from A4, and each semitone is a frequency ratio of the 12th root of 2 (approximately 1.0595). The formula is:</p>
+    <h3>Cómo los nombres de notas se convierten en frecuencias</h3>
+    <p>El temperamento igual se construye sobre una referencia: <strong>A4 = 440 Hz</strong> (tono de concierto). Cada otra nota está a un número fijo de semitonos de A4, y cada semitono es una relación de frecuencia de la raíz 12 de 2 (aproximadamente 1.0595). La fórmula es:</p>
     <div class="command-block" style="text-align:center;">
       f = A4 &times; 2<sup>(n / 12)</sup>
     </div>
-    <p>where <code>n</code> is the number of semitones from A4 (positive = above, negative = below). A few examples:</p>
+    <p>donde <code>n</code> es el número de semitonos desde A4 (positivo = arriba, negativo = abajo). Algunos ejemplos:</p>
     <table>
-      <thead><tr><th>Nota</th><th>Semitones from A4 (n)</th><th>Frequency (Hz)</th></tr></thead>
+      <thead><tr><th>Nota</th><th>Semitonos desde A4 (n)</th><th>Frecuencia (Hz)</th></tr></thead>
       <tbody>
         <tr><td>A4</td><td>0</td><td>440.00</td></tr>
-        <tr><td>E4 (high E string)</td><td>+5</td><td>329.63</td></tr>
+        <tr><td>E4 (cuerda mi aguda)</td><td>+5</td><td>329.63</td></tr>
         <tr><td>D4</td><td>-2</td><td>293.66</td></tr>
-        <tr><td>A2 (5th string, guitar)</td><td>-24</td><td>110.00</td></tr>
-        <tr><td>E2 (6th string, guitar)</td><td>-29</td><td>82.41</td></tr>
+        <tr><td>A2 (5ª cuerda, guitarra)</td><td>-24</td><td>110.00</td></tr>
+        <tr><td>E2 (6ª cuerda, guitarra)</td><td>-29</td><td>82.41</td></tr>
         <tr><td>Bb3</td><td>-1</td><td>233.08</td></tr>
       </tbody>
     </table>
 
-    <h3>Transposition</h3>
-    <p>Transposition shifts every string up or down by the same interval &mdash; for example, tuning the whole guitar up a half-step (Eb Standard) or down a whole step (D Standard). In the app, the <strong>Transpose</strong> field does this for you: enter <code>+1</code> for up a half-step, <code>-2</code> for down a whole step, and every note in the tuning is shifted before the frequency is calculated.</p>
+    <h3>Transposición</h3>
+    <p>La transposición desplaza cada cuerda arriba o abajo por el mismo intervalo — por ejemplo, afinar toda la guitarra medio tono arriba (Eb Standard) o un tono completo abajo (D Standard). En la app, el campo <strong>Transpose</strong> hace esto por ti: introduce <code>+1</code> para medio tono arriba, <code>-2</code> para un tono completo abajo, y cada nota de la afinación se desplaza antes de calcular la frecuencia.</p>
     <div class="note">
-      <strong>Concert pitch is adjustable.</strong> The app defaults to A4 = 440 Hz, but you can change it (390&ndash;460 Hz) in the GUI. This matters for period instruments, orchestral work, or if you tune to a reference that is not 440. A 432 Hz reference, for example, lowers every frequency by about 32 cents &mdash; and lowers tension slightly with it.
+      <strong>El tono de concierto es ajustable.</strong> La app por defecto es A4 = 440 Hz, pero puedes cambiarlo (390&ndash;460 Hz) en la GUI. Esto importa para instrumentos de época, trabajo orquestal, o si afinas a una referencia que no es 440. Una referencia de 432 Hz, por ejemplo, baja cada frecuencia unos 32 cents — y baja la tensión ligeramente con ella.
     </div>
     <div class="warning">
-      <strong>Tension follows frequency.</strong> Tuning up raises frequency, which raises tension &mdash; and tuning down lowers both. A whole-step drop in tuning reduces tension by roughly 12% across the set. That is why drop-tuned guitars often need heavier strings to keep the tension where it feels right.
+      <strong>La tensión sigue a la frecuencia.</strong> Afinar más alto sube la frecuencia, lo que sube la tensión — y afinar más bajo baja ambas. Una caída de un tono completo en la afinación reduce la tensión aproximadamente un 12% en todo el conjunto. Por eso las guitarras en drop tuning a menudo necesitan cuerdas más pesadas para mantener la tensión donde se siente bien.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Balanced Tension</h2>
-    <p>"Balanced tension" means the strings in a set pull with a <em>consistent feel</em> across the fretboard &mdash; not that they all have the same tension number. This is a subtle but crucial distinction.</p>
+    <h2>Tensión Equilibrada</h2>
+    <p>"Tensión equilibrada" significa que las cuerdas de un conjunto tiran con una <em>sensación consistente</em> a lo largo del diapasón — no que todas tengan el mismo número de tensión. Esta es una distinción sutil pero crucial.</p>
 
-    <h3>Why "balanced" is not "equal"</h3>
-    <p>If every string had the same tension in pounds, the set would feel wrong. The low strings would feel too tight and the high strings too loose, because your fingers perceive tension relative to the string's gauge and pitch. A balanced set has a <strong>tension curve</strong> that accounts for this &mdash; typically the bass strings sit slightly higher in tension than the treble strings, and the curve is smooth rather than jagged.</p>
-    <p>String manufacturers design their sets around this principle. A typical electric set might have tensions like this on a 25.5" scale:</p>
+    <h3>Por qué "equilibrado" no es "igual"</h3>
+    <p>Si cada cuerda tuviera la misma tensión en libras, el conjunto se sentiría mal. Las cuerdas graves se sentirían demasiado tensas y las agudas demasiado flojas, porque tus dedos perciben la tensión en relación al calibre y tono de la cuerda. Un conjunto equilibrado tiene una <strong>curva de tensión</strong> que tiene en cuenta esto — normalmente las cuerdas graves se sitúan ligeramente más altas en tensión que las agudas, y la curva es suave en lugar de dentada.</p>
+    <p>Los fabricantes de cuerdas diseñan sus conjuntos en torno a este principio. Un conjunto eléctrico típico podría tener tensiones como esta en escala de 25.5":</p>
     <table>
-      <thead><tr><th>String</th><th>Nota</th><th>Gauge</th><th>Tension (lbs)</th><th>Relative feel</th></tr></thead>
+      <thead><tr><th>Cuerda</th><th>Nota</th><th>Calibre</th><th>Tensión (lbs)</th><th>Sensación relativa</th></tr></thead>
       <tbody>
-        <tr><td>1 (high E)</td><td>E4</td><td>.010</td><td>16.2</td><td>Reference</td></tr>
-        <tr><td>2 (B)</td><td>B3</td><td>.013</td><td>15.9</td><td>Slightly looser</td></tr>
-        <tr><td>3 (G)</td><td>G3</td><td>.017</td><td>16.8</td><td>Slightly tighter</td></tr>
-        <tr><td>4 (D)</td><td>D3</td><td>.026</td><td>17.5</td><td>Tighter</td></tr>
-        <tr><td>5 (A)</td><td>A2</td><td>.036</td><td>18.0</td><td>Tighter</td></tr>
-        <tr><td>6 (low E)</td><td>E2</td><td>.046</td><td>18.6</td><td>Tightest</td></tr>
+        <tr><td>1 (mi agudo)</td><td>E4</td><td>.010</td><td>16.2</td><td>Referencia</td></tr>
+        <tr><td>2 (B)</td><td>B3</td><td>.013</td><td>15.9</td><td>Ligeramente más floja</td></tr>
+        <tr><td>3 (G)</td><td>G3</td><td>.017</td><td>16.8</td><td>Ligeramente más tensa</td></tr>
+        <tr><td>4 (D)</td><td>D3</td><td>.026</td><td>17.5</td><td>Más tensa</td></tr>
+        <tr><td>5 (A)</td><td>A2</td><td>.036</td><td>18.0</td><td>Más tensa</td></tr>
+        <tr><td>6 (mi grave)</td><td>E2</td><td>.046</td><td>18.6</td><td>La más tensa</td></tr>
       </tbody>
     </table>
-    <p>Notice the curve: it dips slightly at the B string, then climbs toward the low E. That is intentional &mdash; it matches how tension feels across the set. A set where the low E pulls 16 lbs and the high E pulls 18 lbs would feel backwards.</p>
+    <p>Nota la curva: baja ligeramente en la cuerda B, luego sube hacia el mi grave. Eso es intencional — coincide con cómo se siente la tensión a lo largo del conjunto. Un conjunto donde el mi grave tira 16 lbs y el mi agudo tira 18 lbs se sentiría al revés.</p>
 
-    <h3>Heavy-bottom sets</h3>
-    <p>A "heavy-bottom" set (e.g. 10&ndash;52 or 11&ndash;49) puts more tension on the bass strings while keeping the treble strings light. This is popular for:</p>
+    <h3>Conjuntos de graves pesados</h3>
+    <p>Un conjunto "heavy-bottom" (p. ej. 10&ndash;52 o 11&ndash;49) pone más tensión en las cuerdas graves mientras mantiene las agudas ligeras. Esto es popular para:</p>
     <ul>
-      <li><strong>Drop tunings</strong> &mdash; the heavier bass strings keep tension up when you drop the low string.</li>
-      <li><strong>Rhythm players</strong> who want a tight, punchy low end without stiff trebles for bending.</li>
-      <li><strong>Baritone and multiscale instruments</strong> where the bass strings need extra tension to speak clearly.</li>
+      <li><strong>Afinaciones drop</strong> — las cuerdas graves más pesadas mantienen la tensión arriba cuando bajas la cuerda grave.</li>
+      <li><strong>Ritmistas</strong> que quieren un extremo grave tenso y contundente sin agudos rígidos para bendings.</li>
+      <li><strong>Instrumentos barítono y multiscale</strong> donde las cuerdas graves necesitan tensión extra para hablar claramente.</li>
     </ul>
-    <p>The trade-off is that the tension curve becomes steeper &mdash; the low strings pull noticeably harder than the high strings. That can be exactly what you want, or it can make the set feel unbalanced if overdone.</p>
+    <p>El compromiso es que la curva de tensión se vuelve más pronunciada — las cuerdas graves tiran notablemente más fuerte que las agudas. Eso puede ser exactamente lo que quieres, o puede hacer que el conjunto se sienta desequilibrado si se exagera.</p>
 
-    <h3>The visual tension curve</h3>
-    <p>StringSelectorApp plots tension as a curve across the strings, so you can see the balance at a glance. A well-balanced set shows a smooth, gently sloping line. A poorly matched set shows spikes and dips &mdash; a string that is way too tight or too loose stands out immediately.</p>
+    <h3>La curva visual de tensión</h3>
+    <p>StringSelectorApp traza la tensión como una curva a través de las cuerdas, para que puedas ver el equilibrio de un vistazo. Un conjunto bien equilibrado muestra una línea suave y ligeramente inclinada. Un conjunto mal combinado muestra picos y valles — una cuerda demasiado tensa o demasiado floja destaca inmediatamente.</p>
     <div class="note">
-      <strong>How to read the curve:</strong> A flat line means every string has the same tension (rarely what you want). A smooth upward slope from treble to bass is typical and comfortable. A jagged line with a spike means one string is mismatched &mdash; swap it for a different gauge from a single-string pack, or choose a different set.
+      <strong>Cómo leer la curva:</strong> Una línea plana significa que cada cuerda tiene la misma tensión (rara vez lo que quieres). Una pendiente suave hacia arriba de agudos a graves es típica y cómoda. Una línea dentada con un pico significa que una cuerda está desajustada — cámbiala por un calibre diferente de un paquete de cuerda individual, o elige un conjunto diferente.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Truss Rod and Neck Relief</h2>
-    <p>The truss rod is the steel rod inside the neck that counteracts string tension. Understanding how it works is the difference between a setup that lasts and one that fights you every time the weather changes.</p>
+    <h2>Alma y Alivio del Mástil</h2>
+    <p>El alma es la varilla de acero dentro del mástil que contrarresta la tensión de las cuerdas. Entender cómo funciona es la diferencia entre un setup que dura y uno que lucha contigo cada vez que cambia el clima.</p>
 
-    <h3>How string tension affects the neck</h3>
-    <p>A guitar neck is a lever. The strings pull the headstock forward (toward the bridge), and that force tries to bend the neck into a forward bow &mdash; creating <strong>relief</strong> (a slight concave curve). Without counterforce, the neck would bow so much the strings would sit miles above the frets.</p>
-    <p>The amount of bow depends on:</p>
+    <h3>Cómo la tensión de las cuerdas afecta el mástil</h3>
+    <p>Un mástil de guitarra es una palanca. Las cuerdas tiran del clavijero hacia adelante (hacia el puente), y esa fuerza intenta doblar el mástil en un arco hacia adelante — creando <strong>alivio</strong> (una ligera curva cóncava). Sin contrafuerza, el mástil se doblaría tanto que las cuerdas quedarían a kilómetros de los trastes.</p>
+    <p>La cantidad de arco depende de:</p>
     <ul>
-      <li><strong>Total string tension</strong> &mdash; more strings, heavier gauges, higher tunings, or longer scales all increase the pull.</li>
-      <li><strong>Neck stiffness</strong> &mdash; a thicker or multi-piece neck (maple/rosewood, mahogany/maple) resists bowing more than a thin one-piece neck.</li>
-      <li><strong>Truss rod tension</strong> &mdash; the rod pulls back against the strings. Tightening it (clockwise) counteracts the bow; loosening it (counter-clockwise) lets the neck bow more.</li>
+      <li><strong>Tensión total de las cuerdas</strong> — más cuerdas, calibres más pesados, afinaciones más altas o escalas más largas aumentan la tracción.</li>
+      <li><strong>Rigidez del mástil</strong> — un mástil más grueso o multipieza (arce/palorosa, caoba/arce) resiste el doblado más que uno delgado de una pieza.</li>
+      <li><strong>Tensión del alma</strong> — la varilla tira hacia atrás contra las cuerdas. Apretarla (horario) contrarresta el arco; aflojarla (antihorario) deja que el mástil se arquee más.</li>
     </ul>
 
-    <h3>Why total tension matters</h3>
-    <p>When you change string sets or tunings, the total tension on the neck changes &mdash; and the truss rod setting that was perfect for the old set is now wrong for the new one. A rough guide:</p>
+    <h3>Por qué importa la tensión total</h3>
+    <p>Cuando cambias conjuntos de cuerdas o afinaciones, la tensión total en el mástil cambia — y el ajuste del alma que era perfecto para el conjunto viejo ahora es incorrecto para el nuevo. Una guía aproximada:</p>
     <table>
-      <thead><tr><th>Change</th><th>Effect on total tension</th><th>Typical truss rod response</th></tr></thead>
+      <thead><tr><th>Cambio</th><th>Efecto en la tensión total</th><th>Respuesta típica del alma</th></tr></thead>
       <tbody>
-        <tr><td>Go up a gauge (e.g. 10s &rarr; 11s)</td><td>Increase (~10&ndash;15%)</td><td>Tighten (clockwise) 1/8 to 1/4 turn</td></tr>
-        <tr><td>Go down a gauge (11s &rarr; 10s)</td><td>Decrease</td><td>Loosen (counter-clockwise) 1/8 to 1/4 turn</td></tr>
-        <tr><td>Tune down a whole step</td><td>Decrease (~12%)</td><td>Loosen slightly, or leave and accept more relief</td></tr>
-        <tr><td>Tune up a half-step</td><td>Increase (~6%)</td><td>Tighten slightly</td></tr>
-        <tr><td>Switch to a longer scale</td><td>Increase (~6&ndash;10%)</td><td>Tighten</td></tr>
-        <tr><td>Add a string (6 &rarr; 7)</td><td>Increase (significant)</td><td>Tighten, possibly more than 1/4 turn</td></tr>
+        <tr><td>Subir un calibre (p. ej. 10s &rarr; 11s)</td><td>Aumento (~10&ndash;15%)</td><td>Apretar (horario) 1/8 a 1/4 de vuelta</td></tr>
+        <tr><td>Bajar un calibre (11s &rarr; 10s)</td><td>Disminución</td><td>Aflojar (antihorario) 1/8 a 1/4 de vuelta</td></tr>
+        <tr><td>Afinar un tono completo abajo</td><td>Disminución (~12%)</td><td>Aflojar ligeramente, o dejar y aceptar más alivio</td></tr>
+        <tr><td>Afinar medio tono arriba</td><td>Aumento (~6%)</td><td>Apretar ligeramente</td></tr>
+        <tr><td>Cambiar a una escala más larga</td><td>Aumento (~6&ndash;10%)</td><td>Apretar</td></tr>
+        <tr><td>Añadir una cuerda (6 &rarr; 7)</td><td>Aumento (significativo)</td><td>Apretar, posiblemente más de 1/4 de vuelta</td></tr>
       </tbody>
     </table>
     <div class="warning">
-      <strong>Never force the truss rod.</strong> If it will not turn smoothly, stop. A broken truss rod is a very expensive repair. When in doubt, take it to a qualified tech. The app gives you an <em>estimate</em> &mdash; it is a starting point, not a substitute for a careful setup on the instrument in front of you.
+      <strong>Nunca fuerces el alma.</strong> Si no gira suavemente, detente. Un alma rota es una reparación muy costosa. En caso de duda, llévalo a un técnico cualificado. La app te da una <em>estimación</em> — es un punto de partida, no un sustituto de un setup cuidadoso en el instrumento que tienes delante.
     </div>
 
-    <h3>How the app estimates truss rod adjustment</h3>
-    <p>StringSelectorApp compares the total tension of your current setup against a reference (the tension the neck was set up for). The difference, combined with the neck's stiffness profile, gives an estimated number of truss rod turns. The report presents this as a recommendation &mdash; "tighten approximately 1/8 turn" &mdash; that you then verify by measuring relief with a feeler gauge or straightedge.</p>
+    <h3>Cómo la app estima el ajuste del alma</h3>
+    <p>StringSelectorApp compara la tensión total de tu setup actual contra una referencia (la tensión para la que se configuró el mástil). La diferencia, combinada con el perfil de rigidez del mástil, da un número estimado de vueltas del alma. El informe presenta esto como una recomendación — "apretar aproximadamente 1/8 de vuelta" — que luego verificas midiendo el alivio con una galga de espesores o una regla recta.</p>
     <div class="note">
-      <strong>The 0.010" relief rule:</strong> A common starting point for electric guitar is 0.010" of relief at the 7th fret (measured with a feeler gauge while holding the low E at the 1st and 15th frets). This gives a tiny bit of forward bow for clean string vibration without fret buzz. Adjust to taste and playing style &mdash; some players want 0.005" (flatter, faster), others want 0.015" (more bow, lighter touch).
+      <strong>La regla del alivio de 0.010":</strong> Un punto de partida común para guitarra eléctrica es 0.010" de alivio en el 7º traste (medido con una galga de espesores mientras sujetas el mi grave en el 1er y 15º traste). Esto da un pequeño arco hacia adelante para una vibración limpia de la cuerda sin zumbido de trastes. Ajusta al gusto y estilo de tocar — algunos quieren 0.005" (más plano, más rápido), otros quieren 0.015" (más arco, toque más ligero).
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Workshop Report</h2>
-    <p>The workshop report is StringSelectorApp's deliverable &mdash; a printable HTML document that captures everything about a setup so you can archive it, hand it to a client, or compare it against a future setup.</p>
+    <h2>El Informe de Taller</h2>
+    <p>El informe de taller es el entregable de StringSelectorApp — un documento HTML imprimible que captura todo sobre un setup para que puedas archivarlo, entregarlo a un cliente o compararlo con un setup futuro.</p>
 
-    <h3>What the report includes</h3>
+    <h3>Qué incluye el informe</h3>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Instrument &amp; Setup Header</h3>
-        <p>Instrument name, tuning, scale length, string pack, date, and technician. Everything you need to identify the job at a glance.</p>
+        <h3>Cabecera de Instrumento y Setup</h3>
+        <p>Nombre del instrumento, afinación, longitud de escala, paquete de cuerdas, fecha y técnico. Todo lo que necesitas para identificar el trabajo de un vistazo.</p>
       </div>
       <div class="feature-card">
-        <h3>Tension Table</h3>
-        <p>Every string with its note, gauge, unit weight, frequency, and tension in both pounds and kilograms (or Newtons in ISO mode). The raw data behind the setup.</p>
+        <h3>Tabla de Tensión</h3>
+        <p>Cada cuerda con su nota, calibre, peso unitario, frecuencia y tensión en libras y kilogramos (o Newtons en modo ISO). Los datos brutos detrás del setup.</p>
       </div>
       <div class="feature-card">
-        <h3>Visual Tension Curve</h3>
-        <p>A graph of tension across the strings, so you (and the client) can see the balance at a glance. Spikes and dips are immediately visible.</p>
+        <h3>Curva Visual de Tensión</h3>
+        <p>Un gráfico de tensión a través de las cuerdas, para que tú (y el cliente) puedan ver el equilibrio de un vistazo. Los picos y valles son inmediatamente visibles.</p>
       </div>
       <div class="feature-card">
-        <h3>Truss Rod Recommendation</h3>
-        <p>Total tension vs. reference, with an estimated truss rod turn count. The starting point for neck adjustment &mdash; not a substitute for measuring relief.</p>
+        <h3>Recomendación del Alma</h3>
+        <p>Tensión total vs. referencia, con un recuento estimado de vueltas del alma. El punto de partida para el ajuste del mástil — no un sustituto de medir el alivio.</p>
       </div>
       <div class="feature-card">
-        <h3>Notes &amp; Observations</h3>
-        <p>A free-text section for anything the numbers do not capture: fret wear, neck feel, player feedback, humidity, anything that explains the setup.</p>
+        <h3>Notas y Observaciones</h3>
+        <p>Una sección de texto libre para cualquier cosa que los números no capturan: desgaste de trastes, tacto del mástil, comentarios del músico, humedad, cualquier cosa que explique el setup.</p>
       </div>
       <div class="feature-card">
-        <h3>Print-Ready Layout</h3>
-        <p>Clean HTML that prints to a single page (or two) on standard paper. Hand it to the client, file it, or email it as a PDF.</p>
+        <h3>Diseño Listo para Imprimir</h3>
+        <p>HTML limpio que imprime en una sola página (o dos) en papel estándar. Entrégalo al cliente, archívalo o envíalo por email como PDF.</p>
       </div>
     </div>
 
-    <h3>Why to archive setups</h3>
-    <p>A guitar is a dynamic system. Neck relief changes with humidity, temperature, and string age. Fret wear changes action. Players change tunings. Without a record, you are guessing every time the guitar comes back. With an archived report, you can see exactly what the setup was <em>last time</em> &mdash; and what changed.</p>
+    <h3>Por qué archivar setups</h3>
+    <p>Una guitarra es un sistema dinámico. El alivio del mástil cambia con la humedad, la temperatura y la edad de las cuerdas. El desgaste de los trastes cambia la acción. Los músicos cambian afinaciones. Sin un registro, estás adivinando cada vez que la guitarra vuelve. Con un informe archivado, puedes ver exactamente cómo fue el setup <em>la última vez</em> — y qué cambió.</p>
     <ul>
-      <li><strong>Repeat setups with confidence.</strong> When a client returns, pull up the last report and you know the starting point.</li>
-      <li><strong>Diagnose changes.</strong> If the guitar now buzzes where it did not before, compare the tension curve &mdash; a new string set or a humidity shift will show up.</li>
-      <li><strong>Client trust.</strong> A printed report shows the client you measured, calculated, and documented &mdash; not just eyeballed it.</li>
-      <li><strong>Warranty &amp; liability.</strong> If a neck warps or a truss rod breaks, the report documents what tension the instrument was subjected to and what you recommended.</li>
+      <li><strong>Repetir setups con confianza.</strong> Cuando un cliente vuelve, abre el último informe y conoces el punto de partida.</li>
+      <li><strong>Diagnosticar cambios.</strong> Si la guitarra ahora zumbа donde no lo hacía antes, compara la curva de tensión — un nuevo conjunto de cuerdas o un cambio de humedad se mostrarán.</li>
+      <li><strong>Confianza del cliente.</strong> Un informe impreso le muestra al cliente que mediste, calculaste y documentaste — no solo lo miraste a ojo.</li>
+      <li><strong>Garantía y responsabilidad.</strong> Si un mástil se deforma o un alma se rompe, el informe documenta a qué tensión fue sometido el instrumento y qué recomendaste.</li>
     </ul>
 
-    <h3>How to use it with clients</h3>
+    <h3>Cómo usarlo con clientes</h3>
     <ol>
-      <li><strong>Run the calculation</strong> with the client's instrument, tuning, and string choice in front of you.</li>
-      <li><strong>Review the tension curve together.</strong> If a string looks mismatched, discuss alternatives before installing.</li>
-      <li><strong>Generate the report</strong> and print it (or save as PDF).</li>
-      <li><strong>Walk the client through it.</strong> Show them the total tension, the truss rod recommendation, and the balance curve. Most players have never seen this information &mdash; it is a value-add that sets you apart.</li>
-      <li><strong>File a copy</strong> in your records and give a copy to the client. Note the date and any follow-up work needed (e.g. "recheck relief after 48 hours").</li>
+      <li><strong>Ejecuta el cálculo</strong> con el instrumento, afinación y elección de cuerdas del cliente delante de ti.</li>
+      <li><strong>Revisa la curva de tensión juntos.</strong> Si una cuerda parece desajustada, discute alternativas antes de instalar.</li>
+      <li><strong>Genera el informe</strong> e imprímelo (o guárdalo como PDF).</li>
+      <li><strong>Recorre el informe con el cliente.</strong> Muéstrales la tensión total, la recomendación del alma y la curva de equilibrio. La mayoría de los músicos nunca han visto esta información — es un valor añadido que te distingue.</li>
+      <li><strong>Archiva una copia</strong> en tus registros y da una copia al cliente. Anota la fecha y cualquier trabajo de seguimiento necesario (p. ej. "revisar el alivio después de 48 horas").</li>
     </ol>
     <div class="note">
-      <strong>Pro tip:</strong> Generate the report <em>before</em> you touch the truss rod. The report captures the "before" state. After adjustment, measure relief, generate a second report, and you have a before/after record that documents exactly what changed and why.
+      <strong>Consejo pro:</strong> Genera el informe <em>antes</em> de tocar el alma. El informe captura el estado "antes". Después del ajuste, mide el alivio, genera un segundo informe, y tienes un registro antes/después que documenta exactamente qué cambió y por qué.
     </div>
     <div class="warning">
-      <strong>The report is a record, not a prescription.</strong> The tension numbers are calculated from published unit weights and standard formulas. Real necks vary. Always verify relief by measurement on the actual instrument, and use the truss rod estimate as a starting point &mdash; never as a mandate.
+      <strong>El informe es un registro, no una prescripción.</strong> Los números de tensión se calculan a partir de pesos unitarios publicados y fórmulas estándar. Los mástiles reales varían. Siempre verifica el alivio por medición en el instrumento real, y usa la estimación del alma como punto de partida — nunca como un mandato.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Quick Reference</h2>
+    <h2>Referencia Rápida</h2>
     <table>
-      <thead><tr><th>Concept</th><th>One-line summary</th></tr></thead>
+      <thead><tr><th>Concepto</th><th>Resumen de una línea</th></tr></thead>
       <tbody>
-        <tr><td><strong>String tension</strong></td><td>The pulling force of a tuned string &mdash; affects playability, setup, and structural load.</td></tr>
-        <tr><td><strong>Tension formula</strong></td><td><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code> &mdash; unit weight, scale, and frequency determine tension.</td></tr>
-        <tr><td><strong>Unit weight vs. gauge</strong></td><td>Gauge is diameter; unit weight is mass per inch. Same gauge, different material/winding = different tension.</td></tr>
-        <tr><td><strong>Scale length</strong></td><td>Longer scale = more tension (squared relationship). 25.5" vs. 24.75" is ~10% difference.</td></tr>
-        <tr><td><strong>Multiscale</strong></td><td>Different scale per string to balance tension across the set &mdash; longer bass strings, shorter trebles.</td></tr>
-        <tr><td><strong>Equal temperament</strong></td><td>12 equal semitones per octave, built on A4 = 440 Hz. <code>f = A4 &times; 2<sup>(n/12)</sup></code>.</td></tr>
-        <tr><td><strong>Transposition</strong></td><td>Shift every string by the same interval &mdash; raises or lowers all frequencies and tensions together.</td></tr>
-        <tr><td><strong>Balanced tension</strong></td><td>A smooth tension curve across the set, not equal numbers &mdash; bass slightly tighter than treble.</td></tr>
-        <tr><td><strong>Heavy-bottom set</strong></td><td>More tension on bass strings, lighter trebles &mdash; for drop tunings and tight low end.</td></tr>
-        <tr><td><strong>Neck relief</strong></td><td>Forward bow in the neck from string tension, counteracted by the truss rod.</td></tr>
-        <tr><td><strong>Truss rod</strong></td><td>Steel rod that pulls back against string tension. Tighten to reduce relief, loosen to allow more.</td></tr>
-        <tr><td><strong>Workshop report</strong></td><td>Printable record of the setup &mdash; tension table, curve, truss rod estimate, and notes.</td></tr>
+        <tr><td><strong>Tensión de cuerdas</strong></td><td>La fuerza de tracción de una cuerda afinada — afecta tocabilidad, setup y carga estructural.</td></tr>
+        <tr><td><strong>Fórmula de tensión</strong></td><td><code>T = (W &times; (2Lf)<sup>2</sup>) / 386.4</code> — peso unitario, escala y frecuencia determinan la tensión.</td></tr>
+        <tr><td><strong>Peso unitario vs. calibre</strong></td><td>El calibre es diámetro; el peso unitario es masa por pulgada. Mismo calibre, material/devanado diferente = tensión diferente.</td></tr>
+        <tr><td><strong>Longitud de escala</strong></td><td>Escala más larga = más tensión (relación cuadrática). 25.5" vs. 24.75" es ~10% de diferencia.</td></tr>
+        <tr><td><strong>Multiscale</strong></td><td>Diferente escala por cuerda para equilibrar la tensión a lo largo del conjunto — graves más largas, agudos más cortos.</td></tr>
+        <tr><td><strong>Temperamento igual</strong></td><td>12 semitonos iguales por octava, construido sobre A4 = 440 Hz. <code>f = A4 &times; 2<sup>(n/12)</sup></code>.</td></tr>
+        <tr><td><strong>Transposición</strong></td><td>Desplaza cada cuerda por el mismo intervalo — sube o baja todas las frecuencias y tensiones juntas.</td></tr>
+        <tr><td><strong>Tensión equilibrada</strong></td><td>Una curva de tensión suave a lo largo del conjunto, no números iguales — graves ligeramente más tensas que agudos.</td></tr>
+        <tr><td><strong>Conjunto heavy-bottom</strong></td><td>Más tensión en cuerdas graves, agudos más ligeros — para drop tunings y extremo grave tenso.</td></tr>
+        <tr><td><strong>Alivio del mástil</strong></td><td>Arco hacia adelante en el mástil por la tensión de las cuerdas, contrarrestado por el alma.</td></tr>
+        <tr><td><strong>Alma</strong></td><td>Varilla de acero que tira hacia atrás contra la tensión de las cuerdas. Apretar para reducir el alivio, aflojar para permitir más.</td></tr>
+        <tr><td><strong>Informe de taller</strong></td><td>Registro imprimible del setup — tabla de tensión, curva, estimación del alma y notas.</td></tr>
       </tbody>
     </table>
   </div>
@@ -405,8 +405,8 @@
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publicado bajo la Licencia MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Repositorio GitHub</a></p>
   </div>
 </footer>
 </body>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StringSelectorApp - GUI Reference</title>
+<title>StringSelectorApp - Référence de la GUI</title>
 <link rel="stylesheet" href="../style.css">
   <style>
 .crossbar {
@@ -46,159 +46,159 @@
 <header>
   <div class="container">
     <h1>STRING<span class="accent">SELECTOR</span></h1>
-    <p class="subtitle">GUI Reference</p>
-    <p class="tagline">Every control, every column, and your first calculation in minutes.</p>
+    <p class="subtitle">Référence de la GUI</p>
+    <p class="tagline">Chaque contrôle, chaque colonne, et votre premier calcul en quelques minutes.</p>
     <nav>
       <a href="index.html">Accueil</a>
       <a href="concepts.html">Concepts</a>
-      <a href="docs.html">Documentation</a>
-      <a href="gui.html">IUG</a>
+      <a href="docs.html">Docs</a>
+      <a href="gui.html">GUI</a>
       <a href="manual.html">Manuel</a>
       <a href="download.html">Télécharger</a>
-      <a href="de/index.html">DE</a>
-      <a href="es/index.html">ES</a>
-      <a href="fr/index.html">FR</a>
-      <a href="pt/index.html">PT</a>
-      <a href="ru/index.html">RU</a>
-      <a href="zh/index.html">ZH</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/de/">DE</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/es/">ES</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/fr/">FR</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/pt/">PT</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/ru/">RU</a>
+      <a href="https://smallbutfine.github.io/stringselectorapp/zh/">ZH</a>
     </nav>
   </div>
 </header>
 
 <section>
   <div class="container">
-    <h2>Launching the App</h2>
-    <p>StringSelectorApp is a single-window desktop application. How you start it depends on your platform:</p>
+    <h2>Lancement de l'App</h2>
+    <p>StringSelectorApp est une application de bureau à fenêtre unique. La façon de la lancer dépend de votre plateforme :</p>
     <table>
-      <thead><tr><th>Platform</th><th>Launch</th></tr></thead>
+      <thead><tr><th>Plateforme</th><th>Lancement</th></tr></thead>
       <tbody>
-        <tr><td>Windows</td><td>Run the Inno Setup installer, then launch <strong>StringSelectorApp</strong> from the Start menu, or run <code>StringSelectorApp.exe</code> directly.</td></tr>
-        <tr><td>macOS</td><td>Unzip the downloaded <code>.zip</code> and drag <strong>StringSelectorApp.app</strong> to Applications. On first launch, right-click &rarr; <strong>Open</strong> (the app is not code-signed).</td></tr>
-        <tr><td>Linux</td><td>Extract the <code>.tar.gz</code> and run the <code>StringSelectorApp</code> binary. No dependencies.</td></tr>
+        <tr><td>Windows</td><td>Exécutez l'installateur Inno Setup, puis lancez <strong>StringSelectorApp</strong> depuis le menu Démarrer, ou exécutez <code>StringSelectorApp.exe</code> directement.</td></tr>
+        <tr><td>macOS</td><td>Décompressez le <code>.zip</code> téléchargé et glissez <strong>StringSelectorApp.app</strong> vers Applications. Au premier lancement, clic droit &rarr; <strong>Ouvrir</strong> (l'app n'est pas signée).</td></tr>
+        <tr><td>Linux</td><td>Extrayez le <code>.tar.gz</code> et lancez le binaire <code>StringSelectorApp</code>. Aucune dépendance.</td></tr>
       </tbody>
     </table>
     <div class="note">
-      <strong>Data files must sit next to the executable.</strong> The app loads <code>strings.ini</code> and <code>tunings.ini</code> from its own folder at startup. If either file is missing, the app shows an error and runs in a limited mode.
+      <strong>Les fichiers de données doivent se trouver à côté de l'exécutable.</strong> L'app charge <code>strings.ini</code> et <code>tunings.ini</code> depuis son propre dossier au démarrage. Si l'un des fichiers manque, l'app affiche une erreur et fonctionne en mode limité.
     </div>
-    <p>The window opens centered on screen with a dark studio theme. The top label shows a status line (<em>"Execute calculation..."</em> until you run one), and a red safety notice reminds you to generate the PDF report before ordering strings or touching the truss rod.</p>
+    <p>La fenêtre s'ouvre centrée sur l'écran avec un thème sombre de studio. L'étiquette du haut montre une ligne d'état (<em>"Execute calculation..."</em> jusqu'à ce que vous en lanciez un), et un avis de sécurité rouge vous rappelle de générer le rapport PDF avant de commander des cordes ou de toucher le truss rod.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Controls Reference</h2>
-    <p>The window is organized into four bands: the status line, the instrument/tuning row, the action row, the fine-tuning row, and the results grid. Every control is listed below in the order it appears.</p>
+    <h2>Référence des Contrôles</h2>
+    <p>La fenêtre est organisée en quatre bandes : la ligne d'état, la ligne instrument/accordage, la ligne d'actions, la ligne de réglage fin et la grille de résultats. Chaque contrôle est listé ci-dessous dans l'ordre d'apparition.</p>
 
-    <h3>Status &amp; safety</h3>
+    <h3>État et sécurité</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Contrôle</th><th>Type</th><th>Ce qu'il fait</th></tr></thead>
       <tbody>
-        <tr><td>Status label</td><td>Read-only label</td><td>Shows the top recommendation after a calculation: the best-matching pack, total set tension, and the truss rod guidance. Reads <em>"Execute calculation..."</em> before the first run.</td></tr>
-        <tr><td>Safety notice</td><td>Read-only label (red)</td><td>Permanent reminder to generate and read the PDF report before ordering strings or making mechanical adjustments.</td></tr>
+        <tr><td>Étiquette d'état</td><td>Étiquette en lecture seule</td><td>Montre la recommandation principale après un calcul : le paquet le plus compatible, la tension totale du jeu et le conseil du truss rod. Affiche <em>"Execute calculation..."</em> avant la première exécution.</td></tr>
+        <tr><td>Avis de sécurité</td><td>Étiquette en lecture seule (rouge)</td><td>Rappel permanent de générer et lire le rapport PDF avant de commander des cordes ou de faire des ajustements mécaniques.</td></tr>
       </tbody>
     </table>
 
-    <h3>Instrument &amp; tuning row</h3>
+    <h3>Ligne instrument et accordage</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Contrôle</th><th>Type</th><th>Ce qu'il fait</th></tr></thead>
       <tbody>
-        <tr><td>Instrument combo</td><td>Dropdown</td><td>Selects the instrument/tuning profile. Populated from <code>tunings.ini</code> (e.g. <em>"Guitar: 6-String E-Standard"</em>), plus a final <strong>Custom / User-Defined...</strong> entry that lets you edit notes directly in the grid.</td></tr>
-        <tr><td>Tuning combo</td><td>Dropdown</td><td>Tuning modifier applied on top of the profile: <strong>Standard (Profile Preset)</strong> or <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, which drops the lowest string two semitones and raises its target tension by 1 lb.</td></tr>
-        <tr><td>String count</td><td>Spin (4&ndash;9)</td><td>Number of strings. When a preset is selected this is set automatically from the preset; in Custom mode you set it yourself and the grid resizes.</td></tr>
-        <tr><td>Scale treble</td><td>Text (inches)</td><td>Scale length of the treble side (string 1). Default <code>25.5</code>.</td></tr>
-        <tr><td>Scale bass</td><td>Text (inches)</td><td>Scale length of the bass side (lowest string). Default <code>25.5</code>. Set this different from treble for multiscale / fanned-fret instruments.</td></tr>
+        <tr><td>Combo instrument</td><td>Déroulant</td><td>Sélectionne le profil instrument/accordage. Peuplé depuis <code>tunings.ini</code> (p. ex. <em>"Guitar: 6-String E-Standard"</em>), plus une entrée finale <strong>Custom / User-Defined...</strong> qui vous permet d'éditer les notes directement dans la grille.</td></tr>
+        <tr><td>Combo accordage</td><td>Déroulant</td><td>Modificateur d'accordage appliqué par-dessus le profil : <strong>Standard (Profile Preset)</strong> ou <strong>Drop Modifier (Lowest String &minus;2 ST)</strong>, qui baisse la corde la plus grave de deux demi-tons et augmente sa tension cible de 1 lb.</td></tr>
+        <tr><td>Nombre de cordes</td><td>Spin (4&ndash;9)</td><td>Nombre de cordes. Lorsqu'un preset est sélectionné, ceci est défini automatiquement depuis le preset ; en mode Custom vous le réglez vous-même et la grille se redimensionne.</td></tr>
+        <tr><td>Diapason aigu</td><td>Texte (pouces)</td><td>Longueur de diapason du côté aigu (corde 1). Par défaut <code>25.5</code>.</td></tr>
+        <tr><td>Diapason grave</td><td>Texte (pouces)</td><td>Longueur de diapason du côté grave (corde la plus grave). Par défaut <code>25.5</code>. Réglez ceci différemment de l'aigu pour les instruments multiscale / fanned-fret.</td></tr>
       </tbody>
     </table>
 
-    <h3>Action row</h3>
+    <h3>Ligne d'actions</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Contrôle</th><th>Type</th><th>Ce qu'il fait</th></tr></thead>
       <tbody>
-        <tr><td>Calculate</td><td>Button</td><td>Runs the tension calculation. Evaluates every pack in <code>strings.ini</code> that matches the string count, ranks them by closeness to the target tension, fills the results grid with the top 5, and shows a summary dialog.</td></tr>
-        <tr><td>Export CSV</td><td>Button</td><td>Writes the entire results grid to a semicolon-separated <code>.csv</code> file (one row per grid row, all 8 columns).</td></tr>
-        <tr><td>Save Tuning</td><td>Button</td><td>Prompts for a name and appends the current tuning as a new <code>[Tuning_N]</code> preset in <code>tunings.ini</code>, then reloads the preset list.</td></tr>
-        <tr><td>Print PDF Report</td><td>Button</td><td>Generates <code>Workshop_Report.html</code> next to the executable and opens it in your browser. Use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive or print it.</td></tr>
+        <tr><td>Calculate</td><td>Bouton</td><td>Exécute le calcul de tension. Évalue chaque paquet dans <code>strings.ini</code> qui correspond au nombre de cordes, les classe par proximité à la tension cible, remplit la grille de résultats avec les 5 meilleurs et affiche un dialogue de résumé.</td></tr>
+        <tr><td>Export CSV</td><td>Bouton</td><td>Écrit toute la grille de résultats dans un fichier <code>.csv</code> séparé par des points-virgules (une ligne par ligne de grille, les 8 colonnes).</td></tr>
+        <tr><td>Save Tuning</td><td>Bouton</td><td>Demande un nom et ajoute l'accordage actuel comme nouveau preset <code>[Tuning_N]</code> dans <code>tunings.ini</code>, puis recharge la liste des presets.</td></tr>
+        <tr><td>Print PDF Report</td><td>Bouton</td><td>Génère <code>Workshop_Report.html</code> à côté de l'exécutable et l'ouvre dans votre navigateur. Utilisez <strong>Ctrl+P &rarr; Enregistrer en PDF</strong> pour l'archiver ou l'imprimer.</td></tr>
       </tbody>
     </table>
 
-    <h3>Fine-tuning row</h3>
+    <h3>Ligne de réglage fin</h3>
     <table>
-      <thead><tr><th>Control</th><th>Type</th><th>What it does</th></tr></thead>
+      <thead><tr><th>Contrôle</th><th>Type</th><th>Ce qu'il fait</th></tr></thead>
       <tbody>
-        <tr><td>Transpose</td><td>Spin (&minus;12&hellip;+12 ST)</td><td>Shifts every note by the given number of semitones before calculating. Useful for checking alternate keys (Eb, D, Drop C, etc.) without editing the preset.</td></tr>
-        <tr><td>Pitch (Concert A4)</td><td>Spin (390&ndash;460 Hz)</td><td>Reference pitch for frequency calculation. Default <code>440</code> Hz. Lower it for baroque/old-pitch tunings.</td></tr>
-        <tr><td>Guitar Base Tension</td><td>Text (lbs)</td><td>Reference total tension the guitar neck is set up for. Default <code>100.0</code>. Used to compute the truss rod difference.</td></tr>
-        <tr><td>Bass Base Tension</td><td>Text (lbs)</td><td>Reference total tension the bass neck is set up for. Default <code>160.0</code>. Used when the selected tuning is a bass tuning.</td></tr>
-        <tr><td>ISO checkbox</td><td>Checkbox</td><td>Toggles tension display between <strong>lbs</strong> (unchecked) and <strong>kg / N</strong> (checked). Affects the tension column, the total, and the color thresholds.</td></tr>
+        <tr><td>Transpose</td><td>Spin (&minus;12&hellip;+12 ST)</td><td>Décale chaque note du nombre donné de demi-tons avant de calculer. Utile pour vérifier des tonalités alternatives (Eb, D, Drop C, etc.) sans éditer le preset.</td></tr>
+        <tr><td>Pitch (Concert A4)</td><td>Spin (390&ndash;460 Hz)</td><td>Tonalité de référence pour le calcul de fréquence. Par défaut <code>440</code> Hz. Baissez-la pour les accordages baroques/ancienne tonalité.</td></tr>
+        <tr><td>Guitar Base Tension</td><td>Texte (lbs)</td><td>Tension totale de référence pour laquelle le manche de la guitare est réglé. Par défaut <code>100.0</code>. Utilisée pour calculer la différence du truss rod.</td></tr>
+        <tr><td>Bass Base Tension</td><td>Texte (lbs)</td><td>Tension totale de référence pour laquelle le manche de la basse est réglé. Par défaut <code>160.0</code>. Utilisée lorsque l'accordage sélectionné est un accordage de basse.</td></tr>
+        <tr><td>Case ISO</td><td>Case à cocher</td><td>Bascule l'affichage de la tension entre <strong>lbs</strong> (décochée) et <strong>kg / N</strong> (cochée). Affecte la colonne de tension, le total et les seuils de couleur.</td></tr>
       </tbody>
     </table>
 
-    <h3>String packs &mdash; how selection works</h3>
-    <p>There is no manual "string pack list" control. Instead, when you click <strong>Calculate</strong>, the app reads every pack in <code>strings.ini</code> whose <code>StringCount</code> matches the current tuning, computes the tension of each, and ranks them by <strong>total variance from the target tension</strong> (lower is better). The grid then shows the <strong>top 5</strong> packs, each followed by its per-string rows. The status line names the single best match.</p>
+    <h3>Paquets de cordes — comment fonctionne la sélection</h3>
+    <p>Il n'y a pas de contrôle manuel de « liste de paquets de cordes ». Au lieu de cela, lorsque vous cliquez sur <strong>Calculate</strong>, l'app lit chaque paquet dans <code>strings.ini</code> dont le <code>StringCount</code> correspond à l'accordage actuel, calcule la tension de chacun et les classe par <strong>variance totale par rapport à la tension cible</strong> (plus bas est mieux). La grille montre les <strong>5 meilleurs</strong> paquets, chacun suivi de ses lignes par corde. La ligne d'état nomme le meilleur.</p>
     <div class="note">
-      <strong>Target tension</strong> is 15 lbs per guitar string and 40 lbs per bass string (strings below &minus;25 semitones from A4 are treated as bass). The Drop modifier adds 1 lb to the lowest string's target.
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Results Grid Columns</h2>
-    <p>After a calculation the grid fills with up to 5 ranked packs. Each pack occupies a block of rows &mdash; one row per string &mdash; and the columns are:</p>
-    <table>
-      <thead><tr><th>#</th><th>Column</th><th>What it shows</th></tr></thead>
-      <tbody>
-        <tr><td>0</td><td>Product / Pack Name</td><td>The pack name with its rank badge, e.g. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> is the best match.</td></tr>
-        <tr><td>1</td><td>Tuning</td><td>The note name for that string (e.g. <code>E4</code>), after transpose and any Drop modifier.</td></tr>
-        <tr><td>2</td><td>Frequency (Hz)</td><td>Calculated frequency of the note at the current concert pitch.</td></tr>
-        <tr><td>3</td><td>String Position</td><td>String number, <code>String 1</code> = highest string.</td></tr>
-        <tr><td>4</td><td>Exact Gauge (Inch / mm)</td><td>Gauge in inches and millimetres, e.g. <code>0.010" (0.25 mm)</code>.</td></tr>
-        <tr><td>5</td><td>Tension (lbs) or Tension (kg / N)</td><td>Calculated tension for that string. Header and values switch with the ISO checkbox. Cell background is color-coded (see below).</td></tr>
-        <tr><td>6</td><td>Scale (Inches)</td><td>The scale length used for that string (interpolated on multiscale instruments).</td></tr>
-        <tr><td>7</td><td>Tension Visual Curve</td><td>A small line graph of the whole pack's tension across all strings, with the current row's point highlighted.</td></tr>
-      </tbody>
-    </table>
-
-    <h3>Tension cell color coding</h3>
-    <p>The tension cell (column 5) is shaded to give an at-a-glance read on whether a string is too loose, balanced, or too tight. Thresholds depend on instrument type and unit system:</p>
-    <table>
-      <thead><tr><th>Instrument</th><th>Units</th><th>Too loose (blue)</th><th>Balanced (green)</th><th>Too tight (red)</th></tr></thead>
-      <tbody>
-        <tr><td>Guitar</td><td>lbs</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
-        <tr><td>Guitar</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
-        <tr><td>Bass</td><td>lbs</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
-        <tr><td>Bass</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
-      </tbody>
-    </table>
-    <div class="note">
-      <strong>Reading the colors:</strong> blue = the string is below the comfortable tension band (may feel slack or buzz), green = in the sweet spot, red = above the band (may feel stiff or stress the neck). A well-balanced set is mostly green.
+      <strong>La tension cible</strong> est de 15 lbs par corde de guitare et 40 lbs par corde de basse (les cordes sous &minus;25 demi-tons depuis A4 sont traitées comme de la basse). Le modificateur Drop ajoute 1 lb à la cible de la corde la plus grave.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>The Visual Tension Curve</h2>
-    <p>Column 7 draws a compact line graph for each pack. It plots the tension of every string in the pack from string 1 (treble) on the left to the lowest string on the right.</p>
+    <h2>Colonnes de la Grille de Résultats</h2>
+    <p>Après un calcul la grille se remplit avec jusqu'à 5 paquets classés. Chaque paquet occupe un bloc de lignes — une ligne par corde — et les colonnes sont :</p>
+    <table>
+      <thead><tr><th>#</th><th>Colonne</th><th>Ce qu'elle montre</th></tr></thead>
+      <tbody>
+        <tr><td>0</td><td>Nom Produit / Paquet</td><td>Le nom du paquet avec son badge de rang, p. ex. <code>Ernie Ball 2221 Regular Slinky (10-46) [#1]</code>. <code>#1</code> est le meilleur.</td></tr>
+        <tr><td>1</td><td>Accordage</td><td>Le nom de la note pour cette corde (p. ex. <code>E4</code>), après transpose et tout modificateur Drop.</td></tr>
+        <tr><td>2</td><td>Fréquence (Hz)</td><td>Fréquence calculée de la note à la tonalité de concert actuelle.</td></tr>
+        <tr><td>3</td><td>Position de Corde</td><td>Numéro de corde, <code>String 1</code> = corde la plus aiguë.</td></tr>
+        <tr><td>4</td><td>Tirant Exact (Pouce / mm)</td><td>Tirant en pouces et millimètres, p. ex. <code>0.010" (0.25 mm)</code>.</td></tr>
+        <tr><td>5</td><td>Tension (lbs) ou Tension (kg / N)</td><td>Tension calculée pour cette corde. L'en-tête et les valeurs basculent avec la case ISO. Le fond de la cellule est coloré (voir ci-dessous).</td></tr>
+        <tr><td>6</td><td>Diapason (Pouces)</td><td>La longueur de diapason utilisée pour cette corde (interpolée sur les instruments multiscale).</td></tr>
+        <tr><td>7</td><td>Courbe Visuelle de Tension</td><td>Un petit graphique en ligne de la tension de tout le paquet sur toutes les cordes, avec le point de la ligne actuelle surligné.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Codage couleur de la cellule de tension</h3>
+    <p>La cellule de tension (colonne 5) est ombrée pour donner une lecture d'un coup d'œil de si une corde est trop détendue, équilibrée ou trop tendue. Les seuils dépendent du type d'instrument et du système d'unités :</p>
+    <table>
+      <thead><tr><th>Instrument</th><th>Unités</th><th>Trop détendue (bleu)</th><th>Équilibrée (vert)</th><th>Trop tendue (rouge)</th></tr></thead>
+      <tbody>
+        <tr><td>Guitare</td><td>lbs</td><td>&lt; 13.0</td><td>13.0 &ndash; 19.0</td><td>&gt; 19.0</td></tr>
+        <tr><td>Guitare</td><td>kg</td><td>&lt; 5.9</td><td>5.9 &ndash; 8.6</td><td>&gt; 8.6</td></tr>
+        <tr><td>Basse</td><td>lbs</td><td>&lt; 34.0</td><td>34.0 &ndash; 45.0</td><td>&gt; 45.0</td></tr>
+        <tr><td>Basse</td><td>kg</td><td>&lt; 15.4</td><td>15.4 &ndash; 20.4</td><td>&gt; 20.4</td></tr>
+      </tbody>
+    </table>
+    <div class="note">
+      <strong>Lire les couleurs :</strong> bleu = la corde est sous la bande de tension confortable (peut sembler molle ou bourdonner), vert = dans le sweet spot, rouge = au-dessus de la bande (peut sembler raide ou stresser le manche). Un jeu bien équilibré est majoritairement vert.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>La Courbe Visuelle de Tension</h2>
+    <p>La colonne 7 dessine un graphique en ligne compact pour chaque paquet. Il trace la tension de chaque corde du paquet de la corde 1 (aigu) à gauche à la corde la plus grave à droite.</p>
     <ul>
-      <li><strong>Horizontal axis</strong> &mdash; strings, ordered high to low (string 1 on the left).</li>
-      <li><strong>Vertical axis</strong> &mdash; tension, scaled to a fixed ceiling: <strong>25 lbs</strong> for guitar, <strong>60 lbs</strong> for bass. Points are clamped to the cell so nothing overflows.</li>
-      <li><strong>Green line</strong> &mdash; connects the per-string tension points, so you see the shape of the set at a glance.</li>
-      <li><strong>White square</strong> &mdash; marks the point for the string in the current row, so you can tie a row back to its position on the curve.</li>
-      <li><strong>Dotted midline</strong> &mdash; a faint horizontal reference across the middle of the cell.</li>
+      <li><strong>Axe horizontal</strong> &mdash; cordes, ordonnées de l'aigu au grave (corde 1 à gauche).</li>
+      <li><strong>Axe vertical</strong> &mdash; tension, mise à l'échelle d'un plafond fixe : <strong>25 lbs</strong> pour la guitare, <strong>60 lbs</strong> pour la basse. Les points sont bornés à la cellule pour que rien ne déborde.</li>
+      <li><strong>Ligne verte</strong> &mdash; connecte les points de tension par corde, pour que vous voyiez la forme du jeu d'un coup d'œil.</li>
+      <li><strong>Carré blanc</strong> &mdash; marque le point de la corde dans la ligne actuelle, pour que vous puissiez rattacher une ligne à sa position sur la courbe.</li>
+      <li><strong>Ligne médiane pointillée</strong> &mdash; une faible référence horizontale au milieu de la cellule.</li>
     </ul>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Flat / balanced</h3>
-        <p>A roughly horizontal line means every string sits at a similar tension &mdash; the classic "balanced" feel many players look for.</p>
+        <h3>Plate / équilibrée</h3>
+        <p>Une ligne à peu près horizontale signifie que chaque corde est à une tension similaire &mdash; le toucher « équilibré » classique que beaucoup recherchent.</p>
       </div>
       <div class="feature-card">
-        <h3>Heavy-bottom</h3>
-        <p>A line that rises toward the low strings means the bass side is heavier &mdash; common on sets marketed as "Skinny Top Heavy Bottom" and preferred by many rhythm players.</p>
+        <h3>Graves lourds</h3>
+        <p>Une ligne qui monte vers les cordes graves signifie que le côté grave est plus lourd &mdash; courant sur les jeux commercialisés comme « Skinny Top Heavy Bottom » et préféré par beaucoup de rythmiciens.</p>
       </div>
       <div class="feature-card">
-        <h3>Light-bottom</h3>
-        <p>A line that falls toward the low strings means the bass strings are looser than the trebles &mdash; check for a floppy low end or a set mismatched to the tuning.</p>
+        <h3>Graves légers</h3>
+        <p>Une ligne qui descend vers les cordes graves signifie que les cordes graves sont plus détendues que les aigus &mdash; vérifiez un bas d'ensemble mou ou un jeu inadapté à l'accordage.</p>
       </div>
     </div>
   </div>
@@ -206,64 +206,64 @@
 
 <section>
   <div class="container">
-    <h2>First Calculation Walkthrough</h2>
-    <p>This walkthrough takes you from launch to a complete result in under a minute. We'll calculate a standard 6-string guitar in E-Standard on a 25.5" scale.</p>
+    <h2>Marche à Suivre pour votre Premier Calcul</h2>
+    <p>Cette marche à suivre vous mène du lancement à un résultat complet en moins d'une minute. Nous calculerons une guitare standard à 6 cordes en E-Standard sur un diapason de 25.5".</p>
     <ol>
-      <li><strong>Launch the app.</strong> The window opens with the status line reading <em>"Execute calculation..."</em> and the grid showing only headers.</li>
-      <li><strong>Select the instrument/tuning.</strong> Open the <strong>Instrument combo</strong> and choose <em>"Guitar: 6-String E-Standard (Default)"</em>. The string count automatically becomes 6.</li>
-      <li><strong>Leave the tuning modifier on Standard.</strong> The <strong>Tuning combo</strong> defaults to <em>Standard (Profile Preset)</em> &mdash; no drop tuning for this example.</li>
-      <li><strong>Check the scale lengths.</strong> <strong>Scale treble</strong> and <strong>Scale bass</strong> both default to <code>25.5</code> &mdash; correct for a standard single-scale guitar. Leave them as-is.</li>
-      <li><strong>Confirm the fine-tuning row.</strong> Transpose is <code>0</code>, Pitch is <code>440</code> Hz, Guitar Base Tension is <code>100.0</code> lbs. These are the defaults &mdash; leave them for now.</li>
-      <li><strong>Click Calculate.</strong> The app evaluates every 6-string pack in <code>strings.ini</code>, ranks them, and fills the grid with the top 5. A summary dialog lists each pack's total tension, neck status, and average variance.</li>
-      <li><strong>Read the status line.</strong> It now shows the single best match, e.g. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
-      <li><strong>Scan the grid.</strong> Each pack block shows per-string note, frequency, gauge, tension (color-coded), scale, and the visual curve. Look for mostly-green tension cells and a balanced curve.</li>
-      <li><strong>Generate the report.</strong> Click <strong>Print PDF Report</strong>. The workshop report opens in your browser &mdash; use <strong>Ctrl+P &rarr; Save as PDF</strong> to archive it.</li>
+      <li><strong>Lancez l'app.</strong> La fenêtre s'ouvre avec la ligne d'état affichant <em>"Execute calculation..."</em> et la grille ne montrant que les en-têtes.</li>
+      <li><strong>Sélectionnez l'instrument/accordage.</strong> Ouvrez le <strong>Combo instrument</strong> et choisissez <em>"Guitar: 6-String E-Standard (Default)"</em>. Le nombre de cordes devient automatiquement 6.</li>
+      <li><strong>Laissez le modificateur d'accordage sur Standard.</strong> Le <strong>Combo accordage</strong> par défaut est <em>Standard (Profile Preset)</em> &mdash; pas de drop tuning pour cet exemple.</li>
+      <li><strong>Vérifiez les longueurs de diapason.</strong> <strong>Diapason aigu</strong> et <strong>Diapason grave</strong> sont tous deux par défaut <code>25.5</code> &mdash; correct pour une guitare standard à diapason unique. Laissez-les tels quels.</li>
+      <li><strong>Confirmez la ligne de réglage fin.</strong> Transpose est <code>0</code>, Pitch est <code>440</code> Hz, Guitar Base Tension est <code>100.0</code> lbs. Ce sont les valeurs par défaut &mdash; laissez-les pour l'instant.</li>
+      <li><strong>Cliquez sur Calculate.</strong> L'app évalue chaque paquet 6 cordes dans <code>strings.ini</code>, les classe et remplit la grille avec les 5 meilleurs. Un dialogue de résumé liste la tension totale de chaque paquet, l'état du manche et la variance moyenne.</li>
+      <li><strong>Lisez la ligne d'état.</strong> Elle montre maintenant le meilleur, p. ex. <em>"Top Recommendation: Ernie Ball 2221 Regular Slinky (10-46) &mdash; Total Set Tension: 99.2 lbs (Neck Tension OK)"</em>.</li>
+      <li><strong>Parcourez la grille.</strong> Chaque bloc de paquet montre la note par corde, la fréquence, le tirant, la tension (colorée), le diapason et la courbe visuelle. Cherchez des cellules de tension majoritairement vertes et une courbe équilibrée.</li>
+      <li><strong>Générez le rapport.</strong> Cliquez sur <strong>Print PDF Report</strong>. Le rapport d'atelier s'ouvre dans votre navigateur &mdash; utilisez <strong>Ctrl+P &rarr; Enregistrer en PDF</strong> pour l'archiver.</li>
     </ol>
     <div class="note">
-      <strong>What the truss rod guidance means:</strong> the status line compares the total set tension to your base tension. Within &plusmn;3 lbs it says the neck is OK. Above that it suggests tightening (clockwise) or loosening (counter-clockwise) by roughly one quarter-turn per 10 lbs of difference.
+      <strong>Ce que signifie le conseil du truss rod :</strong> la ligne d'état compare la tension totale du jeu à votre tension de base. Dans &plusmn;3 lbs elle dit que le manche est OK. Au-dessus elle suggère de serrer (horaire) ou desserrer (antihoraire) d'environ un quart de tour par 10 lbs de différence.
     </div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <h2>Tips for Reading the Results</h2>
+    <h2>Conseils pour Lire les Résultats</h2>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>Balanced &ne; equal</h3>
-        <p>A balanced set has a smooth curve, not necessarily identical numbers. Many players prefer a slightly heavier bass side for rhythm work &mdash; the "heavy-bottom" curve is a feature, not a flaw.</p>
+        <h3>Équilibré &ne; identique</h3>
+        <p>Un jeu équilibré a une courbe lisse, pas nécessairement des chiffres identiques. Beaucoup préfèrent un côté grave légèrement plus lourd pour le travail rythmique &mdash; la courbe « graves lourds » est une caractéristique, pas un défaut.</p>
       </div>
       <div class="feature-card">
-        <h3>Watch the total</h3>
-        <p>Per-string tension matters, but the <strong>total set tension</strong> is what loads the neck. Adding a string or tuning up can push the total past what the truss rod was set for.</p>
+        <h3>Surveillez le total</h3>
+        <p>La tension par corde compte, mais la <strong>tension totale du jeu</strong> est ce qui charge le manche. Ajouter une corde ou accorder plus haut peut pousser le total au-delà de ce pour quoi le truss rod était réglé.</p>
       </div>
       <div class="feature-card">
-        <h3>Gauge is not tension</h3>
-        <p>Two packs with the same gauge (e.g. both 10-46) can differ in tension because of unit weight. Trust the calculated tension and the curve, not the gauge label alone.</p>
+        <h3>Le tirant n'est pas la tension</h3>
+        <p>Deux paquets avec le même tirant (p. ex. les deux 10-46) peuvent différer en tension à cause du poids unitaire. Faites confiance à la tension calculée et à la courbe, pas seulement à l'étiquette du tirant.</p>
       </div>
       <div class="feature-card">
-        <h3>Scale length matters</h3>
-        <p>A 25.5" scale has noticeably more tension than a 24.75" scale with the same strings. Always enter the correct treble and bass scale for the instrument in front of you.</p>
+        <h3>Le diapason compte</h3>
+        <p>Un diapason de 25.5" a sensiblement plus de tension qu'un diapason de 24.75" avec les mêmes cordes. Entrez toujours le bon diapason aigu et grave pour l'instrument devant vous.</p>
       </div>
       <div class="feature-card">
-        <h3>Use transpose for keys</h3>
-        <p>Want to check Eb or Drop C without editing presets? Set the <strong>Transpose</strong> spin to &minus;1 or &minus;2 and recalculate &mdash; every note shifts and the tension updates.</p>
+        <h3>Utilisez transpose pour les tonalités</h3>
+        <p>Vous voulez vérifier Eb ou Drop C sans éditer les presets ? Réglez le spin <strong>Transpose</strong> sur &minus;1 ou &minus;2 et recalculez &mdash; chaque note se décale et la tension se met à jour.</p>
       </div>
       <div class="feature-card">
-        <h3>Calibrate your base</h3>
-        <p>The truss rod advice is only as good as your base tension. Set it by calculating the strings the neck is <em>currently</em> set up for, then use that total as the base for future comparisons.</p>
+        <h3>Calibrez votre base</h3>
+        <p>Le conseil du truss rod ne vaut que par votre tension de base. Réglez-la en calculant les cordes pour lesquelles le manche est <em>actuellement</em> réglé, puis utilisez ce total comme base pour les futures comparaisons.</p>
       </div>
     </div>
     <div class="warning">
-      <strong>Truss rod adjustments are iterative and unforgiving.</strong> Turn in small increments (1/8 turn), retune to pitch, let the wood settle, then re-measure. When in doubt, stop and consult a professional luthier &mdash; the app's guidance is a mathematical estimate, not a substitute for experience.
+      <strong>Les ajustements du truss rod sont itératifs et impitoyables.</strong> Tournez par petits incréments (1/8 de tour), réaccordez à la tonalité, laissez le bois se stabiliser, puis re-mesurez. En cas de doute, arrêtez et consultez un luthier professionnel &mdash; le conseil de l'app est une estimation mathématique, pas un substitut à l'expérience.
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>StringSelectorApp - Released under the MIT License.</p>
-    <p><a href="https://github.com/smallbutfine/stringselectorapp">GitHub Repository</a></p>
+    <p>StringSelectorApp - Publié sous licence MIT.</p>
+    <p><a href="https://github.com/smallbutfine/stringselectorapp">Dépôt GitHub</a></p>
   </div>
 </footer>
 </body>

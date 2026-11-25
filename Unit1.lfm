@@ -71,6 +71,7 @@ object Form1: TForm1
     Width = 20
     Caption = ''
     TabOrder = 3
+    OnChange = CheckISOChange
   end
   object LabelISO: TLabel
     Left = 40

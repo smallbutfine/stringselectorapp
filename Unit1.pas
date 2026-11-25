@@ -63,7 +63,9 @@ type
     procedure BtnExportClick(Sender: TObject);
     procedure BtnSaveTuningClick(Sender: TObject);
     procedure BtnPrintPDFClick(Sender: TObject);
+    procedure CheckISOChange(Sender: TObject);
   private
+    FSuppressDialog: Boolean;
     StringDatabase: array of TStringPack;
     TuningPresets: array of TTuningPreset;
     procedure InitializeDatabase;
@@ -384,6 +386,7 @@ var
   BaseTension, TensionDiff, Turns: Double;
   TurnsStr: string;
 begin
+  FSuppressDialog := False;
   FS := DefaultFormatSettings;
   FS.DecimalSeparator := '.';
 
@@ -655,7 +658,7 @@ begin
     Inc(Col);
   end;
   
-  ShowMessage(DialogMsg);
+  if not FSuppressDialog then ShowMessage(DialogMsg);
 end;
 procedure TForm1.GridResultsDrawCell(Sender: TObject; ACol, ARow: Integer; Rect: TRect; State: TGridDrawState);
 var
@@ -874,6 +877,24 @@ end;
 // PRINT PDF ENGINE: Generiert ein HTML-Datenblatt inklusive aller Erklärungen für den PDF-Druck
 // PRINT PDF ENGINE: Generiert ein HTML-Datenblatt inklusive der physikalischen Differenz-Erklärung
 // PRINT PDF ENGINE: Generiert ein HTML-Datenblatt inklusive Anleitung zur Basis-Ermittlung und Haftungsausschluss
+procedure TForm1.CheckISOChange(Sender: TObject);
+begin
+  // Re-run the calculation so the grid tension column, totals and
+  // colour thresholds switch between lbs and kg/N. Suppress the summary
+  // dialog so toggling units does not pop a modal on every click.
+  if GridResults.RowCount > 1 then
+  begin
+    FSuppressDialog := True;
+    try
+      BtnCalculateClick(Self);
+    finally
+      FSuppressDialog := False;
+    end;
+  end
+  else
+    SetupGridHeaders;
+end;
+
 procedure TForm1.BtnPrintPDFClick(Sender: TObject);
 var
   HTML: TStringList;
